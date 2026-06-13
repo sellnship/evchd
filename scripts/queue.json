@@ -1,0 +1,78 @@
+[
+  {
+    "_meta": "Topic queue — the human-controlled INPUT to the content engine. Topics come from real Tricity demand, never invented by the model. The engine pulls the first status:\"pending\" entry per run, processes exactly one, and writes the outcome back here. This file is the audit trail / proof of editorial oversight. Statuses: pending | published | skipped-dup | killed-commodity | halted-factcheck.",
+    "_isMeta": true
+  },
+  {
+    "slug": "petrol-vs-ev-scooter-cost",
+    "title": "Petrol scooter vs low-speed EV in the Tricity: the real one-year cost, in rupees",
+    "section": "guides",
+    "category": "Running Costs",
+    "status": "pending",
+    "imagePrompt": "A petrol scooter and an electric scooter parked side by side on a clean tree-lined Chandigarh sector road, modernist concrete architecture in the background",
+    "angle": "Work the actual year-one running cost on Chandigarh's cheap domestic tariff (Rs 2.80-3.75/unit) against a 100cc petrol commuter — the local power price is the ownable hook a generic petrol-vs-EV answer can't have."
+  },
+  {
+    "slug": "first-electric-scooter-guide",
+    "title": "Buying your first electric scooter in the Tricity: a plain decision guide",
+    "section": "guides",
+    "category": "Buying Guide",
+    "status": "pending",
+    "imagePrompt": "A first-time rider standing beside a low-speed electric scooter on a calm Chandigarh sector street, daytime",
+    "angle": "A decision framework keyed to daily distance and the no-licence (<=25 km/h, <=250W) exemption — route the reader to match commute km to battery type, not to a specific model."
+  },
+  {
+    "slug": "charging-without-a-garage",
+    "title": "Charging a low-speed EV without a garage: options for Tricity flats",
+    "section": "guides",
+    "category": "Charging",
+    "status": "pending",
+    "imagePrompt": "A removable electric-scooter battery being carried up to a Chandigarh apartment for charging from a regular wall socket",
+    "angle": "Practical charging for apartment and rented-accommodation riders with no private parking — removable batteries, a regular 5A/15A socket, and the ~1.5-2 units per full charge. Distinct from the home-charging-cost page: this is the 'where do I plug in' problem, not the 'what does it cost' one."
+  },
+  {
+    "slug": "real-world-range-explained",
+    "title": "Why your EV scooter's real range is less than the brochure (and how to plan for it)",
+    "section": "guides",
+    "category": "Running Costs",
+    "status": "pending",
+    "imagePrompt": "An electric scooter's handlebar display showing battery level, on a Chandigarh road with sector greenery",
+    "angle": "Explain the gap between claimed and real-world range honestly (rider weight, terrain, battery type, age) and tie it to typical Tricity commute distances so a buyer sizes the battery for the route they actually ride."
+  },
+  {
+    "slug": "lead-acid-vs-lithium-battery",
+    "title": "Lead-acid or lithium for your low-speed scooter? Match the battery to your daily km",
+    "section": "guides",
+    "category": "Buying Guide",
+    "status": "pending",
+    "imagePrompt": "Two electric-scooter batteries side by side, a heavier lead-acid pack and a lighter lithium-ion pack, on a clean workshop bench",
+    "angle": "Honest total-cost-over-life comparison: lead-acid's lower sticker vs lithium's lighter weight, faster charge and longer life. Use the data layer's guidance (above ~60 km/day, choose lithium) as the deciding line."
+  },
+  {
+    "slug": "senior-citizen-electric-scooter",
+    "title": "A low-speed electric scooter for seniors in the Tricity: no licence, ride today",
+    "section": "guides",
+    "category": "Buying Guide",
+    "status": "pending",
+    "imagePrompt": "A senior citizen comfortably seated on a low-speed electric scooter with a low seat height, on a quiet Chandigarh sector lane",
+    "angle": "Why the no-licence, low-seat, gearless low-speed class suits older riders for short local trips — framed on ease and the ready-to-ride exemption, not on selling a particular scooter."
+  },
+  {
+    "slug": "electric-scooter-insurance-tricity",
+    "title": "Do you need insurance for a no-RTO electric scooter in Chandigarh, Mohali or Panchkula?",
+    "section": "guides",
+    "category": "Rules",
+    "status": "pending",
+    "imagePrompt": "A low-speed electric scooter parked near a Tricity insurance/RTO office signage context, clean daylight",
+    "angle": "Walk the genuinely grey area honestly: insurance is not legally mandated for an exempt low-speed scooter, interpretations differ, and enforcement varies across the UT, Punjab and Haryana — so the answer is 'confirm with your local RTO', not a flat yes/no."
+  },
+  {
+    "slug": "monsoon-care-electric-scooter",
+    "title": "Keeping a low-speed electric scooter healthy through a Tricity monsoon and summer",
+    "section": "guides",
+    "category": "Ownership",
+    "status": "pending",
+    "imagePrompt": "A low-speed electric scooter parked under shelter during light Chandigarh monsoon rain, wet sector road",
+    "angle": "Seasonal ownership advice specific to the Tricity climate — wet-season riding and storage, summer heat and battery care — practical local guidance a generic maintenance answer wouldn't localise."
+  }
+]

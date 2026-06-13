@@ -1,0 +1,54 @@
+name: Publish article
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CRON DISABLED — do not enable until ~20 reviewed pages exist + GSC is live.
+# The autonomous content engine runs MANUALLY ONLY (workflow_dispatch) for now.
+# When ready to automate, uncomment the `schedule` block below and pick a cadence.
+#
+# schedule:
+#   - cron: "0 4 * * 1"   # (example) Mondays 04:00 UTC — DO NOT ENABLE YET
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  workflow_dispatch: {} # manual trigger only
+
+permissions:
+  contents: write # commit + push the generated article and queue update
+
+concurrency:
+  group: publish-article
+  cancel-in-progress: false # one run at a time — never two articles racing
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run content engine (one article max)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: node scripts/generate.mjs
+
+      - name: Commit & push if the engine produced changes
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes — engine skipped, killed, or halted this run. Nothing to commit."
+            exit 0
+          fi
+          git config user.name "evchd-content-bot"
+          git config user.email "bot@evchandigarh.in"
+          git add src/content public/images scripts/queue.json
+          git commit -m "content: autopublish next queued article"
+          git push
