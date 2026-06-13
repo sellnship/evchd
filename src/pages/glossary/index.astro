@@ -27,7 +27,7 @@ const entries = (await getCollection('glossary', ({ data }) => !data.draft)).sor
         ))}
       </div>
     ) : (
-      <div class="empty-state"><p class="mono">The glossary is being written — check back shortly.</p></div>
+      <div class="empty-state"><p class="mono">Definitions are added as our guides introduce each term — meanwhile, every guide explains the words it uses in context.</p></div>
     )}
   </section>
 </BaseLayout>

@@ -10,6 +10,9 @@ const pub = authors.publisher;
 const ph = (s?: string) => !s || /REPLACE/i.test(s);
 const show = (s?: string) => (ph(s) ? '—' : s);
 
+// Show the "details are placeholders" note ONLY while a real placeholder remains.
+const hasPlaceholders = [pub.legal_entity, pub.address, pub.hours, pub.phone, pub.whatsapp].some(ph);
+
 const info: { label: string; value?: string }[] = [
   { label: 'Publication', value: pub.name },
   { label: 'Legal entity', value: show(pub.legal_entity) },
@@ -77,7 +80,9 @@ const jsonld = {
       ))}
     </ul>
 
-    <p class="page-note mono">Some details above are placeholders until the team and registration information are finalised.</p>
+    {hasPlaceholders && (
+      <p class="page-note mono">Some details above are placeholders until the team and registration information are finalised.</p>
+    )}
   </section>
 
   <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />

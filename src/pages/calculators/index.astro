@@ -2,57 +2,178 @@
 import '../../styles/inner.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Eyebrow from '../../components/Eyebrow.astro';
+import { localFacts } from '../../data/types';
 
-// Local tariff presets + defaults the calculators will use once the
-// interactive tools ship. Defined here as the committed source of truth so the
-// figures stay in step with src/data/local-facts.json.
-//   - Chandigarh (low slab) ~Rs 2.75/unit
-//   - Chandigarh (higher slabs) & Mohali (PSPCL) ~Rs 5.40/unit
-//   - Default basis: ~Rs 5/unit (honest all-in)
-//   - Default running cost: ~Rs 0.17/km
-const chargingRatePresets = [
-  { label: 'Chandigarh — low slab', inr: 2.75 },
-  { label: 'Chandigarh — higher slabs / Mohali (PSPCL)', inr: 5.40 },
-];
-const defaultChargingRateInr = 5;
-const defaultRunningCostPerKmInr = 0.17;
-const inr = (n: number) => '₹' + n.toFixed(2).replace(/\.00$/, '');
+// Seed every default from the data layer so the tools never drift from it.
+const tariff = localFacts.electricity_tariff;
+const charging = localFacts.charging_cost;
+const defaultRate = tariff.running_cost_basis_inr; // ~5 (all-in basis)
+const unitsPerCharge = parseFloat(String(charging.full_charge_units).replace(/[^\d.]/g, '')) || 2; // ~2
+const rangePerCharge = 60; // km — the low-speed class floor (matches models.json)
+const unitsPerKm = +(unitsPerCharge / rangePerCharge).toFixed(5); // ≈0.0333 → ₹0.17/km at ₹5/unit
+const PRESET_LOW = 2.75; // Chandigarh lowest slab
+const PRESET_HIGH = 5.4; // Chandigarh higher slabs / Mohali (PSPCL)
 ---
 <BaseLayout
   title="Calculators — EV Chandigarh"
-  description="Work out your own numbers — running cost, petrol-versus-EV break-even and charging cost on local Tricity tariffs."
+  description="Work out your own numbers — running cost, petrol-versus-EV saving and charging cost on local Tricity tariffs. Interactive tools you can trust because the inputs are yours."
   type="website"
 >
   <section class="listing wrap">
     <header class="listing-head">
       <Eyebrow text="Calculators" />
       <h1 class="listing-title disp">Work it out for yourself</h1>
-      <p class="listing-desc">Running cost, petrol-versus-EV break-even and charging cost on local tariffs — interactive tools you can trust because the inputs are yours.</p>
+      <p class="listing-desc">Three quick tools on local Tricity tariffs — your running cost, the saving over petrol, and what a charge costs. Change any number and the answers update instantly.</p>
     </header>
 
-    <div class="empty-state">
-      <p class="mono">The calculators are in development — check back shortly.</p>
+    <div class="calc-grid">
+      <!-- Tool 1 — Running cost -->
+      <form class="calc" aria-labelledby="rc-h">
+        <h2 class="calc-title disp" id="rc-h">Running cost</h2>
+        <p class="calc-sub">What a low-speed EV costs you to run on local power.</p>
+        <div class="calc-field">
+          <label for="rc-km">Daily distance (km)</label>
+          <input id="rc-km" type="number" inputmode="decimal" min="0" step="1" value="25" />
+        </div>
+        <div class="calc-field">
+          <label for="rc-rate">Electricity rate (₹/unit)</label>
+          <input id="rc-rate" type="number" inputmode="decimal" min="0" step="0.05" value={defaultRate} />
+          <div class="calc-presets">
+            <button type="button" data-target="rc-rate" data-rate={PRESET_LOW}>Chandigarh low ₹2.75</button>
+            <button type="button" data-target="rc-rate" data-rate={PRESET_HIGH}>Mohali ₹5.40</button>
+          </div>
+        </div>
+        <div class="calc-out">
+          <div><span class="calc-out-val" id="rc-perkm">—</span><span class="calc-out-lbl">per km</span></div>
+          <div><span class="calc-out-val" id="rc-month">—</span><span class="calc-out-lbl">per month</span></div>
+          <div><span class="calc-out-val" id="rc-year">—</span><span class="calc-out-lbl">per year</span></div>
+        </div>
+      </form>
+
+      <!-- Tool 2 — Petrol vs EV -->
+      <form class="calc" aria-labelledby="pe-h">
+        <h2 class="calc-title disp" id="pe-h">Petrol vs EV</h2>
+        <p class="calc-sub">Your monthly saving over a petrol scooter — and how fast a price premium pays back.</p>
+        <div class="calc-field">
+          <label for="pe-km">Daily distance (km)</label>
+          <input id="pe-km" type="number" inputmode="decimal" min="0" step="1" value="25" />
+        </div>
+        <div class="calc-field">
+          <label for="pe-petrol">Petrol cost (₹/km)</label>
+          <input id="pe-petrol" type="number" inputmode="decimal" min="0" step="0.1" value="2" />
+        </div>
+        <div class="calc-field">
+          <label for="pe-rate">Electricity rate (₹/unit)</label>
+          <input id="pe-rate" type="number" inputmode="decimal" min="0" step="0.05" value={defaultRate} />
+        </div>
+        <div class="calc-field">
+          <label for="pe-premium">EV price premium over petrol (₹, optional)</label>
+          <input id="pe-premium" type="number" inputmode="decimal" min="0" step="500" value="0" />
+        </div>
+        <div class="calc-out">
+          <div><span class="calc-out-val" id="pe-ev">—</span><span class="calc-out-lbl">EV / month</span></div>
+          <div><span class="calc-out-val" id="pe-petrolm">—</span><span class="calc-out-lbl">petrol / month</span></div>
+          <div><span class="calc-out-val" id="pe-save">—</span><span class="calc-out-lbl">you save / month</span></div>
+        </div>
+        <p class="calc-be" id="pe-be-row" hidden>Break-even on the premium: <strong id="pe-be">—</strong></p>
+      </form>
+
+      <!-- Tool 3 — Charging cost -->
+      <form class="calc" aria-labelledby="cc-h">
+        <h2 class="calc-title disp" id="cc-h">Charging cost</h2>
+        <p class="calc-sub">What a full charge costs, and your charging bill over a month.</p>
+        <div class="calc-field">
+          <label for="cc-units">Units per full charge (kWh)</label>
+          <input id="cc-units" type="number" inputmode="decimal" min="0" step="0.1" value={unitsPerCharge} />
+        </div>
+        <div class="calc-field">
+          <label for="cc-rate">Electricity rate (₹/unit)</label>
+          <input id="cc-rate" type="number" inputmode="decimal" min="0" step="0.05" value={defaultRate} />
+          <div class="calc-presets">
+            <button type="button" data-target="cc-rate" data-rate={PRESET_LOW}>Chandigarh low ₹2.75</button>
+            <button type="button" data-target="cc-rate" data-rate={PRESET_HIGH}>Mohali ₹5.40</button>
+          </div>
+        </div>
+        <div class="calc-field">
+          <label for="cc-week">Charges per week</label>
+          <input id="cc-week" type="number" inputmode="decimal" min="0" step="1" value="4" />
+        </div>
+        <div class="calc-out">
+          <div><span class="calc-out-val" id="cc-charge">—</span><span class="calc-out-lbl">per charge</span></div>
+          <div><span class="calc-out-val" id="cc-week-out">—</span><span class="calc-out-lbl">per week</span></div>
+          <div><span class="calc-out-val" id="cc-month">—</span><span class="calc-out-lbl">per month</span></div>
+        </div>
+      </form>
     </div>
 
-    <aside class="calc-assumptions">
-      <p class="mono calc-assumptions-head">The local rates they’ll default to</p>
-      <ul>
-        {chargingRatePresets.map((p) => (
-          <li><strong>{inr(p.inr)}/unit</strong> — {p.label}</li>
-        ))}
-        <li><strong>{inr(defaultChargingRateInr)}/unit</strong> — default all-in basis (a fair average; the lowest slab is cheaper)</li>
-        <li><strong>{inr(defaultRunningCostPerKmInr)}/km</strong> — default running cost for a low-speed EV</li>
-      </ul>
-      <p class="calc-assumptions-note">Chandigarh’s domestic tariff is tiered (~₹2.75/unit lowest slab, ~₹4.80 for 151–400 units, ~₹5.40 above 400); Mohali (PSPCL) and Panchkula (Haryana) sit around ₹5.40/unit. We use ~₹5/unit as an honest all-in basis.</p>
-    </aside>
+    <p class="calc-foot">
+      Estimates only. Based on a low-speed EV using about {unitsPerCharge} units for a full charge over roughly {rangePerCharge} km, at an all-in ~₹{defaultRate}/unit (Chandigarh's tariff is tiered — ~₹2.75/unit at the lowest slab up to ~₹5.40 above 400 units; Mohali and Panchkula sit around ₹5.40). Verify your own tariff slab and your scooter's real range before relying on a figure.
+    </p>
   </section>
 
   <style>
-    .calc-assumptions { margin-top: clamp(28px, 5vw, 44px); border: 1px solid var(--grid); padding: clamp(20px, 4vw, 32px); background: var(--concrete-2); }
-    .calc-assumptions-head { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 14px; }
-    .calc-assumptions ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
-    .calc-assumptions li { font-size: .98rem; color: var(--ink); }
-    .calc-assumptions li strong { font-family: "Space Mono", monospace; color: var(--charge); }
-    .calc-assumptions-note { margin-top: 16px; font-size: .85rem; line-height: 1.5; color: var(--ink-soft); }
+    .calc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--grid); border: 1px solid var(--grid); margin-top: clamp(28px, 5vw, 44px); }
+    .calc { background: var(--concrete); padding: clamp(22px, 3vw, 30px); display: flex; flex-direction: column; gap: 16px; }
+    .calc-title { font-size: 1.2rem; }
+    .calc-sub { font-size: .9rem; color: var(--ink-soft); margin-top: -8px; line-height: 1.45; }
+    .calc-field { display: flex; flex-direction: column; gap: 6px; }
+    .calc-field label { font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+    .calc-field input { font-family: "Space Grotesk", sans-serif; font-size: 1rem; padding: 10px 12px; border: 1px solid var(--grid); background: #fff; color: var(--ink); width: 100%; }
+    .calc-field input:focus-visible { outline: 2px solid var(--charge); outline-offset: 1px; }
+    .calc-presets { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 2px; }
+    .calc-presets button { font-family: "Space Mono", monospace; font-size: 10.5px; letter-spacing: .03em; padding: 5px 9px; border: 1px solid var(--grid); background: var(--concrete-2); color: var(--ink-soft); cursor: pointer; transition: border-color .2s, color .2s; }
+    .calc-presets button:hover { border-color: var(--charge); color: var(--ink); }
+    .calc-out { margin-top: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding-top: 16px; border-top: 1px solid var(--grid); }
+    .calc-out > div { display: flex; flex-direction: column; }
+    .calc-out-val { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--charge-deep); }
+    .calc-out-lbl { font-family: "Space Mono", monospace; font-size: 10px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-soft); margin-top: 3px; }
+    .calc-be { font-size: .9rem; color: var(--ink-soft); }
+    .calc-be strong { font-family: "Space Grotesk", sans-serif; color: var(--charge-deep); }
+    .calc-foot { margin-top: clamp(22px, 4vw, 34px); max-width: var(--read); font-size: .85rem; color: var(--ink-soft); line-height: 1.55; }
+    @media (max-width: 900px) { .calc-grid { grid-template-columns: 1fr; } }
   </style>
 </BaseLayout>
+
+<script define:vars={{ unitsPerKm }}>
+  const $ = (id) => document.getElementById(id);
+  const num = (id) => { const v = parseFloat($(id)?.value); return Number.isFinite(v) && v >= 0 ? v : 0; };
+  const set = (id, v) => { const el = $(id); if (el) el.textContent = v; };
+  const money = (n) => { const r = Math.round(n * 100) / 100; return '₹' + (Number.isInteger(r) ? r.toLocaleString('en-IN') : r.toFixed(2)); };
+  const rupees = (n) => '₹' + Math.round(n).toLocaleString('en-IN');
+
+  function running() {
+    const km = num('rc-km'), rate = num('rc-rate');
+    const perKm = rate * unitsPerKm;
+    set('rc-perkm', money(perKm));
+    set('rc-month', rupees(km * perKm * 30));
+    set('rc-year', rupees(km * perKm * 365));
+  }
+  function petrol() {
+    const km = num('pe-km'), petrolPerKm = num('pe-petrol'), rate = num('pe-rate'), premium = num('pe-premium');
+    const evPerKm = rate * unitsPerKm;
+    const mEv = km * evPerKm * 30, mP = km * petrolPerKm * 30, save = mP - mEv;
+    set('pe-ev', rupees(mEv));
+    set('pe-petrolm', rupees(mP));
+    set('pe-save', rupees(save));
+    const row = $('pe-be-row');
+    if (premium > 0 && save > 0) { row.hidden = false; set('pe-be', Math.ceil(premium / save) + ' months'); }
+    else { row.hidden = true; }
+  }
+  function charging() {
+    const units = num('cc-units'), rate = num('cc-rate'), perWeek = num('cc-week');
+    const perCharge = units * rate;
+    set('cc-charge', money(perCharge));
+    set('cc-week-out', rupees(perCharge * perWeek));
+    set('cc-month', rupees(perCharge * perWeek * 4.33));
+  }
+  const recalc = () => { running(); petrol(); charging(); };
+
+  document.querySelectorAll('.calc input').forEach((i) => i.addEventListener('input', recalc));
+  document.querySelectorAll('.calc-presets button').forEach((b) =>
+    b.addEventListener('click', () => {
+      const t = $(b.dataset.target);
+      if (t) { t.value = b.dataset.rate; recalc(); }
+    }),
+  );
+  recalc();
+</script>

@@ -1,7 +1,6 @@
 {
   "_meta": {
-    "purpose": "E-E-A-T author + publisher data. Rajinder Singh is the default byline and reviewer. Author photos go in public/images/authors/.",
-    "todo": "Fill publisher.address with the real showroom address before launch."
+    "purpose": "E-E-A-T author + publisher data. Rajinder Singh is the default byline and reviewer. Author photos go in public/images/authors/."
   },
   "authors": [
     {

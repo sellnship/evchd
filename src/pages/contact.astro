@@ -1,0 +1,55 @@
+---
+import '../styles/inner.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Button from '../components/Button.astro';
+import { authors } from '../data/types';
+
+const pub = authors.publisher;
+const ph = (s?: string) => !s || /REPLACE/i.test(s);
+
+const waDigits = (pub.whatsapp || '').replace(/\D/g, '');
+const waHref =
+  waDigits.length >= 8
+    ? `https://wa.me/${waDigits}?text=${encodeURIComponent('Hi EV Chandigarh — I have a question.')}`
+    : 'https://evchandigarh.com';
+const telHref = ph(pub.phone) ? null : `tel:${pub.phone.replace(/\s+/g, '')}`;
+
+const rows: { label: string; value?: string }[] = [
+  { label: 'WhatsApp', value: ph(pub.whatsapp) ? '—' : pub.phone },
+  { label: 'Phone', value: ph(pub.phone) ? '—' : pub.phone },
+  { label: 'Address', value: ph(pub.address) ? '—' : pub.address },
+  { label: 'Hours', value: ph(pub.hours) ? '—' : pub.hours },
+];
+---
+<BaseLayout
+  title="Contact — EV Chandigarh"
+  description="Reach EV Chandigarh — ask a question, suggest a topic, or report a correction. We publish information, not inventory; for prices and bookings we point you to our commerce partner."
+  type="website"
+>
+  <section class="page">
+    <header class="page-head">
+      <Eyebrow text="Contact" />
+      <h1 class="page-title disp">Get in touch</h1>
+      <p class="page-lede">Have a question about the rules, the running costs or a topic you'd like us to cover? Want to flag a correction? Reach us directly — the fastest route is WhatsApp.</p>
+    </header>
+
+    <div class="page-body prose">
+      <p>A note on what we do and don't do here: <strong>EV Chandigarh publishes information, not inventory.</strong> We don't quote prices or take bookings. When you're ready to buy, our commerce partner at <a href="https://evchandigarh.com" rel="noopener">evchandigarh.com</a> handles live pricing and test rides. To report a mistake in an article, see our <a href="/editorial-policy">editorial policy</a> — please include the page and the specific claim.</p>
+    </div>
+
+    <dl class="orginfo">
+      {rows.map((row) => (
+        <div class="orginfo-row">
+          <dt class="mono">{row.label}</dt>
+          <dd>{row.value}</dd>
+        </div>
+      ))}
+    </dl>
+
+    <div class="cta-row" style="display:flex; gap:18px; flex-wrap:wrap; margin-top:32px;">
+      <Button variant="solid" href={waHref} rel="noopener" arrow>Message us on WhatsApp</Button>
+      {telHref && <Button variant="ghost" href={telHref}>Call {pub.phone}</Button>}
+    </div>
+  </section>
+</BaseLayout>
