@@ -1,0 +1,89 @@
+{
+  "_meta": {
+    "purpose": "Verified local facts injected into every generated article. Accuracy is a 2026 ranking signal — every fact carries a source. Re-verify dated figures (tariff, subsidy) periodically.",
+    "lastVerified": "2026-06",
+    "region": "Tricity (Chandigarh, Mohali, Panchkula)"
+  },
+
+  "licence_registration": {
+    "low_speed_exemption": {
+      "criteria": "Top speed 25 km/h or less AND motor 250W or less (continuous rated). BOTH conditions must be met.",
+      "licence_required": false,
+      "rto_registration_required": false,
+      "road_tax": false,
+      "number_plate": false,
+      "min_age": 16,
+      "insurance_mandatory": false,
+      "insurance_note": "Not legally mandated for non-RTO low-speed scooters; voluntary cover is available and recommended. Some interpretations argue third-party cover is still required under the MV Act, and on-ground enforcement varies — phrase as 'confirm with your local RTO' in content, not as black-and-white.",
+      "registration_saving_inr": "1500-3000",
+      "key_nuance": "Speed alone is NOT enough. A scooter capped at 25 km/h but fitted with a motor rated above 250W is still classified as a registrable motor vehicle. The exemption checks motor power AND speed. This is the single most common point competitors get wrong — use it as an honest 'buyer beware' angle.",
+      "ready_to_ride": "Exempt scooters get no registration number; you can ride them as-is the moment you buy. Total on-road cost equals the ex-showroom price.",
+      "source": "Central Motor Vehicles Rules (CMVR); cross-verified across multiple 2026 sources, June 2026"
+    },
+    "high_speed": {
+      "applies_to": "FUTURE high-speed / RC two-wheeler vertical — NOT the current low-speed lineup. Keep out of low-speed content.",
+      "licence_required": true,
+      "rto_registration_required": true,
+      "road_tax": true,
+      "insurance_mandatory": true,
+      "min_age": 18
+    },
+    "tricity_regions": {
+      "chandigarh": "Union Territory",
+      "mohali": "Punjab",
+      "panchkula": "Haryana",
+      "note": "Central CMVR rules apply identically across all three. State transport departments apply them on the ground, so day-to-day enforcement can differ slightly between UT/Punjab/Haryana. Always direct readers to confirm with their local RTO."
+    }
+  },
+
+  "electricity_tariff": {
+    "chandigarh_domestic": {
+      "slab_1_100_units_inr": 2.80,
+      "slab_101_200_units_inr": 3.75,
+      "above_200_note": "Rises in higher slabs",
+      "fixed_charge_note": "Approx Rs 20-30 per kW per month plus a small electricity duty per unit",
+      "effective_from": "1 November 2025",
+      "order": "JERC five-year tariff order (FY 2025-26 to 2029-30), first order after CPDL privatisation",
+      "source": "Joint Electricity Regulatory Commission (JERC) / Chandigarh Power Distribution Ltd; The Tribune, Oct/Nov 2025"
+    },
+    "punjab_domestic_comparison_inr": "5.40 (first 300 units, PSPCL) — for comparison only",
+    "local_hook": "Chandigarh domestic power (Rs 2.80-3.75 per unit) is materially cheaper than Punjab (Rs 5.40+ per unit). An EV is even cheaper to run inside Chandigarh than across the border in Mohali — a true, ownable, hyper-local content line."
+  },
+
+  "charging_cost": {
+    "full_charge_units": "1.5-2",
+    "full_charge_cost_inr": "10-16",
+    "per_km_inr": 0.25,
+    "petrol_equivalent_for_same_distance_inr": "150-200",
+    "worked_example": "At Chandigarh tariff, a ~2-unit full charge costs roughly Rs 12-16 versus Rs 150-200 of petrol for the same distance.",
+    "source": "Zelio official + EV India guidance; June 2026"
+  },
+
+  "subsidies": {
+    "pm_e_drive": {
+      "scheme": "PM E-DRIVE (successor to FAME-II), Ministry of Heavy Industries",
+      "applies_to": "REGISTERED high-speed electric two-wheelers with an advanced (lithium-ion) battery, ex-factory price up to Rs 1.5 lakh.",
+      "incentive_per_kwh_inr": 2500,
+      "cap_per_vehicle_inr": 5000,
+      "deadline": "31 July 2026 for registered e-2Ws; fund-limited (Rs 10,900 crore outlay) and may close earlier if exhausted.",
+      "low_speed_eligibility": false,
+      "low_speed_note": "CRITICAL: Low-speed Zelio scooters are CMVR-exempt (unregistered) and frequently lead-acid, so they do NOT qualify for PM E-DRIVE. Do not imply otherwise. The low-speed value proposition is AVOIDED COST (no registration, no road tax, no licence, no mandatory insurance) — not subsidy. Reserve subsidy messaging for the future high-speed vertical only.",
+      "source": "PM E-DRIVE portal (pmedrive.heavyindustries.gov.in) + trade press; June 2026"
+    },
+    "punjab_state": {
+      "status": "VERIFY before use",
+      "note": "Punjab's own EV policy incentives have been intermittent / not consistently notified. Confirm current live status before relying on it for high-speed-vertical content."
+    }
+  },
+
+  "value_proposition_split": {
+    "low_speed_current": {
+      "angle": "Avoid the costs",
+      "message": "No licence, no registration, no road tax, no mandatory insurance, ride today. Total cost = sticker price. Runs at ~Rs 0.25/km on cheap Chandigarh power."
+    },
+    "high_speed_future": {
+      "angle": "Get the subsidy",
+      "message": "PM E-DRIVE up to Rs 5,000 (while funds last, till 31 Jul 2026) plus any live Punjab state incentive — for registered, licensed riders."
+    }
+  }
+}
