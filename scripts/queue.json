@@ -8,9 +8,12 @@
     "title": "Petrol scooter vs low-speed EV in the Tricity: the real one-year cost, in rupees",
     "section": "guides",
     "category": "Running Costs",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A petrol scooter and an electric scooter parked side by side on a clean tree-lined Chandigarh sector road, modernist concrete architecture in the background",
-    "angle": "Work the actual year-one running cost on Chandigarh's cheap domestic tariff (Rs 2.80-3.75/unit) against a 100cc petrol commuter — the local power price is the ownable hook a generic petrol-vs-EV answer can't have."
+    "angle": "Work the actual year-one running cost on Chandigarh's cheap domestic tariff (Rs 2.80-3.75/unit) against a 100cc petrol commuter — the local power price is the ownable hook a generic petrol-vs-EV answer can't have.",
+    "processedAt": "2026-06-13T18:42:13.993Z",
+    "publishedPath": "src/content/guides/petrol-vs-ev-scooter-cost.md",
+    "factCheckIssues": []
   },
   {
     "slug": "first-electric-scooter-guide",
