@@ -1,0 +1,33 @@
+---
+import '../../styles/inner.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Eyebrow from '../../components/Eyebrow.astro';
+import FeaturedCard from '../../components/FeaturedCard.astro';
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('glossary', ({ data }) => !data.draft)).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title),
+);
+---
+<BaseLayout
+  title="Glossary — EV Chandigarh"
+  description="Plain-language definitions for the EV terms that actually matter — kWh, range, low-speed exemption, slabs and more."
+  type="website"
+>
+  <section class="listing wrap">
+    <header class="listing-head">
+      <Eyebrow text="Glossary" />
+      <h1 class="listing-title disp">EV terms, in plain language</h1>
+      <p class="listing-desc">The words on the spec sheet and the electricity bill — what they mean for a Tricity rider.</p>
+    </header>
+    {entries.length > 0 ? (
+      <div class="feat-grid">
+        {entries.map((e) => (
+          <FeaturedCard href={`/glossary/${e.id}`} img={e.data.heroImage} alt={e.data.title} cat={e.data.category} title={e.data.title} desc={e.data.description} />
+        ))}
+      </div>
+    ) : (
+      <div class="empty-state"><p class="mono">The glossary is being written — check back shortly.</p></div>
+    )}
+  </section>
+</BaseLayout>

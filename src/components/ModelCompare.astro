@@ -1,0 +1,78 @@
+---
+/**
+ * ModelCompare — a brand-neutral side-by-side spec table for the low-speed
+ * class. Pulls shared_low_speed_specs + per-model fields from models.json for
+ * the given slugs. On narrow screens the table scrolls horizontally with the
+ * spec column pinned, so it never breaks on a phone.
+ */
+import { models as modelsData, type Model } from '../data/types';
+
+interface Props { models: string[]; }
+const { models: slugs } = Astro.props;
+
+const shared = modelsData.shared_low_speed_specs;
+const picked = slugs
+  .map((s) => modelsData.models.find((m) => m.slug === s))
+  .filter((m): m is Model => Boolean(m));
+
+const inr = (n: number) => '₹' + n.toLocaleString('en-IN');
+function priceBand(m: Model): string {
+  if (m.price_from_inr == null) return 'On request';
+  if (m.price_to_inr != null) return `${inr(m.price_from_inr)}–${m.price_to_inr.toLocaleString('en-IN')}`;
+  return `From ${inr(m.price_from_inr)}`;
+}
+function chargeTime(m: Model): string {
+  const b = (m.battery || '').toLowerCase();
+  if (b.includes('lith')) return '~4–5 hr (Li-ion)';
+  if (b.includes('lead')) return '~7–12 hr (lead-acid)';
+  return '~4–5 hr Li / 7–12 hr lead-acid';
+}
+const battery = (m: Model) => m.battery || 'Lead-acid or Li-ion';
+
+const rows: { label: string; get: (m: Model) => string }[] = [
+  { label: 'Top speed', get: () => `${shared.top_speed_kmph} km/h` },
+  { label: 'Motor', get: () => `${shared.motor_w} W ${shared.motor_type}` },
+  { label: 'Licence required', get: () => (shared.licence_required ? 'Yes' : 'No') },
+  { label: 'RTO registration', get: () => (shared.registration_required ? 'Yes' : 'No') },
+  { label: 'Range (claimed)', get: (m) => (m.range_km ? `${m.range_km} km` : '—') },
+  { label: 'Charge time', get: chargeTime },
+  { label: 'Battery', get: battery },
+  { label: 'Price band (ex-showroom)', get: priceBand },
+];
+---
+<figure class="modelcompare" role="group" aria-label="Low-speed electric scooter spec comparison">
+  <div class="mc-scroll">
+    <table class="mc-table">
+      <thead>
+        <tr>
+          <th scope="col" class="mc-attr">Spec</th>
+          {picked.map((m) => <th scope="col" class="disp">{m.name}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((r) => (
+          <tr>
+            <th scope="row" class="mc-attr mono">{r.label}</th>
+            {picked.map((m) => <td>{r.get(m)}</td>)}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <figcaption class="mc-note mono">
+    Low-speed class (≤25 km/h, ≤250W) — no licence, no RTO. Manufacturer-claimed figures; prices ex-showroom and variant-dependent. Confirm locally before buying.
+  </figcaption>
+</figure>
+
+<style>
+  .modelcompare { margin: clamp(32px, 5vw, 48px) 0; }
+  .mc-scroll { overflow-x: auto; border: 1px solid var(--grid); -webkit-overflow-scrolling: touch; }
+  .mc-table { width: 100%; border-collapse: collapse; min-width: 520px; font-family: 'Source Serif 4', Georgia, serif; }
+  .mc-table th, .mc-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--grid); font-size: 0.95rem; vertical-align: top; }
+  .mc-table thead th { background: var(--concrete-2); font-weight: 700; font-size: 1rem; letter-spacing: -0.01em; white-space: nowrap; }
+  .mc-table tbody tr:last-child th, .mc-table tbody tr:last-child td { border-bottom: none; }
+  .mc-attr { position: sticky; left: 0; z-index: 1; background: var(--concrete); border-right: 1px solid var(--grid); font-weight: 400; color: var(--ink-soft); white-space: nowrap; }
+  .mc-table thead .mc-attr { background: var(--concrete-2); color: var(--ink); }
+  .mc-table tbody td { color: var(--ink); }
+  .mc-note { margin-top: 12px; font-size: 11px; letter-spacing: 0.04em; color: var(--ink-soft); line-height: 1.5; }
+</style>

@@ -1,0 +1,33 @@
+---
+import '../../styles/inner.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Eyebrow from '../../components/Eyebrow.astro';
+import FeaturedCard from '../../components/FeaturedCard.astro';
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('news', ({ data }) => !data.draft)).sort(
+  (a, b) => +b.data.datePublished - +a.data.datePublished,
+);
+---
+<BaseLayout
+  title="News — EV Chandigarh"
+  description="What's changing for Tricity EV owners — new chargers, policy moves and subsidy deadlines as they land."
+  type="website"
+>
+  <section class="listing wrap">
+    <header class="listing-head">
+      <Eyebrow text="News" />
+      <h1 class="listing-title disp">On the ground in the Tricity</h1>
+      <p class="listing-desc">New chargers, policy moves and subsidy deadlines — the developments that actually affect Chandigarh, Mohali and Panchkula owners.</p>
+    </header>
+    {entries.length > 0 ? (
+      <div class="feat-grid">
+        {entries.map((e) => (
+          <FeaturedCard href={`/news/${e.id}`} img={e.data.heroImage} alt={e.data.title} cat={e.data.category} title={e.data.title} desc={e.data.description} />
+        ))}
+      </div>
+    ) : (
+      <div class="empty-state"><p class="mono">No news yet — we'll post here as developments land.</p></div>
+    )}
+  </section>
+</BaseLayout>

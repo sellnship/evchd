@@ -1,0 +1,53 @@
+---
+/**
+ * AuthorBox — E-E-A-T attribution. Resolves the author (and optional reviewer)
+ * from authors.json by id, and shows published + "Updated" dates. Until
+ * authors.json is filled with real people, this shows the placeholder values —
+ * which is expected. Placeholder photos fall back to an initials avatar so no
+ * broken <img> ships.
+ */
+import { authors } from '../data/types';
+
+interface Props {
+  authorId: string;
+  reviewedById?: string;
+  datePublished: Date;
+  dateModified?: Date;
+}
+const { authorId, reviewedById, datePublished, dateModified } = Astro.props;
+
+const author = authors.authors.find((a) => a.id === authorId) ?? authors.authors[0];
+const reviewer = reviewedById ? authors.authors.find((a) => a.id === reviewedById) : undefined;
+
+const isPlaceholder = (s?: string) => !s || /REPLACE/i.test(s);
+const fmt = (d: Date) => d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+const initials = (name: string) =>
+  name.replace(/[—–-].*/, '').trim().split(/\s+/).slice(0, 2).map((w) => w[0]).join('').toUpperCase() || 'EV';
+---
+<div class="authorbox">
+  <div class="ab-avatar" aria-hidden="true">
+    {isPlaceholder(author.photo)
+      ? <span class="ab-initials disp">{initials(author.name)}</span>
+      : <img src={author.photo} alt="" width="48" height="48" loading="lazy" decoding="async" />}
+  </div>
+  <div class="ab-meta">
+    <p class="ab-by"><span class="ab-name disp">{author.name}</span><span class="ab-role">{author.role}</span></p>
+    {reviewer && <p class="ab-rev mono">Reviewed by {reviewer.name}</p>}
+    <p class="ab-dates mono">
+      <time datetime={datePublished.toISOString()}>Published {fmt(datePublished)}</time>
+      {dateModified && <> · <time datetime={dateModified.toISOString()}>Updated {fmt(dateModified)}</time></>}
+    </p>
+  </div>
+</div>
+
+<style>
+  .authorbox { display: flex; align-items: center; gap: 14px; margin-top: 26px; }
+  .ab-avatar { flex: none; width: 48px; height: 48px; overflow: hidden; border: 1px solid var(--grid); background: var(--concrete-2); }
+  .ab-avatar img { width: 48px; height: 48px; object-fit: cover; }
+  .ab-initials { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; font-weight: 700; font-size: 16px; color: var(--charge); background: var(--concrete-2); }
+  .ab-by { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+  .ab-name { font-weight: 600; font-size: 1rem; color: var(--ink); }
+  .ab-role { font-size: 0.86rem; color: var(--ink-soft); }
+  .ab-rev { font-size: 11px; letter-spacing: 0.08em; color: var(--charge-deep); margin-top: 3px; }
+  .ab-dates { font-size: 11px; letter-spacing: 0.06em; color: var(--ink-soft); margin-top: 3px; }
+</style>

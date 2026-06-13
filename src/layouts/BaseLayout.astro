@@ -34,6 +34,8 @@ const site = 'https://evchandigarh.in';
 // Build the canonical from the page path + production origin, so it is always
 // the live URL even when building locally or on a preview deployment.
 const canonical = new URL(Astro.url.pathname, site).href;
+// OG/Twitter/JSON-LD images must be absolute URLs.
+const ogImage = heroImage ? new URL(heroImage, site).href : undefined;
 
 // Article structured data — only emitted for article pages that carry a date,
 // so we never ship an invalid Article block (e.g. on the home page).
@@ -44,7 +46,7 @@ const articleSchema =
         '@type': 'Article',
         headline: title,
         description: description,
-        image: heroImage,
+        image: ogImage,
         datePublished: datePublished,
         dateModified: dateModified ?? datePublished,
         author: { '@type': 'Person', name: author },
@@ -82,7 +84,7 @@ const articleSchema =
     <meta property="og:type" content={type} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    {heroImage && <meta property="og:image" content={heroImage} />}
+    {ogImage && <meta property="og:image" content={ogImage} />}
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content="EV Chandigarh" />
 
@@ -90,7 +92,7 @@ const articleSchema =
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    {heroImage && <meta name="twitter:image" content={heroImage} />}
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
 
     <!-- RSS alternate → enables the Discover "Follow" button (feed added later) -->
     <link

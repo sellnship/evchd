@@ -10,9 +10,11 @@
     "preview": "astro preview",
     "astro": "astro",
     "test:image": "node scripts/test-image.mjs",
-    "gen:cards": "node scripts/gen-cards.mjs"
+    "gen:cards": "node scripts/gen-cards.mjs",
+    "gen:heroes": "node scripts/gen-heroes.mjs"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
     "@fal-ai/client": "^1.10.1",
     "astro": "^6.4.6",

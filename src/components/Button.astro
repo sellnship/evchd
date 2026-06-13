@@ -1,19 +1,19 @@
 ---
 /**
- * Button — renders the reference's button variants:
+ * Button — the reference's button variants:
  *   solid (.btn) · ghost (.btn-ghost) · light (.btn.btn-light) · wa (.btn.btn-wa)
- * Label goes in the slot. `arrow` appends the animated → (for the solid-style
- * variants); ghost buttons put the arrow in their own text.
+ * Label goes in the slot. `arrow` appends the animated → (for solid-style
+ * variants). Extra attributes (href, target, rel, data-cta, aria-*) pass
+ * straight through to the <a>.
  */
-interface Props {
+import type { HTMLAttributes } from 'astro/types';
+interface Props extends HTMLAttributes<'a'> {
   variant?: 'solid' | 'ghost' | 'light' | 'wa';
-  href?: string;
   arrow?: boolean;
-  class?: string;
 }
-const { variant = 'solid', href = '#', arrow = false, class: className } = Astro.props;
+const { variant = 'solid', href = '#', arrow = false, class: className, ...rest } = Astro.props;
 const base = { solid: 'btn', ghost: 'btn-ghost', light: 'btn btn-light', wa: 'btn btn-wa' }[variant];
 ---
-<a class:list={[base, className]} href={href}>
+<a class:list={[base, className]} href={href} {...rest}>
   <slot />{arrow && <span class="arr disp">→</span>}
 </a>
