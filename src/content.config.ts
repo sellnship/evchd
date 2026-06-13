@@ -7,8 +7,8 @@ const base = z.object({
   description: z.string(),
   category: z.string(),
   heroImage: z.string(), // public path, e.g. /images/<slug>-hero.webp
-  author: z.string(), // id → src/data/authors.json
-  reviewedBy: z.string().optional(), // id → src/data/authors.json
+  author: z.string().default('rajinder-singh'), // default byline → src/data/authors.json
+  reviewedBy: z.string().default('rajinder-singh'), // default reviewer → src/data/authors.json
   datePublished: z.coerce.date(),
   dateModified: z.coerce.date().optional(),
   tags: z.array(z.string()).default([]),

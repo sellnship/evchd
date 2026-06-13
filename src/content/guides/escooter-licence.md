@@ -3,8 +3,8 @@ title: "Do you actually need a licence for an electric scooter in Chandigarh?"
 description: "The ≤25 km/h, ≤250W exemption lets you skip the RTO entirely — but there's a motor-power catch that quietly cancels it. Here's the rule, exactly."
 category: "Rules"
 heroImage: "/images/escooter-licence-hero.webp"
-author: "REPLACE-slug"
-reviewedBy: "REPLACE-reviewer"
+author: "rajinder-singh"
+reviewedBy: "rajinder-singh"
 datePublished: 2026-06-10
 dateModified: 2026-06-12
 tags: ["licence", "RTO", "registration", "low-speed", "Chandigarh"]
