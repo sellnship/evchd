@@ -15,7 +15,7 @@ interface Props {
 }
 const { href, img, alt, cat, title, desc, width = 1280, height = 720 } = Astro.props;
 ---
-<a class="card reveal" href={href}>
+<a class="card" href={href}>
   <img class="card-img" src={img} alt={alt} width={width} height={height} loading="lazy" decoding="async" />
   <div class="cat">{cat}</div>
   <h3>{title}</h3>

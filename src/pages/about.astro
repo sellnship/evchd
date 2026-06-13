@@ -1,0 +1,84 @@
+---
+import '../styles/inner.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Divider from '../components/Divider.astro';
+import { authors } from '../data/types';
+
+const site = 'https://evchandigarh.in';
+const pub = authors.publisher;
+const ph = (s?: string) => !s || /REPLACE/i.test(s);
+const show = (s?: string) => (ph(s) ? '—' : s);
+
+const info: { label: string; value?: string }[] = [
+  { label: 'Publication', value: pub.name },
+  { label: 'Legal entity', value: show(pub.legal_entity) },
+  { label: 'Address', value: show(pub.address) },
+  { label: 'Hours', value: show(pub.hours) },
+  { label: 'Phone', value: show(pub.phone) },
+  { label: 'WhatsApp', value: show(pub.whatsapp) },
+];
+
+// Organization + WebSite JSON-LD — only emit fields that are real (not placeholders).
+const org: Record<string, unknown> = { '@type': 'Organization', name: pub.name, url: site };
+if (!ph(pub.legal_entity)) org.legalName = pub.legal_entity;
+if (!ph(pub.address)) org.address = pub.address;
+if (!ph(pub.phone)) org.telephone = pub.phone;
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@graph': [org, { '@type': 'WebSite', name: 'EV Chandigarh', url: site, inLanguage: 'en-IN' }],
+};
+---
+<BaseLayout
+  title="About — EV Chandigarh"
+  description="EV Chandigarh is an independent electric-mobility publication for the Tricity. We publish information, not inventory — and route buyers to where they can actually buy."
+  type="website"
+>
+  <section class="page">
+    <header class="page-head">
+      <Eyebrow text="About" />
+      <h1 class="page-title disp">An independent EV publication for the Tricity</h1>
+      <p class="page-lede">We exist to answer the questions an EV buyer actually has — about the rules, the running costs and the real-world range in Chandigarh, Mohali and Panchkula — without trying to sell you the vehicle.</p>
+    </header>
+
+    <div class="page-body prose">
+      <p>Most "EV" pages you'll find for this region are showrooms in disguise: the advice bends toward whatever pays the most. EV Chandigarh is built the other way round. We start from your commute, your budget and the law as it applies on the ground, and we make our money by being trusted — not by closing a sale.</p>
+
+      <p>That means a hard line: <strong>we don't sell vehicles, quote prices or take bookings here.</strong> When you're ready to buy, we point you to where you can — our commerce partner at <a href="https://evchandigarh.com" rel="noopener">evchandigarh.com</a> and a WhatsApp line — and our editorial stays neutral.</p>
+
+      <hr />
+
+      <h2>The organisation</h2>
+      <p>EV Chandigarh is published by the team below. The details here feed our contact options and the Organization record search engines read.</p>
+    </div>
+
+    <dl class="orginfo">
+      {info.map((row) => (
+        <div class="orginfo-row">
+          <dt class="mono">{row.label}</dt>
+          <dd>{row.value}</dd>
+        </div>
+      ))}
+    </dl>
+
+    <Divider style="margin:48px 0 40px;" />
+
+    <div class="page-body prose">
+      <h2>The team</h2>
+      <p>Every article is written and reviewed by named people — that accountability is the point.</p>
+    </div>
+    <ul class="team">
+      {authors.authors.map((a) => (
+        <li class="team-member">
+          <p class="tm-name disp">{a.name}</p>
+          <p class="tm-role mono">{a.role}</p>
+          <p class="tm-bio">{a.bio}</p>
+        </li>
+      ))}
+    </ul>
+
+    <p class="page-note mono">Some details above are placeholders until the team and registration information are finalised.</p>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
+</BaseLayout>

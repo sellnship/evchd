@@ -1,0 +1,85 @@
+---
+/**
+ * ArticleLayout — the core content template (wraps BaseLayout).
+ * Hero (category eyebrow → H1 → lede → AuthorBox → 1200×675 image) then a
+ * serif reading column. The rendered markdown comes through the <slot/>;
+ * `---` thematic breaks render as the travelling-current divider (inner.css).
+ * For the `compare` collection, the frontmatter `models` render as a
+ * ModelCompare table after the body. Ends with the independence note, the
+ * CTABlock and a Related strip. Article JSON-LD / OG / canonical are handled
+ * by BaseLayout from these props (author resolved from authors.json).
+ */
+import '../styles/inner.css';
+import BaseLayout from './BaseLayout.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+import CTABlock from '../components/CTABlock.astro';
+import ModelCompare from '../components/ModelCompare.astro';
+import FeaturedCard from '../components/FeaturedCard.astro';
+import { authors } from '../data/types';
+
+interface RelatedCard { href: string; img: string; alt: string; cat: string; title: string; desc: string; }
+interface Props {
+  data: {
+    title: string; description: string; category: string; heroImage: string;
+    author: string; reviewedBy?: string; datePublished: Date; dateModified?: Date;
+    tags?: string[]; models?: string[];
+  };
+  collection: string;
+  related?: RelatedCard[];
+}
+const { data, collection, related = [] } = Astro.props;
+
+const author = authors.authors.find((a) => a.id === data.author);
+const authorName = author?.name ?? 'EV Chandigarh';
+const dateModified = data.dateModified ?? data.datePublished;
+---
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  heroImage={data.heroImage}
+  author={authorName}
+  datePublished={data.datePublished.toISOString()}
+  dateModified={dateModified.toISOString()}
+  type="article"
+>
+  <article class="article">
+    <header class="art-hero">
+      <Eyebrow text={data.category} />
+      <h1 class="art-title disp">{data.title}</h1>
+      <p class="art-lede">{data.description}</p>
+      <AuthorBox
+        authorId={data.author}
+        reviewedById={data.reviewedBy}
+        datePublished={data.datePublished}
+        dateModified={data.dateModified}
+      />
+    </header>
+
+    <div class="art-figwrap">
+      <img class="art-img" src={data.heroImage} alt={data.title} width="1200" height="675" loading="lazy" decoding="async" />
+    </div>
+
+    <div class="art-main">
+      <div class="prose">
+        <slot />
+      </div>
+      {collection === 'compare' && data.models && data.models.length > 0 && <ModelCompare models={data.models} />}
+
+      <p class="art-independence mono">
+        Independent editorial — EV Chandigarh doesn't sell vehicles. We explain the rules and the numbers, then point you to where to buy.
+      </p>
+
+      <CTABlock context={data.title} />
+    </div>
+
+    {related.length > 0 && (
+      <section class="related">
+        <Eyebrow text="Related" />
+        <div class="feat-grid">
+          {related.map((r) => <FeaturedCard {...r} />)}
+        </div>
+      </section>
+    )}
+  </article>
+</BaseLayout>

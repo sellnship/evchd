@@ -1,0 +1,45 @@
+---
+/**
+ * CTABlock — reused site-wide. Three tracked actions, all routing OFF-site
+ * (this site never transacts):
+ *   (a) WhatsApp pre-fill — number from authors.json publisher, context-aware
+ *   (b) See prices & book on evchandigarh.com
+ *   (c) the relevant calculator
+ * Click tracking via data-cta. Matches the dark CTA-card styling from the home
+ * page. WhatsApp falls back to the .com site until a real number is filled in.
+ */
+import { authors } from '../data/types';
+import Button from './Button.astro';
+
+interface Props {
+  context?: string;
+  calculator?: string;
+  heading?: string;
+}
+const {
+  context = 'going electric in the Tricity',
+  calculator = '/calculators',
+  heading = 'Done reading? Ready to buy?',
+} = Astro.props;
+
+const pub = authors.publisher;
+const waDigits = (pub.whatsapp || '').replace(/\D/g, '');
+const waMsg = encodeURIComponent(`Hi EV Chandigarh — I was reading about ${context} and have a question.`);
+const waHref = waDigits.length >= 8 ? `https://wa.me/${waDigits}?text=${waMsg}` : 'https://evchandigarh.com';
+---
+<aside class="cta-card ctablock">
+  <div class="glow"></div>
+  <h2 class="disp">{heading}</h2>
+  <p>We don't sell here — but we know who does. Get current prices, book a test ride, or work out your own numbers first.</p>
+  <div class="row">
+    <Button variant="light" href="https://evchandigarh.com" rel="noopener" arrow data-cta="prices">See prices &amp; book on evchandigarh.com</Button>
+    <Button variant="wa" href={waHref} rel="noopener" arrow data-cta="whatsapp">Ask on WhatsApp</Button>
+    <Button variant="wa" href={calculator} arrow data-cta="calculator">Run the numbers</Button>
+  </div>
+</aside>
+
+<style>
+  .ctablock { margin-top: clamp(48px, 8vw, 80px); }
+  .ctablock h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+  .ctablock p { font-size: 1rem; }
+</style>
