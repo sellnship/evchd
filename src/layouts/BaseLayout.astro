@@ -2,13 +2,10 @@
 /**
  * BaseLayout — every page inherits this.
  *
- * It carries the Google-Discover + SEO head that the whole asset depends on,
- * plus the site chrome (Header / Footer) and the design-system tokens.
+ * Carries the Google-Discover + SEO head, the site chrome (Header / Footer),
+ * and the design-system tokens. Fonts load via Google Fonts with display=swap
+ * (per the redesign reference).
  */
-import '@fontsource-variable/space-grotesk';
-import '@fontsource-variable/source-serif-4';
-import '@fontsource/space-mono/400.css';
-import '@fontsource/space-mono/700.css';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -73,6 +70,14 @@ const articleSchema =
     <!-- Discover-critical: enables the large-image card in Discover (+CTR) -->
     <meta name="robots" content="max-image-preview:large, index, follow" />
 
+    <!-- Fonts: Google Fonts, display=swap (non-render-blocking) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Open Graph (hero images are 1200x675 / 16:9) -->
     <meta property="og:type" content={type} />
     <meta property="og:title" content={title} />
@@ -97,7 +102,7 @@ const articleSchema =
 
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#e8e6e1" />
+    <meta name="theme-color" content="#E9E6DF" />
 
     {
       articleSchema && (
@@ -107,6 +112,20 @@ const articleSchema =
         />
       )
     }
+
+    <!-- Flash-free reveals: hide animated elements before paint ONLY when motion
+         is allowed; a 2s failsafe reveals them even if JS/GSAP never runs. -->
+    <script is:inline>
+      (function () {
+        try {
+          if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            var de = document.documentElement;
+            de.classList.add('pre-anim');
+            setTimeout(function () { de.classList.remove('pre-anim'); }, 2000);
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
