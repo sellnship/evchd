@@ -1,0 +1,106 @@
+---
+/**
+ * BaseLayout — every page inherits this.
+ *
+ * It carries the Google-Discover + SEO head that the whole asset depends on.
+ * Missing any of the "Discover-critical" items below can exclude a page from
+ * Discover regardless of content quality, so edit with care.
+ */
+interface Props {
+  title: string;
+  description: string;
+  heroImage?: string;
+  author?: string;
+  datePublished?: string;
+  dateModified?: string;
+  type?: string;
+}
+
+const {
+  title,
+  description,
+  heroImage,
+  author,
+  datePublished,
+  dateModified,
+  type = 'article',
+} = Astro.props;
+
+const site = 'https://evchandigarh.in';
+// Build the canonical from the page path + production origin, so it is always
+// the live URL even when building locally or on a preview deployment.
+const canonical = new URL(Astro.url.pathname, site).href;
+
+// Article structured data — only emitted for article pages that carry a date,
+// so we never ship an invalid Article block (e.g. on the home page).
+const articleSchema =
+  type === 'article' && datePublished
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: title,
+        description: description,
+        image: heroImage,
+        datePublished: datePublished,
+        dateModified: dateModified ?? datePublished,
+        author: { '@type': 'Person', name: author },
+        publisher: {
+          '@type': 'Organization',
+          name: 'EV Chandigarh',
+          url: site,
+        },
+      }
+    : null;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Discover-critical: zoomable viewport (never user-scalable=0) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Discover-critical: enables the large-image card in Discover (+CTR) -->
+    <meta name="robots" content="max-image-preview:large, index, follow" />
+
+    <!-- Open Graph (hero images are 1200x675 / 16:9) -->
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {heroImage && <meta property="og:image" content={heroImage} />}
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="EV Chandigarh" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {heroImage && <meta name="twitter:image" content={heroImage} />}
+
+    <!-- RSS alternate → enables the Discover "Follow" button (feed added later) -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="EV Chandigarh"
+      href={`${site}/rss.xml`}
+    />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="generator" content={Astro.generator} />
+
+    {
+      articleSchema && (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(articleSchema)}
+        />
+      )
+    }
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

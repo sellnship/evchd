@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="EV Chandigarh — Electric Mobility for the Tricity"
+  description="Independent guides, comparisons and tools for electric vehicles across Chandigarh, Mohali and Panchkula. Built to help you understand EVs — not to sell you one."
+  type="website"
+>
+  <main>
+    <p class="kicker">Chandigarh · Mohali · Panchkula</p>
+    <h1>EV Chandigarh</h1>
+    <p class="lead">
+      Independent, local electric-mobility guidance for the Tricity.
+    </p>
+    <p>
+      Guides, comparisons, a glossary, local news and running-cost tools are on
+      the way. This is the foundation — the full site is coming soon.
+    </p>
+  </main>
+
+  <style>
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: clamp(3rem, 10vw, 6rem) 1.5rem;
+      font-family:
+        system-ui,
+        -apple-system,
+        'Segoe UI',
+        Roboto,
+        sans-serif;
+      color: #1a1d21;
+    }
+    .kicker {
+      margin: 0 0 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #1f5eff;
+    }
+    h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(2rem, 6vw, 3rem);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+    }
+    .lead {
+      margin: 0 0 1.5rem;
+      font-size: 1.25rem;
+      color: #3a3f45;
+    }
+    p {
+      line-height: 1.6;
+    }
+  </style>
+</BaseLayout>
