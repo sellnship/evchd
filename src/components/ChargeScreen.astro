@@ -1,0 +1,74 @@
+---
+/**
+ * ChargeScreen — the hero signature.
+ *
+ * A brise-soleil "charge screen": framed vertical louvres in a repeating
+ * structural bay rhythm (wide pier · fin · opening), mostly "charged" in
+ * electric blue with a single signal-yellow accent. It reads as a modernist
+ * façade (Chandigarh) and as stored energy (EV) — and, being vertical and
+ * framed, never as a loading bar. Decorative, so hidden from assistive tech.
+ */
+interface Props {
+  animate?: boolean;
+}
+const { animate = false } = Astro.props;
+
+// Designed louvre rhythm — five structural bays + an end pier.
+//   w = relative width   ·   s = 'on' (charged) | 'off' (open) | 'sig' (accent)
+const louvres = [
+  { w: 2, s: 'on' }, { w: 1, s: 'on' }, { w: 1, s: 'off' },
+  { w: 2, s: 'on' }, { w: 1, s: 'on' }, { w: 1, s: 'off' },
+  { w: 2, s: 'on' }, { w: 1, s: 'sig' }, { w: 1, s: 'off' },
+  { w: 2, s: 'on' }, { w: 1, s: 'on' }, { w: 1, s: 'off' },
+  { w: 2, s: 'on' }, { w: 1, s: 'on' }, { w: 1, s: 'off' },
+  { w: 2, s: 'on' },
+];
+---
+<div class="charge-screen" data-animate={animate ? '' : undefined} aria-hidden="true">
+  {louvres.map((l, i) => (
+    <span class="louvre" data-state={l.s} style={`--w:${l.w}; --i:${i}`}></span>
+  ))}
+</div>
+
+<style>
+  .charge-screen {
+    display: flex;
+    gap: 1.5px;
+    width: 100%;
+    min-height: clamp(260px, 30vw, 380px);
+    background: var(--grid);
+    border: 2px solid var(--ink);
+    overflow: hidden;
+  }
+  .louvre {
+    flex: var(--w) 1 0;
+    position: relative;
+    background: var(--concrete);
+    overflow: hidden;
+  }
+  .louvre[data-state='on']::after,
+  .louvre[data-state='sig']::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: scaleY(1);
+    transform-origin: bottom;
+    background: var(--charge);
+  }
+  .louvre[data-state='sig']::after { background: var(--signal); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .charge-screen[data-animate] .louvre::after {
+      animation: louvreCharge 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+      animation-delay: calc(var(--i, 0) * 55ms);
+    }
+    @keyframes louvreCharge {
+      from { transform: scaleY(0); }
+      to { transform: scaleY(1); }
+    }
+  }
+
+  @media (max-width: 900px) {
+    .charge-screen { min-height: 0; height: clamp(130px, 32vw, 190px); }
+  }
+</style>

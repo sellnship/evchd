@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ChargeBar from '../components/ChargeBar.astro';
+import ChargeScreen from '../components/ChargeScreen.astro';
 
 const hubs = [
   {
@@ -53,30 +53,31 @@ const trust = [
   description="Independent guides, real local numbers and honest comparisons for electric vehicles across Chandigarh, Mohali and Panchkula. We answer the questions — we don’t sell the vehicles."
   type="website"
 >
-  <!-- HERO — the thesis -->
+  <!-- HERO — thesis on the left, the charge-screen façade on the right -->
   <section class="hero">
-    <div class="shell">
-      <p class="eyebrow hero-eyebrow">Chandigarh &middot; Mohali &middot; Panchkula</p>
-      <h1 class="hero-h1">
-        The Tricity’s <span class="hl">independent</span> guide to going electric.
-      </h1>
-      <p class="hero-lead">
-        Real local numbers, honest comparisons, and clear guides for life with an
-        EV across Chandigarh, Mohali and Panchkula. We answer the questions — we
-        don’t sell the vehicles.
-      </p>
-      <div class="hero-actions">
-        <a class="btn" href="/guides">Browse the guides <span class="arr">→</span></a>
-        <a class="link-arrow" href="/editorial-policy">How we work →</a>
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow hero-eyebrow">Chandigarh &middot; Mohali &middot; Panchkula</p>
+        <h1 class="hero-h1">
+          The Tricity’s <span class="hl">independent</span> guide to going electric.
+        </h1>
+        <p class="hero-lead">
+          Real local numbers, honest comparisons, and clear guides for life with
+          an EV across Chandigarh, Mohali and Panchkula. We answer the questions —
+          we don’t sell the vehicles.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="/guides">Browse the guides <span class="arr">→</span></a>
+          <a class="link-arrow" href="/editorial-policy">How we work →</a>
+        </div>
       </div>
+
+      <ChargeScreen animate />
     </div>
 
-    <div class="shell hero-gauge">
-      <ChargeBar segments={12} filled={8} block animate />
-      <div class="gauge-axis">
-        <span class="eyebrow">Electric Tricity</span>
-        <span class="gauge-arrow" aria-hidden="true">→</span>
-      </div>
+    <div class="shell hero-plate">
+      <span class="eyebrow">Electric Tricity</span>
+      <span class="eyebrow">30.73&deg; N &middot; 76.78&deg; E</span>
     </div>
   </section>
 
@@ -84,14 +85,13 @@ const trust = [
   <section class="section hubs">
     <div class="shell">
       <header class="section-head">
-        <p class="eyebrow"><ChargeBar segments={5} filled={3} /> The hubs</p>
+        <p class="eyebrow">The hubs</p>
         <h2 class="section-h2">Start where your question is.</h2>
       </header>
 
       <div class="hubs-grid">
         {hubs.map((h) => (
           <a class="hub" href={h.href}>
-            <ChargeBar segments={6} filled={2} />
             <span class="hub-kicker eyebrow">{h.kicker}</span>
             <h3 class="hub-title">{h.title}</h3>
             <p class="hub-desc">{h.desc}</p>
@@ -109,7 +109,7 @@ const trust = [
   <section class="section trust">
     <div class="shell">
       <header class="section-head">
-        <p class="eyebrow"><ChargeBar segments={5} filled={3} /> Why trust this</p>
+        <p class="eyebrow">Why trust this</p>
         <h2 class="section-h2">Built on local fact, not sales talk.</h2>
       </header>
 
@@ -147,9 +147,16 @@ const trust = [
 
 <style>
   /* -- HERO -------------------------------------------------------------- */
-  .hero { padding-block: clamp(2.75rem, 7vw, 6rem) clamp(2rem, 5vw, 3.5rem); }
+  .hero { padding-block: clamp(2.75rem, 7vw, 6rem) clamp(2rem, 5vw, 3.25rem); }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: clamp(1.75rem, 4vw, 3.5rem);
+    align-items: stretch;
+  }
+  .hero-copy { align-self: center; }
   .hero-eyebrow { margin-bottom: clamp(1rem, 3vw, 1.6rem); }
-  .hero-h1 { font-size: var(--step-5); max-width: 17ch; letter-spacing: -0.03em; }
+  .hero-h1 { font-size: var(--step-5); max-width: 16ch; letter-spacing: -0.03em; }
   .hero-h1 .hl { color: var(--charge); }
   .hero-lead {
     font-family: var(--serif);
@@ -193,22 +200,19 @@ const trust = [
   }
   .link-arrow:hover { color: var(--charge-ink); border-bottom-color: var(--charge); }
 
-  .hero-gauge { margin-top: clamp(2rem, 6vw, 4rem); }
-  .gauge-axis {
+  .hero-plate {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 0.6rem;
-    padding-top: 0.5rem;
+    gap: 1rem;
+    margin-top: clamp(1.5rem, 4vw, 2.5rem);
+    padding-top: 0.6rem;
     border-top: 1px solid var(--grid);
   }
-  .gauge-arrow { font-family: var(--mono); color: var(--charge); }
 
   /* -- SECTION shell ----------------------------------------------------- */
   .section { padding-block: clamp(2.5rem, 7vw, 5rem); border-top: 1px solid var(--grid); }
   .section-head { margin-bottom: clamp(1.5rem, 4vw, 2.5rem); }
-  .section-head .eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; }
-  .section-head :global(.charge-bar) { font-size: 1em; }
   .section-h2 { font-size: var(--step-3); max-width: 20ch; margin-top: 0.6rem; }
 
   /* -- HUBS (modernist sector grid: 1px gaps reveal the grid colour) ----- */
@@ -220,27 +224,33 @@ const trust = [
     border: 1px solid var(--grid);
   }
   .hub {
+    position: relative;
     background: var(--concrete);
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
+    gap: 0.5rem;
     padding: clamp(1.25rem, 2.4vw, 1.9rem);
     text-decoration: none;
     color: var(--ink);
-    min-height: 14rem;
+    min-height: 13.5rem;
     transition: background 0.25s;
   }
-  .hub:hover { background: var(--concrete-2); }
-  .hub :global(.charge-bar) { font-size: 0.95rem; margin-bottom: 0.15rem; }
-  .hub :global(.charge-bar .seg) {
-    transition: background 0.3s, box-shadow 0.3s;
-    transition-delay: calc(var(--i, 0) * 45ms);
-  }
-  .hub:hover :global(.charge-bar .seg),
-  .hub:focus-within :global(.charge-bar .seg) {
+  /* a single charge louvre lights up the card edge on hover/focus */
+  .hub::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
     background: var(--charge);
-    box-shadow: inset 0 0 0 1.6px var(--charge);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.25s ease;
   }
+  .hub:hover { background: var(--concrete-2); }
+  .hub:hover::before,
+  .hub:focus-within::before { transform: scaleY(1); }
   .hub-title { font-size: var(--step-2); }
   .hub-desc { font-family: var(--serif); font-size: var(--step--1); line-height: 1.5; color: var(--prose); flex: 1; }
   .hub-foot {
@@ -308,6 +318,10 @@ const trust = [
   .cta-link:hover .arr { transform: translateX(4px); }
 
   /* -- responsive -------------------------------------------------------- */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: clamp(1.5rem, 5vw, 2.25rem); }
+    .hero-copy { align-self: start; }
+  }
   @media (max-width: 880px) { .hubs-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 760px) { .trust-grid { grid-template-columns: 1fr; } }
   @media (max-width: 540px) {
