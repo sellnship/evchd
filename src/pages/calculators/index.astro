@@ -2,20 +2,296 @@
 import '../../styles/inner.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Eyebrow from '../../components/Eyebrow.astro';
+import { localFacts } from '../../data/types';
+
+// Seed every default from the verified data layer so the calculators agree
+// with the figures quoted across the rest of the site.
+const perKm = localFacts.charging_cost.per_km_inr; // 0.25
+const tariff = localFacts.electricity_tariff.chandigarh_domestic;
+const slab1 = tariff.slab_1_100_units_inr; // 2.80
+const slab2 = tariff.slab_101_200_units_inr; // 3.75
+// "5.40 (first 300 units, PSPCL) — for comparison only" → 5.40
+const punjab =
+  parseFloat(String(localFacts.electricity_tariff.punjab_domestic_comparison_inr)) || 5.4;
+// "1.5-2" → 2 (a typical full overnight charge)
+const unitsPerFull =
+  Number(String(localFacts.charging_cost.full_charge_units).split('-').pop()) || 2;
+
+const tariffVerified = tariff.effective_from; // "1 November 2025"
+const lastVerified = localFacts._meta.lastVerified; // "2026-06"
 ---
+
 <BaseLayout
-  title="Calculators — EV Chandigarh"
-  description="Work out your own numbers — running cost, petrol-versus-EV break-even and charging cost on local Tricity tariffs."
+  title="EV Calculators — running cost, petrol break-even & charging | EV Chandigarh"
+  description="Work out your own numbers — monthly running cost, petrol-versus-EV break-even and charging cost on local Tricity electricity tariffs. The inputs are yours, so you can trust the answer."
   type="website"
 >
-  <section class="listing wrap">
+  <div class="listing wrap">
     <header class="listing-head">
       <Eyebrow text="Calculators" />
       <h1 class="listing-title disp">Work it out for yourself</h1>
-      <p class="listing-desc">Running cost, petrol-versus-EV break-even and charging cost on local tariffs — interactive tools you can trust because the inputs are yours.</p>
+      <p class="listing-desc">
+        Running cost, petrol-versus-EV break-even and charging cost on local
+        tariffs — interactive tools you can trust because the inputs are yours.
+        Defaults use our verified Tricity figures; change anything to match your
+        own ride.
+      </p>
     </header>
-    <div class="empty-state">
-      <p class="mono">The calculators are in development — check back shortly.</p>
+
+    <div class="calc-stack">
+      <!-- ============ 1 · MONTHLY RUNNING COST ============ -->
+      <section class="calc" aria-labelledby="c1-h">
+        <div class="calc-head">
+          <span class="calc-num mono">01</span>
+          <h2 class="calc-title disp" id="c1-h">Monthly running cost</h2>
+          <p class="calc-sub">What your electricity-driven kilometres actually cost over a month.</p>
+        </div>
+        <div class="calc-grid">
+          <div class="calc-inputs">
+            <label class="field">
+              <span class="field-label">Distance per day</span>
+              <span class="field-input"><input type="number" id="r-km" value="25" min="0" step="1" inputmode="decimal" /><span class="suffix mono">km</span></span>
+            </label>
+            <label class="field">
+              <span class="field-label">Days ridden per month</span>
+              <span class="field-input"><input type="number" id="r-days" value="26" min="0" max="31" step="1" inputmode="numeric" /><span class="suffix mono">days</span></span>
+            </label>
+            <label class="field">
+              <span class="field-label">Running cost</span>
+              <span class="field-input"><span class="prefix mono">₹</span><input type="number" id="r-rate" value={perKm} min="0" step="0.01" inputmode="decimal" /><span class="suffix mono">/km</span></span>
+            </label>
+          </div>
+          <div class="calc-out">
+            <div class="out-fig disp" id="r-month">₹—</div>
+            <div class="out-cap">per month</div>
+            <dl class="out-rows">
+              <div><dt>Per year</dt><dd id="r-year" class="mono">₹—</dd></div>
+              <div><dt>Monthly distance</dt><dd id="r-dist" class="mono">— km</dd></div>
+            </dl>
+          </div>
+        </div>
+        <p class="calc-note mono">
+          Default ₹{perKm.toFixed(2)}/km is our verified Tricity running-cost figure
+          (electricity plus battery wear). Pure electricity is lower — see the
+          charging calculator below.
+        </p>
+      </section>
+
+      <!-- ============ 2 · PETROL VS EV BREAK-EVEN ============ -->
+      <section class="calc" aria-labelledby="c2-h">
+        <div class="calc-head">
+          <span class="calc-num mono">02</span>
+          <h2 class="calc-title disp" id="c2-h">Petrol vs EV break-even</h2>
+          <p class="calc-sub">How much you save on fuel — and how long those savings take to repay the scooter.</p>
+        </div>
+        <div class="calc-grid">
+          <div class="calc-inputs">
+            <label class="field">
+              <span class="field-label">Distance per day</span>
+              <span class="field-input"><input type="number" id="b-km" value="25" min="0" step="1" inputmode="decimal" /><span class="suffix mono">km</span></span>
+            </label>
+            <label class="field">
+              <span class="field-label">Days ridden per month</span>
+              <span class="field-input"><input type="number" id="b-days" value="26" min="0" max="31" step="1" inputmode="numeric" /><span class="suffix mono">days</span></span>
+            </label>
+            <label class="field">
+              <span class="field-label">EV running cost</span>
+              <span class="field-input"><span class="prefix mono">₹</span><input type="number" id="b-ev" value={perKm} min="0" step="0.01" inputmode="decimal" /><span class="suffix mono">/km</span></span>
+            </label>
+            <label class="field">
+              <span class="field-label">Petrol price</span>
+              <span class="field-input"><span class="prefix mono">₹</span><input type="number" id="b-petrol" value="95" min="0" step="0.5" inputmode="decimal" /><span class="suffix mono">/litre</span></span>
+            </label>
+            <label class="field">
+              <span class="field-label">Petrol scooter mileage</span>
+              <span class="field-input"><input type="number" id="b-mileage" value="45" min="1" step="1" inputmode="decimal" /><span class="suffix mono">km/l</span></span>
+            </label>
+            <label class="field">
+              <span class="field-label">EV on-road price</span>
+              <span class="field-input"><span class="prefix mono">₹</span><input type="number" id="b-price" value="56825" min="0" step="1000" inputmode="numeric" /></span>
+            </label>
+          </div>
+          <div class="calc-out">
+            <div class="out-fig disp" id="b-save">₹—</div>
+            <div class="out-cap">saved on fuel per month</div>
+            <dl class="out-rows">
+              <div><dt>Saved per year</dt><dd id="b-year" class="mono">₹—</dd></div>
+              <div><dt>Petrol cost / km</dt><dd id="b-pkm" class="mono">₹—</dd></div>
+              <div><dt>Fuel savings repay the EV in</dt><dd id="b-payback" class="mono">—</dd></div>
+            </dl>
+          </div>
+        </div>
+        <p class="calc-note mono">
+          Payback counts fuel savings only, not maintenance or resale. A true
+          ≤25 km/h, ≤250W scooter also has no registration, road tax or licence
+          cost — so its on-road price is its sticker price.
+        </p>
+      </section>
+
+      <!-- ============ 3 · CHARGING COST ON LOCAL TARIFFS ============ -->
+      <section class="calc" aria-labelledby="c3-h">
+        <div class="calc-head">
+          <span class="calc-num mono">03</span>
+          <h2 class="calc-title disp" id="c3-h">Charging cost on local tariffs</h2>
+          <p class="calc-sub">Pure electricity — what a charge costs on your own meter, slab by slab.</p>
+        </div>
+        <div class="calc-grid">
+          <div class="calc-inputs">
+            <label class="field">
+              <span class="field-label">Units per full charge</span>
+              <span class="field-input"><input type="number" id="c-units" value={unitsPerFull} min="0" step="0.1" inputmode="decimal" /><span class="suffix mono">kWh</span></span>
+            </label>
+            <label class="field">
+              <span class="field-label">Electricity tariff</span>
+              <span class="field-input"><span class="prefix mono">₹</span><input type="number" id="c-tariff" value={slab2} min="0" step="0.05" inputmode="decimal" /><span class="suffix mono">/unit</span></span>
+            </label>
+            <div class="presets" role="group" aria-label="Tariff presets">
+              <button type="button" class="preset mono" data-tariff={slab1}>Chandigarh ≤100u · ₹{slab1.toFixed(2)}</button>
+              <button type="button" class="preset mono" data-tariff={slab2}>Chandigarh 101–200u · ₹{slab2.toFixed(2)}</button>
+              <button type="button" class="preset mono" data-tariff={punjab}>Punjab · ₹{punjab.toFixed(2)}</button>
+            </div>
+            <label class="field">
+              <span class="field-label">Full charges per month</span>
+              <span class="field-input"><input type="number" id="c-charges" value="15" min="0" step="1" inputmode="numeric" /><span class="suffix mono">charges</span></span>
+            </label>
+          </div>
+          <div class="calc-out">
+            <div class="out-fig disp" id="c-each">₹—</div>
+            <div class="out-cap">per full charge</div>
+            <dl class="out-rows">
+              <div><dt>Per month</dt><dd id="c-month" class="mono">₹—</dd></div>
+              <div><dt>Per year</dt><dd id="c-year" class="mono">₹—</dd></div>
+            </dl>
+          </div>
+        </div>
+        <p class="calc-note mono">
+          Chandigarh domestic tariff effective {tariffVerified}; figures last
+          verified {lastVerified}. This is the energy cost only — your bill also
+          carries a small fixed charge and electricity duty per unit.
+        </p>
+      </section>
     </div>
-  </section>
+  </div>
 </BaseLayout>
+
+<script>
+  const inr = (n: number) => '₹' + Math.round(n).toLocaleString('en-IN');
+  const num = (id: string) => {
+    const el = document.getElementById(id) as HTMLInputElement | null;
+    const v = el ? parseFloat(el.value) : NaN;
+    return Number.isFinite(v) && v >= 0 ? v : 0;
+  };
+  const set = (id: string, text: string) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
+  };
+
+  /* 1 · monthly running cost */
+  function running() {
+    const dist = num('r-km') * num('r-days');
+    const month = dist * num('r-rate');
+    set('r-month', inr(month));
+    set('r-year', inr(month * 12));
+    set('r-dist', dist.toLocaleString('en-IN') + ' km');
+  }
+
+  /* 2 · petrol vs EV break-even */
+  function breakeven() {
+    const dist = num('b-km') * num('b-days');
+    const mileage = num('b-mileage');
+    const petrolPerKm = mileage > 0 ? num('b-petrol') / mileage : 0;
+    const evPerKm = num('b-ev');
+    const save = dist * (petrolPerKm - evPerKm);
+    set('b-save', inr(save));
+    set('b-year', inr(save * 12));
+    set('b-pkm', '₹' + petrolPerKm.toFixed(2));
+
+    const price = num('b-price');
+    if (save <= 0 || price <= 0) {
+      set('b-payback', save <= 0 ? 'never (EV costs more to run)' : '—');
+    } else {
+      const months = price / save;
+      set(
+        'b-payback',
+        months < 12
+          ? Math.ceil(months) + ' months'
+          : (months / 12).toFixed(1) + ' years',
+      );
+    }
+  }
+
+  /* 3 · charging cost on local tariffs */
+  function charging() {
+    const each = num('c-units') * num('c-tariff');
+    const month = each * num('c-charges');
+    set('c-each', inr(each));
+    set('c-month', inr(month));
+    set('c-year', inr(month * 12));
+  }
+
+  function recompute() {
+    running();
+    breakeven();
+    charging();
+  }
+
+  document
+    .querySelectorAll<HTMLInputElement>('.calc input')
+    .forEach((el) => el.addEventListener('input', recompute));
+
+  document.querySelectorAll<HTMLButtonElement>('.preset').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const t = document.getElementById('c-tariff') as HTMLInputElement | null;
+      if (t && btn.dataset.tariff) {
+        t.value = btn.dataset.tariff;
+        charging();
+      }
+    });
+  });
+
+  recompute();
+</script>
+
+<style>
+  .calc-stack { max-width: var(--read); margin-inline: auto; display: grid; gap: clamp(28px, 5vw, 48px); }
+  .calc { border: 1px solid var(--grid); background: var(--concrete); }
+
+  .calc-head { padding: clamp(22px, 4vw, 32px); border-bottom: 1px solid var(--grid); position: relative; }
+  .calc-num { position: absolute; top: clamp(22px, 4vw, 32px); right: clamp(22px, 4vw, 32px); font-size: 12px; letter-spacing: .18em; color: var(--charge-deep); }
+  .calc-title { font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.1; letter-spacing: -.02em; }
+  .calc-sub { margin-top: 8px; font-size: 1rem; color: var(--ink-soft); line-height: 1.5; max-width: 46ch; }
+
+  .calc-grid { display: grid; grid-template-columns: 1fr 280px; align-items: stretch; }
+
+  .calc-inputs { padding: clamp(22px, 4vw, 32px); display: grid; gap: 18px; }
+  .field { display: grid; gap: 8px; }
+  .field-label { font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+  .field-input { display: flex; align-items: center; gap: 8px; border: 1px solid var(--grid); background: var(--concrete-2); padding: 0 12px; transition: border-color .2s; }
+  .field-input:focus-within { border-color: var(--charge); }
+  .field-input .prefix, .field-input .suffix { font-size: 13px; color: var(--ink-soft); flex-shrink: 0; }
+  .field-input input { flex: 1; min-width: 0; border: none; background: transparent; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 1.05rem; color: var(--ink); padding: 12px 0; }
+  .field-input input:focus { outline: none; }
+  .field-input input::-webkit-outer-spin-button, .field-input input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .field-input input[type="number"] { -moz-appearance: textfield; }
+
+  .presets { display: flex; flex-wrap: wrap; gap: 8px; }
+  .preset { font-size: 11px; letter-spacing: .04em; color: var(--ink-soft); background: var(--concrete-2); border: 1px solid var(--grid); padding: 7px 10px; cursor: pointer; transition: color .2s, border-color .2s; }
+  .preset:hover { color: var(--ink); border-color: var(--charge); }
+
+  .calc-out { background: var(--night); color: var(--concrete); padding: clamp(24px, 4vw, 32px); display: flex; flex-direction: column; justify-content: center; }
+  .out-fig { font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1; letter-spacing: -.02em; color: #fff; }
+  .out-cap { margin-top: 8px; font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+  .out-rows { margin-top: 22px; border-top: 1px solid rgba(255,255,255,.14); display: grid; gap: 1px; }
+  .out-rows div { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .out-rows div:last-child { border-bottom: none; }
+  .out-rows dt { font-size: 12px; color: rgba(255,255,255,.6); }
+  .out-rows dd { font-size: 1rem; color: var(--signal); text-align: right; }
+
+  .calc-note { padding: 16px clamp(22px, 4vw, 32px); border-top: 1px solid var(--grid); font-size: 11px; letter-spacing: .04em; line-height: 1.6; color: var(--ink-soft); }
+
+  @media (max-width: 620px) {
+    .calc-grid { grid-template-columns: 1fr; }
+    .calc-out { border-top: 1px solid var(--grid); }
+    .calc-num { position: static; display: block; margin-bottom: 10px; }
+  }
+</style>
