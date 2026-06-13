@@ -1,0 +1,81 @@
+---
+import ChargeBar from './ChargeBar.astro';
+
+const nav = [
+  { label: 'Guides', href: '/guides' },
+  { label: 'Comparisons', href: '/compare' },
+  { label: 'Calculators', href: '/calculators' },
+  { label: 'News', href: '/news' },
+  { label: 'About', href: '/about' },
+];
+---
+<header class="site-header">
+  <div class="shell head-in">
+    <a class="brand" href="/" aria-label="EV Chandigarh — home">
+      <ChargeBar segments={3} filled={3} />
+      <span class="brand-word">EV Chandigarh</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <ul class="nav-list">
+        {nav.map((item) => (
+          <li><a class="nav-link" href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: var(--concrete);
+    border-bottom: 1px solid var(--grid);
+  }
+  .head-in {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem 1.5rem;
+    flex-wrap: wrap;
+    padding-block: 0.85rem;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .brand :global(.charge-bar) { font-size: 1.1rem; }
+  .brand-word {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .nav-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1.15rem;
+    padding: 0;
+  }
+  .nav-link {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0.2rem 0;
+    border-bottom: 2px solid transparent;
+  }
+  .nav-link:hover { color: var(--charge-ink); border-bottom-color: var(--charge); }
+  @media (max-width: 560px) {
+    .brand-word { font-size: 1rem; }
+    .nav-list { gap: 0.3rem 0.9rem; }
+  }
+</style>

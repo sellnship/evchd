@@ -1,0 +1,118 @@
+---
+import ChargeBar from './ChargeBar.astro';
+
+const sections = [
+  { label: 'Guides', href: '/guides' },
+  { label: 'Comparisons', href: '/compare' },
+  { label: 'Calculators', href: '/calculators' },
+  { label: 'News', href: '/news' },
+];
+const publication = [
+  { label: 'About', href: '/about' },
+  { label: 'Editorial Policy', href: '/editorial-policy' },
+  { label: 'RSS', href: '/rss.xml' },
+];
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="shell foot-top">
+    <div class="foot-brand">
+      <a class="foot-mark" href="/" aria-label="EV Chandigarh — home">
+        <ChargeBar segments={3} filled={3} />
+        <span class="foot-word">EV Chandigarh</span>
+      </a>
+      <p class="foot-line">
+        Independent electric-mobility guidance for Chandigarh, Mohali and
+        Panchkula. We publish information, not inventory.
+      </p>
+    </div>
+
+    <nav class="foot-cols" aria-label="Footer">
+      <div class="foot-col">
+        <h2 class="foot-h">Sections</h2>
+        <ul>
+          {sections.map((i) => <li><a href={i.href}>{i.label}</a></li>)}
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h2 class="foot-h">Publication</h2>
+        <ul>
+          {publication.map((i) => <li><a href={i.href}>{i.label}</a></li>)}
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="shell foot-meta">
+    <span>30.73&deg; N &middot; 76.78&deg; E</span>
+    <span>Published from Chandigarh</span>
+    <span>Independent editorial &mdash; not a dealer</span>
+    <span>&copy; {year} EV Chandigarh</span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--ink);
+    color: var(--on-ink);
+    margin-top: clamp(3rem, 8vw, 6rem);
+    padding-block: clamp(2.5rem, 6vw, 4rem);
+  }
+  .foot-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2.5rem;
+  }
+  .foot-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
+    color: var(--on-ink);
+  }
+  .foot-mark :global(.charge-bar) { font-size: 1rem; }
+  .foot-word {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .foot-line {
+    font-family: var(--serif);
+    max-width: 44ch;
+    margin-top: 0.7rem;
+    color: var(--on-ink);
+  }
+  .foot-cols { display: flex; gap: 3rem; flex-wrap: wrap; }
+  .foot-h {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--on-ink-dim);
+    margin-bottom: 0.7rem;
+  }
+  .foot-col ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+  .foot-col a {
+    color: var(--on-ink);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(232, 230, 225, 0.25);
+    padding-bottom: 1px;
+  }
+  .foot-col a:hover { color: var(--signal); border-bottom-color: var(--signal); }
+  .foot-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.6rem;
+    margin-top: clamp(2rem, 5vw, 3rem);
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--ink-2);
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    color: var(--on-ink-dim);
+  }
+  .site-footer :focus-visible { outline-color: var(--signal); }
+  @media (max-width: 700px) { .foot-top { grid-template-columns: 1fr; gap: 1.75rem; } }
+</style>
