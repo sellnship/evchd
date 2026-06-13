@@ -52,3 +52,4 @@ jobs:
           git add src/content public/images scripts/queue.json
           git commit -m "content: autopublish next queued article"
           git push
+
