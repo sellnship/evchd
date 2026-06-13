@@ -1,58 +1,317 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ChargeBar from '../components/ChargeBar.astro';
+
+const hubs = [
+  {
+    title: 'Guides',
+    href: '/guides',
+    kicker: 'How-to & rules',
+    desc: 'The rules that actually apply — RTO registration, home charging and subsidies across Punjab, Haryana and Chandigarh.',
+  },
+  {
+    title: 'Comparisons',
+    href: '/compare',
+    kicker: 'Side by side',
+    desc: 'On the numbers that matter: range, real running cost, charging time and price bands for the models sold here.',
+  },
+  {
+    title: 'Calculators',
+    href: '/calculators',
+    kicker: 'Your own numbers',
+    desc: 'Work it out for yourself — monthly running cost, petrol-versus-EV break-even and charging cost on local tariffs.',
+  },
+  {
+    title: 'News',
+    href: '/news',
+    kicker: 'On the ground',
+    desc: 'What is changing for EV owners in the Tricity — new chargers, policy moves and developments as they land.',
+  },
+];
+
+const trust = [
+  {
+    label: 'Independent',
+    head: 'We don’t sell vehicles',
+    body: 'No prices, no bookings, no dealer pages. We point buyers to the seller and keep our guidance neutral.',
+  },
+  {
+    label: 'Local',
+    head: 'Real Tricity numbers',
+    body: 'Chandigarh’s domestic tariff, Punjab and Haryana RTO rules, on-ground charging costs — every figure carries its source.',
+  },
+  {
+    label: 'Accountable',
+    head: 'Named people, public corrections',
+    body: 'Articles are written and reviewed by real people, under a corrections policy. When facts change, we fix them on the record.',
+  },
+];
 ---
 
 <BaseLayout
-  title="EV Chandigarh — Electric Mobility for the Tricity"
-  description="Independent guides, comparisons and tools for electric vehicles across Chandigarh, Mohali and Panchkula. Built to help you understand EVs — not to sell you one."
+  title="EV Chandigarh — Independent EV Guide for the Tricity"
+  description="Independent guides, real local numbers and honest comparisons for electric vehicles across Chandigarh, Mohali and Panchkula. We answer the questions — we don’t sell the vehicles."
   type="website"
 >
-  <main>
-    <p class="kicker">Chandigarh · Mohali · Panchkula</p>
-    <h1>EV Chandigarh</h1>
-    <p class="lead">
-      Independent, local electric-mobility guidance for the Tricity.
-    </p>
-    <p>
-      Guides, comparisons, a glossary, local news and running-cost tools are on
-      the way. This is the foundation — the full site is coming soon.
-    </p>
-  </main>
+  <!-- HERO — the thesis -->
+  <section class="hero">
+    <div class="shell">
+      <p class="eyebrow hero-eyebrow">Chandigarh &middot; Mohali &middot; Panchkula</p>
+      <h1 class="hero-h1">
+        The Tricity’s <span class="hl">independent</span> guide to going electric.
+      </h1>
+      <p class="hero-lead">
+        Real local numbers, honest comparisons, and clear guides for life with an
+        EV across Chandigarh, Mohali and Panchkula. We answer the questions — we
+        don’t sell the vehicles.
+      </p>
+      <div class="hero-actions">
+        <a class="btn" href="/guides">Browse the guides <span class="arr">→</span></a>
+        <a class="link-arrow" href="/editorial-policy">How we work →</a>
+      </div>
+    </div>
 
-  <style>
-    main {
-      max-width: 42rem;
-      margin: 0 auto;
-      padding: clamp(3rem, 10vw, 6rem) 1.5rem;
-      font-family:
-        system-ui,
-        -apple-system,
-        'Segoe UI',
-        Roboto,
-        sans-serif;
-      color: #1a1d21;
-    }
-    .kicker {
-      margin: 0 0 0.75rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #1f5eff;
-    }
-    h1 {
-      margin: 0 0 0.5rem;
-      font-size: clamp(2rem, 6vw, 3rem);
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-    }
-    .lead {
-      margin: 0 0 1.5rem;
-      font-size: 1.25rem;
-      color: #3a3f45;
-    }
-    p {
-      line-height: 1.6;
-    }
-  </style>
+    <div class="shell hero-gauge">
+      <ChargeBar segments={12} filled={8} block animate />
+      <div class="gauge-axis">
+        <span class="eyebrow">Electric Tricity</span>
+        <span class="gauge-arrow" aria-hidden="true">→</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HUBS — the four content pillars -->
+  <section class="section hubs">
+    <div class="shell">
+      <header class="section-head">
+        <p class="eyebrow"><ChargeBar segments={5} filled={3} /> The hubs</p>
+        <h2 class="section-h2">Start where your question is.</h2>
+      </header>
+
+      <div class="hubs-grid">
+        {hubs.map((h) => (
+          <a class="hub" href={h.href}>
+            <ChargeBar segments={6} filled={2} />
+            <span class="hub-kicker eyebrow">{h.kicker}</span>
+            <h3 class="hub-title">{h.title}</h3>
+            <p class="hub-desc">{h.desc}</p>
+            <span class="hub-foot">
+              <span class="hub-path">{h.href}</span>
+              <span class="arr" aria-hidden="true">→</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST — why this is a credible local source -->
+  <section class="section trust">
+    <div class="shell">
+      <header class="section-head">
+        <p class="eyebrow"><ChargeBar segments={5} filled={3} /> Why trust this</p>
+        <h2 class="section-h2">Built on local fact, not sales talk.</h2>
+      </header>
+
+      <div class="trust-grid">
+        {trust.map((t) => (
+          <div class="trust-col">
+            <span class="trust-label eyebrow">{t.label}</span>
+            <h3 class="trust-head">{t.head}</h3>
+            <p class="trust-body">{t.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SOFT CTA — route buyers off-site; this site never sells -->
+  <section class="section cta-sec">
+    <div class="shell">
+      <div class="cta">
+        <p class="eyebrow">Buying</p>
+        <p class="cta-line">
+          Looking to buy? See prices &amp; book at <span class="cta-dom">evchandigarh.com</span>.
+        </p>
+        <p class="cta-sub">
+          This site stays independent — we point you to the seller, and keep our
+          guidance neutral.
+        </p>
+        <a class="cta-link" href="https://evchandigarh.com" rel="noopener">
+          Visit evchandigarh.com <span class="arr" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  /* -- HERO -------------------------------------------------------------- */
+  .hero { padding-block: clamp(2.75rem, 7vw, 6rem) clamp(2rem, 5vw, 3.5rem); }
+  .hero-eyebrow { margin-bottom: clamp(1rem, 3vw, 1.6rem); }
+  .hero-h1 { font-size: var(--step-5); max-width: 17ch; letter-spacing: -0.03em; }
+  .hero-h1 .hl { color: var(--charge); }
+  .hero-lead {
+    font-family: var(--serif);
+    font-size: var(--step-1);
+    line-height: 1.5;
+    max-width: 52ch;
+    margin-top: clamp(1.2rem, 3vw, 1.75rem);
+  }
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem 1.6rem;
+    margin-top: clamp(1.5rem, 4vw, 2.4rem);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: var(--step-0);
+    background: var(--ink);
+    color: var(--on-ink);
+    border: 1.5px solid var(--ink);
+    padding: 0.8rem 1.2rem;
+    text-decoration: none;
+  }
+  .btn:hover { background: var(--charge); border-color: var(--charge); color: #fff; }
+  .btn .arr { transition: transform 0.25s; }
+  .btn:hover .arr { transform: translateX(4px); }
+  .link-arrow {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--grid);
+    padding-bottom: 2px;
+  }
+  .link-arrow:hover { color: var(--charge-ink); border-bottom-color: var(--charge); }
+
+  .hero-gauge { margin-top: clamp(2rem, 6vw, 4rem); }
+  .gauge-axis {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.6rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--grid);
+  }
+  .gauge-arrow { font-family: var(--mono); color: var(--charge); }
+
+  /* -- SECTION shell ----------------------------------------------------- */
+  .section { padding-block: clamp(2.5rem, 7vw, 5rem); border-top: 1px solid var(--grid); }
+  .section-head { margin-bottom: clamp(1.5rem, 4vw, 2.5rem); }
+  .section-head .eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; }
+  .section-head :global(.charge-bar) { font-size: 1em; }
+  .section-h2 { font-size: var(--step-3); max-width: 20ch; margin-top: 0.6rem; }
+
+  /* -- HUBS (modernist sector grid: 1px gaps reveal the grid colour) ----- */
+  .hubs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--grid);
+    border: 1px solid var(--grid);
+  }
+  .hub {
+    background: var(--concrete);
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding: clamp(1.25rem, 2.4vw, 1.9rem);
+    text-decoration: none;
+    color: var(--ink);
+    min-height: 14rem;
+    transition: background 0.25s;
+  }
+  .hub:hover { background: var(--concrete-2); }
+  .hub :global(.charge-bar) { font-size: 0.95rem; margin-bottom: 0.15rem; }
+  .hub :global(.charge-bar .seg) {
+    transition: background 0.3s, box-shadow 0.3s;
+    transition-delay: calc(var(--i, 0) * 45ms);
+  }
+  .hub:hover :global(.charge-bar .seg),
+  .hub:focus-within :global(.charge-bar .seg) {
+    background: var(--charge);
+    box-shadow: inset 0 0 0 1.6px var(--charge);
+  }
+  .hub-title { font-size: var(--step-2); }
+  .hub-desc { font-family: var(--serif); font-size: var(--step--1); line-height: 1.5; color: var(--prose); flex: 1; }
+  .hub-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    color: var(--ink-soft);
+  }
+  .hub-foot .arr { color: var(--charge); transition: transform 0.25s; }
+  .hub:hover .hub-foot .arr { transform: translateX(4px); }
+  .hub:hover .hub-path { color: var(--ink); }
+
+  /* -- TRUST ------------------------------------------------------------- */
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--grid);
+    border: 1px solid var(--grid);
+  }
+  .trust-col {
+    background: var(--concrete);
+    padding: clamp(1.25rem, 2.4vw, 1.9rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .trust-label { color: var(--charge-ink); }
+  .trust-head { font-size: var(--step-1); }
+  .trust-body { font-family: var(--serif); font-size: var(--step--1); line-height: 1.55; color: var(--prose); }
+
+  /* -- SOFT CTA ---------------------------------------------------------- */
+  .cta { border: 1.5px solid var(--ink); padding: clamp(1.75rem, 5vw, 3rem); max-width: 62ch; }
+  .cta .eyebrow { color: var(--ink-soft); }
+  .cta-line {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: var(--step-2);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-top: 0.6rem;
+  }
+  .cta-dom { color: var(--charge); }
+  .cta-sub { font-family: var(--serif); font-size: var(--step-0); line-height: 1.5; color: var(--prose); max-width: 50ch; margin-top: 0.75rem; }
+  .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    width: max-content;
+    margin-top: 1.4rem;
+    padding: 0 0.1rem 0.1rem;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: var(--step-1);
+    color: var(--ink);
+    text-decoration: none;
+    box-shadow: inset 0 -0.5em 0 var(--signal);
+    transition: box-shadow 0.2s;
+  }
+  .cta-link:hover { box-shadow: inset 0 -0.95em 0 var(--signal); }
+  .cta-link .arr { color: var(--charge); transition: transform 0.25s; }
+  .cta-link:hover .arr { transform: translateX(4px); }
+
+  /* -- responsive -------------------------------------------------------- */
+  @media (max-width: 880px) { .hubs-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 760px) { .trust-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 540px) {
+    .hubs-grid { grid-template-columns: 1fr; }
+    .hub { min-height: auto; }
+  }
+</style>

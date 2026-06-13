@@ -2,10 +2,17 @@
 /**
  * BaseLayout — every page inherits this.
  *
- * It carries the Google-Discover + SEO head that the whole asset depends on.
- * Missing any of the "Discover-critical" items below can exclude a page from
- * Discover regardless of content quality, so edit with care.
+ * It carries the Google-Discover + SEO head that the whole asset depends on,
+ * plus the site chrome (Header / Footer) and the design-system tokens.
  */
+import '@fontsource-variable/space-grotesk';
+import '@fontsource-variable/source-serif-4';
+import '@fontsource/space-mono/400.css';
+import '@fontsource/space-mono/700.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 interface Props {
   title: string;
   description: string;
@@ -90,6 +97,7 @@ const articleSchema =
 
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#e8e6e1" />
 
     {
       articleSchema && (
@@ -101,6 +109,11 @@ const articleSchema =
     }
   </head>
   <body>
-    <slot />
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>
