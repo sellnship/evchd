@@ -59,9 +59,7 @@ export interface LicenceRegistration {
 }
 
 export interface ChandigarhDomesticTariff {
-  slab_1_100_units_inr: number;
-  slab_101_200_units_inr: number;
-  above_200_note: string;
+  tiered: string;
   fixed_charge_note: string;
   effective_from: string;
   order: string;
@@ -69,8 +67,12 @@ export interface ChandigarhDomesticTariff {
 }
 
 export interface ElectricityTariff {
+  /** Realistic all-in rate used for running-cost math (~Rs 5/unit). */
+  running_cost_basis_inr: number;
+  basis_note: string;
   chandigarh_domestic: ChandigarhDomesticTariff;
-  punjab_domestic_comparison_inr: string;
+  mohali_pspcl_inr: string;
+  panchkula_haryana_note: string;
   local_hook: string;
 }
 

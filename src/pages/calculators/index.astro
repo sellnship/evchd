@@ -2,6 +2,21 @@
 import '../../styles/inner.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Eyebrow from '../../components/Eyebrow.astro';
+
+// Local tariff presets + defaults the calculators will use once the
+// interactive tools ship. Defined here as the committed source of truth so the
+// figures stay in step with src/data/local-facts.json.
+//   - Chandigarh (low slab) ~Rs 2.75/unit
+//   - Chandigarh (higher slabs) & Mohali (PSPCL) ~Rs 5.40/unit
+//   - Default basis: ~Rs 5/unit (honest all-in)
+//   - Default running cost: ~Rs 0.17/km
+const chargingRatePresets = [
+  { label: 'Chandigarh — low slab', inr: 2.75 },
+  { label: 'Chandigarh — higher slabs / Mohali (PSPCL)', inr: 5.40 },
+];
+const defaultChargingRateInr = 5;
+const defaultRunningCostPerKmInr = 0.17;
+const inr = (n: number) => '₹' + n.toFixed(2).replace(/\.00$/, '');
 ---
 <BaseLayout
   title="Calculators — EV Chandigarh"
@@ -14,8 +29,30 @@ import Eyebrow from '../../components/Eyebrow.astro';
       <h1 class="listing-title disp">Work it out for yourself</h1>
       <p class="listing-desc">Running cost, petrol-versus-EV break-even and charging cost on local tariffs — interactive tools you can trust because the inputs are yours.</p>
     </header>
+
     <div class="empty-state">
       <p class="mono">The calculators are in development — check back shortly.</p>
     </div>
+
+    <aside class="calc-assumptions">
+      <p class="mono calc-assumptions-head">The local rates they’ll default to</p>
+      <ul>
+        {chargingRatePresets.map((p) => (
+          <li><strong>{inr(p.inr)}/unit</strong> — {p.label}</li>
+        ))}
+        <li><strong>{inr(defaultChargingRateInr)}/unit</strong> — default all-in basis (a fair average; the lowest slab is cheaper)</li>
+        <li><strong>{inr(defaultRunningCostPerKmInr)}/km</strong> — default running cost for a low-speed EV</li>
+      </ul>
+      <p class="calc-assumptions-note">Chandigarh’s domestic tariff is tiered (~₹2.75/unit lowest slab, ~₹4.80 for 151–400 units, ~₹5.40 above 400); Mohali (PSPCL) and Panchkula (Haryana) sit around ₹5.40/unit. We use ~₹5/unit as an honest all-in basis.</p>
+    </aside>
   </section>
+
+  <style>
+    .calc-assumptions { margin-top: clamp(28px, 5vw, 44px); border: 1px solid var(--grid); padding: clamp(20px, 4vw, 32px); background: var(--concrete-2); }
+    .calc-assumptions-head { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 14px; }
+    .calc-assumptions ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+    .calc-assumptions li { font-size: .98rem; color: var(--ink); }
+    .calc-assumptions li strong { font-family: "Space Mono", monospace; color: var(--charge); }
+    .calc-assumptions-note { margin-top: 16px; font-size: .85rem; line-height: 1.5; color: var(--ink-soft); }
+  </style>
 </BaseLayout>

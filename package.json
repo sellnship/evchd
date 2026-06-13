@@ -12,7 +12,8 @@
     "test:image": "node scripts/test-image.mjs",
     "gen:cards": "node scripts/gen-cards.mjs",
     "gen:heroes": "node scripts/gen-heroes.mjs",
-    "gen:article": "node scripts/generate.mjs"
+    "gen:article": "node scripts/generate.mjs",
+    "gen:icons": "node scripts/gen-icons.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.1",

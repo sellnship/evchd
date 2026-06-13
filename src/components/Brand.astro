@@ -1,8 +1,14 @@
 ---
-// The wordmark + 3-bar "current" mark, used in the header and footer.
-interface Props { href?: string; }
-const { href = '/' } = Astro.props;
+// The wordmark logo, used in the header (full/dark) and footer (white).
+// SVGs render inline (Astro SVG components) so the Space Grotesk wordmark picks
+// up the page web font.
+import LogoFull from '../assets/logo-full.svg';
+import LogoWhite from '../assets/logo-white.svg';
+
+interface Props { href?: string; variant?: 'full' | 'white'; }
+const { href = '/', variant = 'full' } = Astro.props;
+const Logo = variant === 'white' ? LogoWhite : LogoFull;
 ---
 <a class="brand" href={href} aria-label="EV Chandigarh — home">
-  <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>EV CHANDIGARH
+  <Logo class="brand-logo" aria-hidden="true" />
 </a>

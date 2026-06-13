@@ -6,7 +6,7 @@ heroImage: "/images/low-speed-compare-hero.webp"
 author: "rajinder-singh"
 reviewedBy: "rajinder-singh"
 datePublished: 2026-06-05
-dateModified: 2026-06-09
+dateModified: 2026-06-13
 tags: ["comparison", "low-speed", "range", "price", "running cost"]
 models: ["little-gracy", "gracy-i", "x-men-plus", "logix"]
 draft: false
@@ -30,7 +30,7 @@ Once licence and speed are off the table, three things do the deciding:
 
 ## A note on cost
 
-All of these run at roughly **₹0.25/km** on Chandigarh power — the running cost barely changes between models, so don't over-index on it when comparing. Where the money actually differs is the **up-front price** and the **battery choice**, both in the table above.
+All of these run at roughly **₹0.17/km** on local power — about ₹10 for a ~2-unit full charge at an all-in rate of around ₹5 per unit — so the running cost barely changes between models. Don't over-index on it when comparing. Where the money actually differs is the **up-front price** and the **battery choice**, both in the table above.
 
 This is a category guide, not a sales pitch: we don't stock or sell any of these. When you've narrowed it down on the numbers, take the shortlist to a dealer for a test ride and live pricing.
 

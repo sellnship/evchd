@@ -15,5 +15,77 @@ const links = [
     <nav class="nav-links" aria-label="Primary">
       {links.map((l) => <a href={l.href}>{l.label}</a>)}
     </nav>
+    <button
+      type="button"
+      class="nav-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="nav-toggle-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+  </div>
+
+  <!-- Mobile drawer (≤900px). Starts inert so its links aren't focusable/announced
+       while closed; JS toggles inert + data-open. prefers-reduced-motion handled in CSS. -->
+  <div id="mobile-menu" class="mobile-menu" data-open="false" inert>
+    <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Site menu">
+      <nav class="mobile-menu-links" aria-label="Mobile">
+        {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      </nav>
+    </div>
   </div>
 </header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  if (toggle && menu) {
+    const panel = menu.querySelector<HTMLElement>('.mobile-menu-panel');
+
+    const open = () => {
+      menu.dataset.open = 'true';
+      menu.removeAttribute('inert');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close menu');
+      document.body.style.overflow = 'hidden';
+      // move focus into the drawer for keyboard users
+      menu.querySelector<HTMLAnchorElement>('a')?.focus();
+    };
+
+    const close = ({ refocus = true } = {}) => {
+      menu.dataset.open = 'false';
+      menu.setAttribute('inert', '');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+      document.body.style.overflow = '';
+      if (refocus) toggle.focus();
+    };
+
+    const isOpen = () => menu.dataset.open === 'true';
+
+    toggle.addEventListener('click', () => (isOpen() ? close() : open()));
+
+    // Close on link tap (navigating away on a SPA-less site still benefits visually).
+    menu.querySelectorAll('a').forEach((a) =>
+      a.addEventListener('click', () => close({ refocus: false })),
+    );
+
+    // Close on backdrop tap (clicks on the overlay outside the panel).
+    menu.addEventListener('click', (e) => {
+      if (panel && !panel.contains(e.target as Node)) close();
+    });
+
+    // Close on Escape.
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) close();
+    });
+
+    // If the viewport grows back to desktop while open, reset cleanly.
+    const mq = window.matchMedia('(min-width: 901px)');
+    mq.addEventListener('change', (e) => {
+      if (e.matches && isOpen()) close({ refocus: false });
+    });
+  }
+</script>

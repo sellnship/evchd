@@ -8,9 +8,9 @@ import FeaturedCard from '../components/FeaturedCard.astro';
 import { localFacts } from '../data/types';
 
 // Math stats: read from the data layer where they map.
-const perKm = localFacts.charging_cost.per_km_inr; // 0.25
+const perKm = localFacts.charging_cost.per_km_inr; // 0.17
 const fullCharge =
-  Number(String(localFacts.charging_cost.full_charge_cost_inr).split('-').pop()) || 16; // "10-16" → 16
+  Number(String(localFacts.charging_cost.full_charge_cost_inr).split('-').pop()) || 10; // "10" → 10
 
 const featured = [
   {
@@ -27,7 +27,7 @@ const featured = [
     alt: 'An electric scooter on a clean, tree-lined Chandigarh sector road.',
     cat: 'Comparison · Cost',
     title: 'Petrol vs EV: the real monthly cost across the Tricity',
-    desc: 'At ₹0.25/km on Chandigarh power, here’s where the break-even lands.',
+    desc: 'At ₹0.17/km on Chandigarh power, here’s where the break-even lands.',
   },
   {
     href: '/guides',

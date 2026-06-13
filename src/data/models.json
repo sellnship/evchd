@@ -22,8 +22,8 @@
       "Lithium-ion — lighter, longer life, ~4-5 hr charge, higher upfront cost"
     ],
     "battery_guidance": "For daily distances above ~60 km, choose lithium-ion over lead-acid for better range, longer life and lower weight.",
-    "charge_units_per_full": "1.5-2",
-    "running_cost_per_km_inr": 0.25,
+    "charge_units_per_full": "~2",
+    "running_cost_per_km_inr": 0.17,
     "service_network": "350+ authorised service centres across India",
     "note": "These specs apply to every model below unless a model overrides them."
   },
@@ -33,7 +33,7 @@
       "slug": "little-gracy",
       "name": "Zelio Little Gracy",
       "price_from_inr": 45633,
-      "range_km": "50-60",
+      "range_km": "60",
       "best_for": "First-time and young riders, students, senior citizens; short daily trips of 15-20 km",
       "highlights": ["Lightest and most affordable in the range", "Low seat height, both feet flat at a stop", "Fully gearless", "~1.5 units per charge"]
     },
@@ -63,7 +63,7 @@
       "range_km": "60-120",
       "battery": "60V/32AH lead-acid (from Rs 59,999) up to 72V/32AH lithium-ion (Rs 76,999)",
       "best_for": "College students, young women, daily urban commuters",
-      "highlights": ["Launched April 2026", "60V/72V BLDC hub motor", "~2 units per charge (~Rs 12-16)", "7 colour options"],
+      "highlights": ["Launched April 2026", "60V/72V BLDC hub motor", "~2 units per charge (~Rs 10)", "7 colour options"],
       "note": "This may be the current-year version of the Gracy line — reconcile with Gracy i / Gracy Pro depending on what you actually stock."
     },
     {

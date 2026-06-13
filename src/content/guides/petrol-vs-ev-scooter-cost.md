@@ -13,7 +13,7 @@ draft: false
 
 ## Why this comparison matters in the Tricity
 
-Most petrol-versus-EV comparisons you find online use national averages for fuel prices and electricity rates. They are not wrong, but they are not yours. Chandigarh's domestic electricity tariff — Rs 2.80 per unit for the first 100 units and Rs 3.75 per unit for the next hundred, per the JERC five-year tariff order effective 1 November 2025 — is materially lower than what a rider in Mohali pays under PSPCL (Rs 5.40 per unit for the first 300 units). That gap changes the arithmetic in a way a generic answer cannot capture. This article works through the real year-one numbers, rupee by rupee, for a Chandigarh-area commuter.
+Most petrol-versus-EV comparisons you find online use national averages for fuel prices and electricity rates. They are not wrong, but they are not yours. Chandigarh's domestic electricity tariff, set by the JERC five-year order effective 1 November 2025, is tiered — roughly Rs 2.75 per unit at the lowest slab, about Rs 4.80 for 151–400 units, and around Rs 5.40 above 400. Mohali (PSPCL) and Panchkula (Haryana) sit around Rs 5.40 per unit too. Rather than cherry-pick the cheapest slab, this article works the maths on an honest all-in rate of about Rs 5 per unit — and even then, the year-one numbers, rupee by rupee, favour the EV for a Tricity commuter.
 
 ---
 
@@ -45,26 +45,26 @@ On insurance: mandatory third-party cover is not legally required for CMVR-exemp
 
 ### Running costs: fuel versus electricity
 
-This is where Chandigarh's tariff becomes the real story.
+This is where the local tariff becomes the real story.
 
 **Petrol scooter (100cc):** Per the charging cost data sourced from Zelio official and EV India guidance (June 2026), the petrol cost for the same distance a low-speed EV covers on a full charge works out to approximately Rs 150–200. Over a year, at a modest daily commute of around 25–30 km, fuel costs accumulate quickly.
 
-**Low-speed EV in Chandigarh:** A full charge consumes roughly 1.5–2 units of electricity, per verified charging data. At Chandigarh's JERC-notified domestic tariff of Rs 2.80–3.75 per unit, a full charge costs approximately Rs 10–16 in rupees. The per-kilometre running cost works out to approximately Rs 0.25/km.
+**Low-speed EV in the Tricity:** A full charge consumes roughly 2 units of electricity, per verified charging data. At an honest all-in rate of about Rs 5 per unit, a full charge costs roughly Rs 10 (less if you are on Chandigarh's lowest slab). Spread over a roughly 60 km range, the per-kilometre running cost works out to about Rs 0.17/km.
 
-To put that in a single comparison: the same distance that costs Rs 150–200 in petrol costs Rs 12–16 in electricity if you are charging at home in Chandigarh.
+To put that in a single comparison: the same distance that costs Rs 150–200 in petrol costs about Rs 10 in electricity if you are charging at home.
 
 **Annual electricity cost — worked example**
 
 Assume 25 km per day, 300 riding days per year: that is 7,500 km annually.
 
-- At Rs 0.25/km (Chandigarh domestic tariff): **Rs 1,875 per year** in charging costs.
+- At Rs 0.17/km (about Rs 5 per unit all-in): **roughly Rs 1,275 per year** in charging costs.
 - Petrol equivalent for 7,500 km in a 100cc scooter (assume roughly 50 km/litre and petrol at approximately Rs 94–96/litre in Chandigarh — verify current pump price locally as fuel prices are not within our verified data set): the rough figure is in the range of Rs 14,000–15,000 per year. Treat this as an order-of-magnitude estimate; confirm current fuel prices at your nearest pump.
 
-The electricity saving, on this basis, is in the range of **Rs 12,000–13,000 per year** for the Chandigarh rider.
+The electricity saving, on this basis, is in the region of **Rs 13,000 per year**.
 
-**The Mohali contrast**
+**Across the Tricity**
 
-If you cross the border into Mohali and charge at PSPCL's domestic rate of Rs 5.40 per unit, the same 1.5–2 units per charge costs Rs 8–11 per charge — still cheap, but noticeably higher than Chandigarh. Over a year at the same 7,500 km, charging costs in Mohali would be roughly Rs 3,375–4,500 versus Chandigarh's Rs 1,875–2,813. The difference is not dramatic in absolute terms, but it illustrates the genuine, hyper-local advantage of charging within Chandigarh's UT jurisdiction. No generic EV comparison will tell you this.
+The three cities are not far apart on domestic power. Chandigarh's tariff is tiered, so a light-use household on the lowest slab (~Rs 2.75/unit) pays less, while Mohali (PSPCL, ~Rs 5.40/unit for the first 300 units) and Panchkula (Haryana) sit a little higher. At an all-in ~Rs 5/unit the annual charging cost for 7,500 km is around Rs 1,275 wherever you plug in across the region — and on Chandigarh's lowest slab, less. The honest local point is not that one city is dramatically cheaper than the next; it is that across the whole Tricity, charging stays a small fraction of what petrol costs.
 
 ---
 
@@ -76,15 +76,15 @@ A BLDC hub-motor electric scooter has far fewer moving parts. There is no engine
 
 ---
 
-## Year-one cost summary (Chandigarh domestic charging)
+## Year-one cost summary (Tricity domestic charging)
 
 | Cost head | Petrol scooter | Low-speed EV |
 |---|---|---|
 | Ex-showroom price | Rs 75,000–85,000 (approx, verify locally) | Rs 56,825–76,999 (depending on model/variant) |
 | RTO registration + road tax | Rs 5,000–10,000+ (approx, verify with RTO) | Rs 0 (CMVR-exempt) |
 | Mandatory insurance | Required | Not legally mandated (confirm with RTO; voluntary cover recommended) |
-| Fuel / electricity (7,500 km/yr) | Rs 14,000–15,000 (approx, verify at pump) | Rs 1,875–2,813 (at JERC Rs 2.80–3.75/unit) |
-| Annual running cost per km | Roughly Rs 1.90–2.00 (fuel alone) | Rs 0.25 |
+| Fuel / electricity (7,500 km/yr) | Rs 14,000–15,000 (approx, verify at pump) | ~Rs 1,275 (at ₹0.17/km, ~₹5/unit all-in) |
+| Annual running cost per km | Roughly Rs 1.90–2.00 (fuel alone) | Rs 0.17 |
 
 *All figures are approximate. Verify ex-showroom prices with dealers, registration charges with your local RTO, and current petrol prices at the pump before making a purchase decision.*
 
@@ -106,17 +106,17 @@ A few things that honest comparison requires acknowledging:
 
 ## The honest one-year verdict
 
-For a Chandigarh resident doing typical urban distances — sector to sector, home to college, colony to market — the year-one economics of a low-speed EV are genuinely favourable. The combination of a lower purchase price (on several models), zero on-road additions, and electricity at Rs 2.80–3.75 per unit produces a total-cost-of-ownership picture that a petrol scooter struggles to match in the first year.
+For a Tricity resident doing typical urban distances — sector to sector, home to college, colony to market — the year-one economics of a low-speed EV are genuinely favourable. The combination of a lower purchase price (on several models), zero on-road additions, and electricity at roughly Rs 5 per unit all-in (less on Chandigarh's lowest slab) produces a total-cost-of-ownership picture that a petrol scooter struggles to match in the first year.
 
-The advantage is most pronounced for riders who charge at home within Chandigarh's UT, travel predictable short distances, and have no immediate need for highway speeds. If any of those conditions do not apply, the calculus changes — and it is worth reworking these numbers against your own daily route and charging situation before deciding.
+The advantage is most pronounced for riders who charge at home, travel predictable short distances, and have no immediate need for highway speeds. If any of those conditions do not apply, the calculus changes — and it is worth reworking these numbers against your own daily route and charging situation before deciding.
 
 ---
 
 ## Sources
 
-- **JERC five-year tariff order (FY 2025-26 to 2029-30):** Chandigarh domestic electricity tariff, Rs 2.80 (first 100 units) and Rs 3.75 (next 100 units), effective 1 November 2025. Joint Electricity Regulatory Commission / Chandigarh Power Distribution Ltd; The Tribune, October/November 2025.
-- **PSPCL domestic tariff:** Rs 5.40 per unit (first 300 units), cited for comparison purposes only.
-- **Charging cost data:** 1.5–2 units per full charge; Rs 0.25/km running cost; Rs 150–200 petrol equivalent for the same distance. Zelio official + EV India guidance, June 2026.
+- **JERC five-year tariff order (FY 2025-26 to 2029-30):** Chandigarh domestic tariff is tiered — roughly Rs 2.75/unit (lowest slab), ~Rs 4.80 for 151–400 units, ~Rs 5.40 above 400 — effective 1 November 2025; ~Rs 5/unit used here as an all-in basis. Joint Electricity Regulatory Commission / Chandigarh Power Distribution Ltd; The Tribune, October/November 2025.
+- **PSPCL domestic tariff (Mohali, Punjab):** ~Rs 5.40 per unit (first 300 units); Panchkula (Haryana) comparable. Cited for comparison.
+- **Charging cost data:** ~2 units per full charge; ~Rs 10 per charge at ~Rs 5/unit; Rs 0.17/km running cost; Rs 150–200 petrol equivalent for the same distance. Zelio official + EV India guidance, June 2026.
 - **Low-speed vehicle exemption:** Top speed 25 km/h or less AND motor 250 W or less (continuous rated) — both conditions required. No licence, no RTO registration, no road tax, no mandatory insurance. Central Motor Vehicles Rules (CMVR); cross-verified across multiple sources, June 2026.
 - **Registration saving:** Rs 1,500–3,000 (CMVR framework).
 - **Model prices and specifications:** Zelio E-Mobility official (zelioebikes.com) + trade listings, verified June 2026. All prices approximate ex-showroom Haryana/Punjab, entry variant; verify before purchase.
