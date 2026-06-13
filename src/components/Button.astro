@@ -1,0 +1,19 @@
+---
+/**
+ * Button — renders the reference's button variants:
+ *   solid (.btn) · ghost (.btn-ghost) · light (.btn.btn-light) · wa (.btn.btn-wa)
+ * Label goes in the slot. `arrow` appends the animated → (for the solid-style
+ * variants); ghost buttons put the arrow in their own text.
+ */
+interface Props {
+  variant?: 'solid' | 'ghost' | 'light' | 'wa';
+  href?: string;
+  arrow?: boolean;
+  class?: string;
+}
+const { variant = 'solid', href = '#', arrow = false, class: className } = Astro.props;
+const base = { solid: 'btn', ghost: 'btn-ghost', light: 'btn btn-light', wa: 'btn btn-wa' }[variant];
+---
+<a class:list={[base, className]} href={href}>
+  <slot />{arrow && <span class="arr disp">→</span>}
+</a>

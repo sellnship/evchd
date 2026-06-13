@@ -1,0 +1,14 @@
+---
+/**
+ * HubCard — a content-pillar card. The charge "current" bar across the top
+ * activates on hover/focus (.hub::before scaleX, in global.css).
+ */
+interface Props { num: string; title: string; desc: string; href: string; }
+const { num, title, desc, href } = Astro.props;
+---
+<a class="hub" href={href}>
+  <span class="num">{num}</span>
+  <h3>{title}</h3>
+  <p>{desc}</p>
+  <span class="go mono">{href} <span class="arr">→</span></span>
+</a>

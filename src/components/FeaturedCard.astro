@@ -1,0 +1,24 @@
+---
+/**
+ * FeaturedCard — a featured article card with a real hero image.
+ * width/height are set on the <img> so the 16:9 box is reserved (no CLS).
+ */
+interface Props {
+  href: string;
+  img: string;
+  alt: string;
+  cat: string;
+  title: string;
+  desc: string;
+  width?: number;
+  height?: number;
+}
+const { href, img, alt, cat, title, desc, width = 1280, height = 720 } = Astro.props;
+---
+<a class="card reveal" href={href}>
+  <img class="card-img" src={img} alt={alt} width={width} height={height} loading="lazy" decoding="async" />
+  <div class="cat">{cat}</div>
+  <h3>{title}</h3>
+  <p>{desc}</p>
+  <span class="more mono">Read <span class="arr">→</span></span>
+</a>

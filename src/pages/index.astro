@@ -1,331 +1,341 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ChargeScreen from '../components/ChargeScreen.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Divider from '../components/Divider.astro';
+import Button from '../components/Button.astro';
+import HubCard from '../components/HubCard.astro';
+import FeaturedCard from '../components/FeaturedCard.astro';
+import { localFacts } from '../data/types';
 
-const hubs = [
+// Math stats: read from the data layer where they map.
+const perKm = localFacts.charging_cost.per_km_inr; // 0.25
+const fullCharge =
+  Number(String(localFacts.charging_cost.full_charge_cost_inr).split('-').pop()) || 16; // "10-16" → 16
+
+const featured = [
   {
-    title: 'Guides',
     href: '/guides',
-    kicker: 'How-to & rules',
-    desc: 'The rules that actually apply — RTO registration, home charging and subsidies across Punjab, Haryana and Chandigarh.',
+    img: '/images/home-charging.webp',
+    alt: 'An electric scooter charging from a regular wall socket at an Indian home.',
+    cat: 'Guide · Rules',
+    title: 'Do you actually need a licence for an e-scooter in Chandigarh?',
+    desc: 'The ≤25 km/h, ≤250W rule — and the catch most sellers won’t mention.',
   },
   {
-    title: 'Comparisons',
     href: '/compare',
-    kicker: 'Side by side',
-    desc: 'On the numbers that matter: range, real running cost, charging time and price bands for the models sold here.',
+    img: '/images/sector-road.webp',
+    alt: 'An electric scooter on a clean, tree-lined Chandigarh sector road.',
+    cat: 'Comparison · Cost',
+    title: 'Petrol vs EV: the real monthly cost across the Tricity',
+    desc: 'At ₹0.25/km on Chandigarh power, here’s where the break-even lands.',
   },
   {
-    title: 'Calculators',
-    href: '/calculators',
-    kicker: 'Your own numbers',
-    desc: 'Work it out for yourself — monthly running cost, petrol-versus-EV break-even and charging cost on local tariffs.',
-  },
-  {
-    title: 'News',
-    href: '/news',
-    kicker: 'On the ground',
-    desc: 'What is changing for EV owners in the Tricity — new chargers, policy moves and developments as they land.',
+    href: '/guides',
+    img: '/images/charging-plug.webp',
+    alt: 'Close-up of a charging plug and electricity meter for an electric scooter.',
+    cat: 'Guide · Charging',
+    title: 'Charging at home in Mohali: what it really costs per month',
+    desc: 'Two units a night, on a normal socket — the numbers, slab by slab.',
   },
 ];
 
-const trust = [
-  {
-    label: 'Independent',
-    head: 'We don’t sell vehicles',
-    body: 'No prices, no bookings, no dealer pages. We point buyers to the seller and keep our guidance neutral.',
-  },
-  {
-    label: 'Local',
-    head: 'Real Tricity numbers',
-    body: 'Chandigarh’s domestic tariff, Punjab and Haryana RTO rules, on-ground charging costs — every figure carries its source.',
-  },
-  {
-    label: 'Accountable',
-    head: 'Named people, public corrections',
-    body: 'Articles are written and reviewed by real people, under a corrections policy. When facts change, we fix them on the record.',
-  },
+const hubs = [
+  { num: '01 / How-to & rules', title: 'Guides', href: '/guides', desc: 'The rules that actually apply — RTO, registration, home charging and subsidies across Punjab, Haryana and Chandigarh.' },
+  { num: '02 / Side by side', title: 'Comparisons', href: '/compare', desc: 'The numbers that matter: range, real running cost, charging time and price bands — across brands, not just one.' },
+  { num: '03 / Your numbers', title: 'Calculators', href: '/calculators', desc: 'Work it out for yourself — monthly running cost, petrol-versus-EV break-even and charging cost on local tariffs.' },
+  { num: '04 / On the ground', title: 'News', href: '/news', desc: 'What’s changing for Tricity EV owners — new chargers, policy moves and subsidy deadlines as they land.' },
 ];
 ---
 
 <BaseLayout
-  title="EV Chandigarh — Independent EV Guide for the Tricity"
-  description="Independent guides, real local numbers and honest comparisons for electric vehicles across Chandigarh, Mohali and Panchkula. We answer the questions — we don’t sell the vehicles."
+  title="EV Chandigarh — The Tricity's independent guide to going electric"
+  description="Independent, local electric-mobility guidance for Chandigarh, Mohali and Panchkula. Real numbers, honest comparisons, no sales pitch."
   type="website"
 >
-  <!-- HERO — thesis on the left, the charge-screen façade on the right -->
+  <!-- HERO: interactive three.js grid behind the thesis -->
   <section class="hero">
-    <div class="shell hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow hero-eyebrow">Chandigarh &middot; Mohali &middot; Panchkula</p>
-        <h1 class="hero-h1">
-          The Tricity’s <span class="hl">independent</span> guide to going electric.
-        </h1>
-        <p class="hero-lead">
-          Real local numbers, honest comparisons, and clear guides for life with
-          an EV across Chandigarh, Mohali and Panchkula. We answer the questions —
-          we don’t sell the vehicles.
-        </p>
-        <div class="hero-actions">
-          <a class="btn" href="/guides">Browse the guides <span class="arr">→</span></a>
-          <a class="link-arrow" href="/editorial-policy">How we work →</a>
+    <canvas id="grid"></canvas>
+    <div class="wrap hero-inner">
+      <span class="hint">Move your cursor — <b>energise the grid</b></span>
+      <h1 class="reveal">The Tricity's <span class="em">independent</span> guide to going electric.</h1>
+      <p class="lede reveal">Real local numbers, honest comparisons, and clear guides for life with an EV across Chandigarh, Mohali and Panchkula. We answer the questions — we don't sell the vehicles.</p>
+      <div class="cta-row reveal">
+        <Button variant="solid" href="/guides" arrow>Browse the guides</Button>
+        <Button variant="ghost" href="/editorial-policy">How we work →</Button>
+      </div>
+    </div>
+    <div class="hero-scroll"><span class="ln"></span>Scroll</div>
+  </section>
+
+  <!-- STANCE -->
+  <section class="stance">
+    <div class="wrap">
+      <Eyebrow text="Why we exist" />
+      <p class="big reveal" style="margin-top:22px;">Most EV pages are <b>showrooms in disguise.</b> This one isn't. We're a Tricity-first publication that explains the rules, the running costs and the real-world range — then points you to where to buy.</p>
+      <p class="sub reveal">Search results push you toward whatever pays the most. We start from your commute, your budget and the law as it actually applies in Chandigarh, Mohali and Panchkula.</p>
+    </div>
+  </section>
+
+  <!-- FEATURED CARDS -->
+  <section class="featured">
+    <div class="wrap">
+      <div class="feat-head">
+        <div><Eyebrow text="Latest" /><h2 class="disp" style="margin-top:14px;">Read these first</h2></div>
+        <Button variant="ghost" href="/guides">All guides →</Button>
+      </div>
+      <div class="feat-grid">
+        {featured.map((c) => <FeaturedCard {...c} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- HUBS -->
+  <section class="hubs">
+    <div class="wrap">
+      <div class="hubs-head">
+        <div><Eyebrow text="The hubs" /><h2 class="disp" style="margin-top:16px;">Start where<br />your question is.</h2></div>
+        <Divider style="flex:1;min-width:140px;max-width:300px;margin-bottom:10px;" />
+      </div>
+      <div class="hub-grid">
+        {hubs.map((h) => <HubCard {...h} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- THE MATH (dark, count-up) -->
+  <section class="math">
+    <canvas id="nightgrid"></canvas>
+    <div class="wrap">
+      <Eyebrow text="The math" spark={false} />
+      <h2>A low-speed EV runs on <span class="em">Chandigarh's cheap power</span> — and skips the paperwork entirely.</h2>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="fig" data-count={perKm} data-prefix="₹" data-dec="2">₹{perKm.toFixed(2)}<span class="unit">/km</span></div>
+          <div class="cap">Running cost on Chandigarh domestic power — versus ₹2–3/km on petrol.</div>
+          <div class="barwrap"><div class="bar" data-bar="92"></div></div>
+        </div>
+        <div class="stat">
+          <div class="fig" data-count="0" data-prefix="₹" data-dec="0">₹0<span class="unit">RTO</span></div>
+          <div class="cap">No registration, no road tax, no licence on a true ≤25 km/h, ≤250W scooter.</div>
+          <div class="barwrap"><div class="bar" data-bar="100"></div></div>
+        </div>
+        <div class="stat">
+          <div class="fig" data-count={fullCharge} data-prefix="₹" data-dec="0">₹{fullCharge}<span class="unit">/charge</span></div>
+          <div class="cap">A full overnight charge — roughly 2 units — against ₹150–200 of petrol.</div>
+          <div class="barwrap"><div class="bar" data-bar="88"></div></div>
         </div>
       </div>
-
-      <ChargeScreen animate />
-    </div>
-
-    <div class="shell hero-plate">
-      <span class="eyebrow">Electric Tricity</span>
-      <span class="eyebrow">30.73&deg; N &middot; 76.78&deg; E</span>
     </div>
   </section>
 
-  <!-- HUBS — the four content pillars -->
-  <section class="section hubs">
-    <div class="shell">
-      <header class="section-head">
-        <p class="eyebrow">The hubs</p>
-        <h2 class="section-h2">Start where your question is.</h2>
-      </header>
-
-      <div class="hubs-grid">
-        {hubs.map((h) => (
-          <a class="hub" href={h.href}>
-            <span class="hub-kicker eyebrow">{h.kicker}</span>
-            <h3 class="hub-title">{h.title}</h3>
-            <p class="hub-desc">{h.desc}</p>
-            <span class="hub-foot">
-              <span class="hub-path">{h.href}</span>
-              <span class="arr" aria-hidden="true">→</span>
-            </span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- TRUST — why this is a credible local source -->
-  <section class="section trust">
-    <div class="shell">
-      <header class="section-head">
-        <p class="eyebrow">Why trust this</p>
-        <h2 class="section-h2">Built on local fact, not sales talk.</h2>
-      </header>
-
-      <div class="trust-grid">
-        {trust.map((t) => (
-          <div class="trust-col">
-            <span class="trust-label eyebrow">{t.label}</span>
-            <h3 class="trust-head">{t.head}</h3>
-            <p class="trust-body">{t.body}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- SOFT CTA — route buyers off-site; this site never sells -->
-  <section class="section cta-sec">
-    <div class="shell">
-      <div class="cta">
-        <p class="eyebrow">Buying</p>
-        <p class="cta-line">
-          Looking to buy? See prices &amp; book at <span class="cta-dom">evchandigarh.com</span>.
-        </p>
-        <p class="cta-sub">
-          This site stays independent — we point you to the seller, and keep our
-          guidance neutral.
-        </p>
-        <a class="cta-link" href="https://evchandigarh.com" rel="noopener">
-          Visit evchandigarh.com <span class="arr" aria-hidden="true">→</span>
-        </a>
+  <!-- CTA -->
+  <section class="cta">
+    <div class="wrap">
+      <div class="cta-card">
+        <div class="glow"></div>
+        <h2 class="reveal">Done reading? Ready to buy?</h2>
+        <p class="reveal">We don't sell here — but we know who does. Get current prices, book a test ride, or ask us anything on WhatsApp.</p>
+        <div class="row reveal">
+          <Button variant="light" href="https://evchandigarh.com" arrow>See prices &amp; book on evchandigarh.com</Button>
+          <Button variant="wa" href="#" arrow>Ask on WhatsApp</Button>
+        </div>
       </div>
     </div>
   </section>
 </BaseLayout>
 
-<style>
-  /* -- HERO -------------------------------------------------------------- */
-  .hero { padding-block: clamp(2.75rem, 7vw, 6rem) clamp(2rem, 5vw, 3.25rem); }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.45fr 1fr;
-    gap: clamp(1.75rem, 4vw, 3.5rem);
-    align-items: stretch;
-  }
-  .hero-copy { align-self: center; }
-  .hero-eyebrow { margin-bottom: clamp(1rem, 3vw, 1.6rem); }
-  .hero-h1 { font-size: var(--step-5); max-width: 16ch; letter-spacing: -0.03em; }
-  .hero-h1 .hl { color: var(--charge); }
-  .hero-lead {
-    font-family: var(--serif);
-    font-size: var(--step-1);
-    line-height: 1.5;
-    max-width: 52ch;
-    margin-top: clamp(1.2rem, 3vw, 1.75rem);
-  }
-  .hero-actions {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem 1.6rem;
-    margin-top: clamp(1.5rem, 4vw, 2.4rem);
-  }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: var(--display);
-    font-weight: 600;
-    font-size: var(--step-0);
-    background: var(--ink);
-    color: var(--on-ink);
-    border: 1.5px solid var(--ink);
-    padding: 0.8rem 1.2rem;
-    text-decoration: none;
-  }
-  .btn:hover { background: var(--charge); border-color: var(--charge); color: #fff; }
-  .btn .arr { transition: transform 0.25s; }
-  .btn:hover .arr { transform: translateX(4px); }
-  .link-arrow {
-    font-family: var(--mono);
-    font-size: var(--step--1);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 1px solid var(--grid);
-    padding-bottom: 2px;
-  }
-  .link-arrow:hover { color: var(--charge-ink); border-bottom-color: var(--charge); }
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-  .hero-plate {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: clamp(1.5rem, 4vw, 2.5rem);
-    padding-top: 0.6rem;
-    border-top: 1px solid var(--grid);
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ============ HERO: lazy-loaded three.js grid ============
+     three.js is dynamically imported (own chunk) only when the hero is in
+     view, and the render loop runs only while visible — never blocks first
+     paint, never burns CPU below the fold. */
+  (function lazyHero() {
+    const canvas = document.getElementById('grid');
+    if (!canvas) return;
+    let api: { start: () => void; stop: () => void } | null = null;
+    let visible = false;
+    let loading = false;
+
+    async function ensure() {
+      if (api || loading) return;
+      loading = true;
+      try {
+        const THREE = await import('three');
+        api = createGridHero(THREE, canvas as HTMLCanvasElement, reduced);
+        if (visible) api.start();
+      } catch (e) {
+        /* no WebGL / failed import → hero simply has no grid */
+      } finally {
+        loading = false;
+      }
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          visible = e.isIntersecting;
+          if (visible) ensure().then(() => api && api.start());
+          else if (api) api.stop();
+        }
+      },
+      { threshold: 0.01 },
+    );
+    io.observe(canvas);
+  })();
+
+  function createGridHero(THREE: typeof import('three'), canvas: HTMLCanvasElement, reduced: boolean) {
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.7));
+    const scene = new THREE.Scene();
+    const cam = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
+    cam.position.set(0, 0, 15);
+    const group = new THREE.Group();
+    scene.add(group);
+    const GREY = new THREE.Color('#CFCBC2'), BLUE = new THREE.Color('#1E5BFF');
+
+    const SPAN_X = 30, SPAN_Y = 17, COLS = 30, ROWS = 15;
+    const verticals: any[] = [], horizontals: any[] = [];
+    for (let i = 0; i < COLS; i++) {
+      const m = new THREE.Mesh(new THREE.BoxGeometry(0.05, SPAN_Y, 0.05),
+        new THREE.MeshBasicMaterial({ color: GREY.clone(), transparent: true, opacity: 0.85 }));
+      m.position.x = (i / (COLS - 1) - 0.5) * SPAN_X;
+      m.position.z = -2 - (i % 4) * 0.65;
+      group.add(m); verticals.push(m);
+    }
+    for (let j = 0; j < ROWS; j++) {
+      const m = new THREE.Mesh(new THREE.BoxGeometry(SPAN_X + 2, 0.045, 0.045),
+        new THREE.MeshBasicMaterial({ color: GREY.clone(), transparent: true, opacity: 0.5 }));
+      m.position.y = (j / (ROWS - 1) - 0.5) * SPAN_Y;
+      m.position.z = -3 - (j % 3) * 0.55;
+      group.add(m); horizontals.push(m);
+    }
+
+    const ray = new THREE.Raycaster();
+    const plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 2.5);
+    const hit = new THREE.Vector3(), cursor = new THREE.Vector3(999, 999, 0);
+    const ndc = new THREE.Vector2(-2, -2);
+    const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
+    let activeT = 0, active = 0;
+    const host = canvas.parentElement!;
+
+    host.addEventListener('pointermove', (e) => {
+      const r = canvas.getBoundingClientRect();
+      ndc.x = ((e.clientX - r.left) / r.width) * 2 - 1;
+      ndc.y = -((e.clientY - r.top) / r.height) * 2 + 1;
+      mouse.tx = ndc.x; mouse.ty = ndc.y; activeT = 1;
+    });
+    host.addEventListener('pointerleave', () => { activeT = 0; });
+
+    function resize() {
+      const w = canvas.clientWidth, h = canvas.clientHeight;
+      renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix();
+    }
+    window.addEventListener('resize', resize); resize();
+
+    const fall = (d: number, w: number) => Math.max(0, 1 - d / w);
+    let t = 0, rafId: number | null = null;
+
+    function renderFrame() {
+      ray.setFromCamera(ndc, cam);
+      if (ray.ray.intersectPlane(plane, hit)) cursor.copy(hit);
+      active += (activeT - active) * 0.06;
+      const scanX = Math.sin(t * 0.28) * SPAN_X * 0.52;
+      const scanY = Math.cos(t * 0.2) * SPAN_Y * 0.52;
+      for (const m of verticals) {
+        const sc = fall(Math.abs(m.position.x - scanX), 2.6) * 0.55;
+        const cu = active * fall(Math.abs(m.position.x - cursor.x), 2.1);
+        const e = Math.min(1, Math.max(sc, cu));
+        m.material.color.copy(GREY).lerp(BLUE, e);
+        m.scale.x = 1 + e * 2.2; m.material.opacity = 0.85 + e * 0.15;
+      }
+      for (const m of horizontals) {
+        const sc = fall(Math.abs(m.position.y - scanY), 1.9) * 0.5;
+        const cu = active * fall(Math.abs(m.position.y - cursor.y), 1.8);
+        const e = Math.min(1, Math.max(sc, cu));
+        m.material.color.copy(GREY).lerp(BLUE, e);
+        m.scale.y = 1 + e * 2.2; m.material.opacity = 0.5 + e * 0.5;
+      }
+      mouse.x += (mouse.tx - mouse.x) * 0.05; mouse.y += (mouse.ty - mouse.y) * 0.05;
+      group.rotation.y = mouse.x * 0.34; group.rotation.x = -mouse.y * 0.2;
+      renderer.render(scene, cam);
+    }
+    function loop() { t += 0.016; renderFrame(); rafId = requestAnimationFrame(loop); }
+
+    return {
+      start() {
+        if (reduced) { renderFrame(); return; }   // one static frame, no loop
+        if (rafId == null) rafId = requestAnimationFrame(loop);
+      },
+      stop() { if (rafId != null) { cancelAnimationFrame(rafId); rafId = null; } },
+    };
   }
 
-  /* -- SECTION shell ----------------------------------------------------- */
-  .section { padding-block: clamp(2.5rem, 7vw, 5rem); border-top: 1px solid var(--grid); }
-  .section-head { margin-bottom: clamp(1.5rem, 4vw, 2.5rem); }
-  .section-h2 { font-size: var(--step-3); max-width: 20ch; margin-top: 0.6rem; }
+  /* ============ DARK SECTION: faint road-grid + electric pulses (canvas 2D) ============ */
+  (function lazyNight() {
+    const c = document.getElementById('nightgrid') as HTMLCanvasElement | null;
+    if (!c) return;
+    const ctx = c.getContext('2d');
+    if (!ctx) return;
+    let w = 0, h = 0;
+    const dpr = Math.min(window.devicePixelRatio, 1.6);
+    const trails: any[] = [];
+    for (let i = 0; i < 7; i++) trails.push({ y: Math.random(), x: Math.random(), sp: 0.0008 + Math.random() * 0.0016, len: 0.08 + Math.random() * 0.12 });
+    function size() { w = c!.width = c!.clientWidth * dpr; h = c!.height = c!.clientHeight * dpr; }
+    window.addEventListener('resize', size); size();
 
-  /* -- HUBS (modernist sector grid: 1px gaps reveal the grid colour) ----- */
-  .hubs-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--grid);
-    border: 1px solid var(--grid);
-  }
-  .hub {
-    position: relative;
-    background: var(--concrete);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: clamp(1.25rem, 2.4vw, 1.9rem);
-    text-decoration: none;
-    color: var(--ink);
-    min-height: 13.5rem;
-    transition: background 0.25s;
-  }
-  /* a single charge louvre lights up the card edge on hover/focus */
-  .hub::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: var(--charge);
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: transform 0.25s ease;
-  }
-  .hub:hover { background: var(--concrete-2); }
-  .hub:hover::before,
-  .hub:focus-within::before { transform: scaleY(1); }
-  .hub-title { font-size: var(--step-2); }
-  .hub-desc { font-family: var(--serif); font-size: var(--step--1); line-height: 1.5; color: var(--prose); flex: 1; }
-  .hub-foot {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 0.5rem;
-    font-family: var(--mono);
-    font-size: var(--step--1);
-    color: var(--ink-soft);
-  }
-  .hub-foot .arr { color: var(--charge); transition: transform 0.25s; }
-  .hub:hover .hub-foot .arr { transform: translateX(4px); }
-  .hub:hover .hub-path { color: var(--ink); }
+    let rafId: number | null = null;
+    function drawFrame() {
+      ctx!.clearRect(0, 0, w, h);
+      ctx!.strokeStyle = 'rgba(255,255,255,0.05)'; ctx!.lineWidth = 1;
+      const sx = w / 14; for (let x = 0; x <= w; x += sx) { ctx!.beginPath(); ctx!.moveTo(x, 0); ctx!.lineTo(x, h); ctx!.stroke(); }
+      const sy = h / 8; for (let y = 0; y <= h; y += sy) { ctx!.beginPath(); ctx!.moveTo(0, y); ctx!.lineTo(w, y); ctx!.stroke(); }
+      for (const tr of trails) {
+        tr.x += tr.sp; if (tr.x > 1.2) tr.x = -0.2;
+        const px = tr.x * w, py = tr.y * h, g = ctx!.createLinearGradient(px - tr.len * w, py, px, py);
+        g.addColorStop(0, 'rgba(30,91,255,0)'); g.addColorStop(1, 'rgba(110,150,255,0.9)');
+        ctx!.strokeStyle = g; ctx!.lineWidth = 2; ctx!.beginPath(); ctx!.moveTo(px - tr.len * w, py); ctx!.lineTo(px, py); ctx!.stroke();
+      }
+    }
+    function loop() { drawFrame(); rafId = requestAnimationFrame(loop); }
+    const api = {
+      start() { if (reduced) { drawFrame(); return; } if (rafId == null) rafId = requestAnimationFrame(loop); },
+      stop() { if (rafId != null) { cancelAnimationFrame(rafId); rafId = null; } },
+    };
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) { if (e.isIntersecting) api.start(); else api.stop(); }
+    }, { threshold: 0.01 });
+    io.observe(c);
+  })();
 
-  /* -- TRUST ------------------------------------------------------------- */
-  .trust-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--grid);
-    border: 1px solid var(--grid);
+  /* ============ GSAP scroll motion (skipped entirely when reduced) ============ */
+  if (!reduced) {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.fromTo('.hero .reveal', { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, stagger: 0.12, ease: 'power3.out', delay: 0.2 });
+    gsap.utils.toArray<HTMLElement>('.stance .reveal, .cta .reveal').forEach((el) => {
+      gsap.fromTo(el, { y: 34, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%' } });
+    });
+    gsap.fromTo('.card', { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, ease: 'power3.out', scrollTrigger: { trigger: '.feat-grid', start: 'top 82%' } });
+    gsap.fromTo('.hub', { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.1, ease: 'power3.out', scrollTrigger: { trigger: '.hub-grid', start: 'top 82%' } });
+    gsap.utils.toArray<HTMLElement>('.math .stat').forEach((stat, i) => {
+      ScrollTrigger.create({
+        trigger: '.math', start: 'top 65%', once: true,
+        onEnter: () => {
+          const fig = stat.querySelector('.fig') as HTMLElement;
+          const target = parseFloat(fig.dataset.count || '0');
+          const dec = parseInt(fig.dataset.dec || '0');
+          const pre = fig.dataset.prefix || '';
+          const unitEl = (fig.querySelector('.unit') as HTMLElement).outerHTML;
+          const obj = { v: 0 };
+          gsap.to(obj, { v: target, duration: 1.3, delay: i * 0.12, ease: 'power2.out', onUpdate: () => { fig.innerHTML = pre + obj.v.toFixed(dec) + unitEl; } });
+          const bar = stat.querySelector('.bar') as HTMLElement;
+          gsap.to(bar, { width: bar.dataset.bar + '%', duration: 1.3, delay: i * 0.12, ease: 'power2.out' });
+        },
+      });
+    });
   }
-  .trust-col {
-    background: var(--concrete);
-    padding: clamp(1.25rem, 2.4vw, 1.9rem);
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
-  }
-  .trust-label { color: var(--charge-ink); }
-  .trust-head { font-size: var(--step-1); }
-  .trust-body { font-family: var(--serif); font-size: var(--step--1); line-height: 1.55; color: var(--prose); }
-
-  /* -- SOFT CTA ---------------------------------------------------------- */
-  .cta { border: 1.5px solid var(--ink); padding: clamp(1.75rem, 5vw, 3rem); max-width: 62ch; }
-  .cta .eyebrow { color: var(--ink-soft); }
-  .cta-line {
-    font-family: var(--display);
-    font-weight: 600;
-    font-size: var(--step-2);
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-    margin-top: 0.6rem;
-  }
-  .cta-dom { color: var(--charge); }
-  .cta-sub { font-family: var(--serif); font-size: var(--step-0); line-height: 1.5; color: var(--prose); max-width: 50ch; margin-top: 0.75rem; }
-  .cta-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-    width: max-content;
-    margin-top: 1.4rem;
-    padding: 0 0.1rem 0.1rem;
-    font-family: var(--display);
-    font-weight: 600;
-    font-size: var(--step-1);
-    color: var(--ink);
-    text-decoration: none;
-    box-shadow: inset 0 -0.5em 0 var(--signal);
-    transition: box-shadow 0.2s;
-  }
-  .cta-link:hover { box-shadow: inset 0 -0.95em 0 var(--signal); }
-  .cta-link .arr { color: var(--charge); transition: transform 0.25s; }
-  .cta-link:hover .arr { transform: translateX(4px); }
-
-  /* -- responsive -------------------------------------------------------- */
-  @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; gap: clamp(1.5rem, 5vw, 2.25rem); }
-    .hero-copy { align-self: start; }
-  }
-  @media (max-width: 880px) { .hubs-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 760px) { .trust-grid { grid-template-columns: 1fr; } }
-  @media (max-width: 540px) {
-    .hubs-grid { grid-template-columns: 1fr; }
-    .hub { min-height: auto; }
-  }
-</style>
+</script>

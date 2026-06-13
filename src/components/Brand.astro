@@ -1,0 +1,8 @@
+---
+// The wordmark + 3-bar "current" mark, used in the header and footer.
+interface Props { href?: string; }
+const { href = '/' } = Astro.props;
+---
+<a class="brand" href={href} aria-label="EV Chandigarh — home">
+  <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>EV CHANDIGARH
+</a>

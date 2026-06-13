@@ -1,0 +1,6 @@
+---
+// Mono eyebrow label with the leading rule (CSS ::before) and optional spark.
+interface Props { text: string; spark?: boolean; }
+const { text, spark = true } = Astro.props;
+---
+<span class="eyebrow">{text}{spark && <span class="spark"></span>}</span>
