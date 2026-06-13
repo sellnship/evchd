@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 100" fill="none" role="img" aria-label="EV Chandigarh">
+  <!-- Logomark: charge bars rising from a grid baseline -->
+  <g>
+    <rect x="12" y="82" width="78" height="4" rx="2" fill="#16181C"/>
+    <rect x="18" y="50" width="13" height="32" rx="3" fill="#16181C"/>
+    <rect x="36" y="30" width="13" height="52" rx="3" fill="#1E5BFF"/>
+    <rect x="54" y="16" width="13" height="66" rx="3" fill="#1E5BFF"/>
+    <rect x="72" y="44" width="13" height="38" rx="3" fill="#16181C"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="118" y="64" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="700" font-size="40" letter-spacing="0.5">
+    <tspan fill="#1E5BFF">EV</tspan><tspan fill="#16181C"> CHANDIGARH</tspan>
+  </text>
+</svg>
