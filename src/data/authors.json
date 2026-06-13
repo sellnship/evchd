@@ -1,40 +1,33 @@
 {
   "_meta": {
-    "purpose": "E-E-A-T author attribution. Google's 2026 page-level authority evaluation rewards real, named, credible authorship. Every article attaches an author from here plus a 'Reviewed by' human.",
-    "instructions": "FILL IN with your real team. At least one entry MUST be a real, named human with genuine local EV expertise (not a pseudonym). Put author photos in public/images/authors/. Do NOT publish with placeholder values — a real corrections/editorial page + named humans are part of what keeps the site indexed and sellable."
+    "purpose": "E-E-A-T author + publisher data. Rajinder Singh is the default byline and reviewer. Author photos go in public/images/authors/.",
+    "todo": "Fill publisher.address with the real showroom address before launch."
   },
-
   "authors": [
     {
-      "id": "REPLACE-slug",
-      "name": "REPLACE — real full name (e.g. Ankur Mittal)",
-      "role": "REPLACE — e.g. Founder & Lead EV Advisor, EV Chandigarh",
-      "bio": "REPLACE — 1-2 specific, true sentences. Mention real credentials: years in EV retail, Tricity focus, hands-on experience with these exact models, number of customers served. This text is read by Google AND by prospective buyers, so make it concrete and credible, not generic.",
-      "expertise": [
-        "Low-speed electric scooters",
-        "Tricity RTO and licence rules",
-        "EV running costs and charging",
-        "REPLACE — add real areas"
-      ],
-      "photo": "/images/authors/REPLACE.jpg"
+      "id": "rajinder-singh",
+      "name": "Rajinder Singh",
+      "role": "Chief Advisor, EV Chandigarh",
+      "bio": "Rajinder Singh has spent over 25 years in the two-wheeler and electric-mobility industry. As Chief Advisor at EV Chandigarh, he helps Tricity riders choose the right low-speed EV for their commute, their budget and the rules that actually apply in Chandigarh, Mohali and Panchkula.",
+      "expertise": ["Low-speed electric scooters", "Tricity RTO and licence rules", "EV running costs and charging", "Choosing the right scooter for a commute"],
+      "photo": "/images/authors/rajinder-singh.jpg"
     },
     {
-      "id": "REPLACE-reviewer",
-      "name": "REPLACE — a second real person if available (optional, strengthens E-E-A-T)",
-      "role": "REPLACE — e.g. Service Head / Senior Technician",
-      "bio": "REPLACE",
-      "expertise": ["REPLACE"],
-      "photo": "/images/authors/REPLACE.jpg"
+      "id": "akhil-verma",
+      "name": "Er. Akhil Verma",
+      "role": "Founder & Director, SellnShip Solutions Pvt. Ltd.",
+      "bio": "Er. Akhil Verma is the Founder and Director of SellnShip Solutions Private Limited, the company behind EV Chandigarh, leading its electric-mobility initiatives across the Tricity.",
+      "expertise": ["Electric mobility", "EV retail", "Tricity EV market"],
+      "photo": "/images/authors/akhil-verma.jpg"
     }
   ],
-
   "publisher": {
     "name": "EV Chandigarh",
-    "legal_entity": "REPLACE — registered business name (e.g. SellnShip / Gauranga Traders)",
-    "address": "REPLACE — showroom address in the Tricity",
-    "phone": "REPLACE",
-    "whatsapp": "REPLACE — number used for the WhatsApp pre-fill CTAs",
-    "hours": "REPLACE — e.g. Mon-Sat 10am-7pm, Sun closed",
-    "note": "This block also feeds the Organization schema on the About page and the contact CTAs."
+    "legal_entity": "SellnShip Solutions Private Limited",
+    "address": "REPLACE — showroom address, Tricity",
+    "phone": "+91 94248 50002",
+    "whatsapp": "919424850002",
+    "hours": "Mon–Sat, 10am–7pm; Sun closed",
+    "note": "whatsapp is country-code + number with no symbols, for wa.me pre-fill links. Confirm hours."
   }
 }

@@ -3,8 +3,8 @@ title: "Low-speed electric scooters in the Tricity: a side-by-side on the number
 description: "Range, charging time, battery and price band across the low-speed (no-licence) class — framed on specs, not sales. Read the table, then read your own commute."
 category: "Comparison"
 heroImage: "/images/low-speed-compare-hero.webp"
-author: "REPLACE-slug"
-reviewedBy: "REPLACE-reviewer"
+author: "rajinder-singh"
+reviewedBy: "rajinder-singh"
 datePublished: 2026-06-05
 dateModified: 2026-06-09
 tags: ["comparison", "low-speed", "range", "price", "running cost"]

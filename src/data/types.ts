@@ -181,7 +181,8 @@ export interface ModelsData {
 
 export interface AuthorsMeta {
   purpose: string;
-  instructions: string;
+  instructions?: string;
+  todo?: string;
 }
 
 export interface Author {

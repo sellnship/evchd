@@ -3,8 +3,8 @@ title: "Charging an electric scooter at home in the Tricity: what it really cost
 description: "On Chandigarh's domestic tariff, a full overnight charge is roughly ₹12–16. Here's the math, slab by slab — and why an EV is cheaper to run inside Chandigarh than across the border."
 category: "Charging"
 heroImage: "/images/home-charging-cost-hero.webp"
-author: "REPLACE-slug"
-reviewedBy: "REPLACE-reviewer"
+author: "rajinder-singh"
+reviewedBy: "rajinder-singh"
 datePublished: 2026-06-08
 dateModified: 2026-06-11
 tags: ["charging", "running cost", "electricity tariff", "Chandigarh", "Mohali"]

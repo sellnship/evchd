@@ -1,11 +1,12 @@
 ---
 /**
  * AuthorBox — E-E-A-T attribution. Resolves the author (and optional reviewer)
- * from authors.json by id, and shows published + "Updated" dates. Until
- * authors.json is filled with real people, this shows the placeholder values —
- * which is expected. Placeholder photos fall back to an initials avatar so no
- * broken <img> ships.
+ * from authors.json by id, and shows published + "Updated" dates. The avatar
+ * shows the real photo only when the file actually exists in
+ * public/images/authors/; otherwise an initials avatar — so a not-yet-uploaded
+ * photo never ships as a broken <img>.
  */
+import { existsSync } from 'node:fs';
 import { authors } from '../data/types';
 
 interface Props {
@@ -19,16 +20,19 @@ const { authorId, reviewedById, datePublished, dateModified } = Astro.props;
 const author = authors.authors.find((a) => a.id === authorId) ?? authors.authors[0];
 const reviewer = reviewedById ? authors.authors.find((a) => a.id === reviewedById) : undefined;
 
-const isPlaceholder = (s?: string) => !s || /REPLACE/i.test(s);
 const fmt = (d: Date) => d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+const stripTitle = (n: string) => n.replace(/^(?:Er|Dr|Mr|Mrs|Ms)\.?\s+/i, '');
 const initials = (name: string) =>
-  name.replace(/[—–-].*/, '').trim().split(/\s+/).slice(0, 2).map((w) => w[0]).join('').toUpperCase() || 'EV';
+  stripTitle(name).replace(/[—–-].*/, '').trim().split(/\s+/).slice(0, 2).map((w) => w[0]).join('').toUpperCase() || 'EV';
+
+const hasPhoto =
+  !!author.photo && !/REPLACE/i.test(author.photo) && existsSync(`${process.cwd()}/public${author.photo}`);
 ---
 <div class="authorbox">
   <div class="ab-avatar" aria-hidden="true">
-    {isPlaceholder(author.photo)
-      ? <span class="ab-initials disp">{initials(author.name)}</span>
-      : <img src={author.photo} alt="" width="48" height="48" loading="lazy" decoding="async" />}
+    {hasPhoto
+      ? <img src={author.photo} alt="" width="48" height="48" loading="lazy" decoding="async" />
+      : <span class="ab-initials disp">{initials(author.name)}</span>}
   </div>
   <div class="ab-meta">
     <p class="ab-by"><span class="ab-name disp">{author.name}</span><span class="ab-role">{author.role}</span></p>
