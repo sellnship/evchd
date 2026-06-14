@@ -405,23 +405,38 @@
     "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) in a clean, well-lit showroom-style setting.",
     "angle": "The motor-wattage trap (speed AND 250W), battery type, warranty, service network, and the PM E-DRIVE-doesn't-apply trap. An actionable checklist.",
-    "processedAt": "2026-06-14T20:29:11.251Z",
-    "publishedPath": "src/content/guides/buying-mistakes-checklist.md",
+    "processedAt": "2026-06-14T20:30:46.289Z",
+    "publishedPath": "src/content/guides/hi/buying-mistakes-checklist.md",
     "factCheckIssues": [
       {
         "severity": "warning",
-        "claim": "No mandatory insurance (though voluntary cover is available and worth considering — some legal interpretations argue third-party cover is still required under the Motor Vehicles Act even for exempt vehicles, so confirm the current position with your local RTO)",
-        "problem": "The data layer notes this exact ambiguity and recommends phrasing as 'confirm with your local RTO' rather than presenting conflicting interpretations in the body text. The phrasing here is correct and consistent with the data layer guidance, but could be slightly clearer by leading with 'Not legally mandated' before mentioning the interpretation nuance — minor stylistic reconciliation with the data layer's preferred framing."
+        "claim": "Zelio Gracy (2026) में entry-level lead-acid variant ₹59,999 से शुरू होती है और top lithium-ion variant ₹76,999 तक जाती है। दोनों में range 60 km से 120 km तक जाती है",
+        "problem": "The models.json shows Zelio Gracy (2026) with price range ₹59,999–₹76,999 and range 60–120 km, but does not explicitly state which battery type achieves which range endpoint. Recommend clarifying: lead-acid achieves ~60 km, lithium-ion achieves ~120 km, to avoid reader confusion."
       },
       {
         "severity": "warning",
-        "claim": "If your regular daily round trip is above roughly 60 km, choose lithium-ion. Below that, lead-acid is serviceable and keeps the entry cost low.",
-        "problem": "The data layer states 'For daily distances above ~60 km, choose lithium-ion' and the shared specs note 'Lead-acid / Gel — lower upfront cost, heavier, ~7-12 hr charge' and 'Lithium-ion — lighter, longer life, ~4-5 hr charge, higher upfront cost' but do not explicitly state a lower threshold for lead-acid suitability. The article's guidance (lead-acid below ~60 km) is reasonable but not explicitly stated in the data layer — verify against live dealer guidance and customer feedback before final publication."
+        "claim": "Chandigarh में all-in rate करीब ₹5/unit मानें तो — एक full charge का खर्च लगभग ₹10।",
+        "problem": "The data layer notes that Chandigarh's lowest slab is ~₹2.75/unit, but typical all-in is ~₹5/unit. The article correctly uses ₹5/unit, but could be clearer that this is 'a fair average' not a ceiling, to match the data layer's nuance: 'Lower-usage households genuinely pay less, but a typical all-in rate lands near Rs 5/unit.'"
       },
       {
         "severity": "warning",
-        "claim": "On running cost, the battery type does not significantly change the per-km figure.",
-        "problem": "This claim is reasonable but could benefit from explicit verification: the data layer does not provide separate per-km costs for lead-acid vs. lithium variants. Confirm with Zelio or field data that the Rs 0.17/km figure holds across both battery types before publication."
+        "claim": "Mandatory insurance नहीं (हालाँकि voluntary insurance लेना समझदारी है — RTO से एक बार confirm करें)",
+        "problem": "The data layer flags a nuance: some legal interpretations argue third-party cover is still required under the MV Act, and on-ground enforcement varies. The article's phrasing 'confirm with your local RTO' is appropriate, but could be even clearer that this is a grey area worth confirming in advance, not a simple black-and-white 'not mandatory.'"
+      },
+      {
+        "severity": "warning",
+        "claim": "Zelio की models.json के मुताबिक़, Zelio Gracy (2026) में entry-level lead-acid variant ₹59,999 से शुरू होती है",
+        "problem": "The models.json entry for 'Zelio Gracy (2026)' has prices ₹59,999–₹76,999, but the metadata warns: 'This may be the current-year version of the Gracy line — reconcile with Gracy i / Gracy Pro depending on what you actually stock.' Before publish, confirm this is the model you currently stock and that these prices are live on your ex-showroom."
+      },
+      {
+        "severity": "warning",
+        "claim": "PM E-DRIVE scheme (Ministry of Heavy Industries) के तहत जो subsidy मिलती है — ₹2,500 per kWh, maximum ₹5,000 per vehicle",
+        "problem": "The data layer correctly states '2500 per kWh' and 'cap per vehicle 5000,' but it may be worth noting that the per-kWh rate applies to the battery capacity, so actual subsidy depends on battery size. The article's phrasing is correct but could be slightly clearer that the ₹5,000 cap is the ceiling for most e-2Ws."
+      },
+      {
+        "severity": "warning",
+        "claim": "Zelio का India-wide 350+ authorised service centres का network है",
+        "problem": "The data layer confirms '350+ authorised service centres across India,' which is correct. However, the article advises checking 'Chandigarh Sector में, Mohali Phase में, या Panchkula sector में' — recommend that readers verify the Zelio locator or ask the dealer for the nearest live centre in their specific locality before purchase, as not all 350+ may be equally accessible in the Tricity."
       }
     ]
   },
