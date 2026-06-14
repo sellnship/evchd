@@ -222,9 +222,28 @@
     "section": "guides",
     "category": "Ownership",
     "lang": "hi",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) on a stand at a tidy service workshop.",
-    "angle": "बोलचाल में 'battery kitne saal chalti hai', 'badalne ka kharcha' — lead-acid बनाम lithium life; exact price dealer से confirm करने की सलाह।"
+    "angle": "बोलचाल में 'battery kitne saal chalti hai', 'badalne ka kharcha' — lead-acid बनाम lithium life; exact price dealer से confirm करने की सलाह।",
+    "processedAt": "2026-06-14T20:46:31.714Z",
+    "publishedPath": "src/content/guides/hi/battery-replacement-cost-life.md",
+    "factCheckIssues": [
+      {
+        "severity": "warning",
+        "claim": "एक **full charge में लगभग 2 units** बिजली लगती है",
+        "problem": "The data layer specifies '~2' units for full charge cost calculation, but the article treats this as a definitive figure without the hedge. Consider rephrasing as 'approximately 2 units' to match the verified data's uncertainty qualifier, especially since battery variants (lead-acid vs lithium) may differ slightly."
+      },
+      {
+        "severity": "warning",
+        "claim": "Zelio के 350+ authorised service centres पूरे India में हैं",
+        "problem": "The article states this as fact without caveating that the reader should verify current network status before relying on it for service availability in Tricity specifically. This is a minor reconciliation reminder: confirm live service centre count before publish against zelioebikes.com."
+      },
+      {
+        "severity": "warning",
+        "claim": "Lead-acid battery को **पूरा discharge** नहीं करना चाहिए। अगर बार-बार एकदम खाली होने दिया, तो जल्दी खराब होती है.",
+        "problem": "This is sound battery maintenance advice but is not explicitly covered in the verified data layer. It is a general EV best practice and does not contradict the data, but mark as a warning to verify it aligns with Zelio's official battery care guidance before publication."
+      }
+    ]
   },
   {
     "slug": "real-range-vs-brochure",
