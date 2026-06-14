@@ -493,28 +493,23 @@
     "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) on an honest, neutral Tricity street.",
     "angle": "What you trade off at the bottom of the market (battery, range, build, service) and when cheap is false economy. Data-layer entry prices start ~Rs 45,633 — be honest that genuine sub-40k is tight.",
-    "processedAt": "2026-06-14T20:34:12.116Z",
-    "publishedPath": "src/content/guides/sub-40k-scooter-worth-it.md",
+    "processedAt": "2026-06-14T20:35:40.981Z",
+    "publishedPath": "src/content/guides/hi/sub-40k-scooter-worth-it.md",
     "factCheckIssues": [
       {
         "severity": "warning",
-        "claim": "a full charge on a 60-km-range scooter uses approximately 2 units and costs roughly Rs 10",
-        "problem": "The data layer specifies '~2' units per full charge costing '~10' rupees, which aligns with the article. However, the article applies this to 'a 60-km-range scooter' generically. The Little Gracy (60 km range) is lead-acid and uses ~1.5 units per charge according to the models data, while the 2-unit figure appears to apply more broadly. Clarify which model(s) this cost applies to, or note it as an approximate all-in figure across the range."
+        "claim": "~₹0.17 per km ... और ~60 km की range पर यह बनता है **~₹0.17 per km**",
+        "problem": "The data layer specifies running cost as Rs 0.17/km based on ~2 units at Rs 5/unit (= Rs 10 per full charge). For a 60 km range, this math is correct (10÷60≈0.17). However, the phrasing 'and ~60 km of range on this becomes ~₹0.17 per km' could be misread as if range directly determines the rate, when in fact the rate is a function of electricity cost per unit and battery consumption. Phrase more clearly: 'At ~Rs 5/unit, a 2-unit full charge costs Rs 10, giving ~Rs 0.17/km over typical 60–120 km range depending on model and battery type.' Reconcile phrasing before publish to avoid confusion."
       },
       {
         "severity": "warning",
-        "claim": "a 2 years (unlimited km on motor / controller / frame on select models)",
-        "problem": "The article states '2 years on motor, controller, and frame on select models' but the models.json data only specifies 'warranty: 2 years (unlimited km on motor / controller / frame on select models)' without naming which models qualify. The article should either name the specific qualifying models or soften the claim to match the data layer's 'on select models' caveat more explicitly."
+        "claim": "Zelio के सभी low-speed models — Little Gracy से लेकर Logix तक — इसी CMVR exemption में आते हैं।",
+        "problem": "The models.json metadata notes 'The Zelio Mystery is excluded as it is the brand's only high-speed model.' The article does not mention Mystery, so this claim is consistent with the verified data. However, for completeness and future-proofing, add a note clarifying that the exemption applies to Zelio's low-speed range only, to prevent readers confusing any future high-speed model under the same brand. Not a contradiction, but a clarity recommendation."
       },
       {
         "severity": "warning",
-        "claim": "The Little Gracy is rated at roughly 60 km on a full charge",
-        "problem": "The models data lists Little Gracy range_km as '60' (a string, not explicitly 'rated' or 'up to'). The article's use of 'rated at roughly 60 km' is reasonable but the data does not specify whether this is WLTP, ARAI, or tested/claimed range. Verify source of the 60 km figure before final publish to ensure the phrasing of 'rated' is accurate."
-      },
-      {
-        "severity": "warning",
-        "claim": "Zelio has reasonable coverage, but you should confirm that a service point is accessible in or near your specific area — whether that is Mohali Phase 7, Zirakpur, or Panchkula Sector 20",
-        "problem": "The article claims '350+ authorised service centres across India' (correct per data layer) but then encourages readers to verify availability in specific Tricity micro-locations without stating whether the 350+ centres include coverage in those exact areas. The examples (Mohali Phase 7, Zirakpur, Panchkula Sector 20) are plausible but not verified in the data layer. Soften to 'confirm with Zelio directly' rather than implying local availability is certain."
+        "claim": "JERC (Joint Electricity Regulatory Commission) के tariff order के हिसाब से Chandigarh में domestic electricity ~₹5/unit (all-in average) मानें",
+        "problem": "The data layer correctly specifies that Chandigarh's tiered tariff ranges from ~Rs 2.75/unit at the lowest slab to ~Rs 5.40/unit above 400 units, with ~Rs 5/unit being a fair all-in average. The article uses Rs 5/unit as the basis, which is accurate per the data layer's guidance. However, the article does not explicitly acknowledge that lower-usage households pay less (Rs 2.75/unit is available for modest consumption). The note in data layer says 'treat ~Rs 5/unit as a fair, slightly conservative average — not a ceiling' and recommends mentioning 'Lower slabs are cheaper' as context. Consider adding a sentence: 'Lower-usage households on Chandigarh's lowest slab pay around Rs 2.75/unit, but a realistic all-in rate for typical use lands near Rs 5/unit.' Minor clarification, not a factual error."
       }
     ]
   },
