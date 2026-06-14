@@ -358,9 +358,28 @@
     "section": "guides",
     "category": "Buying Guide",
     "lang": "en",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) fitted with a rear delivery box, still clearly a seated e-moped, on a Chandigarh street.",
-    "angle": "High daily km means lithium + range; running cost ~Rs 0.17/km vs petrol; cargo practicality. Honest about range limits and the 25 km/h cap."
+    "angle": "High daily km means lithium + range; running cost ~Rs 0.17/km vs petrol; cargo practicality. Honest about range limits and the 25 km/h cap.",
+    "processedAt": "2026-06-14T20:26:20.967Z",
+    "publishedPath": "src/content/guides/scooter-for-delivery-gig-workers.md",
+    "factCheckIssues": [
+      {
+        "severity": "warning",
+        "claim": "The range figures below refer to lithium-ion variants unless otherwise noted.",
+        "problem": "The X-Men+ is stated as having '120 km available on both lithium-ion and lead-acid variants' — meaning range is the same across both battery types for that model. This sentence could mislead readers into assuming all range figures are lithium-only by default. Worth clarifying or rephrasing to avoid confusion."
+      },
+      {
+        "severity": "warning",
+        "claim": "The Gracy Pro is listed with a range of up to 120 km and a digital display. Its price is not confirmed in the current verified data and should be checked directly with the dealer.",
+        "problem": "Reconcile before publish: models.json shows Gracy Pro with `price_from_inr: null` and `verify: 'price'` — the article correctly flags this as unconfirmed, but double-check the live Zelio site and your dealer inventory to confirm this model is still current and not superseded by the 2026 facelift (Gracy 2026, Rs 59,999–76,999)."
+      },
+      {
+        "severity": "warning",
+        "claim": "The EEVA and EEVA ZX+ are listed in the range from Rs 62,117 to Rs 67,500, but their range figures are not confirmed in the current verified data",
+        "problem": "Good that the article flags this, but before publish, verify against live Zelio inventory whether these models remain current for Tricity stock, as the 2026 Gracy facelift and X-Men+ refresh may have shifted the lineup."
+      }
+    ]
   },
   {
     "slug": "scooter-for-delivery-gig-workers",
