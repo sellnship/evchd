@@ -13,18 +13,18 @@ if (!process.env.FAL_KEY) {
   process.exit(1);
 }
 
-const STYLE =
-  ", editorial photograph, natural daylight, Chandigarh modernist concrete architecture context, muted warm-concrete tones with a subtle electric-blue accent, clean and calm, no text, no watermark, no logos.";
-
+// Editorial style + the vehicle/charging rules live in image.mjs PROMPT_SUFFIX,
+// so each scene prompt only needs the subject. Vehicle = seated step-through
+// e-moped (NOT a kick-scooter); charging = ordinary 3-pin domestic wall socket.
 const cards = [
-  { slug: "home-charging", prompt: "An electric scooter charging from a regular wall socket at an Indian home" },
-  { slug: "sector-road", prompt: "An electric scooter on a clean tree-lined Chandigarh sector road" },
-  { slug: "charging-plug", prompt: "Close-up of a charging plug and electricity meter for an electric scooter" },
+  { slug: "home-charging", prompt: "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) parked beside a house wall, its charger cable plugged into an ordinary 3-pin domestic wall socket, everyday Indian residential setting, daytime" },
+  { slug: "sector-road", prompt: "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) on a clean, tree-lined Chandigarh sector road, modernist concrete buildings softly in the background" },
+  { slug: "charging-plug", prompt: "Close-up of a charger cable plugged into an ordinary 3-pin domestic wall socket on a house wall, a home electricity meter beside it" },
 ];
 
 try {
   for (const c of cards) {
-    const out = await generateCard({ prompt: c.prompt + STYLE, slug: c.slug });
+    const out = await generateCard({ prompt: c.prompt, slug: c.slug });
     console.log(`✓ ${c.slug} → ${out}`);
   }
   console.log("\n✓ All three featured card images generated.");
