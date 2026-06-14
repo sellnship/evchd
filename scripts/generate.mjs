@@ -96,9 +96,13 @@ function buildArticle(topic, body, heroImage, description) {
   return `${frontmatter}\n\n${cleanBody}\n`;
 }
 
-/** Record the outcome on the matching topic and persist the queue. */
-async function recordOutcome(queue, slug, status, extra = {}) {
-  const entry = queue.find((e) => isTopic(e) && e.slug === slug);
+/** Record the outcome on the matching topic and persist the queue.
+ *  Matches by slug AND lang — EN and HI entries can share a slug, so matching
+ *  by slug alone would update the wrong entry. */
+async function recordOutcome(queue, topic, status, extra = {}) {
+  const entry = queue.find(
+    (e) => isTopic(e) && e.slug === topic.slug && (e.lang || "en") === (topic.lang || "en"),
+  );
   if (entry) {
     entry.status = status;
     entry.processedAt = new Date().toISOString();
@@ -140,7 +144,7 @@ async function main() {
   }
   if (!VALID_SECTIONS.has(topic.section)) {
     log("queue", `topic "${topic.slug}" has invalid section "${topic.section}" — halting.`);
-    await recordOutcome(queue, topic.slug, "halted-invalid-section");
+    await recordOutcome(queue, topic, "halted-invalid-section");
     return;
   }
   log("queue", `picked "${topic.slug}" (${topic.section}/${topic.category}, lang=${topic.lang || "en"})`);
@@ -149,7 +153,7 @@ async function main() {
   const dup = await isDuplicate(topic);
   if (dup.duplicate) {
     log("dedup", `DUPLICATE of "${dup.match}" (score ${dup.score}) — skipping, not drafting.`);
-    await recordOutcome(queue, topic.slug, "skipped-dup", { dedupMatch: dup.match, dedupScore: dup.score });
+    await recordOutcome(queue, topic, "skipped-dup", { dedupMatch: dup.match, dedupScore: dup.score });
     return;
   }
   log("dedup", `clear (closest existing: "${dup.match}" @ ${dup.score}).`);
@@ -163,7 +167,7 @@ async function main() {
   const verdict = await critique(body);
   if (verdict.isCommodity) {
     log("critique", `KILLED as commodity: ${verdict.reason} — not writing.`);
-    await recordOutcome(queue, topic.slug, "killed-commodity", { killReason: verdict.reason });
+    await recordOutcome(queue, topic, "killed-commodity", { killReason: verdict.reason });
     return;
   }
   log("critique", `passed originality (${verdict.reason}).`);
@@ -181,7 +185,7 @@ async function main() {
   }
   if (critical.length) {
     log("factcheck", `HALTING "${topic.slug}" — ${critical.length} critical issue(s), not writing.`);
-    await recordOutcome(queue, topic.slug, "halted-factcheck", { factCheckIssues: issues });
+    await recordOutcome(queue, topic, "halted-factcheck", { factCheckIssues: issues });
     return;
   }
 
@@ -208,7 +212,7 @@ async function main() {
   log("write", `wrote ${outPath} (${article.length} chars).`);
 
   // STAGE 8 — mark published in the queue (git commit/push is the workflow's job).
-  await recordOutcome(queue, topic.slug, "published", {
+  await recordOutcome(queue, topic, "published", {
     publishedPath: outPath,
     factCheckIssues: issues, // [] or minor-only — kept for the audit trail
   });

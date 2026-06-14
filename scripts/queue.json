@@ -145,7 +145,7 @@
     "imagePrompt": "Close-up of the under-seat battery compartment and charging port of a seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels).",
     "angle": "Honest total-cost-over-life: lead-acid's lower sticker vs lithium's lighter weight, faster charge, longer life. Use the data-layer line (above ~60 km/day choose lithium). Brand-neutral, specs over sales.",
     "processedAt": "2026-06-14T20:14:29.854Z",
-    "publishedPath": "src/content/compare/hi/lead-acid-vs-lithium-battery.md",
+    "publishedPath": "src/content/compare/lead-acid-vs-lithium-battery.md",
     "factCheckIssues": [
       {
         "severity": "warning",
@@ -180,9 +180,10 @@
     "section": "compare",
     "category": "Comparison",
     "lang": "hi",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "Close-up of the under-seat battery compartment and charging port of a seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels).",
-    "angle": "बोलचाल की हिंदी में battery तुलना — 'kitne din chalegi', charge time, weight; रोज़ ~60 km से ज़्यादा तो lithium। किसी brand की बिक्री नहीं, पूरी category की सलाह।"
+    "angle": "बोलचाल की हिंदी में battery तुलना — 'kitne din chalegi', charge time, weight; रोज़ ~60 km से ज़्यादा तो lithium। किसी brand की बिक्री नहीं, पूरी category की सलाह।",
+    "publishedPath": "src/content/compare/hi/lead-acid-vs-lithium-battery.md"
   },
   {
     "slug": "battery-replacement-cost-life",
@@ -190,7 +191,7 @@
     "section": "guides",
     "category": "Ownership",
     "lang": "en",
-    "status": "skipped-dup",
+    "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) on a stand at a tidy service workshop.",
     "angle": "How long lead-acid vs lithium last, when replacement is due, and budgeting for it over the scooter's life. Keep to data-layer guidance; tell readers to confirm exact prices with dealers.",
     "processedAt": "2026-06-14T20:15:47.041Z",
@@ -235,7 +236,7 @@
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) riding on an open, tree-lined Tricity sector road.",
     "angle": "Why claimed range differs from real-world (rider weight, terrain, battery age) and how to size the battery to your actual Tricity commute.",
     "processedAt": "2026-06-14T20:18:59.795Z",
-    "publishedPath": "src/content/guides/hi/real-range-vs-brochure.md",
+    "publishedPath": "src/content/guides/real-range-vs-brochure.md",
     "factCheckIssues": [
       {
         "severity": "warning",
@@ -265,9 +266,10 @@
     "section": "guides",
     "category": "Running Costs",
     "lang": "hi",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) riding on an open, tree-lined Tricity sector road.",
-    "angle": "बोलचाल में 'company itna bolti hai par chalti kitni hai' — weight, road, battery age; अपने रोज़ के km के हिसाब से battery चुनें।"
+    "angle": "बोलचाल में 'company itna bolti hai par chalti kitni hai' — weight, road, battery age; अपने रोज़ के km के हिसाब से battery चुनें।",
+    "publishedPath": "src/content/guides/hi/real-range-vs-brochure.md"
   },
   {
     "slug": "best-scooter-for-students",
@@ -279,7 +281,7 @@
     "imagePrompt": "A young helmeted rider seated on a seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) near a college gate.",
     "angle": "No-licence (16+), low running cost, short college commutes; match budget to range. Category advice, not a single model.",
     "processedAt": "2026-06-14T20:22:00.380Z",
-    "publishedPath": "src/content/guides/hi/best-scooter-for-students.md",
+    "publishedPath": "src/content/guides/best-scooter-for-students.md",
     "factCheckIssues": [
       {
         "severity": "warning",
@@ -309,9 +311,10 @@
     "section": "guides",
     "category": "Buying Guide",
     "lang": "hi",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A young helmeted rider seated on a seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) near a college gate.",
-    "angle": "बोलचाल में students के लिए — 'bina license', सस्ती चलाई, college ki daily; budget और range मिलाएँ। एक model नहीं, पूरी category।"
+    "angle": "बोलचाल में students के लिए — 'bina license', सस्ती चलाई, college ki daily; budget और range मिलाएँ। एक model नहीं, पूरी category।",
+    "publishedPath": "src/content/guides/hi/best-scooter-for-students.md"
   },
   {
     "slug": "scooter-for-seniors-homemakers",
@@ -323,7 +326,7 @@
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels, low seat height) parked in a calm residential market setting.",
     "angle": "Low seat, gearless, ready-to-ride exemption; short market/temple/school-run trips. Ease over specs; brand-neutral.",
     "processedAt": "2026-06-14T20:24:55.097Z",
-    "publishedPath": "src/content/guides/hi/scooter-for-seniors-homemakers.md",
+    "publishedPath": "src/content/guides/scooter-for-seniors-homemakers.md",
     "factCheckIssues": [
       {
         "severity": "warning",
@@ -348,9 +351,10 @@
     "section": "guides",
     "category": "Buying Guide",
     "lang": "hi",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels, low seat height) parked in a calm residential market setting.",
-    "angle": "बोलचाल में — कम seat height, gearless, 'bina license', छोटे market/मंदिर के चक्कर; आसानी पर ज़ोर।"
+    "angle": "बोलचाल में — कम seat height, gearless, 'bina license', छोटे market/मंदिर के चक्कर; आसानी पर ज़ोर।",
+    "publishedPath": "src/content/guides/hi/scooter-for-seniors-homemakers.md"
   },
   {
     "slug": "scooter-for-delivery-gig-workers",
@@ -362,7 +366,7 @@
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) fitted with a rear delivery box, still clearly a seated e-moped, on a Chandigarh street.",
     "angle": "High daily km means lithium + range; running cost ~Rs 0.17/km vs petrol; cargo practicality. Honest about range limits and the 25 km/h cap.",
     "processedAt": "2026-06-14T20:27:57.040Z",
-    "publishedPath": "src/content/guides/hi/scooter-for-delivery-gig-workers.md",
+    "publishedPath": "src/content/guides/scooter-for-delivery-gig-workers.md",
     "factCheckIssues": [
       {
         "severity": "warning",
@@ -392,9 +396,10 @@
     "section": "guides",
     "category": "Buying Guide",
     "lang": "hi",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) fitted with a rear delivery box, still clearly a seated e-moped, on a Chandigarh street.",
-    "angle": "बोलचाल में delivery walon ke liye — रोज़ ज़्यादा km तो lithium aur range; ~Rs 0.17/km bachat; cargo/box. Range और 25 km/h की सीमा ईमानदारी से।"
+    "angle": "बोलचाल में delivery walon ke liye — रोज़ ज़्यादा km तो lithium aur range; ~Rs 0.17/km bachat; cargo/box. Range और 25 km/h की सीमा ईमानदारी से।",
+    "publishedPath": "src/content/guides/hi/scooter-for-delivery-gig-workers.md"
   },
   {
     "slug": "buying-mistakes-checklist",
@@ -406,7 +411,7 @@
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) in a clean, well-lit showroom-style setting.",
     "angle": "The motor-wattage trap (speed AND 250W), battery type, warranty, service network, and the PM E-DRIVE-doesn't-apply trap. An actionable checklist.",
     "processedAt": "2026-06-14T20:30:46.289Z",
-    "publishedPath": "src/content/guides/hi/buying-mistakes-checklist.md",
+    "publishedPath": "src/content/guides/buying-mistakes-checklist.md",
     "factCheckIssues": [
       {
         "severity": "warning",
@@ -446,9 +451,10 @@
     "section": "guides",
     "category": "Buying Guide",
     "lang": "hi",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) in a clean, well-lit showroom-style setting.",
-    "angle": "बोलचाल में — motor 250W ka trap, battery type, warranty, service centre, 'subsidy milegi' wala jhansa; ek seedhi checklist।"
+    "angle": "बोलचाल में — motor 250W ka trap, battery type, warranty, service centre, 'subsidy milegi' wala jhansa; ek seedhi checklist।",
+    "publishedPath": "src/content/guides/hi/buying-mistakes-checklist.md"
   },
   {
     "slug": "insurance-do-you-need-it",
@@ -460,7 +466,7 @@
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) parked in a neutral residential setting, clean daylight.",
     "angle": "The grey area, honestly: not legally mandated for an exempt low-speed scooter, interpretations differ, enforcement varies across UT/Punjab/Haryana — confirm with your local RTO; voluntary cover is sensible.",
     "processedAt": "2026-06-14T20:32:45.556Z",
-    "publishedPath": "src/content/guides/hi/insurance-do-you-need-it.md",
+    "publishedPath": "src/content/guides/insurance-do-you-need-it.md",
     "factCheckIssues": [
       {
         "severity": "warning",
@@ -480,9 +486,10 @@
     "section": "guides",
     "category": "Rules",
     "lang": "hi",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) parked in a neutral residential setting, clean daylight.",
-    "angle": "बोलचाल में — 'insurance zaroori hai ya nahi'; exempt low-speed पर mandatory नहीं, interpretation अलग, enforcement अलग; local RTO से confirm; voluntary cover समझदारी।"
+    "angle": "बोलचाल में — 'insurance zaroori hai ya nahi'; exempt low-speed पर mandatory नहीं, interpretation अलग, enforcement अलग; local RTO से confirm; voluntary cover समझदारी।",
+    "publishedPath": "src/content/guides/hi/insurance-do-you-need-it.md"
   },
   {
     "slug": "sub-40k-scooter-worth-it",
@@ -494,7 +501,7 @@
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) on an honest, neutral Tricity street.",
     "angle": "What you trade off at the bottom of the market (battery, range, build, service) and when cheap is false economy. Data-layer entry prices start ~Rs 45,633 — be honest that genuine sub-40k is tight.",
     "processedAt": "2026-06-14T20:35:40.981Z",
-    "publishedPath": "src/content/guides/hi/sub-40k-scooter-worth-it.md",
+    "publishedPath": "src/content/guides/sub-40k-scooter-worth-it.md",
     "factCheckIssues": [
       {
         "severity": "warning",
@@ -519,9 +526,10 @@
     "section": "guides",
     "category": "Buying Guide",
     "lang": "hi",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) on an honest, neutral Tricity street.",
-    "angle": "बोलचाल में — सस्ते स्कूटर में क्या compromise (battery, range, service); कब ठीक कब नहीं; entry price ~Rs 45,633 — सच में sub-40k मुश्किल, ईमानदारी से।"
+    "angle": "बोलचाल में — सस्ते स्कूटर में क्या compromise (battery, range, service); कब ठीक कब नहीं; entry price ~Rs 45,633 — सच में sub-40k मुश्किल, ईमानदारी से।",
+    "publishedPath": "src/content/guides/hi/sub-40k-scooter-worth-it.md"
   },
   {
     "slug": "monsoon-safety-rain",
@@ -533,7 +541,7 @@
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) on a wet Tricity street during light rain, no glow.",
     "angle": "Wet-road riding, water and charging safety, storage and battery care through the monsoon — practical, local seasonal advice.",
     "processedAt": "2026-06-14T20:38:43.580Z",
-    "publishedPath": "src/content/guides/hi/monsoon-safety-rain.md",
+    "publishedPath": "src/content/guides/monsoon-safety-rain.md",
     "factCheckIssues": [
       {
         "severity": "warning",
@@ -563,8 +571,9 @@
     "section": "guides",
     "category": "Ownership",
     "lang": "hi",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) on a wet Tricity street during light rain, no glow.",
-    "angle": "बोलचाल में — बारिश में चलाना, पानी और charging safety, scooter aur battery की देखभाल; मौसमी लोकल सलाह।"
+    "angle": "बोलचाल में — बारिश में चलाना, पानी और charging safety, scooter aur battery की देखभाल; मौसमी लोकल सलाह।",
+    "publishedPath": "src/content/guides/hi/monsoon-safety-rain.md"
   }
 ]

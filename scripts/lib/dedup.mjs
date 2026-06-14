@@ -16,8 +16,8 @@ import path from "node:path";
 
 const CONTENT_ROOT = path.join("src", "content");
 
-// Block when similarity to any existing article meets/exceeds this.
-const SIMILARITY_THRESHOLD = 0.62;
+// Block when Jaccard similarity to any existing same-language article meets/exceeds this.
+const SIMILARITY_THRESHOLD = 0.5;
 
 const STOPWORDS = new Set([
   "the", "a", "an", "and", "or", "of", "to", "in", "on", "for", "with", "your",
@@ -37,15 +37,15 @@ function tokenize(text) {
   );
 }
 
-/** Jaccard similarity blended with containment (so a short topic fully covered by a longer title still scores high). */
+/** Symmetric Jaccard similarity. (Containment was too aggressive: a longer topic
+ *  that merely mentions all of a short title's words — e.g. a battery-replacement
+ *  guide referencing "lead-acid vs lithium" — scored as a full duplicate.) */
 function similarity(a, b) {
   if (a.size === 0 || b.size === 0) return 0;
   let inter = 0;
   for (const t of a) if (b.has(t)) inter++;
   const union = a.size + b.size - inter;
-  const jaccard = inter / union;
-  const containment = inter / Math.min(a.size, b.size);
-  return Math.max(jaccard, containment * 0.9);
+  return inter / union;
 }
 
 /** Recursively collect every published article's slug + title + lang from src/content. */
@@ -87,14 +87,17 @@ export async function isDuplicate(topic) {
   // Compare only within the same language — a Hindi article isn't a duplicate
   // of its English counterpart.
   const existing = (await loadExisting()).filter((a) => a.lang === lang);
-  const topicTokens = tokenize(`${topic.title} ${topic.angle ?? ""}`);
+  // Include the slug in the token set: slugs are roman-script and descriptive,
+  // so they survive Hindi's Devanagari stripping and keep distinct topics apart
+  // (a Hindi title alone can collapse to a single shared token like "battery").
+  const topicTokens = tokenize(`${topic.slug} ${topic.title} ${topic.angle ?? ""}`);
 
   let best = { score: 0, match: null };
   for (const art of existing) {
     if (art.slug === topic.slug) {
       return { duplicate: true, match: art.slug, score: 1 };
     }
-    const score = similarity(topicTokens, tokenize(art.title));
+    const score = similarity(topicTokens, tokenize(`${art.slug} ${art.title}`));
     if (score > best.score) best = { score, match: art.slug };
   }
 
