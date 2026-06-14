@@ -12,18 +12,18 @@ if (!process.env.FAL_KEY) {
   process.exit(1);
 }
 
-const STYLE =
-  ", editorial photograph, natural daylight, Chandigarh modernist concrete context, warm-concrete tones with subtle electric-blue accent, no text, no watermark, no logos.";
-
+// Editorial style + the vehicle/charging rules live in image.mjs PROMPT_SUFFIX,
+// so each scene prompt only needs the subject. Vehicle = seated step-through
+// e-moped (NOT a kick-scooter); charging = ordinary 3-pin domestic wall socket.
 const heroes = [
-  { slug: "escooter-licence", prompt: "A low-speed electric scooter parked on a clean, tree-lined Chandigarh sector street" },
-  { slug: "home-charging-cost", prompt: "An electric scooter charging from a domestic wall socket at an Indian home, with an electricity meter nearby" },
-  { slug: "low-speed-compare", prompt: "A neat row of electric scooters parked side by side on a clean Chandigarh street" },
+  { slug: "escooter-licence", prompt: "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels, the kind you sit on) parked on a clean, tree-lined Chandigarh sector street, quiet residential road" },
+  { slug: "home-charging-cost", prompt: "A seated step-through electric scooter (Indian e-moped) charging — charger cable plugged into an ordinary 3-pin domestic wall socket on a house wall, a home electricity meter nearby" },
+  { slug: "low-speed-compare", prompt: "A neat row of seated step-through electric scooters (Indian e-mopeds — seat, flat floorboard, small wheels) parked side by side on a clean Chandigarh street" },
 ];
 
 try {
   for (const h of heroes) {
-    const out = await generateHero({ prompt: h.prompt + STYLE, slug: h.slug });
+    const out = await generateHero({ prompt: h.prompt, slug: h.slug });
     console.log(`✓ ${h.slug} → ${out}`);
   }
   console.log("\n✓ Seed hero images generated.");
