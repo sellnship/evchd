@@ -456,9 +456,28 @@
     "section": "guides",
     "category": "Rules",
     "lang": "en",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) parked in a neutral residential setting, clean daylight.",
-    "angle": "The grey area, honestly: not legally mandated for an exempt low-speed scooter, interpretations differ, enforcement varies across UT/Punjab/Haryana — confirm with your local RTO; voluntary cover is sensible."
+    "angle": "The grey area, honestly: not legally mandated for an exempt low-speed scooter, interpretations differ, enforcement varies across UT/Punjab/Haryana — confirm with your local RTO; voluntary cover is sensible.",
+    "processedAt": "2026-06-14T20:31:37.702Z",
+    "publishedPath": "src/content/guides/insurance-do-you-need-it.md",
+    "factCheckIssues": [
+      {
+        "severity": "warning",
+        "claim": "Third-party liability — the minimum sensible cover — is inexpensive for a low-speed scooter.",
+        "problem": "The data layer does not provide pricing or availability data for third-party insurance policies for low-speed EVs in the Tricity. The claim about cost is not verifiable against the verified data and should be softened or removed before publish."
+      },
+      {
+        "severity": "warning",
+        "claim": "Some insurers in India now offer standalone electric vehicle policies or add low-speed EVs as a category.",
+        "problem": "This is a generic India-wide statement not verified in the local-facts data layer. Before publish, confirm whether insurers actually offer low-speed EV cover in Chandigarh/Mohali/Panchkula and cite a specific provider or source."
+      },
+      {
+        "severity": "warning",
+        "claim": "A brief visit or call to your local RTO with the motor rating and speed specification of your scooter in hand will give you a current, jurisdiction-specific answer.",
+        "problem": "This is good guidance but the data layer notes that on insurance specifically, 'enforcement varies' and there is 'no single authoritative resolution.' The phrasing slightly overstates the clarity an RTO visit will provide on the insurance grey area. Consider: 'confirm your RTO's current position, though interpretations may still vary.'"
+      }
+    ]
   },
   {
     "slug": "insurance-do-you-need-it",
