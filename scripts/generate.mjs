@@ -162,11 +162,13 @@ async function main() {
   }
   log("critique", `passed originality (${verdict.reason}).`);
 
-  // STAGE 5 — fact-check against the data layer.
+  // STAGE 5 — fact-check against the data layer. Only `critical` issues
+  // (factual contradictions, fabricated figures, value-split errors) halt;
+  // `warning` issues are logged for the audit trail but never block.
   const { issues } = await factCheck(body, { facts, models });
   const critical = issues.filter((i) => String(i.severity).toLowerCase() === "critical");
   if (issues.length) {
-    log("factcheck", `${issues.length} issue(s): ${critical.length} critical, ${issues.length - critical.length} minor.`);
+    log("factcheck", `${issues.length} issue(s): ${critical.length} critical, ${issues.length - critical.length} warning.`);
     for (const i of issues) log("factcheck", `  [${i.severity}] ${i.problem}`);
   } else {
     log("factcheck", "no issues — all claims trace to the data layer.");
