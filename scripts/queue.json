@@ -275,9 +275,33 @@
     "section": "guides",
     "category": "Buying Guide",
     "lang": "en",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A young helmeted rider seated on a seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) near a college gate.",
-    "angle": "No-licence (16+), low running cost, short college commutes; match budget to range. Category advice, not a single model."
+    "angle": "No-licence (16+), low running cost, short college commutes; match budget to range. Category advice, not a single model.",
+    "processedAt": "2026-06-14T20:20:23.058Z",
+    "publishedPath": "src/content/guides/best-scooter-for-students.md",
+    "factCheckIssues": [
+      {
+        "severity": "warning",
+        "claim": "For daily distances above ~60 km, choose lithium-ion over lead-acid for better range, longer life and lower weight.",
+        "problem": "The data layer says this guidance applies to 'daily distances above ~60 km', but the article's own range-matching table recommends lithium-ion for '40–60 km' routes and above. Consider aligning the threshold language for consistency, or clarifying whether the ~60 km cutoff is a soft guideline or a hard boundary."
+      },
+      {
+        "severity": "warning",
+        "claim": "Zelio lists 350+ authorised service centres nationally",
+        "problem": "The data layer states '350+ authorised service centres across India' under shared specs. The article correctly cites this, but adds 'nationally' which is correct; no error here, but verify this figure against the live Zelio site before publish as service network counts can change."
+      },
+      {
+        "severity": "warning",
+        "claim": "The **Zelio EEVA** starts from approximately Rs 62,117. Its range figures are listed as pending verification, so confirm these with the dealer before relying on them for commute planning.",
+        "problem": "The data layer marks EEVA range as null and flagged for verification. The article correctly flags this to the reader and advises confirmation with a dealer — this is appropriate handling of incomplete data. However, before publication, attempt to verify the range figure from the live Zelio site or dealer, as leaving a key spec unverified in a buyer's guide weakens confidence."
+      },
+      {
+        "severity": "warning",
+        "claim": "Models such as the Zelio Legender, Legender+ Premium, EEVA ZX+, and X-Men do not have fully verified price and range data at the time of writing.",
+        "problem": "The data layer confirms Legender and Legender+ Premium have null price/range fields marked 'verify', and EEVA ZX+ range is unverified. X-Men price and range are also marked for verification. The article correctly flags these as unverified, which is good practice, but ideally these gaps should be closed before publication — do not publish with multiple model specs pending verification."
+      }
+    ]
   },
   {
     "slug": "best-scooter-for-students",
