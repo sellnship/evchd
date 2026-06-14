@@ -231,9 +231,23 @@
     "section": "guides",
     "category": "Running Costs",
     "lang": "en",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) riding on an open, tree-lined Tricity sector road.",
-    "angle": "Why claimed range differs from real-world (rider weight, terrain, battery age) and how to size the battery to your actual Tricity commute."
+    "angle": "Why claimed range differs from real-world (rider weight, terrain, battery age) and how to size the battery to your actual Tricity commute.",
+    "processedAt": "2026-06-14T20:17:16.887Z",
+    "publishedPath": "src/content/guides/real-range-vs-brochure.md",
+    "factCheckIssues": [
+      {
+        "severity": "warning",
+        "claim": "A full charge on a low-speed scooter uses approximately 2 units of electricity, which at the Tricity all-in rate of roughly Rs 5 per unit (per the JERC tariff order effective November 2025 for Chandigarh, and comparable PSPCL rates for Mohali) costs around Rs 10.",
+        "problem": "The article states 'comparable PSPCL rates for Mohali' but the data layer specifies PSPCL Mohali tariff as 'around Rs 5.40 per unit for the first 300 units' — which is slightly higher than the Rs 5/unit all-in basis. The phrasing 'comparable' is accurate but could be clearer that Mohali may run slightly higher; no factual contradiction, but worth reconciling before publish to ensure tariff figures are current."
+      },
+      {
+        "severity": "warning",
+        "claim": "The EEVA, EEVA ZX+, X-Men, Legender, and Legender+ Premium are also in the Zelio low-speed range, but range figures for those models require direct confirmation from the dealer — the verified data available at time of writing is incomplete for those variants.",
+        "problem": "The models.json data layer flags these models with 'verify' notes on range/price, confirming the article's statement is correct. However, the X-Men model appears in the comparative table without a range figure, which may confuse readers; the article correctly acknowledges the data gap elsewhere but the table presentation could be clearer about which figures are estimates versus missing."
+      }
+    ]
   },
   {
     "slug": "real-range-vs-brochure",
