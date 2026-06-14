@@ -122,10 +122,14 @@ async function main() {
   const facts = await fs.readFile(FACTS_PATH, "utf8");
   const models = await fs.readFile(MODELS_PATH, "utf8");
 
-  // STAGE 1 — pull the next pending topic.
-  const topic = queue.find((e) => isTopic(e) && e.status === "pending");
+  // STAGE 1 — pull the next pending topic. TOPIC_LANG (optional) targets a
+  // specific language's first pending topic; unset = first pending overall.
+  const wantLang = process.env.TOPIC_LANG;
+  const topic = queue.find(
+    (e) => isTopic(e) && e.status === "pending" && (!wantLang || (e.lang || "en") === wantLang),
+  );
   if (!topic) {
-    log("queue", "no pending topics — nothing to do. Exiting cleanly.");
+    log("queue", wantLang ? `no pending "${wantLang}" topics — nothing to do.` : "no pending topics — nothing to do. Exiting cleanly.");
     return;
   }
   if (!VALID_SECTIONS.has(topic.section)) {
@@ -133,7 +137,7 @@ async function main() {
     await recordOutcome(queue, topic.slug, "halted-invalid-section");
     return;
   }
-  log("queue", `picked "${topic.slug}" (${topic.section}/${topic.category})`);
+  log("queue", `picked "${topic.slug}" (${topic.section}/${topic.category}, lang=${topic.lang || "en"})`);
 
   // STAGE 2 — dedup gate.
   const dup = await isDuplicate(topic);
