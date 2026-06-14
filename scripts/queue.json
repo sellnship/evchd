@@ -234,18 +234,28 @@
     "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) riding on an open, tree-lined Tricity sector road.",
     "angle": "Why claimed range differs from real-world (rider weight, terrain, battery age) and how to size the battery to your actual Tricity commute.",
-    "processedAt": "2026-06-14T20:17:16.887Z",
-    "publishedPath": "src/content/guides/real-range-vs-brochure.md",
+    "processedAt": "2026-06-14T20:18:59.795Z",
+    "publishedPath": "src/content/guides/hi/real-range-vs-brochure.md",
     "factCheckIssues": [
       {
         "severity": "warning",
-        "claim": "A full charge on a low-speed scooter uses approximately 2 units of electricity, which at the Tricity all-in rate of roughly Rs 5 per unit (per the JERC tariff order effective November 2025 for Chandigarh, and comparable PSPCL rates for Mohali) costs around Rs 10.",
-        "problem": "The article states 'comparable PSPCL rates for Mohali' but the data layer specifies PSPCL Mohali tariff as 'around Rs 5.40 per unit for the first 300 units' — which is slightly higher than the Rs 5/unit all-in basis. The phrasing 'comparable' is accurate but could be clearer that Mohali may run slightly higher; no factual contradiction, but worth reconciling before publish to ensure tariff figures are current."
+        "claim": "JERC के tariff order के हिसाब से Chandigarh में domestic rate लगभग ₹2.75/unit से शुरू होकर ₹5.40/unit तक जाती है",
+        "problem": "The data layer specifies tiered rates: ~₹2.75/unit (lowest slab), ~₹4.80/unit (151-400 units), and ~₹5.40/unit (above 400 units). The phrasing 'से शुरू होकर...तक' could mislead readers into thinking all uses fall in that range; the guidance says use ~₹5/unit as a realistic all-in average, not the lowest slab alone. Consider clarifying that lower-usage homes pay less but mid-to-heavy users approach ₹5.40/unit."
       },
       {
         "severity": "warning",
-        "claim": "The EEVA, EEVA ZX+, X-Men, Legender, and Legender+ Premium are also in the Zelio low-speed range, but range figures for those models require direct confirmation from the dealer — the verified data available at time of writing is incomplete for those variants.",
-        "problem": "The models.json data layer flags these models with 'verify' notes on range/price, confirming the article's statement is correct. However, the X-Men model appears in the comparative table without a range figure, which may confuse readers; the article correctly acknowledges the data gap elsewhere but the table presentation could be clearer about which figures are estimates versus missing."
+        "claim": "Zelio के data के मुताबिक़, रोज़ 60 km से ऊपर चलने वालों को lithium-ion ही लेना चाहिए।",
+        "problem": "The models.json shared_low_speed_specs says 'For daily distances above ~60 km, choose lithium-ion over lead-acid' — the article quotes this, but the phrasing 'ही लेना चाहिए' (must take) is slightly more prescriptive than the data layer's guidance ('choose...for better range, longer life and lower weight'). Minor tone issue; the claim is consistent with the data but could soften the language slightly."
+      },
+      {
+        "severity": "warning",
+        "claim": "यह scooters किसके लिए हैं... इन्हें licence, RTO registration, road tax, या mandatory insurance की ज़रूरत नहीं पड़ती",
+        "problem": "The data layer includes a nuance: 'Some interpretations argue third-party cover is still required under the MV Act, and on-ground enforcement varies — phrase as \"confirm with your local RTO\" in content, not as black-and-white.' The article states it as absolute fact. Add a note directing readers to confirm with local RTO regarding insurance interpretation."
+      },
+      {
+        "severity": "warning",
+        "claim": "Practical Range table: multiple models listed with specific practical range estimates (e.g. Zelio Little Gracy 45-55 km, Zelio Gracy i 65-75 km, etc.)",
+        "problem": "These practical range figures are author estimates not drawn from the data layer. The models.json does not provide 'practical range' figures — only brochure ranges. The article does include a disclaimer ('ये practical estimates हैं, guaranteed figures नहीं') but the table presents these as if they are derived from verified Zelio data. Before publish, verify these estimates against real-world testing or dealer feedback from Tricity locations, or clearly label them as editorial estimates throughout."
       }
     ]
   },
