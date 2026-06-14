@@ -459,23 +459,18 @@
     "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) parked in a neutral residential setting, clean daylight.",
     "angle": "The grey area, honestly: not legally mandated for an exempt low-speed scooter, interpretations differ, enforcement varies across UT/Punjab/Haryana — confirm with your local RTO; voluntary cover is sensible.",
-    "processedAt": "2026-06-14T20:31:37.702Z",
-    "publishedPath": "src/content/guides/insurance-do-you-need-it.md",
+    "processedAt": "2026-06-14T20:32:45.556Z",
+    "publishedPath": "src/content/guides/hi/insurance-do-you-need-it.md",
     "factCheckIssues": [
       {
         "severity": "warning",
-        "claim": "Third-party liability — the minimum sensible cover — is inexpensive for a low-speed scooter.",
-        "problem": "The data layer does not provide pricing or availability data for third-party insurance policies for low-speed EVs in the Tricity. The claim about cost is not verifiable against the verified data and should be softened or removed before publish."
+        "claim": "Tricity में एक और बात ध्यान रखें: Chandigarh — Union Territory है, UT administration के traffic नियम लागू होते हैं; Mohali — Punjab है, PSPCL और Punjab transport department का अधिकार है; Panchkula — Haryana है, UHBVN और Haryana transport का",
+        "problem": "The data layer correctly identifies the jurisdictions but notes that Central CMVR rules apply identically across all three — it then advises always directing readers to confirm with local RTO due to enforcement variation, not governance structure differences. The phrasing 'PSPCL और Punjab transport department का अधिकार है' risks implying different rules apply per region, when the rules are identical and only enforcement may differ slightly. Recommend rephrasing to emphasise rule uniformity and enforcement variation to avoid reader confusion."
       },
       {
         "severity": "warning",
-        "claim": "Some insurers in India now offer standalone electric vehicle policies or add low-speed EVs as a category.",
-        "problem": "This is a generic India-wide statement not verified in the local-facts data layer. Before publish, confirm whether insurers actually offer low-speed EV cover in Chandigarh/Mohali/Panchkula and cite a specific provider or source."
-      },
-      {
-        "severity": "warning",
-        "claim": "A brief visit or call to your local RTO with the motor rating and speed specification of your scooter in hand will give you a current, jurisdiction-specific answer.",
-        "problem": "This is good guidance but the data layer notes that on insurance specifically, 'enforcement varies' and there is 'no single authoritative resolution.' The phrasing slightly overstates the clarity an RTO visit will provide on the insurance grey area. Consider: 'confirm your RTO's current position, though interpretations may still vary.'"
+        "claim": "एक low-speed electric scooter का full charge लगभग 2 units बिजली लेता है। Tricity में all-in बिजली दर लगभग ₹5 per unit मानें तो एक full charge का खर्च करीब ₹10। इससे लगभग 60 km की range मिलती है — यानी **₹0.17 per km।**",
+        "problem": "The data layer specifies running cost at ₹0.17/km and ~₹5/unit as 'all-in' but also notes that Chandigarh's lowest slab is ~₹2.75/unit (much lower). The article's use of '₹5 per unit' without acknowledging that lower slabs exist or that this is a 'conservative all-in average' risks under-representing actual variation for budget-conscious readers in Chandigarh. Consider adding a note that lower-usage homes pay less, consistent with the data layer guidance."
       }
     ]
   },
