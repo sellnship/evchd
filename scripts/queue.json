@@ -490,9 +490,33 @@
     "section": "guides",
     "category": "Buying Guide",
     "lang": "en",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) on an honest, neutral Tricity street.",
-    "angle": "What you trade off at the bottom of the market (battery, range, build, service) and when cheap is false economy. Data-layer entry prices start ~Rs 45,633 — be honest that genuine sub-40k is tight."
+    "angle": "What you trade off at the bottom of the market (battery, range, build, service) and when cheap is false economy. Data-layer entry prices start ~Rs 45,633 — be honest that genuine sub-40k is tight.",
+    "processedAt": "2026-06-14T20:34:12.116Z",
+    "publishedPath": "src/content/guides/sub-40k-scooter-worth-it.md",
+    "factCheckIssues": [
+      {
+        "severity": "warning",
+        "claim": "a full charge on a 60-km-range scooter uses approximately 2 units and costs roughly Rs 10",
+        "problem": "The data layer specifies '~2' units per full charge costing '~10' rupees, which aligns with the article. However, the article applies this to 'a 60-km-range scooter' generically. The Little Gracy (60 km range) is lead-acid and uses ~1.5 units per charge according to the models data, while the 2-unit figure appears to apply more broadly. Clarify which model(s) this cost applies to, or note it as an approximate all-in figure across the range."
+      },
+      {
+        "severity": "warning",
+        "claim": "a 2 years (unlimited km on motor / controller / frame on select models)",
+        "problem": "The article states '2 years on motor, controller, and frame on select models' but the models.json data only specifies 'warranty: 2 years (unlimited km on motor / controller / frame on select models)' without naming which models qualify. The article should either name the specific qualifying models or soften the claim to match the data layer's 'on select models' caveat more explicitly."
+      },
+      {
+        "severity": "warning",
+        "claim": "The Little Gracy is rated at roughly 60 km on a full charge",
+        "problem": "The models data lists Little Gracy range_km as '60' (a string, not explicitly 'rated' or 'up to'). The article's use of 'rated at roughly 60 km' is reasonable but the data does not specify whether this is WLTP, ARAI, or tested/claimed range. Verify source of the 60 km figure before final publish to ensure the phrasing of 'rated' is accurate."
+      },
+      {
+        "severity": "warning",
+        "claim": "Zelio has reasonable coverage, but you should confirm that a service point is accessible in or near your specific area — whether that is Mohali Phase 7, Zirakpur, or Panchkula Sector 20",
+        "problem": "The article claims '350+ authorised service centres across India' (correct per data layer) but then encourages readers to verify availability in specific Tricity micro-locations without stating whether the 350+ centres include coverage in those exact areas. The examples (Mohali Phase 7, Zirakpur, Panchkula Sector 20) are plausible but not verified in the data layer. Soften to 'confirm with Zelio directly' rather than implying local availability is certain."
+      }
+    ]
   },
   {
     "slug": "sub-40k-scooter-worth-it",
