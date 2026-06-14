@@ -529,9 +529,33 @@
     "section": "guides",
     "category": "Ownership",
     "lang": "en",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) on a wet Tricity street during light rain, no glow.",
-    "angle": "Wet-road riding, water and charging safety, storage and battery care through the monsoon — practical, local seasonal advice."
+    "angle": "Wet-road riding, water and charging safety, storage and battery care through the monsoon — practical, local seasonal advice.",
+    "processedAt": "2026-06-14T20:37:17.933Z",
+    "publishedPath": "src/content/guides/monsoon-safety-rain.md",
+    "factCheckIssues": [
+      {
+        "severity": "warning",
+        "claim": "The running cost of a full charge — at roughly two units of electricity, and at the approximate all-in rate of Rs 5 per unit under the JERC tariff for Chandigarh domestic consumers (or the comparable PSPCL rate in Mohali) — works out to around Rs 10 per full charge, or about Rs 0.17 per kilometre over a 60 km range.",
+        "problem": "The data layer specifies running cost as Rs 0.17 per km over a ~60 km range, which is correct; however, the phrasing 'over a 60 km range' could be clearer about which model or battery variant this applies to, since range varies significantly across the Zelio lineup (60–140 km depending on model and battery type). Consider specifying this is an example for entry-level models, or reconcile against the actual range of the model being featured in context."
+      },
+      {
+        "severity": "warning",
+        "claim": "Overnight charging indoors, away from rain exposure, is the right approach through the monsoon. ... Overnight charging is the standard pattern for low-speed scooters — a full charge takes roughly seven to twelve hours for lead-acid variants and four to five hours for lithium-ion variants, per Zelio's specifications.",
+        "problem": "The data layer (models.json shared_low_speed_specs) states lead-acid takes '~7-12 hr charge' and lithium-ion takes '~4-5 hr charge', which matches the article. However, in the battery care section the article states 'charge in four to five hours' for lithium-ion, which is consistent. No factual contradiction detected, but verify against live Zelio specs before publish to ensure charge times have not changed."
+      },
+      {
+        "severity": "warning",
+        "claim": "Lithium-ion variants — available on the Gracy i, X-Men+, Logix, and others in the Zelio low-speed range",
+        "problem": "The models.json lists lithium-ion options for Gracy i (confirmed), X-Men+ (confirmed), and Logix (confirmed as 'top lithium variant'). However, the phrasing 'and others' is vague. Reconcile against your actual current stock before publish to confirm which models you actually sell with lithium-ion, to avoid implying availability of variants you do not carry."
+      },
+      {
+        "severity": "warning",
+        "claim": "Lithium cells do not like sitting at 100 per cent charge for long periods in high ambient temperatures. If your scooter sits unused for more than a week during the rains, charging to roughly 80 per cent rather than full is better for long-term cell health. Confirm this with your service centre, as it depends on whether the battery pack has an active BMS.",
+        "problem": "This is general EV battery guidance and not contradicted by the data layer, but it is not explicitly verified in the data sources listed. The instruction to 'confirm with your service centre' is appropriate, but this claim should be double-checked against Zelio's official battery care guidance or service bulletins before publish to ensure it aligns with brand recommendations."
+      }
+    ]
   },
   {
     "slug": "monsoon-safety-rain",
