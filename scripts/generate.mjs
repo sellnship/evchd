@@ -122,14 +122,20 @@ async function main() {
   const facts = await fs.readFile(FACTS_PATH, "utf8");
   const models = await fs.readFile(MODELS_PATH, "utf8");
 
-  // STAGE 1 — pull the next pending topic. TOPIC_LANG (optional) targets a
-  // specific language's first pending topic; unset = first pending overall.
+  // STAGE 1 — pull the next pending topic. TOPIC_LANG / TOPIC_SLUG (optional)
+  // target a specific language / slug; unset = first pending overall.
   const wantLang = process.env.TOPIC_LANG;
+  const wantSlug = process.env.TOPIC_SLUG;
   const topic = queue.find(
-    (e) => isTopic(e) && e.status === "pending" && (!wantLang || (e.lang || "en") === wantLang),
+    (e) =>
+      isTopic(e) &&
+      e.status === "pending" &&
+      (!wantLang || (e.lang || "en") === wantLang) &&
+      (!wantSlug || e.slug === wantSlug),
   );
   if (!topic) {
-    log("queue", wantLang ? `no pending "${wantLang}" topics — nothing to do.` : "no pending topics — nothing to do. Exiting cleanly.");
+    const sel = [wantSlug && `slug="${wantSlug}"`, wantLang && `lang="${wantLang}"`].filter(Boolean).join(" ");
+    log("queue", sel ? `no pending topic matching ${sel} — nothing to do.` : "no pending topics — nothing to do. Exiting cleanly.");
     return;
   }
   if (!VALID_SECTIONS.has(topic.section)) {
@@ -183,7 +189,9 @@ async function main() {
   // The editorial style + vehicle/charging rules live in scripts/lib/image.mjs
   // (PROMPT_SUFFIX), so we pass only the per-topic scene here.
   log("image", `generating hero via fal…`);
-  const heroImage = await generateHero({ prompt: topic.imagePrompt, slug: topic.slug });
+  // EN and HI can share a slug; namespace the HI hero file so they don't collide.
+  const heroSlug = topic.lang === "hi" ? `${topic.slug}-hi` : topic.slug;
+  const heroImage = await generateHero({ prompt: topic.imagePrompt, slug: heroSlug });
   log("image", `hero → ${heroImage}`);
 
   // STAGE 7 — wrap: write markdown with frontmatter into the right section
