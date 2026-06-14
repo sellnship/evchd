@@ -141,9 +141,33 @@
     "section": "compare",
     "category": "Comparison",
     "lang": "en",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "Close-up of the under-seat battery compartment and charging port of a seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels).",
-    "angle": "Honest total-cost-over-life: lead-acid's lower sticker vs lithium's lighter weight, faster charge, longer life. Use the data-layer line (above ~60 km/day choose lithium). Brand-neutral, specs over sales."
+    "angle": "Honest total-cost-over-life: lead-acid's lower sticker vs lithium's lighter weight, faster charge, longer life. Use the data-layer line (above ~60 km/day choose lithium). Brand-neutral, specs over sales.",
+    "processedAt": "2026-06-14T20:13:09.725Z",
+    "publishedPath": "src/content/compare/lead-acid-vs-lithium-battery.md",
+    "factCheckIssues": [
+      {
+        "severity": "warning",
+        "claim": "At approximately Rs 5 per unit — which is a fair all-in basis for Tricity households once you account for the JERC tiered tariff in Chandigarh, PSPCL rates in Mohali (around Rs 5.40 per unit), and comparable Haryana rates in Panchkula — a full charge of roughly 2 units costs about Rs 10.",
+        "problem": "The phrasing 'around Rs 5.40 per unit' for Mohali could be misread as supporting the Rs 5/unit all-in basis claim, when the data layer actually states Mohali PSPCL is 'around Rs 5.40 per unit for the first 300 units' — already at the higher end. Clarify that Rs 5/unit is a mid-range reasonable average, not a floor."
+      },
+      {
+        "severity": "warning",
+        "claim": "Taking the Zelio Gracy 2026 as a concrete reference point, the entry lead-acid variant (60V/32AH) starts at around Rs 59,999, while the top lithium-ion variant (72V/32AH) is listed at around Rs 76,999",
+        "problem": "The data layer marks 'Gracy 2026' price as verified (Rs 59,999–76,999 confirmed), but the article should include an explicit reminder to verify against the live Zelio site before final publication, as prices vary by state and change over time — the data layer flags this model as needing pre-publish verification of the price band."
+      },
+      {
+        "severity": "warning",
+        "claim": "The Zelio Logix, for instance, is listed with a range of up to approximately 140 km on its top lithium variant",
+        "problem": "The models data marks Logix range as '60-90 (entry) up to ~140 on the top lithium variant' with a flag to 'verify exact range of top variant' before publish. The article states this as established fact without flagging that final verification is needed."
+      },
+      {
+        "severity": "warning",
+        "claim": "Low-speed scooters of this class are CMVR-exempt, are not registered with any RTO, and do not qualify for PM E-DRIVE, regardless of whether they carry a lithium pack or a lead-acid pack.",
+        "problem": "Accurate statement, but the data layer notes on insurance for low-speed scooters that 'some interpretations argue third-party cover is still required under the MV Act, and on-ground enforcement varies' — the article does not acknowledge this nuance or recommend 'confirm with your local RTO,' which the data layer guidance specifies for clarity on legal gray areas."
+      }
+    ]
   },
   {
     "slug": "lead-acid-vs-lithium-battery",
