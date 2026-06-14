@@ -402,9 +402,28 @@
     "section": "guides",
     "category": "Buying Guide",
     "lang": "en",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) in a clean, well-lit showroom-style setting.",
-    "angle": "The motor-wattage trap (speed AND 250W), battery type, warranty, service network, and the PM E-DRIVE-doesn't-apply trap. An actionable checklist."
+    "angle": "The motor-wattage trap (speed AND 250W), battery type, warranty, service network, and the PM E-DRIVE-doesn't-apply trap. An actionable checklist.",
+    "processedAt": "2026-06-14T20:29:11.251Z",
+    "publishedPath": "src/content/guides/buying-mistakes-checklist.md",
+    "factCheckIssues": [
+      {
+        "severity": "warning",
+        "claim": "No mandatory insurance (though voluntary cover is available and worth considering — some legal interpretations argue third-party cover is still required under the Motor Vehicles Act even for exempt vehicles, so confirm the current position with your local RTO)",
+        "problem": "The data layer notes this exact ambiguity and recommends phrasing as 'confirm with your local RTO' rather than presenting conflicting interpretations in the body text. The phrasing here is correct and consistent with the data layer guidance, but could be slightly clearer by leading with 'Not legally mandated' before mentioning the interpretation nuance — minor stylistic reconciliation with the data layer's preferred framing."
+      },
+      {
+        "severity": "warning",
+        "claim": "If your regular daily round trip is above roughly 60 km, choose lithium-ion. Below that, lead-acid is serviceable and keeps the entry cost low.",
+        "problem": "The data layer states 'For daily distances above ~60 km, choose lithium-ion' and the shared specs note 'Lead-acid / Gel — lower upfront cost, heavier, ~7-12 hr charge' and 'Lithium-ion — lighter, longer life, ~4-5 hr charge, higher upfront cost' but do not explicitly state a lower threshold for lead-acid suitability. The article's guidance (lead-acid below ~60 km) is reasonable but not explicitly stated in the data layer — verify against live dealer guidance and customer feedback before final publication."
+      },
+      {
+        "severity": "warning",
+        "claim": "On running cost, the battery type does not significantly change the per-km figure.",
+        "problem": "This claim is reasonable but could benefit from explicit verification: the data layer does not provide separate per-km costs for lead-acid vs. lithium variants. Confirm with Zelio or field data that the Rs 0.17/km figure holds across both battery types before publication."
+      }
+    ]
   },
   {
     "slug": "buying-mistakes-checklist",
