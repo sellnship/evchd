@@ -1,0 +1,33 @@
+---
+import '../../../styles/inner.css';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Eyebrow from '../../../components/Eyebrow.astro';
+import FeaturedCard from '../../../components/FeaturedCard.astro';
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('glossary', ({ data }) => !data.draft && data.lang === 'hi')).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title),
+);
+---
+<BaseLayout
+  title="शब्दावली — EV Chandigarh"
+  description="EV से जुड़े ज़रूरी शब्द — kWh, रेंज, low-speed छूट, स्लैब — आसान हिंदी में समझाए गए।"
+  type="website"
+>
+  <section class="listing wrap">
+    <header class="listing-head">
+      <Eyebrow text="शब्दावली" />
+      <h1 class="listing-title disp">EV के शब्द, आसान भाषा में</h1>
+      <p class="listing-desc">स्पेक शीट और बिजली के बिल पर लिखे शब्द — एक Tricity राइडर के लिए उनका मतलब।</p>
+    </header>
+    {entries.length > 0 ? (
+      <div class="feat-grid">
+        {entries.map((e) => (
+          <FeaturedCard href={`/hi/glossary/${e.id.replace(/^hi\//, '')}`} img={e.data.heroImage} alt={e.data.title} cat={e.data.category} title={e.data.title} desc={e.data.description} />
+        ))}
+      </div>
+    ) : (
+      <div class="empty-state"><p class="mono">शब्द हमारी गाइड के साथ-साथ जुड़ते जाएँगे — तब तक <a href="/glossary">अंग्रेज़ी शब्दावली</a> देखें।</p></div>
+    )}
+  </section>
+</BaseLayout>

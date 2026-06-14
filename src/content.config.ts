@@ -6,6 +6,7 @@ const base = z.object({
   title: z.string(),
   description: z.string(),
   category: z.string(),
+  lang: z.enum(['en', 'hi']).default('en'), // 'hi' files live under <collection>/hi/ and route under /hi/
   heroImage: z.string(), // public path, e.g. /images/<slug>-hero.webp
   author: z.string().default('rajinder-singh'), // default byline → src/data/authors.json
   reviewedBy: z.string().default('rajinder-singh'), // default reviewer → src/data/authors.json

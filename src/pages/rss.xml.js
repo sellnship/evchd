@@ -7,7 +7,7 @@ export async function GET(context) {
   const collections = ['guides', 'news', 'compare'];
   const items = [];
   for (const name of collections) {
-    const entries = await getCollection(name, ({ data }) => !data.draft);
+    const entries = await getCollection(name, ({ data }) => !data.draft && data.lang !== 'hi');
     for (const e of entries) {
       items.push({
         title: e.data.title,

@@ -48,7 +48,7 @@ function similarity(a, b) {
   return Math.max(jaccard, containment * 0.9);
 }
 
-/** Recursively collect every published article's slug + title from src/content. */
+/** Recursively collect every published article's slug + title + lang from src/content. */
 async function loadExisting() {
   const out = [];
   async function walk(dir) {
@@ -66,7 +66,10 @@ async function loadExisting() {
         const slug = e.name.replace(/\.md$/, "");
         const text = await fs.readFile(full, "utf8");
         const m = text.match(/^title:\s*["']?(.+?)["']?\s*$/m);
-        out.push({ slug, title: m ? m[1] : slug });
+        // A file under a /hi/ segment (or with lang: hi frontmatter) is Hindi.
+        const lm = text.match(/^lang:\s*["']?(\w+)["']?\s*$/m);
+        const lang = lm ? lm[1] : /(^|\/)hi\//.test(full) ? "hi" : "en";
+        out.push({ slug, title: m ? m[1] : slug, lang });
       }
     }
   }
@@ -75,12 +78,15 @@ async function loadExisting() {
 }
 
 /**
- * @param {{ slug: string, title: string, angle?: string }} topic
+ * @param {{ slug: string, title: string, angle?: string, lang?: string }} topic
  * @returns {Promise<{ duplicate: boolean, match?: string, score?: number }>}
  */
 export async function isDuplicate(topic) {
   if (!topic?.slug) throw new Error("[dedup] topic requires a slug");
-  const existing = await loadExisting();
+  const lang = topic.lang ?? "en";
+  // Compare only within the same language — a Hindi article isn't a duplicate
+  // of its English counterpart.
+  const existing = (await loadExisting()).filter((a) => a.lang === lang);
   const topicTokens = tokenize(`${topic.title} ${topic.angle ?? ""}`);
 
   let best = { score: 0, match: null };

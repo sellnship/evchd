@@ -1,0 +1,23 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('compare', ({ data }) => !data.draft && data.lang === 'hi');
+  return entries.map((entry) => ({
+    params: { slug: entry.id.replace(/^hi\//, '') },
+    props: { entry, siblings: entries },
+  }));
+}
+
+const { entry, siblings } = Astro.props;
+const { Content } = await render(entry);
+const related = siblings
+  .filter((e) => e.id !== entry.id)
+  .sort((a, b) => +b.data.datePublished - +a.data.datePublished)
+  .slice(0, 3)
+  .map((e) => ({ href: `/hi/compare/${e.id.replace(/^hi\//, '')}`, img: e.data.heroImage, alt: e.data.title, cat: e.data.category, title: e.data.title, desc: e.data.description }));
+---
+<ArticleLayout data={entry.data} collection="compare" related={related}>
+  <Content />
+</ArticleLayout>

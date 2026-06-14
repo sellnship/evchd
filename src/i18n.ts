@@ -1,0 +1,103 @@
+/**
+ * Bilingual (English + simple Hindi) support.
+ *
+ * English lives at the site root (/...); Hindi lives under /hi/... mirroring the
+ * same structure. Page chrome (nav, footer, toggle) and listing copy come from
+ * the `ui` dictionary below. Article bodies come from the content collections,
+ * filtered by their `lang` frontmatter (en at root, hi under <collection>/hi/).
+ */
+
+export type Lang = 'en' | 'hi';
+export const defaultLang: Lang = 'en';
+export const languages: Record<Lang, string> = { en: 'English', hi: 'हिंदी' };
+
+/** UI strings. Hindi is deliberately simple, conversational (बोलचाल की हिंदी). */
+export const ui = {
+  en: {
+    'nav.guides': 'Guides',
+    'nav.compare': 'Comparisons',
+    'nav.calculators': 'Calculators',
+    'nav.news': 'News',
+    'nav.about': 'About',
+    'nav.editorial': 'Editorial policy',
+    'nav.contact': 'Contact',
+    'nav.glossary': 'Glossary',
+    'nav.primary': 'Primary',
+    'toggle.label': 'हिंदी',
+    'toggle.aria': 'इस पेज को हिंदी में पढ़ें — read this page in Hindi',
+    'menu.open': 'Open menu',
+    'menu.close': 'Close menu',
+    'footer.tagline': 'Independent, local electric-mobility guidance for Chandigarh, Mohali and Panchkula.',
+    'footer.bottom': "© {year} EV Chandigarh · An independent publication · We don't sell vehicles",
+    'article.independence': "Independent editorial — EV Chandigarh doesn't sell vehicles. We explain the rules and the numbers, then point you to where to buy.",
+    'cta.heading': 'Done reading? Ready to buy?',
+    'cta.body': "We don't sell here — but we know who does. Get current prices, book a test ride, or work out your own numbers first.",
+    'cta.prices': 'See prices & book on evchandigarh.com',
+    'cta.whatsapp': 'Ask on WhatsApp',
+    'cta.calculator': 'Run the numbers',
+  },
+  hi: {
+    'nav.guides': 'गाइड',
+    'nav.compare': 'तुलना',
+    'nav.calculators': 'कैलकुलेटर',
+    'nav.news': 'खबरें',
+    'nav.about': 'हमारे बारे में',
+    'nav.editorial': 'संपादकीय नीति',
+    'nav.contact': 'संपर्क',
+    'nav.glossary': 'शब्दावली',
+    'nav.primary': 'मुख्य',
+    'toggle.label': 'EN',
+    'toggle.aria': 'Read this page in English — इस पेज को अंग्रेज़ी में पढ़ें',
+    'menu.open': 'मेन्यू खोलें',
+    'menu.close': 'मेन्यू बंद करें',
+    'footer.tagline': 'Chandigarh, Mohali और Panchkula के लिए स्वतंत्र, लोकल EV जानकारी।',
+    'footer.bottom': '© {year} EV Chandigarh · एक स्वतंत्र प्रकाशन · हम गाड़ियाँ नहीं बेचते',
+    'article.independence': 'स्वतंत्र संपादकीय — EV Chandigarh गाड़ियाँ नहीं बेचता। हम नियम और हिसाब समझाते हैं, फिर बताते हैं कि कहाँ से खरीदें।',
+    'cta.heading': 'पढ़ लिया? खरीदने के लिए तैयार हैं?',
+    'cta.body': 'हम यहाँ नहीं बेचते — पर जानते हैं कौन बेचता है। ताज़ा कीमतें लें, टेस्ट राइड बुक करें, या पहले अपना हिसाब लगाएँ।',
+    'cta.prices': 'कीमतें देखें — evchandigarh.com पर',
+    'cta.whatsapp': 'WhatsApp पर पूछें',
+    'cta.calculator': 'अपना हिसाब लगाएँ',
+  },
+} as const;
+
+export type UIKey = keyof (typeof ui)['en'];
+
+export function useTranslations(lang: Lang) {
+  return function t(key: UIKey): string {
+    return (ui[lang] as Record<string, string>)[key] ?? (ui.en as Record<string, string>)[key];
+  };
+}
+
+/** Normalise a pathname (drop a trailing slash, except root). */
+const norm = (p: string): string => (p !== '/' && p.endsWith('/') ? p.replace(/\/+$/, '') : p);
+
+/** Which language does this URL belong to? Anything under /hi is Hindi. */
+export function getLangFromUrl(url: URL): Lang {
+  const p = norm(url.pathname);
+  return p === '/hi' || p.startsWith('/hi/') ? 'hi' : 'en';
+}
+
+/** The English-root equivalent of any pathname (strips a leading /hi). */
+export function toEnPath(pathname: string): string {
+  const p = norm(pathname);
+  if (p === '/hi') return '/';
+  if (p.startsWith('/hi/')) return p.slice(3) || '/';
+  return p;
+}
+
+/** The Hindi equivalent of any pathname (prefixes /hi). */
+export function toHiPath(pathname: string): string {
+  const en = toEnPath(pathname);
+  return en === '/' ? '/hi/' : '/hi' + en;
+}
+
+/** Localise an English-root path (e.g. '/guides') for the given language. */
+export function localizePath(path: string, lang: Lang): string {
+  return lang === 'hi' ? toHiPath(path) : norm(path);
+}
+
+/** The counterpart-language URL for the current page (for the toggle + hreflang). */
+export function counterpartPath(pathname: string, lang: Lang): string {
+  return lang === 'hi' ? toEnPath(pathname) : toHiPath(pathname);
+}

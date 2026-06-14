@@ -1,27 +1,35 @@
 ---
 import Brand from './Brand.astro';
 import Divider from './Divider.astro';
+import { getLangFromUrl, useTranslations, localizePath } from '../i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const sections = [
-  { label: 'Guides', href: '/guides' },
-  { label: 'Comparisons', href: '/compare' },
-  { label: 'Calculators', href: '/calculators' },
-  { label: 'News', href: '/news' },
-];
+  { key: 'nav.guides', href: '/guides' },
+  { key: 'nav.compare', href: '/compare' },
+  { key: 'nav.calculators', href: '/calculators' },
+  { key: 'nav.news', href: '/news' },
+].map((l) => ({ label: t(l.key as any), href: localizePath(l.href, lang) }));
+
 const publication = [
-  { label: 'About', href: '/about' },
-  { label: 'Editorial policy', href: '/editorial-policy' },
-  { label: 'RSS / Follow', href: '/rss.xml' },
-  { label: 'Contact', href: '/contact' },
-];
+  { key: 'nav.about', href: '/about' },
+  { key: 'nav.editorial', href: '/editorial-policy' },
+  { key: 'nav.contact', href: '/contact' },
+].map((l) => ({ label: t(l.key as any), href: localizePath(l.href, lang) }));
+// RSS sits outside the i18n label set (its href is language-specific).
+publication.push({ label: 'RSS', href: lang === 'hi' ? '/hi/rss.xml' : '/rss.xml' });
+
 const year = new Date().getFullYear();
+const bottom = t('footer.bottom').replace('{year}', String(year));
 ---
 <footer>
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <Brand href="/" variant="white" />
-        <p>Independent, local electric-mobility guidance for Chandigarh, Mohali and Panchkula.</p>
+        <Brand href={localizePath('/', lang)} variant="white" />
+        <p>{t('footer.tagline')}</p>
       </div>
       <nav class="foot-cols" aria-label="Footer">
         <div>{sections.map((l) => <a href={l.href}>{l.label}</a>)}</div>
@@ -29,6 +37,6 @@ const year = new Date().getFullYear();
       </nav>
     </div>
     <Divider style="margin-top:40px;" />
-    <div class="foot-bottom">© {year} EV Chandigarh · An independent publication · We don't sell vehicles</div>
+    <div class="foot-bottom">{bottom}</div>
   </div>
 </footer>

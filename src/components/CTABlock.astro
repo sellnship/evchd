@@ -7,19 +7,25 @@
  *   (c) the relevant calculator
  * Click tracking via data-cta. Matches the dark CTA-card styling from the home
  * page. WhatsApp falls back to the .com site until a real number is filled in.
+ * Copy + the calculator link localise to the page language (en / hi).
  */
 import { authors } from '../data/types';
 import Button from './Button.astro';
+import { getLangFromUrl, useTranslations, localizePath } from '../i18n';
 
 interface Props {
   context?: string;
   calculator?: string;
   heading?: string;
 }
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const {
   context = 'going electric in the Tricity',
-  calculator = '/calculators',
-  heading = 'Done reading? Ready to buy?',
+  calculator = localizePath('/calculators', lang),
+  heading = t('cta.heading'),
 } = Astro.props;
 
 const pub = authors.publisher;
@@ -30,11 +36,11 @@ const waHref = waDigits.length >= 8 ? `https://wa.me/${waDigits}?text=${waMsg}` 
 <aside class="cta-card ctablock">
   <div class="glow"></div>
   <h2 class="disp">{heading}</h2>
-  <p>We don't sell here — but we know who does. Get current prices, book a test ride, or work out your own numbers first.</p>
+  <p>{t('cta.body')}</p>
   <div class="row">
-    <Button variant="light" href="https://evchandigarh.com" rel="noopener" arrow data-cta="prices">See prices &amp; book on evchandigarh.com</Button>
-    <Button variant="wa" href={waHref} rel="noopener" arrow data-cta="whatsapp">Ask on WhatsApp</Button>
-    <Button variant="wa" href={calculator} arrow data-cta="calculator">Run the numbers</Button>
+    <Button variant="light" href="https://evchandigarh.com" rel="noopener" arrow data-cta="prices">{t('cta.prices')}</Button>
+    <Button variant="wa" href={waHref} rel="noopener" arrow data-cta="whatsapp">{t('cta.whatsapp')}</Button>
+    <Button variant="wa" href={calculator} arrow data-cta="calculator">{t('cta.calculator')}</Button>
   </div>
 </aside>
 

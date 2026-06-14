@@ -17,6 +17,9 @@ import CTABlock from '../components/CTABlock.astro';
 import ModelCompare from '../components/ModelCompare.astro';
 import FeaturedCard from '../components/FeaturedCard.astro';
 import { authors } from '../data/types';
+import { getLangFromUrl, useTranslations } from '../i18n';
+
+const t = useTranslations(getLangFromUrl(Astro.url));
 
 interface RelatedCard { href: string; img: string; alt: string; cat: string; title: string; desc: string; }
 interface Props {
@@ -67,7 +70,7 @@ const dateModified = data.dateModified ?? data.datePublished;
       {collection === 'compare' && data.models && data.models.length > 0 && <ModelCompare models={data.models} />}
 
       <p class="art-independence mono">
-        Independent editorial — EV Chandigarh doesn't sell vehicles. We explain the rules and the numbers, then point you to where to buy.
+        {t('article.independence')}
       </p>
 
       <CTABlock context={data.title} />

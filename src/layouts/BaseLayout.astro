@@ -9,6 +9,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { getLangFromUrl, toEnPath, toHiPath } from '../i18n';
 
 interface Props {
   title: string;
@@ -37,6 +38,15 @@ const canonical = new URL(Astro.url.pathname, site).href;
 // OG/Twitter/JSON-LD images must be absolute URLs.
 const ogImage = heroImage ? new URL(heroImage, site).href : undefined;
 
+// Language is derived from the route: anything under /hi is Hindi.
+const lang = getLangFromUrl(Astro.url);
+const htmlLang = lang === 'hi' ? 'hi-IN' : 'en-IN';
+const inLanguage = lang === 'hi' ? 'hi-IN' : 'en-IN';
+// hreflang alternates point at the EN↔HI counterparts of this exact page.
+const enHref = new URL(toEnPath(Astro.url.pathname), site).href;
+const hiHref = new URL(toHiPath(Astro.url.pathname), site).href;
+const rssHref = `${site}${lang === 'hi' ? '/hi/rss.xml' : '/rss.xml'}`;
+
 // Article structured data — only emitted for article pages that carry a date,
 // so we never ship an invalid Article block (e.g. on the home page).
 const articleSchema =
@@ -47,6 +57,7 @@ const articleSchema =
         headline: title,
         description: description,
         image: ogImage,
+        inLanguage: inLanguage,
         datePublished: datePublished,
         dateModified: dateModified ?? datePublished,
         author: { '@type': 'Person', name: author },
@@ -60,7 +71,7 @@ const articleSchema =
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={htmlLang}>
   <head>
     <meta charset="utf-8" />
     <!-- Discover-critical: zoomable viewport (never user-scalable=0) -->
@@ -68,6 +79,11 @@ const articleSchema =
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+
+    <!-- Bilingual: hreflang alternates pointing at the EN↔HI counterparts -->
+    <link rel="alternate" hreflang="en" href={enHref} />
+    <link rel="alternate" hreflang="hi" href={hiHref} />
+    <link rel="alternate" hreflang="x-default" href={enHref} />
 
     <!-- Favicons (generated from src/assets/logomark.svg via npm run gen:icons) -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -84,6 +100,13 @@ const articleSchema =
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    {/* Devanagari coverage — loaded only on Hindi pages so English stays light */}
+    {lang === 'hi' && (
+      <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    )}
 
     <!-- Open Graph (hero images are 1200x675 / 16:9) -->
     <meta property="og:type" content={type} />
@@ -104,7 +127,7 @@ const articleSchema =
       rel="alternate"
       type="application/rss+xml"
       title="EV Chandigarh"
-      href={`${site}/rss.xml`}
+      href={rssHref}
     />
 
     <link rel="sitemap" href="/sitemap-index.xml" />

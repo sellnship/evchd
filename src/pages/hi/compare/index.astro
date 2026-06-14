@@ -1,0 +1,33 @@
+---
+import '../../../styles/inner.css';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Eyebrow from '../../../components/Eyebrow.astro';
+import FeaturedCard from '../../../components/FeaturedCard.astro';
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('compare', ({ data }) => !data.draft && data.lang === 'hi')).sort(
+  (a, b) => +b.data.datePublished - +a.data.datePublished,
+);
+---
+<BaseLayout
+  title="तुलना — EV Chandigarh"
+  description="रेंज, चार्जिंग टाइम, बैटरी और कीमत — Tricity में मिलने वाले स्कूटरों की सीधी तुलना, बिक्री नहीं, सिर्फ़ नंबर।"
+  type="website"
+>
+  <section class="listing wrap">
+    <header class="listing-head">
+      <Eyebrow text="तुलना" />
+      <h1 class="listing-title disp">आमने-सामने, नंबरों पर</h1>
+      <p class="listing-desc">रेंज, चार्जिंग टाइम, बैटरी और कीमत — पूरी कैटेगरी की तुलना, किसी एक मॉडल की बिक्री नहीं।</p>
+    </header>
+    {entries.length > 0 ? (
+      <div class="feat-grid">
+        {entries.map((e) => (
+          <FeaturedCard href={`/hi/compare/${e.id.replace(/^hi\//, '')}`} img={e.data.heroImage} alt={e.data.title} cat={e.data.category} title={e.data.title} desc={e.data.description} />
+        ))}
+      </div>
+    ) : (
+      <div class="empty-state"><p class="mono">हिंदी तुलना जल्द — तब तक <a href="/compare">अंग्रेज़ी में पढ़ें</a>।</p></div>
+    )}
+  </section>
+</BaseLayout>

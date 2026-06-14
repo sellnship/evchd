@@ -95,7 +95,9 @@ function parseJson(text, label) {
  */
 export async function draft({ topic, facts, models } = {}) {
   if (!topic?.title) throw new Error("[claude] draft requires a topic with a title");
-  const template = await loadPrompt("draft.md");
+  // Native-language drafting: Hindi topics use the Hindi prompt (not translation).
+  const promptFile = topic.lang === "hi" ? "draft.hi.md" : "draft.md";
+  const template = await loadPrompt(promptFile);
   const user = fill(template, {
     TITLE: topic.title,
     CATEGORY: topic.category ?? "",

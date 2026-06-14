@@ -1,0 +1,69 @@
+---
+import '../../styles/inner.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Eyebrow from '../../components/Eyebrow.astro';
+import Divider from '../../components/Divider.astro';
+import { authors } from '../../data/types';
+
+const pub = authors.publisher;
+const ph = (s?: string) => !s || /REPLACE/i.test(s);
+const show = (s?: string) => (ph(s) ? '—' : s);
+
+const info: { label: string; value?: string }[] = [
+  { label: 'प्रकाशन', value: pub.name },
+  { label: 'कंपनी', value: show(pub.legal_entity) },
+  { label: 'पता', value: show(pub.address) },
+  { label: 'समय', value: show(pub.hours) },
+  { label: 'फ़ोन', value: show(pub.phone) },
+  { label: 'WhatsApp', value: show(pub.whatsapp) },
+];
+---
+<BaseLayout
+  title="हमारे बारे में — EV Chandigarh"
+  description="EV Chandigarh एक स्वतंत्र इलेक्ट्रिक-मोबिलिटी प्रकाशन है — Tricity के लिए। हम जानकारी देते हैं, गाड़ियाँ नहीं बेचते।"
+  type="website"
+>
+  <section class="page">
+    <header class="page-head">
+      <Eyebrow text="हमारे बारे में" />
+      <h1 class="page-title disp">Tricity के लिए एक स्वतंत्र EV प्रकाशन</h1>
+      <p class="page-lede">हम वो सवाल हल करते हैं जो एक EV खरीदार के मन में सच में होते हैं — Chandigarh, Mohali और Panchkula में नियम, खर्चे और असली रेंज के बारे में — बिना आपको गाड़ी बेचने की कोशिश किए।</p>
+    </header>
+
+    <div class="page-body prose">
+      <p>इस इलाक़े के ज़्यादातर "EV" पेज दरअसल छिपे हुए शोरूम हैं: सलाह उसी तरफ़ झुकती है जो सबसे ज़्यादा कमाई कराए। EV Chandigarh इसका उल्टा है। हम आपकी राइड, आपके बजट और ज़मीन पर लागू क़ानून से शुरू करते हैं — और भरोसे से कमाते हैं, बिक्री से नहीं।</p>
+
+      <p>इसका मतलब एक साफ़ लकीर: <strong>हम यहाँ गाड़ियाँ नहीं बेचते, न कीमत बताते हैं, न बुकिंग लेते हैं।</strong> जब आप ख़रीदने के लिए तैयार हों, हम बताते हैं कहाँ से ख़रीदें — हमारा कॉमर्स पार्टनर <a href="https://evchandigarh.com" rel="noopener">evchandigarh.com</a> और एक WhatsApp लाइन — और हमारी राय निष्पक्ष रहती है।</p>
+
+      <hr />
+
+      <h2>संस्था</h2>
+      <p>EV Chandigarh को नीचे दी गई टीम प्रकाशित करती है।</p>
+    </div>
+
+    <dl class="orginfo">
+      {info.map((row) => (
+        <div class="orginfo-row">
+          <dt class="mono">{row.label}</dt>
+          <dd>{row.value}</dd>
+        </div>
+      ))}
+    </dl>
+
+    <Divider style="margin:48px 0 40px;" />
+
+    <div class="page-body prose">
+      <h2>टीम</h2>
+      <p>हर लेख नाम वाले लोग लिखते और जाँचते हैं — यही जवाबदेही असली बात है।</p>
+    </div>
+    <ul class="team">
+      {authors.authors.map((a) => (
+        <li class="team-member">
+          <p class="tm-name disp">{a.name}</p>
+          <p class="tm-role mono">{a.role}</p>
+          <p class="tm-bio">{a.bio}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Eyebrow from '../../components/Eyebrow.astro';
+import Button from '../../components/Button.astro';
+import HubCard from '../../components/HubCard.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { localFacts } from '../../data/types';
+
+// Hindi home is deliberately light: no three.js hero, no GSAP — fast on low-end
+// Android. Numbers come from the data layer so they never drift.
+const perKm = localFacts.charging_cost.per_km_inr; // 0.17
+const fullCharge = Number(String(localFacts.charging_cost.full_charge_cost_inr).split('-').pop()) || 10;
+
+const hubs = [
+  { num: '01 / कैसे करें और नियम', title: 'गाइड', href: '/hi/guides', desc: 'RTO, रजिस्ट्रेशन, घर पे चार्जिंग और सब्सिडी — जो नियम Chandigarh, Mohali, Panchkula में असल में लागू होते हैं।' },
+  { num: '02 / आमने-सामने', title: 'तुलना', href: '/hi/compare', desc: 'रेंज, असली रनिंग कॉस्ट, चार्जिंग टाइम और कीमत — एक नहीं, पूरी कैटेगरी की तुलना।' },
+  { num: '03 / आपके नंबर', title: 'कैलकुलेटर', href: '/hi/calculators', desc: 'खुद हिसाब लगाएँ — महीने का खर्चा, पेट्रोल बनाम EV और लोकल टैरिफ पर चार्जिंग कॉस्ट।' },
+  { num: '04 / ज़मीनी हाल', title: 'खबरें', href: '/hi/news', desc: 'Tricity के EV मालिकों के लिए क्या बदल रहा है — नए चार्जर, पॉलिसी और सब्सिडी की तारीख़ें।' },
+];
+---
+<BaseLayout
+  title="EV Chandigarh — Tricity की स्वतंत्र EV गाइड (हिंदी)"
+  description="Chandigarh, Mohali और Panchkula के लिए स्वतंत्र, लोकल इलेक्ट्रिक-मोबिलिटी जानकारी। असली नंबर, ईमानदार तुलना, कोई बिक्री का दबाव नहीं।"
+  type="website"
+>
+  <section class="hi-hero">
+    <div class="wrap">
+      <Eyebrow text="EV Chandigarh" />
+      <h1 class="disp">Tricity की <span class="em">स्वतंत्र</span> इलेक्ट्रिक-स्कूटर गाइड।</h1>
+      <p class="hi-lede">Chandigarh, Mohali और Panchkula में EV के साथ ज़िंदगी के लिए असली लोकल नंबर, ईमानदार तुलना और सीधी गाइड। हम सवालों के जवाब देते हैं — गाड़ियाँ नहीं बेचते।</p>
+      <div class="hi-cta-row">
+        <Button variant="solid" href="/hi/guides" arrow>गाइड पढ़ें</Button>
+        <Button variant="ghost" href="/hi/about">हम कैसे काम करते हैं →</Button>
+      </div>
+    </div>
+  </section>
+
+  <section class="hi-stance">
+    <div class="wrap">
+      <p class="hi-big">ज़्यादातर "EV" पेज <b>छिपे हुए शोरूम</b> होते हैं। ये नहीं है। हम Tricity-फ़र्स्ट प्रकाशन हैं जो नियम, खर्चे और असली रेंज समझाते हैं — फिर बताते हैं कि कहाँ से खरीदें।</p>
+    </div>
+  </section>
+
+  <section class="hi-numbers">
+    <div class="wrap">
+      <Eyebrow text="हिसाब" spark={false} />
+      <h2 class="disp">low-speed EV चलता है <span class="em">सस्ती लोकल बिजली</span> पर — और पेपरवर्क भी नहीं।</h2>
+      <div class="hi-stat-row">
+        <div class="hi-stat"><div class="hi-fig">₹{perKm.toFixed(2)}<span>/km</span></div><p>लोकल बिजली पर रनिंग कॉस्ट — पेट्रोल के ~₹2/km के मुक़ाबले।</p></div>
+        <div class="hi-stat"><div class="hi-fig">₹0<span>RTO</span></div><p>सही ≤25 km/h, ≤250W स्कूटर पर कोई रजिस्ट्रेशन, रोड टैक्स या लाइसेंस नहीं।</p></div>
+        <div class="hi-stat"><div class="hi-fig">₹{fullCharge}<span>/चार्ज</span></div><p>एक फुल चार्ज — करीब 2 यूनिट — पेट्रोल के ₹150–200 के मुक़ाबले।</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hi-hubs">
+    <div class="wrap">
+      <Eyebrow text="सेक्शन" />
+      <div class="hub-grid" style="margin-top:18px;">
+        {hubs.map((h) => <HubCard {...h} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-block: clamp(20px,5vw,40px) clamp(60px,10vw,110px);">
+    <CTABlock />
+  </section>
+</BaseLayout>
+
+<style>
+  .hi-hero { padding-top: calc(78px + clamp(40px, 9vw, 90px)); }
+  .hi-hero h1 { font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.08; letter-spacing: -.01em; margin: 18px 0 20px; max-width: 18ch; }
+  .hi-hero h1 .em { color: var(--charge); font-style: normal; }
+  .hi-lede { font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.6; color: var(--ink-soft); max-width: 48ch; }
+  .hi-cta-row { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px; align-items: center; }
+  .hi-stance { padding: clamp(48px, 9vw, 96px) 0; }
+  .hi-big { font-size: clamp(1.3rem, 3vw, 2rem); line-height: 1.45; max-width: 24ch; }
+  .hi-big b { color: var(--charge); font-weight: 700; }
+  .hi-numbers { background: var(--night); color: var(--concrete); padding: clamp(60px, 11vw, 120px) 0; }
+  .hi-numbers h2 { font-size: clamp(1.5rem, 3.4vw, 2.4rem); line-height: 1.15; margin-top: 14px; max-width: 22ch; }
+  .hi-numbers h2 .em { color: var(--charge); }
+  .hi-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; margin-top: clamp(36px, 6vw, 60px); }
+  .hi-fig { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: clamp(2.4rem, 5vw, 3.4rem); }
+  .hi-fig span { font-size: .35em; color: var(--charge); font-weight: 600; margin-left: 6px; }
+  .hi-stat p { margin-top: 10px; color: rgba(233, 230, 223, 0.7); font-size: .98rem; line-height: 1.5; }
+  .hi-hubs { padding: clamp(40px, 8vw, 90px) 0 clamp(20px, 4vw, 40px); }
+  @media (max-width: 760px) { .hi-stat-row { grid-template-columns: 1fr; gap: 26px; } }
+</style>

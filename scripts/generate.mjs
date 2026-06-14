@@ -82,6 +82,7 @@ function buildArticle(topic, body, heroImage, description) {
     `title: ${y(topic.title)}`,
     `description: ${y(description)}`,
     `category: ${y(topic.category)}`,
+    `lang: ${y(topic.lang || "en")}`,
     `heroImage: ${y(heroImage)}`,
     `author: ${y(AUTHOR)}`,
     `reviewedBy: ${y(AUTHOR)}`,
@@ -172,20 +173,21 @@ async function main() {
     return;
   }
 
-  // STAGE 6 — branded hero image (1200x675, placeholder-logo watermark).
+  // STAGE 6 — branded hero image (1200x675, logo watermark).
+  // The editorial style + vehicle/charging rules live in scripts/lib/image.mjs
+  // (PROMPT_SUFFIX), so we pass only the per-topic scene here.
   log("image", `generating hero via fal…`);
-  const heroImage = await generateHero({
-    prompt:
-      topic.imagePrompt +
-      ", editorial photograph, natural daylight, Chandigarh modernist concrete context, warm-concrete tones with subtle electric-blue accent, no text, no watermark, no logos.",
-    slug: topic.slug,
-  });
+  const heroImage = await generateHero({ prompt: topic.imagePrompt, slug: topic.slug });
   log("image", `hero → ${heroImage}`);
 
-  // STAGE 7 — wrap: write markdown with frontmatter into the right section.
+  // STAGE 7 — wrap: write markdown with frontmatter into the right section
+  // (Hindi articles go under <section>/hi/ so they route under /hi/).
   const description = deriveDescription(body);
   const article = buildArticle(topic, body, heroImage, description);
-  const outDir = path.join(CONTENT_ROOT, topic.section);
+  const outDir =
+    topic.lang === "hi"
+      ? path.join(CONTENT_ROOT, topic.section, "hi")
+      : path.join(CONTENT_ROOT, topic.section);
   await fs.mkdir(outDir, { recursive: true });
   const outPath = path.join(outDir, `${topic.slug}.md`);
   await fs.writeFile(outPath, article);

@@ -3,7 +3,7 @@ import { getCollection, render } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('glossary', ({ data }) => !data.draft);
+  const entries = await getCollection('glossary', ({ data }) => !data.draft && data.lang !== 'hi');
   return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry, siblings: entries } }));
 }
 

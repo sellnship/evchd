@@ -5,7 +5,7 @@ import Eyebrow from '../../components/Eyebrow.astro';
 import FeaturedCard from '../../components/FeaturedCard.astro';
 import { getCollection } from 'astro:content';
 
-const entries = (await getCollection('guides', ({ data }) => !data.draft)).sort(
+const entries = (await getCollection('guides', ({ data }) => !data.draft && data.lang !== 'hi')).sort(
   (a, b) => +b.data.datePublished - +a.data.datePublished,
 );
 ---

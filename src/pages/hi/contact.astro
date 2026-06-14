@@ -1,0 +1,55 @@
+---
+import '../../styles/inner.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Eyebrow from '../../components/Eyebrow.astro';
+import Button from '../../components/Button.astro';
+import { authors } from '../../data/types';
+
+const pub = authors.publisher;
+const ph = (s?: string) => !s || /REPLACE/i.test(s);
+
+const waDigits = (pub.whatsapp || '').replace(/\D/g, '');
+const waHref =
+  waDigits.length >= 8
+    ? `https://wa.me/${waDigits}?text=${encodeURIComponent('नमस्ते EV Chandigarh — मेरा एक सवाल है।')}`
+    : 'https://evchandigarh.com';
+const telHref = ph(pub.phone) ? null : `tel:${pub.phone.replace(/\s+/g, '')}`;
+
+const rows: { label: string; value?: string }[] = [
+  { label: 'WhatsApp', value: ph(pub.whatsapp) ? '—' : pub.phone },
+  { label: 'फ़ोन', value: ph(pub.phone) ? '—' : pub.phone },
+  { label: 'पता', value: ph(pub.address) ? '—' : pub.address },
+  { label: 'समय', value: ph(pub.hours) ? '—' : pub.hours },
+];
+---
+<BaseLayout
+  title="संपर्क — EV Chandigarh"
+  description="EV Chandigarh से जुड़ें — सवाल पूछें, कोई विषय सुझाएँ, या ग़लती बताएँ। हम जानकारी देते हैं, गाड़ियाँ नहीं बेचते।"
+  type="website"
+>
+  <section class="page">
+    <header class="page-head">
+      <Eyebrow text="संपर्क" />
+      <h1 class="page-title disp">हमसे जुड़ें</h1>
+      <p class="page-lede">नियम, खर्चे या किसी विषय पर सवाल है जिस पर हम लिखें? कोई ग़लती बतानी है? सीधे हमसे जुड़ें — सबसे तेज़ तरीक़ा WhatsApp है।</p>
+    </header>
+
+    <div class="page-body prose">
+      <p>एक बात साफ़ कर दें: <strong>EV Chandigarh जानकारी छापता है, स्टॉक नहीं।</strong> हम यहाँ कीमत नहीं बताते, न बुकिंग लेते हैं। जब आप ख़रीदने के लिए तैयार हों, ताज़ा कीमत और टेस्ट राइड हमारा कॉमर्स पार्टनर <a href="https://evchandigarh.com" rel="noopener">evchandigarh.com</a> संभालता है। किसी लेख में ग़लती बताने के लिए <a href="/hi/editorial-policy">संपादकीय नीति</a> देखें।</p>
+    </div>
+
+    <dl class="orginfo">
+      {rows.map((row) => (
+        <div class="orginfo-row">
+          <dt class="mono">{row.label}</dt>
+          <dd>{row.value}</dd>
+        </div>
+      ))}
+    </dl>
+
+    <div class="cta-row" style="display:flex; gap:18px; flex-wrap:wrap; margin-top:32px;">
+      <Button variant="solid" href={waHref} rel="noopener" arrow>WhatsApp पर मैसेज करें</Button>
+      {telHref && <Button variant="ghost" href={telHref}>कॉल करें {pub.phone}</Button>}
+    </div>
+  </section>
+</BaseLayout>

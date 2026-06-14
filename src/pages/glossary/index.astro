@@ -5,7 +5,7 @@ import Eyebrow from '../../components/Eyebrow.astro';
 import FeaturedCard from '../../components/FeaturedCard.astro';
 import { getCollection } from 'astro:content';
 
-const entries = (await getCollection('glossary', ({ data }) => !data.draft)).sort((a, b) =>
+const entries = (await getCollection('glossary', ({ data }) => !data.draft && data.lang !== 'hi')).sort((a, b) =>
   a.data.title.localeCompare(b.data.title),
 );
 ---

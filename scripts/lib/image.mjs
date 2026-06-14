@@ -28,8 +28,21 @@ fal.config({ credentials: process.env.FAL_KEY });
 //      "landscape_16_9"` instead of `aspect_ratio`; adjust INPUT if you swap.
 const MODEL = "fal-ai/imagen4";
 
+// ⚠️ HUMAN REVIEW REQUIRED before publishing any generated image. Text-to-image
+// models routinely get the VEHICLE TYPE wrong (drawing a standing kick-scooter
+// instead of a seated step-through e-moped) and the CHARGING CONTEXT wrong
+// (public charging station / car charger instead of a domestic wall socket).
+// The suffix below steers hard against both, but every hero/card must be eyeballed
+// for (1) correct vehicle type and (2) correct setting before it goes live.
 const PROMPT_SUFFIX =
-  ". Photorealistic, natural daylight, clean composition, no text, no watermark, no logos.";
+  ". The vehicle, whenever a scooter is shown, is a seated step-through electric scooter " +
+  "(an Indian e-moped — it has a seat, a flat floorboard and small wheels, the kind you sit " +
+  "on; it is NOT a standing kick-scooter and NOT a motorcycle). " +
+  "If charging is shown, it is a charger cable plugged into an ordinary 3-pin domestic wall " +
+  "socket on a house wall in an everyday residential setting — NO public charging station, " +
+  "NO car charger, NO glowing or neon effects. " +
+  "Quiet Chandigarh / Mohali modernist-concrete context, warm natural light, muted tones with " +
+  "a subtle electric-blue accent, realistic editorial photograph. No text, no logos, no watermark.";
 
 const OUT_DIR = path.join("public", "images");
 const WEBP_QUALITY = 82;

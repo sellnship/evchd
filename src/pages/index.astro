@@ -164,6 +164,14 @@ const hubs = [
   (function lazyHero() {
     const canvas = document.getElementById('grid');
     if (!canvas) return;
+    // Disable the 3D hero on mobile, low-memory devices, and reduced-motion —
+    // three.js is too heavy for low-end Android. The hero then stays static.
+    const nav = navigator as Navigator & { deviceMemory?: number };
+    const allow3D =
+      !reduced &&
+      !window.matchMedia('(max-width: 768px)').matches &&
+      !(typeof nav.deviceMemory === 'number' && nav.deviceMemory < 4);
+    if (!allow3D) return;
     let api: { start: () => void; stop: () => void } | null = null;
     let visible = false;
     let loading = false;

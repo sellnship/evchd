@@ -61,6 +61,16 @@ header.nav { position: absolute; top: 0; left: 0; right: 0; z-index: 20; }
 .nav-links a:hover { color: var(--ink); }
 .nav-links a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: var(--charge); transition: width .25s; }
 .nav-links a:hover::after { width: 100%; }
+/* language toggle (EN | हिंदी) */
+.lang-toggle { border: 1px solid var(--grid); padding: 5px 10px; border-radius: 2px; color: var(--ink); }
+.lang-toggle:hover { border-color: var(--charge); color: var(--charge); }
+.lang-toggle::after { display: none; }
+
+/* Devanagari coverage on Hindi pages (font loaded conditionally in BaseLayout). */
+html[lang="hi-IN"] body,
+html[lang="hi-IN"] .prose,
+html[lang="hi-IN"] .disp { font-family: "Noto Sans Devanagari", "Space Grotesk", system-ui, sans-serif; }
+html[lang="hi-IN"] .prose { line-height: 1.85; }
 
 /* hero */
 .hero { position: relative; min-height: 100svh; display: flex; align-items: center; }

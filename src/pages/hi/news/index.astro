@@ -1,0 +1,33 @@
+---
+import '../../../styles/inner.css';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Eyebrow from '../../../components/Eyebrow.astro';
+import FeaturedCard from '../../../components/FeaturedCard.astro';
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('news', ({ data }) => !data.draft && data.lang === 'hi')).sort(
+  (a, b) => +b.data.datePublished - +a.data.datePublished,
+);
+---
+<BaseLayout
+  title="खबरें — EV Chandigarh"
+  description="Tricity के EV मालिकों के लिए ज़रूरी अपडेट — नए चार्जर, पॉलिसी और सब्सिडी की आख़िरी तारीख़ें।"
+  type="website"
+>
+  <section class="listing wrap">
+    <header class="listing-head">
+      <Eyebrow text="खबरें" />
+      <h1 class="listing-title disp">ज़मीनी हाल, Tricity में</h1>
+      <p class="listing-desc">नए चार्जर, पॉलिसी में बदलाव और सब्सिडी की तारीख़ें — वो बातें जो Chandigarh, Mohali और Panchkula के मालिकों पर असर डालती हैं।</p>
+    </header>
+    {entries.length > 0 ? (
+      <div class="feat-grid">
+        {entries.map((e) => (
+          <FeaturedCard href={`/hi/news/${e.id.replace(/^hi\//, '')}`} img={e.data.heroImage} alt={e.data.title} cat={e.data.category} title={e.data.title} desc={e.data.description} />
+        ))}
+      </div>
+    ) : (
+      <div class="empty-state"><p class="mono">हिंदी खबरें जल्द — तब तक <a href="/news">अंग्रेज़ी में पढ़ें</a>।</p></div>
+    )}
+  </section>
+</BaseLayout>
