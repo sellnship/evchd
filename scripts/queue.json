@@ -92,9 +92,48 @@
     "section": "guides",
     "category": "Buying Guide",
     "lang": "hi",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A first-time rider standing beside a parked seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) on a calm Chandigarh sector street, daytime.",
-    "angle": "बोलचाल की हिंदी में: रोज़ की दूरी के हिसाब से 'bina license wala scooter' चुनना — battery (lead-acid बनाम lithium), range और 'ghar pe charge' की बात; किसी एक मॉडल की बिक्री नहीं, पूरी कैटेगरी की सलाह।"
+    "angle": "बोलचाल की हिंदी में: रोज़ की दूरी के हिसाब से 'bina license wala scooter' चुनना — battery (lead-acid बनाम lithium), range और 'ghar pe charge' की बात; किसी एक मॉडल की बिक्री नहीं, पूरी कैटेगरी की सलाह।",
+    "processedAt": "2026-06-14T19:14:51.266Z",
+    "publishedPath": "src/content/guides/hi/pehla-electric-scooter-guide.md",
+    "factCheckIssues": [
+      {
+        "severity": "warning",
+        "claim": "Low-speed scooter की full charge में करीब **2 units** बिजली लगती है। ₹5/unit के realistic average से: > **एक full charge ≈ ₹10**",
+        "problem": "The data layer specifies 'full_charge_units': '~2' and 'full_charge_cost_inr': '10', which is consistent with the article's claim. However, the article should note that this ~₹10 figure assumes the ~₹5/unit all-in basis (including fixed charges, duty, etc.), not just the energy charge alone. The phrasing is acceptable but could be slightly clearer that this is an all-in average."
+      },
+      {
+        "severity": "warning",
+        "claim": "Chandigarh में domestic electricity का rate tiered है — सबसे कम slab पर करीब ₹2.75/unit, बीच के slab पर करीब ₹4.80/unit, और ऊपर जाने पर ₹5.40/unit तक।",
+        "problem": "The data layer states the tiered rates for Chandigarh JERC tariff, which aligns with the article's claim. However, the article should reinforce more clearly (as it does later) that ₹5/unit is a realistic all-in average that accounts for fixed charges and duty, not just the energy component, to prevent readers from expecting to charge at the lowest slab rate exclusively."
+      },
+      {
+        "severity": "warning",
+        "claim": "Mandatory insurance | नहीं* | हाँ | *CMVR के मुताबिक, low-speed exempt scooters पर insurance legally mandatory नहीं है, हालाँकि कुछ लोग MV Act की अलग interpretation करते हैं। अपने local RTO से confirm करें।",
+        "problem": "The data layer's insurance_note warns that 'some interpretations argue third-party cover is still required under the MV Act, and on-ground enforcement varies' — the article's phrasing is consistent with this nuance. However, the table presents 'नहीं' (no) as a binary claim, which could be misread by some as absolute. The footnote and RTO confirmation directive mitigate this, but the table entry itself lacks the necessary qualifier."
+      },
+      {
+        "severity": "warning",
+        "claim": "ऊपर दी गई prices approximate हैं और lead-acid बनाम lithium variant, और आपके state (Chandigarh/Mohali/Panchkula) के हिसाब से बदल सकती हैं। Showroom जाकर exact ex-showroom price confirm करें।",
+        "problem": "This is good practice and consistent with the models.json 'verify_before_publish' directive, which flags that prices must be verified against live Zelio site and local pricing. The article correctly instructs readers to confirm at showroom, which is prudent given the data is marked as draft and subject to change."
+      },
+      {
+        "severity": "warning",
+        "claim": "Zelio Little Gracy जैसे models इस category में आते हैं — हल्के, कम seat height, नए riders के लिए ठीक | Budget: ₹45,000-55,000 के आसपास",
+        "problem": "The models.json data lists Little Gracy at 'price_from_inr': 45633, which is just above ₹45,000. The article's range of '₹45,000-55,000' is reasonable but should either cite the exact entry price (₹45,633) or note that it varies by variant. This is a minor precision issue, not a factual error."
+      },
+      {
+        "severity": "warning",
+        "claim": "Zelio Gracy i जैसे all-round daily commuter models इस range में हैं | Budget: ₹55,000-70,000 के आसपास",
+        "problem": "The models.json lists Gracy i at 'price_from_inr': 56825, which is above ₹55,000. The upper bound of ₹70,000 is not explicitly justified by the data provided. The article should either cite the exact starting price or note that the range reflects different battery variants (lead-acid vs lithium)."
+      },
+      {
+        "severity": "warning",
+        "claim": "Zelio Logix जैसे cargo-friendly models delivery work के लिए बने हैं | Budget: ₹60,000-80,000 के आसपास",
+        "problem": "The models.json lists Logix at 'price_from_inr': 61584, which is slightly above ₹60,000. The upper bound of ₹80,000 is not provided in the data. The article should verify the top-end price of the Logix (especially the highest lithium variant) before publication, as the data notes 'verify exact range of top variant'."
+      }
+    ]
   },
   {
     "slug": "ghar-par-charging-kharcha",
