@@ -69,5 +69,6 @@ Respond with a single JSON object and nothing else:
 }
 ```
 
-Use `"critical"` ONLY for the three blocking cases above; use `"warning"` for
-everything else. If every claim checks out, return `{ "issues": [] }`.
+Keep each `problem` to one or two short sentences. Use `"critical"` ONLY for the
+three blocking cases above; use `"warning"` for everything else. If every claim
+checks out, return `{ "issues": [] }`.

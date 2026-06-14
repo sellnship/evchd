@@ -144,7 +144,7 @@ export async function factCheck(body, { facts, models } = {}) {
   const text = await complete({
     model: GATE_MODEL,
     user,
-    maxTokens: 1024,
+    maxTokens: 3000, // headroom so the JSON never truncates mid-issue
     label: "factCheck",
   });
   const out = parseJson(text, "factCheck");
