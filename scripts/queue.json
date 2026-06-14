@@ -190,9 +190,28 @@
     "section": "guides",
     "category": "Ownership",
     "lang": "en",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) on a stand at a tidy service workshop.",
-    "angle": "How long lead-acid vs lithium last, when replacement is due, and budgeting for it over the scooter's life. Keep to data-layer guidance; tell readers to confirm exact prices with dealers."
+    "angle": "How long lead-acid vs lithium last, when replacement is due, and budgeting for it over the scooter's life. Keep to data-layer guidance; tell readers to confirm exact prices with dealers.",
+    "processedAt": "2026-06-14T20:15:46.688Z",
+    "publishedPath": "src/content/guides/battery-replacement-cost-life.md",
+    "factCheckIssues": [
+      {
+        "severity": "warning",
+        "claim": "low-speed scooters meeting both the 25 km/h speed limit and the 250W motor rating under the Central Motor Vehicles Rules are exempt from RTO registration, road tax, and mandatory insurance",
+        "problem": "The data layer flags insurance as a nuanced area: while not legally mandated for non-RTO low-speed scooters, some interpretations argue third-party cover is still required under the MV Act, and on-ground enforcement varies. The article should phrase this as 'confirm with your local RTO' rather than presenting it as black-and-white, per the data layer's own guidance on this point."
+      },
+      {
+        "severity": "warning",
+        "claim": "the Zelio Gracy 2026 (the 60V/32AH lead-acid version, starting around Rs 59,999)",
+        "problem": "The models.json data layer marks the Gracy 2026 price range as needing verification before publish. Recommend final reconciliation with the live Zelio site and your ex-showroom pricing in Chandigarh/Mohali/Panchkula before going live, as this is a specific, dated figure."
+      },
+      {
+        "severity": "warning",
+        "claim": "the Zelio Logix, for instance, is rated at 60 to 90 km on its entry variant",
+        "problem": "The models.json data layer lists Logix range as '60-90 (entry) up to ~140 on the top lithium variant' and flags 'exact range of top variant' for verification. The article's use of the entry range is correct, but recommend final verification of the top variant range figure before publish if you reference it elsewhere."
+      }
+    ]
   },
   {
     "slug": "battery-replacement-cost-life",
