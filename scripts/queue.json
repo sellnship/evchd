@@ -532,28 +532,28 @@
     "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) on a wet Tricity street during light rain, no glow.",
     "angle": "Wet-road riding, water and charging safety, storage and battery care through the monsoon — practical, local seasonal advice.",
-    "processedAt": "2026-06-14T20:37:17.933Z",
-    "publishedPath": "src/content/guides/monsoon-safety-rain.md",
+    "processedAt": "2026-06-14T20:38:43.580Z",
+    "publishedPath": "src/content/guides/hi/monsoon-safety-rain.md",
     "factCheckIssues": [
       {
         "severity": "warning",
-        "claim": "The running cost of a full charge — at roughly two units of electricity, and at the approximate all-in rate of Rs 5 per unit under the JERC tariff for Chandigarh domestic consumers (or the comparable PSPCL rate in Mohali) — works out to around Rs 10 per full charge, or about Rs 0.17 per kilometre over a 60 km range.",
-        "problem": "The data layer specifies running cost as Rs 0.17 per km over a ~60 km range, which is correct; however, the phrasing 'over a 60 km range' could be clearer about which model or battery variant this applies to, since range varies significantly across the Zelio lineup (60–140 km depending on model and battery type). Consider specifying this is an example for entry-level models, or reconcile against the actual range of the model being featured in context."
+        "claim": "JERC के tariff order के हिसाब से लगभग ₹0.17 प्रति km",
+        "problem": "The data layer specifies ~Rs 5 per unit as the all-in basis, which yields Rs 0.17/km over ~60 km range. This is correct, but the phrasing 'JERC tariff order के हिसाब से' could mislead readers into thinking JERC publishes a per-km figure directly — it does not. JERC publishes per-unit tariffs. Consider rephrasing to 'based on JERC's tariff order (~Rs 5/unit all-in), the running cost works out to approximately Rs 0.17/km' for clarity."
       },
       {
         "severity": "warning",
-        "claim": "Overnight charging indoors, away from rain exposure, is the right approach through the monsoon. ... Overnight charging is the standard pattern for low-speed scooters — a full charge takes roughly seven to twelve hours for lead-acid variants and four to five hours for lithium-ion variants, per Zelio's specifications.",
-        "problem": "The data layer (models.json shared_low_speed_specs) states lead-acid takes '~7-12 hr charge' and lithium-ion takes '~4-5 hr charge', which matches the article. However, in the battery care section the article states 'charge in four to five hours' for lithium-ion, which is consistent. No factual contradiction detected, but verify against live Zelio specs before publish to ensure charge times have not changed."
+        "claim": "Mohali में PSPCL rate पर यह थोड़ा ज़्यादा हो सकता है",
+        "problem": "The data layer states Mohali (PSPCL) is 'around Rs 5.40 per unit for the first 300 units', which is actually slightly higher than Chandigarh's weighted average of ~Rs 5/unit. The phrase 'थोड़ा ज़्यादा' is accurate but could be more precise: at Rs 5.40/unit over 60 km, Mohali's running cost would be ~Rs 0.18/km (not materially different from Chandigarh). No factual error, but consider adding the actual Mohali tariff for transparency."
       },
       {
         "severity": "warning",
-        "claim": "Lithium-ion variants — available on the Gracy i, X-Men+, Logix, and others in the Zelio low-speed range",
-        "problem": "The models.json lists lithium-ion options for Gracy i (confirmed), X-Men+ (confirmed), and Logix (confirmed as 'top lithium variant'). However, the phrasing 'and others' is vague. Reconcile against your actual current stock before publish to confirm which models you actually sell with lithium-ion, to avoid implying availability of variants you do not carry."
+        "claim": "Cycling track पर low-speed scooter ले जाना नियमों के खिलाफ़ है — अपने local RTO से confirm करें",
+        "problem": "This claim about cycling tracks is not supported in the verified data layer. While it may be true in Chandigarh's local rules, no source is cited. The instruction to 'confirm with local RTO' is appropriate, but the initial assertion should either cite a source or be softened to 'may not be permitted' rather than stated as established fact."
       },
       {
         "severity": "warning",
-        "claim": "Lithium cells do not like sitting at 100 per cent charge for long periods in high ambient temperatures. If your scooter sits unused for more than a week during the rains, charging to roughly 80 per cent rather than full is better for long-term cell health. Confirm this with your service centre, as it depends on whether the battery pack has an active BMS.",
-        "problem": "This is general EV battery guidance and not contradicted by the data layer, but it is not explicitly verified in the data sources listed. The instruction to 'confirm with your service centre' is appropriate, but this claim should be double-checked against Zelio's official battery care guidance or service bulletins before publish to ensure it aligns with brand recommendations."
+        "claim": "कुछ लोगों का मानना है कि Motor Vehicles Act के तहत third-party cover फिर भी ज़रूरी है",
+        "problem": "The data layer's insurance_note already flags this ambiguity: 'Some interpretations argue third-party cover is still required under the MV Act, and on-ground enforcement varies'. The article's phrasing 'कुछ लोगों का मानना है' correctly captures the uncertainty. This is handled correctly and matches the data layer's guidance, so no action needed — but flagged as a cross-check that the nuance is present."
       }
     ]
   },
