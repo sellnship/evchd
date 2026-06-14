@@ -319,9 +319,38 @@
     "section": "guides",
     "category": "Buying Guide",
     "lang": "en",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels, low seat height) parked in a calm residential market setting.",
-    "angle": "Low seat, gearless, ready-to-ride exemption; short market/temple/school-run trips. Ease over specs; brand-neutral."
+    "angle": "Low seat, gearless, ready-to-ride exemption; short market/temple/school-run trips. Ease over specs; brand-neutral.",
+    "processedAt": "2026-06-14T20:23:17.808Z",
+    "publishedPath": "src/content/guides/scooter-for-seniors-homemakers.md",
+    "factCheckIssues": [
+      {
+        "severity": "warning",
+        "claim": "A full charge on a typical low-speed scooter uses about 2 units, costing roughly Rs 10. Over a rated range of around 60 km, that works out to approximately Rs 0.17 per kilometre.",
+        "problem": "The article states Rs 0.17/km, but the data layer specifies the running cost per km is 0.17 — this is consistent. However, the phrasing 'over a rated range of around 60 km' is imprecise: the 60 km range is specific to some models (e.g. Little Gracy), while others like Gracy i (80-90 km) and X-Men+ (120 km) have longer ranges. Consider clarifying this is an example rather than a universal figure, or note that the per-km cost remains ~Rs 0.17 regardless of range."
+      },
+      {
+        "severity": "warning",
+        "claim": "The petrol cost for the same 60 km distance, at current Chandigarh pump prices, would be in the range of Rs 150 to Rs 200 depending on the vehicle.",
+        "problem": "The data layer specifies petrol_equivalent_for_same_distance_inr as '150-200', which matches the article. However, the claim 'depending on the vehicle' is vague for a low-speed EV comparison — it would be clearer to specify 'depending on fuel efficiency' or 'depending on the petrol vehicle type'. This is a minor clarity issue, not a factual error."
+      },
+      {
+        "severity": "warning",
+        "claim": "Zelio Gracy (2026 facelift) — from approximately Rs 60,000 to Rs 77,000 depending on battery variant",
+        "problem": "The models.json data shows price_from_inr: 59999 and price_to_inr: 76999, so the article's approximation of 'Rs 60,000 to Rs 77,000' is slightly rounded but reasonable. However, the data layer notes 'This is a DRAFT' and instructs to 'verify before publish' against the live Zelio site and local dealer pricing. Recommend final verification before publication."
+      },
+      {
+        "severity": "warning",
+        "claim": "Lead-acid variants cost less upfront but are heavier and take 7 to 12 hours to charge. Lithium-ion variants are lighter, charge in 4 to 5 hours, and last significantly longer.",
+        "problem": "The data layer specifies 'Lead-acid / Gel — lower upfront cost, heavier, ~7-12 hr charge' and 'Lithium-ion — lighter, longer life, ~4-5 hr charge', which aligns with the article. However, the article does not mention that lead-acid batteries have a shorter lifespan, only that lithium-ion 'last significantly longer' — this could be phrased more explicitly as a trade-off if space permits."
+      },
+      {
+        "severity": "warning",
+        "claim": "Zelio lists over 350 authorised service centres across India; confirm which centre covers your area before purchasing.",
+        "problem": "The data layer states 'service_network: 350+ authorised service centres across India', which is correct. However, this is a pan-India figure, not Tricity-specific. The article's instruction to 'confirm which centre covers your area' is prudent and not an error."
+      }
+    ]
   },
   {
     "slug": "scooter-for-seniors-homemakers",
