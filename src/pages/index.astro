@@ -57,11 +57,12 @@ const hubs = [
   description="Independent, local electric-mobility guidance for Chandigarh, Mohali and Panchkula. Real numbers, honest comparisons, no sales pitch."
   type="website"
 >
-  <!-- HERO: interactive three.js grid behind the thesis -->
+  <!-- HERO: three.js grid on desktop; CSS-only concrete grid on mobile/no-WebGL -->
   <section class="hero">
     <canvas id="grid"></canvas>
     <div class="wrap hero-inner">
-      <span class="hint">Move your cursor — <b>energise the grid</b></span>
+      <span class="hint hint--desktop">Move your cursor — <b>energise the grid</b></span>
+      <span class="hint hint--mobile">The Tricity EV grid</span>
       <h1 class="reveal">The Tricity's <span class="em">independent</span> guide to going electric.</h1>
       <p class="lede reveal">Real local numbers, honest comparisons, and clear guides for life with an EV across Chandigarh, Mohali and Panchkula. We answer the questions — we don't sell the vehicles.</p>
       <div class="cta-row reveal">
@@ -180,6 +181,8 @@ const hubs = [
       try {
         const THREE = await import('three');
         api = createGridHero(THREE, canvas as HTMLCanvasElement, reduced);
+        // Mark the hero as 3D so CSS hides the static grid + shows the cursor hint.
+        (canvas.closest('.hero') as HTMLElement | null)?.setAttribute('data-grid', '3d');
         if (visible) api.start();
       } catch (e) {
         /* no WebGL / failed import → hero simply has no grid */

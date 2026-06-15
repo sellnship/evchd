@@ -35,19 +35,23 @@ const homeHref = localizePath('/', lang);
 <header class="nav">
   <div class="wrap nav-inner">
     <Brand href={homeHref} />
-    <nav class="nav-links" aria-label={t('nav.primary')}>
-      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    <div class="nav-right">
+      <nav class="nav-links" aria-label={t('nav.primary')}>
+        {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      </nav>
+      <!-- Language pill lives in the top bar so it's ALWAYS visible (never hidden
+           inside the hamburger). Routes to the exact EN↔HI counterpart. -->
       <a class="lang-toggle" href={toggleHref} aria-label={toggleAria} hreflang={lang === 'hi' ? 'en' : 'hi'}>{toggleLabel}</a>
-    </nav>
-    <button
-      type="button"
-      class="nav-toggle"
-      aria-label={t('menu.open')}
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-    >
-      <span class="nav-toggle-bars" aria-hidden="true"><i></i><i></i><i></i></span>
-    </button>
+      <button
+        type="button"
+        class="nav-toggle"
+        aria-label={t('menu.open')}
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="nav-toggle-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+    </div>
   </div>
 
   <!-- Mobile drawer (≤900px). Starts inert so its links aren't focusable/announced
@@ -56,7 +60,6 @@ const homeHref = localizePath('/', lang);
     <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Site menu">
       <nav class="mobile-menu-links" aria-label={t('nav.primary')}>
         {links.map((l) => <a href={l.href}>{l.label}</a>)}
-        <a class="lang-toggle-m" href={toggleHref} aria-label={toggleAria} hreflang={lang === 'hi' ? 'en' : 'hi'}>{toggleLabel}</a>
       </nav>
     </div>
   </div>

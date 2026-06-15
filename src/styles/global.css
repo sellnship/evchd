@@ -56,13 +56,14 @@ header.nav { position: absolute; top: 0; left: 0; right: 0; z-index: 20; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 78px; }
 .brand { display: inline-flex; align-items: center; }
 .brand-logo { height: 28px; width: auto; display: block; }
+.nav-right { display: flex; align-items: center; gap: 22px; }
 .nav-links { display: flex; gap: 30px; font-family: "Space Mono"; font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; }
 .nav-links a { position: relative; padding-bottom: 4px; color: var(--ink-soft); transition: color .2s; }
 .nav-links a:hover { color: var(--ink); }
 .nav-links a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: var(--charge); transition: width .25s; }
 .nav-links a:hover::after { width: 100%; }
-/* language toggle (EN | हिंदी) */
-.lang-toggle { border: 1px solid var(--grid); padding: 5px 10px; border-radius: 2px; color: var(--ink); }
+/* language toggle (EN | हिंदी) — quiet bordered pill, always visible in the top bar */
+.lang-toggle { font-family: "Space Mono"; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; border: 1px solid var(--grid); padding: 5px 11px; border-radius: 2px; color: var(--ink); white-space: nowrap; transition: border-color .2s, color .2s; }
 .lang-toggle:hover { border-color: var(--charge); color: var(--charge); }
 .lang-toggle::after { display: none; }
 
@@ -74,6 +75,25 @@ html[lang="hi-IN"] .prose { line-height: 1.85; }
 
 /* hero */
 .hero { position: relative; min-height: 100svh; display: flex; align-items: center; }
+/* Static concrete grid — the default hero background (mobile + no-WebGL), so the
+   hero is NEVER blank. Hidden once the three.js grid takes over on desktop. */
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: clamp(40px, 11vw, 64px) clamp(40px, 11vw, 64px);
+  -webkit-mask-image: radial-gradient(135% 115% at 66% 44%, #000 36%, transparent 90%);
+          mask-image: radial-gradient(135% 115% at 66% 44%, #000 36%, transparent 90%);
+  opacity: .45; animation: heroPulse 7s ease-in-out infinite;
+}
+.hero[data-grid="3d"]::before { opacity: 0; animation: none; }
+@keyframes heroPulse { 0%, 100% { opacity: .32; } 50% { opacity: .55; } }
+/* Eyebrow: the cursor hint shows only when the interactive 3D grid is live;
+   otherwise the generic label. */
+.hint--desktop { display: none; }
+.hero[data-grid="3d"] .hint--desktop { display: inline-flex; }
+.hero[data-grid="3d"] .hint--mobile { display: none; }
 #grid {
   position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0;
   -webkit-mask-image: radial-gradient(135% 115% at 66% 44%, #000 36%, transparent 90%);
