@@ -70,6 +70,16 @@ be confirmed locally — never guess.
    Tricity (Chandigarh and Punjab both give 100% EV road-tax exemption in 2026),
    so the registration-specific saving is modest (plate + processing only) — do
    not overstate it. The recurring savings are INSURANCE + MAINTENANCE.
+10. **No large maintenance-saving rupee figures.** Do not claim a big annual
+    maintenance saving for a low-speed EV (e.g. "Rs 12,000–20,000/year saved on
+    maintenance") — there is no defensible, sourced basis for it. Frame the
+    maintenance advantage qualitatively (minimal servicing, no oil changes, no
+    engine maintenance, far fewer moving parts), and cite a rupee figure only if it
+    has a clear, defensible, sourced basis.
+11. **Range: rated vs real.** Label brochure/rated range figures as "rated" and
+    note real-world is lower (roughly rated × 0.78). Standalone range claims should
+    lean on the conservative real-world band (≥60 km min), never present a brochure
+    number as the range a rider will actually get.
 
 ## Output format
 

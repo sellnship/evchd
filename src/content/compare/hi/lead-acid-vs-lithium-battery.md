@@ -49,7 +49,7 @@ Lithium-ion battery नई technology है। upfront cost ज़्याद�
 
 - **Weight कम होता है।** Scooter हल्का लगता है, handling आसान।
 - **Charge time कम होता है।** करीब 4–5 घंटे में full charge। दोपहर को लगाओ, शाम को निकलो।
-- **Range ज़्यादा होती है।** कई lithium वाले low-speed models 80 से लेकर 120 km तक range देते हैं एक charge पर।
+- **Range ज़्यादा होती है।** कई lithium वाले low-speed models की rated/brochure range 80 से 120 km तक होती है — असल (real-world) range इससे कुछ कम रहती है (मोटे तौर पर rated का ~78%)।
 - **Battery की life लंबी होती है।** लंबे समय में replacement cost कम।
 
 कई low-speed models में lithium और lead-acid दोनों options होते हैं — lithium में charge time 4–5 घंटे, lead-acid में 8–10 घंटे।
