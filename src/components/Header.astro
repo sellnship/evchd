@@ -1,7 +1,7 @@
 ---
 import Brand from './Brand.astro';
-import { getCollection } from 'astro:content';
-import { getLangFromUrl, useTranslations, localizePath, counterpartPath, toEnPath } from '../i18n';
+import { getLangFromUrl, useTranslations, localizePath } from '../i18n';
+import { resolveCounterpart } from '../lib/counterpart';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -14,20 +14,11 @@ const links = [
   { key: 'nav.about', href: '/about' },
 ].map((l) => ({ label: t(l.key as any), href: localizePath(l.href, lang) }));
 
-// Language toggle → the counterpart page. For article detail pages the
-// translation may not exist yet, so verify it and otherwise fall back to the
-// counterpart section listing (which always exists) — never a dead link.
-const CONTENT_SECTIONS = ['guides', 'compare', 'news', 'glossary'];
-let toggleHref = counterpartPath(Astro.url.pathname, lang);
-const segs = toEnPath(Astro.url.pathname).split('/').filter(Boolean);
-if (segs.length === 2 && CONTENT_SECTIONS.includes(segs[0])) {
-  const [section, slug] = segs;
-  const otherLang = lang === 'hi' ? 'en' : 'hi';
-  const wantId = otherLang === 'hi' ? `hi/${slug}` : slug;
-  const entries = await getCollection(section as any, ({ data }: any) => data.lang === otherLang);
-  const exists = entries.some((e: any) => e.id === wantId);
-  if (!exists) toggleHref = localizePath(`/${section}`, otherLang);
-}
+// Language toggle → the counterpart page. Uses the SAME resolver the <head>
+// hreflang uses, so the human link and the machine signal never disagree. For
+// article detail pages with no translation yet it falls back to the counterpart
+// section listing (which always exists) — never a dead link.
+const { href: toggleHref } = await resolveCounterpart(Astro.url.pathname, lang);
 const toggleLabel = t('toggle.label');
 const toggleAria = t('toggle.aria');
 const homeHref = localizePath('/', lang);

@@ -9,7 +9,8 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { getLangFromUrl, toEnPath, toHiPath } from '../i18n';
+import { getLangFromUrl } from '../i18n';
+import { resolveCounterpart } from '../lib/counterpart';
 
 interface Props {
   title: string;
@@ -42,9 +43,14 @@ const ogImage = heroImage ? new URL(heroImage, site).href : undefined;
 const lang = getLangFromUrl(Astro.url);
 const htmlLang = lang === 'hi' ? 'hi-IN' : 'en-IN';
 const inLanguage = lang === 'hi' ? 'hi-IN' : 'en-IN';
-// hreflang alternates point at the EN↔HI counterparts of this exact page.
-const enHref = new URL(toEnPath(Astro.url.pathname), site).href;
-const hiHref = new URL(toHiPath(Astro.url.pathname), site).href;
+// hreflang alternates point at the EN↔HI counterparts of this exact page — but
+// ONLY when the counterpart actually exists, so we never advertise a 404 to
+// Google. The toggle in the header uses the same resolver, so the two agree.
+const counterpart = await resolveCounterpart(Astro.url.pathname, lang);
+const counterHref = new URL(counterpart.href, site).href;
+const enAltHref = lang === 'en' ? canonical : counterpart.exists ? counterHref : null;
+const hiAltHref = lang === 'hi' ? canonical : counterpart.exists ? counterHref : null;
+const xDefaultHref = enAltHref ?? canonical;
 const rssHref = `${site}${lang === 'hi' ? '/hi/rss.xml' : '/rss.xml'}`;
 
 // Article structured data — only emitted for article pages that carry a date,
@@ -80,10 +86,10 @@ const articleSchema =
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
-    <!-- Bilingual: hreflang alternates pointing at the EN↔HI counterparts -->
-    <link rel="alternate" hreflang="en" href={enHref} />
-    <link rel="alternate" hreflang="hi" href={hiHref} />
-    <link rel="alternate" hreflang="x-default" href={enHref} />
+    <!-- Bilingual: hreflang alternates — counterpart emitted only when it exists -->
+    {enAltHref && <link rel="alternate" hreflang="en" href={enAltHref} />}
+    {hiAltHref && <link rel="alternate" hreflang="hi" href={hiAltHref} />}
+    <link rel="alternate" hreflang="x-default" href={xDefaultHref} />
 
     <!-- Favicons (generated from src/assets/logomark.svg via npm run gen:icons) -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
