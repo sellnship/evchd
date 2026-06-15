@@ -58,3 +58,5 @@ paragraph, then use `##` section headings and `---` thematic breaks as needed.
 Use `-` bullet lists where they aid clarity. End the body with a `## Sources`
 section listing the data sources you relied on, then a final line containing only
 the placeholder token `[[CTA]]` (the call-to-action block is inserted later).
+
+Do not use the tilde `~` for "approximately" in prose — write "approx" or "around" — to avoid accidental markdown strikethrough.

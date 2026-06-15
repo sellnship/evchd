@@ -22,15 +22,15 @@ Below is the spec sheet, side by side. Treat the figures as the manufacturer's c
 
 Once licence and speed are off the table, three things do the deciding:
 
-- **Range** — be honest about your daily distance. For trips under ~40 km a day, the entry models are plenty; if you're regularly past 60 km, look to a lithium variant and the longer-range models, and pay the difference once.
-- **Battery type** — lead-acid is cheaper up front but heavier and slower to charge (~7–12 hr); lithium-ion is lighter, lasts longer and charges in ~4–5 hr. Over a few years the lithium premium usually pays for itself.
+- **Range** — be honest about your daily distance. For trips under \~40 km a day, the entry models are plenty; if you're regularly past 60 km, look to a lithium variant and the longer-range models, and pay the difference once.
+- **Battery type** — lead-acid is cheaper up front but heavier and slower to charge (\~7–12 hr); lithium-ion is lighter, lasts longer and charges in \~4–5 hr. Over a few years the lithium premium usually pays for itself.
 - **Use case** — a short-hop commuter, a college run and a delivery/cargo workhorse are different jobs. The cheapest scooter that comfortably covers your real distance is almost always the right one.
 
 ---
 
 ## A note on cost
 
-All of these run at roughly **₹0.17/km** on local power — about ₹10 for a ~2-unit full charge at an all-in rate of around ₹5 per unit — so the running cost barely changes between models. Don't over-index on it when comparing. Where the money actually differs is the **up-front price** and the **battery choice**, both in the table above.
+All of these run at roughly **₹0.17/km** on local power — about ₹10 for a \~2-unit full charge at an all-in rate of around ₹5 per unit — so the running cost barely changes between models. Don't over-index on it when comparing. Where the money actually differs is the **up-front price** and the **battery choice**, both in the table above.
 
 This is a category guide, not a sales pitch: we don't stock or sell any of these. When you've narrowed it down on the numbers, take the shortlist to a dealer for a test ride and live pricing.
 

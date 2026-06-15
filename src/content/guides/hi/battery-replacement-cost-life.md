@@ -134,7 +134,7 @@ Low-speed scooter का असली फ़ायदा है — **no licence
 
 - **Central Motor Vehicles Rules (CMVR)** — low-speed exemption criteria (25 km/h, 250W); multiple 2026 sources से cross-verified, June 2026
 - **JERC (Joint Electricity Regulatory Commission) / Chandigarh Power Distribution Ltd** — five-year tariff order FY 2025-26 to 2029-30, effective 1 November 2025; The Tribune, Oct/Nov 2025
-- **PSPCL (Punjab State Power Corporation Ltd)** — Mohali domestic tariff, ~₹5.40/unit for first 300 units
+- **PSPCL (Punjab State Power Corporation Ltd)** — Mohali domestic tariff, \~₹5.40/unit for first 300 units
 - **PM E-DRIVE portal, Ministry of Heavy Industries** — eligibility and coverage details; June 2026
 - **Zelio E-Mobility official (zelioebikes.com) + trade listings** — battery options, charging specs, service network; verified June 2026
 - **EV Chandigarh verified charging cost calculation** — ₹0.17/km basis, June 2026

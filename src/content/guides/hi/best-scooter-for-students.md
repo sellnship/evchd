@@ -70,8 +70,8 @@ Chandigarh में JERC का domestic tariff tiered है — सबसे 
 | हिसाब | रकम |
 |---|---|
 | Full charge की cost (₹5/unit × 2 units) | **₹10** |
-| Range (approx) | **~60 km** |
-| Running cost per km | **~₹0.17** |
+| Range (approx) | **\~60 km** |
+| Running cost per km | **\~₹0.17** |
 | Petrol से same distance का खर्च | **₹150–₹200** |
 
 यानी जहाँ petrol scooter पर ₹150-200 लगेंगे, वहाँ electric scooter पर **₹10**। यह कोई estimate नहीं — यह real math है।
@@ -93,7 +93,7 @@ Chandigarh में JERC का domestic tariff tiered है — सबसे 
 ### बजट सबसे tight है तो — Zelio Little Gracy
 
 - **Price:** करीब ₹45,633 से शुरू
-- **Range:** ~60 km per charge
+- **Range:** \~60 km per charge
 - **किसके लिए:** पहली बार scooter चलाने वाले, students, जिनकी daily commute 15-20 km है
 - **खास बात:** सबसे हल्का और सबसे सस्ता। Seat height कम है — दोनों पैर ज़मीन पर आते हैं। पूरी तरह gearless।
 
@@ -119,7 +119,7 @@ Lithium-ion battery का मतलब है — हल्का, ज़्य
 - **Range:** 60 से 120 km (battery variant के हिसाब से)
 - **Battery:** Entry level पर 60V/32AH lead-acid (₹59,999), और top पर 72V/32AH lithium-ion (₹76,999)
 - **किसके लिए:** College students, daily urban commuters, जो नया model चाहते हों
-- **खास बात:** April 2026 में launch हुआ, 7 colour options, ~2 units per charge (~₹10 running cost)
+- **खास बात:** April 2026 में launch हुआ, 7 colour options, \~2 units per charge (\~₹10 running cost)
 
 अगर budget में थोड़ी flexibility है और नया model चाहिए, तो यह 2026 facelift देखने लायक है।
 
@@ -151,7 +151,7 @@ Lithium-ion battery का मतलब है — हल्का, ज़्य
 |---|---|---|
 | Upfront cost | कम | ज़्यादा |
 | Weight | भारी | हल्का |
-| Charge time | ~7-12 घंटे | ~4-5 घंटे |
+| Charge time | \~7-12 घंटे | \~4-5 घंटे |
 | Life | कम | ज़्यादा |
 | Daily use > 60 km | ठीक नहीं | बेहतर |
 
@@ -203,7 +203,7 @@ Chandigarh, Mohali और Panchkula — तीनों में CMVR के ru
 
 - **Central Motor Vehicles Rules (CMVR)** — low-speed exemption criteria (25 km/h, 250W), minimum age 16; June 2026 तक verified
 - **Joint Electricity Regulatory Commission (JERC) / Chandigarh Power Distribution Ltd** — Chandigarh domestic tariff order (FY 2025-26 to 2029-30), effective 1 November 2025; The Tribune Oct/Nov 2025
-- **PSPCL (Punjab State Power Corporation Ltd)** — Mohali domestic tariff ~₹5.40/unit (first 300 units)
+- **PSPCL (Punjab State Power Corporation Ltd)** — Mohali domestic tariff \~₹5.40/unit (first 300 units)
 - **UHBVN (Uttar Haryana Bijli Vitran Nigam)** — Panchkula domestic tariff (comparable range)
 - **PM E-DRIVE portal (pmedrive.heavyindustries.gov.in)** — subsidy eligibility, Ministry of Heavy Industries; June 2026
 - **Zelio E-Mobility official site (zelioebikes.com)** — model specs, range, prices; June 2026 verified
@@ -211,4 +211,4 @@ Chandigarh, Mohali और Panchkula — तीनों में CMVR के ru
 
 ---
 
-*यह article सिर्फ़ जानकारी के लिए है। EV Chandigarh कुछ बेचता नहीं। Prices और specs अपने local dealer से और CM
+*यह article सिर्फ़ जानकारी के लिए है। EV Chandigarh कुछ बेचता नहीं। Prices और specs अपने local dealer से, और CMVR नियम अपने local RTO से confirm कर लें।*

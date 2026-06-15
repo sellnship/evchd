@@ -148,7 +148,7 @@ Mohali (PSPCL) और Panchkula (Haryana) में rate थोड़ा ज़�
 
 - **Central Motor Vehicles Rules (CMVR)** — low-speed exemption criteria (250W motor + 25 km/h speed, दोनों शर्तें); multiple 2026 sources से cross-verified, June 2026
 - **Joint Electricity Regulatory Commission (JERC) / Chandigarh Power Distribution Ltd** — JERC five-year tariff order (FY 2025-26 to 2029-30), effective 1 November 2025; The Tribune, Oct/Nov 2025
-- **PSPCL (Punjab)** — Mohali domestic tariff ~₹5.40/unit
+- **PSPCL (Punjab)** — Mohali domestic tariff \~₹5.40/unit
 - **PM E-DRIVE portal (pmedrive.heavyindustries.gov.in)** + trade press — scheme eligibility, incentive structure, deadline; June 2026
 - **Zelio E-Mobility official (zelioebikes.com)** + trade listings — model specs, prices, range; verified June 2026
 - **EV India guidance + Zelio official** — charging cost and per-km running cost calculation; June 2026

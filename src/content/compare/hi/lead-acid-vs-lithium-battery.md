@@ -79,9 +79,9 @@ JERC के tariff order के हिसाब से Chandigarh में घ�
 | Upfront cost | कम | ज़्यादा (₹15–17k तक अधिक) |
 | Weight | भारी | हल्की |
 | Charge time | 7–12 घंटे | 4–5 घंटे |
-| Range (approx.) | ~60 km | 80–120 km |
+| Range (approx.) | \~60 km | 80–120 km |
 | Battery life | कम | लंबी |
-| Running cost/km | ~₹0.17 | ~₹0.17 |
+| Running cost/km | \~₹0.17 | \~₹0.17 |
 | रोज़ 60 km+ के लिए | नहीं | हाँ |
 
 ---
@@ -125,7 +125,7 @@ Low-speed scooter का असली फ़ायदा है **avoided cost:*
 
 - **Central Motor Vehicles Rules (CMVR)** — low-speed exemption criteria (speed ≤25 km/h, motor ≤250W); June 2026 तक cross-verified
 - **JERC (Joint Electricity Regulatory Commission) / Chandigarh Power Distribution Ltd** — पाँच साल का tariff order (FY 2025–26 से 2029–30); The Tribune, Oct/Nov 2025
-- **PSPCL (Punjab State Power Corporation Ltd)** — Mohali domestic tariff ~₹5.40/unit
+- **PSPCL (Punjab State Power Corporation Ltd)** — Mohali domestic tariff \~₹5.40/unit
 - **UHBVN (Uttar Haryana Bijli Vitran Nigam)** — Panchkula tariff reference
 - **PM E-DRIVE portal (pmedrive.heavyindustries.gov.in)** — subsidy eligibility; June 2026
 - **Zelio E-Mobility official site (zelioebikes.com)** — model specs, battery options, range figures; verified June 2026

@@ -108,7 +108,7 @@ export async function draft({ topic, facts, models } = {}) {
   return complete({
     model: DRAFT_MODEL,
     user,
-    maxTokens: 4000,
+    maxTokens: 8000, // headroom so long (esp. Hindi) articles don't truncate mid-sentence
     label: "draft",
   });
 }

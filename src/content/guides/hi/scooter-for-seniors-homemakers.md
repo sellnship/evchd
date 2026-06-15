@@ -91,14 +91,14 @@ JERC के tariff order (FY 2025-26 से 2029-30) के हिसाब स�
 
 ### Zelio Little Gracy — सबसे किफ़ायती शुरुआत
 - कीमत: करीब **₹45,633** से (approx ex-showroom)
-- Range: ~60 km
+- Range: \~60 km
 - सबसे हल्का model, low seat height, दोनों पैर ज़मीन पर
 - पहली बार scooter चलाने वालों और seniors के लिए सबसे suitable
 - छोटी daily trips (15-20 km) के लिए एकदम सही
 
 ### Zelio Gracy i — रोज़ाना का भरोसेमंद साथी
 - कीमत: करीब **₹56,825** से
-- Range: ~80-90 km (lithium-ion battery)
+- Range: \~80-90 km (lithium-ion battery)
 - USB charging port, anti-theft alarm
 - घर के normal socket पर रात भर charge
 
@@ -122,7 +122,7 @@ JERC के tariff order (FY 2025-26 से 2029-30) के हिसाब स�
 |---|---|---|
 | कीमत | कम | थोड़ी ज़्यादा |
 | वज़न | भारी | हल्का |
-| Charge time | ~7-12 घंटे | ~4-5 घंटे |
+| Charge time | \~7-12 घंटे | \~4-5 घंटे |
 | Battery life | कम | ज़्यादा |
 | Daily range | कम | ज़्यादा |
 

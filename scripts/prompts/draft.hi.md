@@ -66,3 +66,5 @@ around the whole thing, no H1 (title alag se render hota hai). Start with a shor
 lede paragraph, then `##` section headings and `---` breaks as needed, `-` bullet
 lists where they help. End with a `## स्रोत` (Sources) section listing the data
 sources you relied on, then a final line containing only the token `[[CTA]]`.
+
+Do not use the tilde `~` for "approximately" in prose — write "approx" or "around" (या "करीब") — to avoid accidental markdown strikethrough.

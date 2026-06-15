@@ -64,7 +64,7 @@ The electricity saving, on this basis, is in the region of **Rs 13,000 per year*
 
 **Across the Tricity**
 
-The three cities are not far apart on domestic power. Chandigarh's tariff is tiered, so a light-use household on the lowest slab (~Rs 2.75/unit) pays less, while Mohali (PSPCL, ~Rs 5.40/unit for the first 300 units) and Panchkula (Haryana) sit a little higher. At an all-in ~Rs 5/unit the annual charging cost for 7,500 km is around Rs 1,275 wherever you plug in across the region — and on Chandigarh's lowest slab, less. The honest local point is not that one city is dramatically cheaper than the next; it is that across the whole Tricity, charging stays a small fraction of what petrol costs.
+The three cities are not far apart on domestic power. Chandigarh's tariff is tiered, so a light-use household on the lowest slab (\~Rs 2.75/unit) pays less, while Mohali (PSPCL, \~Rs 5.40/unit for the first 300 units) and Panchkula (Haryana) sit a little higher. At an all-in \~Rs 5/unit the annual charging cost for 7,500 km is around Rs 1,275 wherever you plug in across the region — and on Chandigarh's lowest slab, less. The honest local point is not that one city is dramatically cheaper than the next; it is that across the whole Tricity, charging stays a small fraction of what petrol costs.
 
 ---
 
@@ -83,7 +83,7 @@ A BLDC hub-motor electric scooter has far fewer moving parts. There is no engine
 | Ex-showroom price | Rs 75,000–85,000 (approx, verify locally) | Rs 56,825–76,999 (depending on model/variant) |
 | RTO registration + road tax | Rs 5,000–10,000+ (approx, verify with RTO) | Rs 0 (CMVR-exempt) |
 | Mandatory insurance | Required | Not legally mandated (confirm with RTO; voluntary cover recommended) |
-| Fuel / electricity (7,500 km/yr) | Rs 14,000–15,000 (approx, verify at pump) | ~Rs 1,275 (at ₹0.17/km, ~₹5/unit all-in) |
+| Fuel / electricity (7,500 km/yr) | Rs 14,000–15,000 (approx, verify at pump) | \~Rs 1,275 (at ₹0.17/km, \~₹5/unit all-in) |
 | Annual running cost per km | Roughly Rs 1.90–2.00 (fuel alone) | Rs 0.17 |
 
 *All figures are approximate. Verify ex-showroom prices with dealers, registration charges with your local RTO, and current petrol prices at the pump before making a purchase decision.*
@@ -114,9 +114,9 @@ The advantage is most pronounced for riders who charge at home, travel predictab
 
 ## Sources
 
-- **JERC five-year tariff order (FY 2025-26 to 2029-30):** Chandigarh domestic tariff is tiered — roughly Rs 2.75/unit (lowest slab), ~Rs 4.80 for 151–400 units, ~Rs 5.40 above 400 — effective 1 November 2025; ~Rs 5/unit used here as an all-in basis. Joint Electricity Regulatory Commission / Chandigarh Power Distribution Ltd; The Tribune, October/November 2025.
-- **PSPCL domestic tariff (Mohali, Punjab):** ~Rs 5.40 per unit (first 300 units); Panchkula (Haryana) comparable. Cited for comparison.
-- **Charging cost data:** ~2 units per full charge; ~Rs 10 per charge at ~Rs 5/unit; Rs 0.17/km running cost; Rs 150–200 petrol equivalent for the same distance. Zelio official + EV India guidance, June 2026.
+- **JERC five-year tariff order (FY 2025-26 to 2029-30):** Chandigarh domestic tariff is tiered — roughly Rs 2.75/unit (lowest slab), \~Rs 4.80 for 151–400 units, \~Rs 5.40 above 400 — effective 1 November 2025; \~Rs 5/unit used here as an all-in basis. Joint Electricity Regulatory Commission / Chandigarh Power Distribution Ltd; The Tribune, October/November 2025.
+- **PSPCL domestic tariff (Mohali, Punjab):** \~Rs 5.40 per unit (first 300 units); Panchkula (Haryana) comparable. Cited for comparison.
+- **Charging cost data:** \~2 units per full charge; \~Rs 10 per charge at \~Rs 5/unit; Rs 0.17/km running cost; Rs 150–200 petrol equivalent for the same distance. Zelio official + EV India guidance, June 2026.
 - **Low-speed vehicle exemption:** Top speed 25 km/h or less AND motor 250 W or less (continuous rated) — both conditions required. No licence, no RTO registration, no road tax, no mandatory insurance. Central Motor Vehicles Rules (CMVR); cross-verified across multiple sources, June 2026.
 - **Registration saving:** Rs 1,500–3,000 (CMVR framework).
 - **Model prices and specifications:** Zelio E-Mobility official (zelioebikes.com) + trade listings, verified June 2026. All prices approximate ex-showroom Haryana/Punjab, entry variant; verify before purchase.

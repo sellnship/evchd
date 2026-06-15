@@ -158,7 +158,7 @@ Low-speed scooter market में Zelio जैसे brands के कई model
 
 - **Central Motor Vehicles Rules (CMVR):** Low-speed exemption criteria (25 km/h / 250W), licence और registration rules; multiple 2026 sources से cross-verified, June 2026
 - **JERC / Chandigarh Power Distribution Ltd:** Chandigarh domestic electricity tariff (tiered, 1 November 2025 से लागू); JERC five-year tariff order FY 2025-26 to 2029-30; The Tribune, Oct/Nov 2025
-- **PSPCL (Punjab):** Mohali domestic tariff ~₹5.40/unit (first 300 units)
+- **PSPCL (Punjab):** Mohali domestic tariff \~₹5.40/unit (first 300 units)
 - **PM E-DRIVE portal (pmedrive.heavyindustries.gov.in):** Subsidy eligibility criteria; trade press; June 2026
 - **Zelio E-Mobility (zelioebikes.com):** Model specifications, price ranges, range figures; verified June 2026
-- **EV India guidance + Zelio official:** Charging cost calculations (₹5/unit basis, ~2 units per charge, ~₹0.17/km)
+- **EV India guidance + Zelio official:** Charging cost calculations (₹5/unit basis, \~2 units per charge, \~₹0.17/km)

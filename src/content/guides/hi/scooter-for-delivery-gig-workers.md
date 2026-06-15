@@ -39,11 +39,11 @@ Delivery काम में सबसे बड़ा दर्द है **run
 
 JERC (Joint Electricity Regulatory Commission) के tariff order के हिसाब से Chandigarh में domestic electricity rate लगभग ₹2.75/unit से शुरू होकर ₹5.40/unit तक जाती है। Mohali में PSPCL का rate पहले 300 units पर लगभग ₹5.40/unit है, और Panchkula (Haryana, UHBVN) भी इसी के आसपास है।
 
-एक fair all-in basis के तौर पर **~₹5/unit** लें। इस हिसाब से:
+एक fair all-in basis के तौर पर **\~₹5/unit** लें। इस हिसाब से:
 
-- एक full charge में **~2 units** बिजली लगती है
-- मतलब **~₹10 में full charge**
-- और यह आपको **~60 km की range** देता है
+- एक full charge में **\~2 units** बिजली लगती है
+- मतलब **\~₹10 में full charge**
+- और यह आपको **\~60 km की range** देता है
 - यानी **लगभग ₹0.17 per km**
 
 petrol के लिए उसी 60 km का खर्च होता ₹150-200। यह फ़र्क़ रोज़ का है, महीने का है — और delivery workers के लिए यही असली saving है।
@@ -105,7 +105,7 @@ Low-speed scooters दो तरह की batteries के साथ आते 
 अगर आप delivery rider हैं तो Zelio Logix इस पूरी lineup में सबसे पहले देखने वाला model है।
 
 - **Price:** लगभग ₹61,584 से (entry variant)
-- **Range:** 60-90 km (entry) से लेकर top lithium variant पर ~140 km तक
+- **Range:** 60-90 km (entry) से लेकर top lithium variant पर \~140 km तक
 - **Battery:** Lithium-ion और lead-acid दोनों options
 - **खासियत:** Cargo/business use के लिए बना है, good payload, Zelio के low-speed line में सबसे ज़्यादा range
 
@@ -151,9 +151,9 @@ MV Act के कुछ interpretations यह मानते हैं कि 
 
 Low-speed scooters की यह सबसे बड़ी सुविधा है: **regular घर का socket काफ़ी है।** कोई special charging station नहीं चाहिए।
 
-रात को scooter लगाएं, सुबह ready। ~2 units बिजली, ~₹10 का खर्च।
+रात को scooter लगाएं, सुबह ready। \~2 units बिजली, \~₹10 का खर्च।
 
-अगर आप Chandigarh के low-usage household हैं, तो lowest slab (~₹2.75/unit) पर यह और सस्ता पड़ेगा। लेकिन अगर घर में पहले से ज़्यादा बिजली जाती है, तो higher slab apply होगी — इसलिए ~₹5/unit का average fair estimate है।
+अगर आप Chandigarh के low-usage household हैं, तो lowest slab (\~₹2.75/unit) पर यह और सस्ता पड़ेगा। लेकिन अगर घर में पहले से ज़्यादा बिजली जाती है, तो higher slab apply होगी — इसलिए \~₹5/unit का average fair estimate है।
 
 Mohali (PSPCL) और Panchkula (UHBVN) में rate लगभग ₹5.40/unit के आसपास है — फिर भी petrol के मुक़ाबले बहुत सस्ता।
 
@@ -177,7 +177,7 @@ Low-speed scooters का फ़ायदा subsidy नहीं है। इ�
 |---|---|---|
 | Licence चाहिए | हाँ | नहीं (CMVR) |
 | RTO registration | हाँ | नहीं |
-| Running cost (per km) | ~₹2.50-3.50 | ~₹0.17 |
+| Running cost (per km) | \~₹2.50-3.50 | \~₹0.17 |
 | Ghar pe charge | नहीं | हाँ |
 | Top speed | 60+ km/h | 25 km/h |
 | Highway use | हाँ | नहीं |

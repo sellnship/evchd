@@ -55,20 +55,20 @@ Zelio के सभी low-speed models — Little Gracy से लेकर Log
 
 यहाँ numbers real हैं।
 
-JERC (Joint Electricity Regulatory Commission) के tariff order के हिसाब से Chandigarh में domestic electricity ~₹5/unit (all-in average) मानें तो:
+JERC (Joint Electricity Regulatory Commission) के tariff order के हिसाब से Chandigarh में domestic electricity \~₹5/unit (all-in average) मानें तो:
 
-- एक full charge में **~2 units लगती हैं**
+- एक full charge में **\~2 units लगती हैं**
 - मतलब **₹10 में full charge**
-- और ~60 km की range पर यह बनता है **~₹0.17 per km**
+- और \~60 km की range पर यह बनता है **\~₹0.17 per km**
 
-Mohali (PSPCL, Punjab) और Panchkula (Haryana, UHBVN) में rate थोड़ा ज़्यादा है — ~₹5.40/unit तक। पर फिर भी per km cost बहुत कम रहती है।
+Mohali (PSPCL, Punjab) और Panchkula (Haryana, UHBVN) में rate थोड़ा ज़्यादा है — \~₹5.40/unit तक। पर फिर भी per km cost बहुत कम रहती है।
 
 **तुलना करें:**
 उसी 60 km के लिए petrol scooter पर ₹150–₹200 का खर्च होगा। Electric पर ₹10।
 
 महीने में अगर 1,000 km चलाते हैं:
-- Petrol scooter: ~₹2,500–₹3,300
-- Low-speed EV: ~₹170
+- Petrol scooter: \~₹2,500–₹3,300
+- Low-speed EV: \~₹170
 
 यह saving real है। Long term में यही scooter को justify करती है।
 
@@ -86,14 +86,14 @@ Entry-level models (जैसे Little Gracy ₹45,633) में lead-acid य
 |---|---|---|
 | Price | कम | ज़्यादा (₹10,000–₹15,000 extra) |
 | Weight | भारी | हल्का |
-| Charge time | ~7–12 घंटे | ~4–5 घंटे |
+| Charge time | \~7–12 घंटे | \~4–5 घंटे |
 | Life | कम | ज़्यादा |
 
 अगर रोज़ 40–60 km से ज़्यादा चलना है — जैसे delivery work — तो lithium-ion लेना बेहतर रहेगा। Zelio के models में यह option है, पर price बढ़ेगी।
 
 ### Range की सच्चाई
 
-- Entry models (lead-acid): ~60 km range
+- Entry models (lead-acid): \~60 km range
 - Lithium variants: 80 km से 120 km तक — model के हिसाब से
 
 60 km range का मतलब है: **अगर आपका daily commute 20–25 km है, तो आराम से।** पर अगर आप Mohali से Chandigarh, फिर Panchkula भी करते हैं — एक charge में शायद tight हो जाए।
@@ -164,9 +164,9 @@ CMVR central rules हैं, इसलिए exemption तीनों जग�
 
 - **Central Motor Vehicles Rules (CMVR)** — low-speed exemption (speed ≤25 km/h, motor ≤250W); multiple 2026 sources से cross-verified, June 2026
 - **JERC (Joint Electricity Regulatory Commission) / Chandigarh Power Distribution Ltd** — domestic tariff order FY 2025-26 to 2029-30, effective 1 November 2025; The Tribune, Oct/Nov 2025
-- **PSPCL (Punjab State Power Corporation Ltd)** — Mohali domestic tariff ~₹5.40/unit
+- **PSPCL (Punjab State Power Corporation Ltd)** — Mohali domestic tariff \~₹5.40/unit
 - **PM E-DRIVE portal** (pmedrive.heavyindustries.gov.in) + trade press — scheme eligibility, June 2026
 - **Zelio E-Mobility** (zelioebikes.com) — model pricing and specs, verified June 2026
-- **EV India / Zelio official** — charging cost calculation (~2 units per charge, ~₹0.17/km)
+- **EV India / Zelio official** — charging cost calculation (\~2 units per charge, \~₹0.17/km)
 
 *नोट: Prices और tariff figures समय के साथ बदल सकते हैं। खरीदने से पहले showroom और अपने local RTO से final verify करें।*

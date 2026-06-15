@@ -78,7 +78,7 @@ Traffic में बार-बार रुकना और फिर तेज
 | Zelio Gracy 2026 (lead-acid, ₹59,999 से) | 60 km | 45-52 km |
 | Zelio Gracy 2026 (lithium, ₹76,999 तक) | 120 km | 90-105 km |
 | Zelio X-Men+ (120 km rated) | 120 km | 90-105 km |
-| Zelio Logix (delivery use) | 60-140 km (variant पर) | entry variant ~45-55 km; top lithium variant ~110-125 km |
+| Zelio Logix (delivery use) | 60-140 km (variant पर) | entry variant \~45-55 km; top lithium variant \~110-125 km |
 
 *ये practical estimates हैं, guaranteed figures नहीं। आपकी असली range आपके वज़न, road और riding style पर निर्भर करेगी।*
 
@@ -131,7 +131,7 @@ Zelio के data के मुताबिक़, रोज़ 60 km से ऊ
 
 - **रोज़ रात को charge पर लगाएं** — सुबह full battery लेकर निकलें। Ghar pe charge होता है, कोई petrol pump ढूंढने की ज़रूरत नहीं।
 - **Battery को 20% से नीचे जाने से बचाएं** — यह lead-acid और lithium दोनों के लिए अच्छा है, battery की life बढ़ती है।
-- **अगर Delivery का काम है** — Zelio Logix जैसे cargo-oriented models देखें जिनकी top lithium variant में ~140 km rated range है। Practical में 110-125 km मिलनी चाहिए — दिनभर के लिए काफ़ी।
+- **अगर Delivery का काम है** — Zelio Logix जैसे cargo-oriented models देखें जिनकी top lithium variant में \~140 km rated range है। Practical में 110-125 km मिलनी चाहिए — दिनभर के लिए काफ़ी।
 
 ---
 
@@ -158,7 +158,7 @@ Low-speed scooters — जैसे पूरी Zelio की यह lineup — 
 
 - **Central Motor Vehicles Rules (CMVR)** — low-speed scooter exemption criteria (speed ≤25 km/h AND motor ≤250W); June 2026 तक verified
 - **JERC (Joint Electricity Regulatory Commission) / Chandigarh Power Distribution Ltd** — FY 2025-26 to 2029-30 five-year tariff order; effective 1 November 2025; The Tribune Oct/Nov 2025
-- **PSPCL (Punjab State Power Corporation Ltd)** — Mohali domestic tariff ~₹5.40/unit
+- **PSPCL (Punjab State Power Corporation Ltd)** — Mohali domestic tariff \~₹5.40/unit
 - **UHBVN (Haryana)** — Panchkula tariff, comparable range
 - **Zelio E-Mobility official site (zelioebikes.com)** — model specs, range ratings, battery options; verified June 2026
 - **EV India guidance + Zelio official data** — charging cost calculation (₹0.17/km basis)

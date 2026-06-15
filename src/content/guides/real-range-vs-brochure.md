@@ -63,7 +63,7 @@ The figures below are rated ranges from verified model data. Apply a real-world 
 | Zelio Little Gracy | 60 km | 42–48 km |
 | Zelio Gracy i | 80–90 km | 56–72 km |
 | Zelio Gracy (2026) | 60–120 km (by variant) | 42–96 km |
-| Zelio Gracy Pro | Up to 120 km | Up to ~84–96 km |
+| Zelio Gracy Pro | Up to 120 km | Up to \~84–96 km |
 | Zelio X-Men+ | 120 km (rated) | 84–96 km |
 | Zelio Logix | 60–140 km (by variant) | 42–112 km |
 
@@ -103,7 +103,7 @@ A full charge on a low-speed scooter uses approximately 2 units of electricity, 
 
 ## The running cost stays low regardless
 
-Even after discounting the rated range for real-world conditions, the per-kilometre cost remains very low. At roughly Rs 0.17 per km (based on a ~2-unit full charge at ~Rs 5 per unit, per verified tariff and charging data), covering 40 km of real-world Tricity distance costs around Rs 7 in electricity. The equivalent petrol cost for the same distance on a conventional two-wheeler would be Rs 150 to Rs 200. The real-world range gap does not change this fundamental arithmetic.
+Even after discounting the rated range for real-world conditions, the per-kilometre cost remains very low. At roughly Rs 0.17 per km (based on a \~2-unit full charge at \~Rs 5 per unit, per verified tariff and charging data), covering 40 km of real-world Tricity distance costs around Rs 7 in electricity. The equivalent petrol cost for the same distance on a conventional two-wheeler would be Rs 150 to Rs 200. The real-world range gap does not change this fundamental arithmetic.
 
 ---
 

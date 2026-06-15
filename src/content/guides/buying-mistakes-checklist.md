@@ -102,7 +102,7 @@ The correct way to think about the financial case for a low-speed scooter is avo
 - No mandatory insurance (though voluntary cover is available and worth considering — some legal interpretations argue third-party cover is still required under the Motor Vehicles Act even for exempt vehicles, so confirm the current position with your local RTO)
 - Total on-road cost equals the ex-showroom price — nothing added
 
-That avoided-cost stack, combined with the ~Rs 0.17 per km running cost, is the genuine financial argument for this category.
+That avoided-cost stack, combined with the \~Rs 0.17 per km running cost, is the genuine financial argument for this category.
 
 ---
 
@@ -112,7 +112,7 @@ Use this list at the dealership or before placing an order online:
 
 - [ ] Confirm the motor is rated at **250 W or less** (not just the speed cap) — ask for the spec sheet
 - [ ] Confirm the top speed is **25 km/h or less** on the same spec sheet
-- [ ] Decide on **battery type** based on your realistic daily distance — lead-acid if under ~60 km/day, lithium-ion if above
+- [ ] Decide on **battery type** based on your realistic daily distance — lead-acid if under \~60 km/day, lithium-ion if above
 - [ ] Read the **warranty document** — check battery coverage, km cap (if any), and what voids it
 - [ ] Physically confirm the **nearest authorised service centre** for your area in Chandigarh, Mohali, or Panchkula
 - [ ] Do not include PM E-DRIVE in your cost calculations — it does not apply to this category
