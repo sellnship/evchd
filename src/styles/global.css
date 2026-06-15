@@ -12,7 +12,7 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 78px; }
 body {
   background: var(--concrete); color: var(--ink);
   font-family: "Source Serif 4", Georgia, serif; font-size: 18px; line-height: 1.6;
@@ -52,7 +52,18 @@ a { color: inherit; text-decoration: none; }
 @keyframes run { to { left: 130%; } }
 
 /* nav */
-header.nav { position: absolute; top: 0; left: 0; right: 0; z-index: 20; }
+/* Sticky "headroom" header — fixed + slide. Transform is applied ONLY in the
+   hidden state, so the contained mobile drawer's position:fixed is never broken
+   (the drawer only opens while the header is shown). z-index sits above the hero
+   canvas/content; the drawer (z-index within this header) still covers the bar. */
+header.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+  background: var(--concrete);
+  border-bottom: 1px solid transparent;
+  transition: transform .28s ease, box-shadow .25s ease, border-color .25s ease;
+}
+header.nav.nav--hidden { transform: translateY(-100%); }
+header.nav.nav--scrolled { border-bottom-color: var(--grid); box-shadow: 0 6px 18px rgba(12, 14, 18, .05); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 78px; }
 .brand { display: inline-flex; align-items: center; }
 .brand-logo { height: 28px; width: auto; display: block; }
@@ -249,4 +260,5 @@ footer { padding: 64px 0 40px; background: var(--night); color: var(--concrete);
   .reveal { opacity: 1 !important; transform: none !important; }
   .pre-anim .reveal { opacity: 1 !important; transform: none !important; }
   .mobile-menu, .mobile-menu-panel, .nav-toggle-bars i { transition: none !important; }
+  header.nav { transition: none !important; }
 }

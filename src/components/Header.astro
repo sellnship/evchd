@@ -106,4 +106,43 @@ const homeHref = localizePath('/', lang);
     // keep aria-label honest for screen readers as the icon flips to an X
     void openLabel;
   }
+
+  /* Headroom: pinned at top; hide on scroll-down past ~80px, reveal on scroll-up.
+     rAF-throttled for budget Android. Reduced-motion → stay pinned (no hiding). */
+  const header = document.querySelector<HTMLElement>('header.nav');
+  if (header) {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const TOP = 8;        // show the hairline/shadow once scrolled past this
+    const HIDE_AFTER = 80; // never hide within this distance of the top
+    let lastY = window.scrollY;
+    let ticking = false;
+
+    const update = () => {
+      const y = window.scrollY;
+      header.classList.toggle('nav--scrolled', y > TOP);
+      if (!reduced) {
+        if (y <= HIDE_AFTER) {
+          header.classList.remove('nav--hidden'); // always shown near the top
+        } else if (y > lastY + 2 && menu?.dataset.open !== 'true') {
+          header.classList.add('nav--hidden'); // scrolling down (not while drawer open)
+        } else if (y < lastY - 2) {
+          header.classList.remove('nav--hidden'); // scrolling up → reveal immediately
+        }
+      }
+      lastY = y;
+      ticking = false;
+    };
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      },
+      { passive: true },
+    );
+    update();
+  }
 </script>
