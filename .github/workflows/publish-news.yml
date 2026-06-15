@@ -1,0 +1,130 @@
+name: Publish news item
+
+# ─────────────────────────────────────────────────────────────────────────────
+# EVENT-TRIGGERED news engine — MANUAL ONLY, never on a timer.
+#
+# News value is timeliness: a blind weekly "news" job would manufacture dated
+# filler and damage authority. So this runs only when YOU fire it, after a real
+# event (a tariff revision, a policy notification, a subsidy deadline).
+#
+# Flow:
+#   1. Add a news topic to scripts/queue.json — status "pending", section "news",
+#      with a real lang:'en' (and usually a matching lang:'hi') entry.
+#   2. Run this workflow (Actions → "Publish news item" → Run workflow). Leave
+#      `slug` blank to take the first pending news topic, or pass a specific slug.
+#   3. It drafts EN + HI of that topic through every gate and OPENS A PR. Merging
+#      the PR publishes; the merge to main is what Vercel deploys.
+#
+# Same gates and rotated secrets as the evergreen engine. No schedule block on
+# purpose — do not add one.
+#
+# One-time repo setting required for the PR step:
+#   Settings → Actions → General → Workflow permissions →
+#   ✅ "Allow GitHub Actions to create and approve pull requests".
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "News topic slug to publish (blank = first pending section:news topic)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: publish-news
+  cancel-in-progress: false
+
+jobs:
+  publish-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Resolve the news topic slug: the dispatch input if given, else the first
+      # pending topic whose section is "news". Empty ⇒ nothing queued ⇒ skip.
+      - name: Pick news topic
+        id: pick
+        env:
+          INPUT_SLUG: ${{ inputs.slug }}
+        run: |
+          SLUG=$(node -e '
+            const fs = require("fs");
+            const want = (process.env.INPUT_SLUG || "").trim();
+            const q = JSON.parse(fs.readFileSync("scripts/queue.json", "utf8"));
+            const isNews = (e) => e && !e._isMeta && e.status === "pending" && e.section === "news";
+            let t;
+            if (want) t = q.find((e) => isNews(e) && e.slug === want);
+            else t = q.find(isNews);
+            process.stdout.write(t ? t.slug : "");
+          ')
+          echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
+          if [ -z "$SLUG" ]; then
+            echo "No pending section:news topic${INPUT_SLUG:+ matching '$INPUT_SLUG'} — nothing to publish."
+          else
+            echo "News topic: $SLUG"
+          fi
+
+      - name: Draft EN (all gates)
+        if: steps.pick.outputs.slug != ''
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          TOPIC_SLUG: ${{ steps.pick.outputs.slug }}
+          TOPIC_LANG: en
+        run: node scripts/generate.mjs
+
+      - name: Draft HI counterpart (all gates)
+        if: steps.pick.outputs.slug != ''
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          TOPIC_SLUG: ${{ steps.pick.outputs.slug }}
+          TOPIC_LANG: hi
+        run: node scripts/generate.mjs
+
+      - name: Open review PR
+        if: steps.pick.outputs.slug != ''
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: news/${{ steps.pick.outputs.slug }}
+          base: main
+          delete-branch: true
+          add-paths: |
+            src/content
+            public/images
+            scripts/queue.json
+          commit-message: "news: draft ${{ steps.pick.outputs.slug }} (EN+HI) for review"
+          author: "evchd-content-bot <bot@evchandigarh.in>"
+          committer: "evchd-content-bot <bot@evchandigarh.in>"
+          title: "Review & publish (news): ${{ steps.pick.outputs.slug }} (EN + HI)"
+          labels: |
+            content
+            news
+            automated
+          body: |
+            Event-triggered news draft from the content engine.
+
+            **Topic:** `${{ steps.pick.outputs.slug }}` (section: news)
+
+            Gates that ran before this PR was opened:
+            - ✅ Dedup, ✅ brand-neutrality, ✅ originality kill-switch,
+              ✅ fact-check (only a genuine contradiction halts), ✅ verify_before_publish.
+
+            News carries a prominent published date — check the date is correct and the
+            event is real and current, then merge to publish. Merging to `main` triggers
+            the Vercel production deploy.
