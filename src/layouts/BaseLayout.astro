@@ -9,8 +9,9 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { getLangFromUrl } from '../i18n';
+import { getLangFromUrl, useTranslations, localizePath, toEnPath } from '../i18n';
 import { resolveCounterpart } from '../lib/counterpart';
+import { authors } from '../data/types';
 
 interface Props {
   title: string;
@@ -36,11 +37,16 @@ const site = 'https://evchandigarh.in';
 // Build the canonical from the page path + production origin, so it is always
 // the live URL even when building locally or on a preview deployment.
 const canonical = new URL(Astro.url.pathname, site).href;
-// OG/Twitter/JSON-LD images must be absolute URLs.
-const ogImage = heroImage ? new URL(heroImage, site).href : undefined;
+// OG/Twitter/JSON-LD images must be absolute URLs. Pages without a hero fall
+// back to the branded site default so social cards are never blank.
+const DEFAULT_OG = '/images/og-default.webp';
+const ogImage = new URL(heroImage ?? DEFAULT_OG, site).href;
+// Organization logo (ImageObject) — used by Article publisher + the homepage graph.
+const logo = { '@type': 'ImageObject', url: new URL('/images/logo.png', site).href, width: 940, height: 200 };
 
 // Language is derived from the route: anything under /hi is Hindi.
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const htmlLang = lang === 'hi' ? 'hi-IN' : 'en-IN';
 const inLanguage = lang === 'hi' ? 'hi-IN' : 'en-IN';
 // hreflang alternates point at the EN↔HI counterparts of this exact page — but
@@ -71,9 +77,54 @@ const articleSchema =
           '@type': 'Organization',
           name: 'EV Chandigarh',
           url: site,
+          logo,
         },
       }
     : null;
+
+// Homepage gets the site-level WebSite + Organization graph (the canonical entry
+// point for search engines). Only emit real publisher fields (not placeholders).
+const pub = authors.publisher;
+const isPlaceholder = (s?: string) => !s || /REPLACE/i.test(s);
+const enPath = toEnPath(Astro.url.pathname);
+const isHome = enPath === '/';
+const org: Record<string, unknown> = { '@type': 'Organization', name: pub.name, url: site, logo };
+if (!isPlaceholder(pub.legal_entity)) org.legalName = pub.legal_entity;
+if (!isPlaceholder(pub.address)) org.address = pub.address;
+if (!isPlaceholder(pub.phone)) org.telephone = pub.phone;
+const siteGraph = isHome
+  ? {
+      '@context': 'https://schema.org',
+      '@graph': [
+        org,
+        { '@type': 'WebSite', name: 'EV Chandigarh', url: site, inLanguage },
+      ],
+    }
+  : null;
+
+// BreadcrumbList for every non-home page — Home › Section › (article title).
+const segs = enPath.split('/').filter(Boolean);
+const SECTION_KEYS: Record<string, string> = {
+  guides: 'nav.guides', compare: 'nav.compare', news: 'nav.news', glossary: 'nav.glossary',
+  calculators: 'nav.calculators', about: 'nav.about', contact: 'nav.contact', 'editorial-policy': 'nav.editorial',
+};
+const titleCase = (s: string) => s.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+const crumbItems = segs.map((seg, i) => {
+  const isLeafDetail = i === segs.length - 1 && segs.length === 2;
+  const name = isLeafDetail ? title : SECTION_KEYS[seg] ? t(SECTION_KEYS[seg] as any) : titleCase(seg);
+  const path = localizePath('/' + segs.slice(0, i + 1).join('/'), lang);
+  return { '@type': 'ListItem', position: i + 2, name, item: new URL(path, site).href };
+});
+const breadcrumb = segs.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: t('nav.home' as any) ?? 'Home', item: new URL(localizePath('/', lang), site).href },
+        ...crumbItems,
+      ],
+    }
+  : null;
 ---
 
 <!doctype html>
@@ -148,6 +199,8 @@ const articleSchema =
         />
       )
     }
+    {siteGraph && <script type="application/ld+json" set:html={JSON.stringify(siteGraph)} />}
+    {breadcrumb && <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />}
 
     <!-- Flash-free reveals: hide animated elements before paint ONLY when motion
          is allowed; a 2s failsafe reveals them even if JS/GSAP never runs. -->
