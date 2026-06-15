@@ -94,24 +94,24 @@ Low-speed scooters पर government की PM E-DRIVE जैसी subsidy **�
 
 ## रोज़ की दूरी के हिसाब से कौन सा type चुनें?
 
-Low-speed scooter market में Zelio जैसे brands के कई models आते हैं। हम किसी एक model की recommendation नहीं कर रहे, लेकिन category समझना ज़रूरी है:
+Low-speed market में कई brands और models हैं। हम किसी एक model की recommendation नहीं कर रहे — class और spec देखकर चुनें; नीचे नाम सिर्फ़ class के उदाहरण हैं:
 
 ### अगर रोज़ 15-20 km — जैसे college या market
 - Entry-level lead-acid scooter काफ़ी है
 - 60 km range वाला model ज़रूरत से ज़्यादा है
-- Zelio Little Gracy जैसे models इस category में आते हैं — हल्के, कम seat height, नए riders के लिए ठीक
-- Budget: ₹45,000-55,000 के आसपास
+- यह **entry-commuter class** है (~60–70 km) — हल्के, कम seat height, नए riders के लिए ठीक। Examples (across brands): Komaki X-One, Kinetic Green Zing, Zelio Little Gracy
+- Typical price band: ₹35,000–45,000
 
 ### अगर रोज़ 30-45 km — जैसे office या delivery
 - Lithium battery वाला model लें
-- 80-90 km range comfortable रहेगी
-- Zelio Gracy i जैसे all-round daily commuter models इस range में हैं
-- Budget: ₹55,000-70,000 के आसपास
+- 70–85 km range comfortable रहेगी
+- यह **everyday step-through class** है — all-round daily commuter। Examples (across brands): Hero Electric Flash LX, Deltic Costa, Zelio Gracy i
+- Typical price band: ₹45,000–60,000
 
 ### अगर रोज़ 50+ km — delivery worker, shopkeeper, या ज़्यादा round trips
-- High-range lithium model देखें — 120 km+ range वाले
-- Zelio Logix जैसे cargo-friendly models delivery work के लिए बने हैं
-- Budget: ₹60,000-80,000 के आसपास
+- High-range lithium model देखें — अक्सर removable battery के साथ
+- यह **long-range / work class** है — 90–110 km असली range, cargo-friendly। Examples (across brands): Deltic Legion, Komaki XGT VP, Zelio Logix
+- Typical price band: ₹60,000–95,000
 
 > **ध्यान दें:** ऊपर दी गई prices approximate हैं और lead-acid बनाम lithium variant, और आपके state (Chandigarh/Mohali/Panchkula) के हिसाब से बदल सकती हैं। Showroom जाकर exact ex-showroom price confirm करें।
 
@@ -160,5 +160,5 @@ Low-speed scooter market में Zelio जैसे brands के कई model
 - **JERC / Chandigarh Power Distribution Ltd:** Chandigarh domestic electricity tariff (tiered, 1 November 2025 से लागू); JERC five-year tariff order FY 2025-26 to 2029-30; The Tribune, Oct/Nov 2025
 - **PSPCL (Punjab):** Mohali domestic tariff \~₹5.40/unit (first 300 units)
 - **PM E-DRIVE portal (pmedrive.heavyindustries.gov.in):** Subsidy eligibility criteria; trade press; June 2026
-- **Zelio E-Mobility (zelioebikes.com):** Model specifications, price ranges, range figures; verified June 2026
-- **EV India guidance + Zelio official:** Charging cost calculations (₹5/unit basis, \~2 units per charge, \~₹0.17/km)
+- **Manufacturer sites** (Komaki, Hero Electric, Deltic, Kinetic Green, Zelio आदि): low-speed class specifications, indicative price/range bands; verified June 2026
+- **EV India guidance + manufacturer data:** charging cost calculations (₹5/unit basis, \~2 units per charge, \~₹0.17/km)
