@@ -177,7 +177,7 @@ Low-speed scooters का फ़ायदा subsidy नहीं है। इ�
 |---|---|---|
 | Licence चाहिए | हाँ | नहीं (CMVR) |
 | RTO registration | हाँ | नहीं |
-| Running cost (per km) | \~₹2.50-3.50 | \~₹0.17 |
+| Running cost (per km) | \~₹2.5–3.3 | \~₹0.17 |
 | Ghar pe charge | नहीं | हाँ |
 | Top speed | 60+ km/h | 25 km/h |
 | Highway use | हाँ | नहीं |

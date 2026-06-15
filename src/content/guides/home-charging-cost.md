@@ -31,7 +31,7 @@ At that all-in rate, a **\~2-unit charge costs roughly ₹10** (less if you're o
 
 ## Per kilometre, and against petrol
 
-That works out to about **₹0.17 per km** to run a low-speed EV — a \~₹10 charge spread over a roughly 60 km range. The same distance on a petrol scooter costs in the region of **₹2–3 per km**.
+That works out to about **₹0.17 per km** to run a low-speed EV — a \~₹10 charge spread over a roughly 60 km range. The same distance on a petrol scooter costs in the region of **₹2.5–3.3 per km**.
 
 Put concretely: a full overnight charge of roughly **₹10** moves you about as far as **₹150–200** of petrol would. That gap is the whole running-cost case for an EV, and it compounds every single day.
 

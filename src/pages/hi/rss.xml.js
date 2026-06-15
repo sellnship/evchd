@@ -24,7 +24,9 @@ export async function GET(context) {
   return rss({
     title: 'EV Chandigarh — हिंदी',
     description: 'Chandigarh, Mohali और Panchkula के लिए स्वतंत्र, लोकल EV जानकारी — हिंदी में।',
-    site: context.site,
+    // Channel <link> should be the Hindi home, not the English root. Item links
+    // are root-absolute (/hi/...), so they still resolve correctly against this.
+    site: new URL('/hi/', context.site),
     items,
     customData: '<language>hi-in</language>',
   });
