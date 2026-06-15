@@ -115,6 +115,9 @@ jobs:
             - ✅ **Fact-check** — checked against `local-facts.json`; only a genuine contradiction halts
             - ✅ **verify_before_publish** — the engine does not assert a named model is licence-free unverified
 
+            **Required before merging:**
+            - [ ] Hero(es) show a SEATED STEP-THROUGH e-moped — no kick/stand-on/Segway scooter anywhere in frame (incl. background), and NO real brand wordmark (ZELIO etc.).
+
             Review the rendered article(s) and hero image(s) on mobile, then **merge to publish**. Merging to `main` triggers the Vercel production deploy.
 
             If only `scripts/queue.json` changed (no article), the engine skipped/killed/halted this topic — the diff is the audit trail; close or merge as you see fit.

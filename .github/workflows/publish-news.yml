@@ -125,6 +125,9 @@ jobs:
             - ✅ Dedup, ✅ brand-neutrality, ✅ originality kill-switch,
               ✅ fact-check (only a genuine contradiction halts), ✅ verify_before_publish.
 
+            **Required before merging:**
+            - [ ] Hero(es) show a SEATED STEP-THROUGH e-moped — no kick/stand-on/Segway scooter anywhere in frame (incl. background), and NO real brand wordmark (ZELIO etc.).
+
             News carries a prominent published date — check the date is correct and the
             event is real and current, then merge to publish. Merging to `main` triggers
             the Vercel production deploy.
