@@ -46,8 +46,11 @@ say "अपने नज़दीकी RTO से पक्का कर ले
 
 1. **Verified facts only**, with the source named in plain Hindi. No fabrication.
 2. **Brand-neutral, category voice.** Write about the class, e.g. "low-speed
-   स्कूटरों में Zelio Gracy जैसे मॉडल…" — NEVER "हमारे Zelio स्कूटर", never a
-   sales pitch.
+   स्कूटरों में Komaki X-One, Hero Electric Flash या Zelio Gracy जैसे मॉडल…" —
+   NEVER "हमारे Zelio स्कूटर", never a sales pitch. Every page must be useful and
+   honest to a reader who buys a non-Zelio model. Compare by class and spec; name
+   brands only as examples; never call one brand "recommended"; prices are bands.
+   Buyer intent routes to evchandigarh.com / WhatsApp without pre-deciding the brand.
 3. **This is an INFORMATIONAL page; the site never transacts.** Explain the rules
    and the numbers. Buyers ko evchandigarh.com par bhejein — yahaan kuch bechte nahi.
 4. **Deliver the local angle** — the real Tricity-specific insight a generic

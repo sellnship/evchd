@@ -1,127 +1,45 @@
 {
   "_meta": {
-    "brand": "Zelio E-Mobility",
-    "source": "zelioebikes.com official + trade listings; verified June 2026",
-    "category": "LOW-SPEED ONLY (no licence, no RTO). The Zelio Mystery is excluded as it is the brand's only high-speed model.",
-    "important": "This is a DRAFT. Before publishing: (1) trim to the exact models YOU stock — you may not carry all of these; (2) final-verify prices and range against the live Zelio site and your own ex-showroom Chandigarh/Mohali/Panchkula pricing, as figures vary by lead-acid vs lithium variant, by state, and over time. Listed prices are approx ex-showroom Haryana/Punjab, entry (often 60V/32AH lead-acid) variant.",
-    "verify_before_publish": ["all prices", "range per battery variant", "Gracy Pro price", "EEVA range", "X-Men price/range", "Legender + Legender+ full specs"]
+    "purpose": "Brand-neutral spec-class reference for licence-free (<=25km/h, <=250W, non-RC) EVs in the Tricity market.",
+    "rule": "Compare by CLASS and SPEC. List >=3 brands per class. Prices are BANDS, never exact ex-showroom. Zelio appears only as one representative among others.",
+    "verify_before_publish": "Confirm each non-Zelio representative is actually a low-speed (<=25km/h, <=250W, non-RC) variant before publishing — some brands sell same-name models in both low- and high-speed trims. Komaki XGT in particular needs its low-speed variant confirmed."
   },
-
-  "shared_low_speed_specs": {
-    "top_speed_kmph": 25,
-    "motor_w": 250,
-    "motor_type": "BLDC hub",
-    "licence_required": false,
-    "registration_required": false,
-    "road_tax": false,
-    "insurance_mandatory": false,
-    "min_age": 16,
-    "warranty": "2 years (unlimited km on motor / controller / frame on select models)",
-    "battery_options": [
-      "Lead-acid / Gel — lower upfront cost, heavier, ~7-12 hr charge",
-      "Lithium-ion — lighter, longer life, ~4-5 hr charge, higher upfront cost"
-    ],
-    "battery_guidance": "For daily distances above ~60 km, choose lithium-ion over lead-acid for better range, longer life and lower weight.",
-    "charge_units_per_full": "~2",
-    "running_cost_per_km_inr": 0.17,
-    "service_network": "350+ authorised service centres across India",
-    "note": "These specs apply to every model below unless a model overrides them."
-  },
-
-  "models": [
+  "classes": [
     {
-      "slug": "little-gracy",
-      "name": "Zelio Little Gracy",
-      "price_from_inr": 45633,
-      "range_km": "60",
-      "best_for": "First-time and young riders, students, senior citizens; short daily trips of 15-20 km",
-      "highlights": ["Lightest and most affordable in the range", "Low seat height, both feet flat at a stop", "Fully gearless", "~1.5 units per charge"]
+      "id": "entry-commuter",
+      "label": "Entry commuter",
+      "who": "Students, short errands, first-time buyers",
+      "spec": { "range_km": "60-70", "battery": "lead-acid or entry lithium", "price_band_inr": "35,000-45,000", "body": "compact step-through" },
+      "tradeoff": "Lowest upfront cost; lead-acid variants are cheaper but heavier and shorter-lived than lithium.",
+      "representative_models": [
+        { "brand": "Komaki", "model": "X-One" },
+        { "brand": "Kinetic Green", "model": "Zing" },
+        { "brand": "Zelio", "model": "Little Gracy" }
+      ]
     },
     {
-      "slug": "gracy-i",
-      "name": "Zelio Gracy i",
-      "price_from_inr": 56825,
-      "range_km": "80-90",
-      "battery": "Lithium-ion",
-      "best_for": "Most popular all-round daily commuter",
-      "highlights": ["USB charging port", "Anti-theft alarm", "Charges on a regular home socket overnight"]
+      "id": "everyday-stepthrough",
+      "label": "Everyday step-through",
+      "who": "Homemakers, seniors, daily city commute",
+      "spec": { "range_km": "70-85", "battery": "lithium (NMC/LFP)", "price_band_inr": "45,000-60,000", "body": "full moped ergonomics" },
+      "tradeoff": "Best balance of comfort and range; lithium costs more but lasts longer and weighs less.",
+      "representative_models": [
+        { "brand": "Hero Electric", "model": "Flash LX" },
+        { "brand": "Deltic", "model": "Costa" },
+        { "brand": "Zelio", "model": "Gracy i" }
+      ]
     },
     {
-      "slug": "gracy-pro",
-      "name": "Zelio Gracy Pro",
-      "price_from_inr": null,
-      "range_km": "up to 120",
-      "best_for": "Premium look with strong daily range",
-      "highlights": ["Anti-theft alarm", "Digital display", "Centre lock"],
-      "verify": "price"
-    },
-    {
-      "slug": "gracy-2026",
-      "name": "Zelio Gracy (2026 facelift)",
-      "price_from_inr": 59999,
-      "price_to_inr": 76999,
-      "range_km": "60-120",
-      "battery": "60V/32AH lead-acid (from Rs 59,999) up to 72V/32AH lithium-ion (Rs 76,999)",
-      "best_for": "College students, young women, daily urban commuters",
-      "highlights": ["Launched April 2026", "60V/72V BLDC hub motor", "~2 units per charge (~Rs 10)", "7 colour options"],
-      "note": "This may be the current-year version of the Gracy line — reconcile with Gracy i / Gracy Pro depending on what you actually stock."
-    },
-    {
-      "slug": "eeva",
-      "name": "Zelio EEVA",
-      "price_from_inr": 62117,
-      "range_km": null,
-      "battery": "Lead-acid/Gel (e.g. 72V 42Ah) and lithium-ion options",
-      "best_for": "Lightweight daily city commuting",
-      "verify": "range, full price band"
-    },
-    {
-      "slug": "eeva-zx-plus",
-      "name": "Zelio EEVA ZX+",
-      "price_from_inr": 67500,
-      "range_km": null,
-      "best_for": "Higher-spec EEVA variant",
-      "verify": "range"
-    },
-    {
-      "slug": "x-men",
-      "name": "Zelio X-Men",
-      "price_from_inr": null,
-      "range_km": null,
-      "best_for": "City commuting",
-      "verify": "price, range"
-    },
-    {
-      "slug": "x-men-plus",
-      "name": "Zelio X-Men+ (X-Men 2.0)",
-      "price_from_inr": 64734,
-      "range_km": "120 (rated, same on lithium or lead-acid)",
-      "battery": "Lithium-ion (4-5 hr charge) or lead-acid (8-10 hr charge)",
-      "best_for": "City commuting with more comfort and presence",
-      "highlights": ["Larger rear wheel", "Improved suspension", "Refreshed 2026 styling, 4 new colours"]
-    },
-    {
-      "slug": "legender",
-      "name": "Zelio Legender",
-      "price_from_inr": null,
-      "range_km": null,
-      "verify": "price, range, full specs"
-    },
-    {
-      "slug": "legender-plus-premium",
-      "name": "Zelio Legender+ Premium",
-      "price_from_inr": null,
-      "range_km": null,
-      "verify": "price, range, full specs"
-    },
-    {
-      "slug": "logix",
-      "name": "Zelio Logix",
-      "price_from_inr": 61584,
-      "range_km": "60-90 (entry) up to ~140 on the top lithium variant",
-      "best_for": "Delivery riders, shopkeepers and small business owners doing 40-50 km per day",
-      "highlights": ["Built for cargo / business use", "Good payload", "Highest-range model in the Zelio low-speed line"],
-      "verify": "exact range of top variant"
+      "id": "long-range-work",
+      "label": "Long-range / work",
+      "who": "Delivery, gig riders, long daily distance",
+      "spec": { "range_km": "90-110", "battery": "lithium/LFP, often removable", "price_band_inr": "60,000-95,000", "body": "load-friendly" },
+      "tradeoff": "Highest range and load capability in-class; removable battery eases charging; top variants approach registered-scooter prices.",
+      "representative_models": [
+        { "brand": "Deltic", "model": "Legion" },
+        { "brand": "Komaki", "model": "XGT" },
+        { "brand": "Zelio", "model": "Logix" }
+      ]
     }
   ]
 }

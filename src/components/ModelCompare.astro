@@ -1,66 +1,57 @@
 ---
 /**
- * ModelCompare — a brand-neutral side-by-side spec table for the low-speed
- * class. Pulls shared_low_speed_specs + per-model fields from models.json for
- * the given slugs. On narrow screens the table scrolls horizontally with the
- * spec column pinned, so it never breaks on a phone.
+ * ModelCompare — a genuinely brand-neutral, spec-CLASS comparison for the
+ * low-speed (licence-free) category. Columns are CLASSES (entry commuter,
+ * everyday step-through, long-range / work); each lists >=3 representative
+ * models across brands and a typical price BAND — never a per-SKU price.
+ * Pass `classes` to pick/order specific class ids; omit it to show all.
+ * On narrow screens the table scrolls horizontally with the spec column
+ * pinned, so it never breaks on a phone.
  */
-import { models as modelsData, type Model } from '../data/types';
+import { models as modelsData, type SpecClass } from '../data/types';
 
-interface Props { models: string[]; }
-const { models: slugs } = Astro.props;
+interface Props { classes?: string[]; }
+const { classes: ids } = Astro.props;
 
-const shared = modelsData.shared_low_speed_specs;
-const picked = slugs
-  .map((s) => modelsData.models.find((m) => m.slug === s))
-  .filter((m): m is Model => Boolean(m));
+const all = modelsData.classes;
+const picked: SpecClass[] =
+  ids && ids.length ? (ids.map((id) => all.find((c) => c.id === id)).filter((c): c is SpecClass => Boolean(c))) : all;
+const cols = picked.length ? picked : all;
 
-const inr = (n: number) => '₹' + n.toLocaleString('en-IN');
-function priceBand(m: Model): string {
-  if (m.price_from_inr == null) return 'On request';
-  if (m.price_to_inr != null) return `${inr(m.price_from_inr)}–${m.price_to_inr.toLocaleString('en-IN')}`;
-  return `From ${inr(m.price_from_inr)}`;
-}
-function chargeTime(m: Model): string {
-  const b = (m.battery || '').toLowerCase();
-  if (b.includes('lith')) return '~4–5 hr (Li-ion)';
-  if (b.includes('lead')) return '~7–12 hr (lead-acid)';
-  return '~4–5 hr Li / 7–12 hr lead-acid';
-}
-const battery = (m: Model) => m.battery || 'Lead-acid or Li-ion';
+const reps = (c: SpecClass) => c.representative_models.map((r) => `${r.brand} ${r.model}`).join(', ');
+const band = (s: string) => `₹${s.replace('-', '–')}`;
 
-const rows: { label: string; get: (m: Model) => string }[] = [
-  { label: 'Top speed', get: () => `${shared.top_speed_kmph} km/h` },
-  { label: 'Motor', get: () => `${shared.motor_w} W ${shared.motor_type}` },
-  { label: 'Licence required', get: () => (shared.licence_required ? 'Yes' : 'No') },
-  { label: 'RTO registration', get: () => (shared.registration_required ? 'Yes' : 'No') },
-  { label: 'Range (claimed)', get: (m) => (m.range_km ? `${m.range_km} km` : '—') },
-  { label: 'Charge time', get: chargeTime },
-  { label: 'Battery', get: battery },
-  { label: 'Price band (ex-showroom)', get: priceBand },
+const rows: { label: string; get: (c: SpecClass) => string }[] = [
+  { label: 'Who it suits', get: (c) => c.who },
+  { label: 'Real range', get: (c) => `${c.spec.range_km.replace('-', '–')} km` },
+  { label: 'Battery', get: (c) => c.spec.battery },
+  { label: 'Body', get: (c) => c.spec.body },
+  { label: 'Typical price band', get: (c) => band(c.spec.price_band_inr) },
+  { label: 'Examples (across brands)', get: reps },
+  { label: 'Trade-off', get: (c) => c.tradeoff },
 ];
 ---
-<figure class="modelcompare" role="group" aria-label="Low-speed electric scooter spec comparison">
+<figure class="modelcompare" role="group" aria-label="Low-speed electric scooter comparison by spec class">
   <div class="mc-scroll">
     <table class="mc-table">
       <thead>
         <tr>
-          <th scope="col" class="mc-attr">Spec</th>
-          {picked.map((m) => <th scope="col" class="disp">{m.name}</th>)}
+          <th scope="col" class="mc-attr">Spec class</th>
+          {cols.map((c) => <th scope="col" class="disp">{c.label}</th>)}
         </tr>
       </thead>
       <tbody>
         {rows.map((r) => (
           <tr>
             <th scope="row" class="mc-attr mono">{r.label}</th>
-            {picked.map((m) => <td>{r.get(m)}</td>)}
+            {cols.map((c) => <td>{r.get(c)}</td>)}
           </tr>
         ))}
       </tbody>
     </table>
   </div>
   <figcaption class="mc-note mono">
-    Low-speed class (≤25 km/h, ≤250W) — no licence, no RTO. Manufacturer-claimed figures; prices ex-showroom and variant-dependent. Confirm locally before buying.
+    Whole class is ≤25 km/h, ≤250W — no licence, no RTO, no road tax. Compare by class and spec, not by brand; the models named are examples, not recommendations. Price bands are indicative and variant-dependent — confirm locally before buying.
   </figcaption>
 </figure>
 

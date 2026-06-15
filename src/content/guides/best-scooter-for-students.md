@@ -49,7 +49,7 @@ A full charge on a low-speed scooter draws roughly 2 units (kWh) of electricity.
 
 Over a rated range of around 60 km, that works out to roughly **Rs 0.17 per km**.
 
-For context: the same 60 km on a petrol two-wheeler would cost Rs 150–200 in fuel (per the charging-cost data sourced from Zelio official and EV India guidance, cross-checked against the JERC tariff).
+For context: the same 60 km on a petrol two-wheeler would cost Rs 150–200 in fuel (per charging-cost data from manufacturer and EV India guidance, cross-checked against the JERC tariff).
 
 A note on the Chandigarh tariff specifically: per the JERC five-year tariff order (effective 1 November 2025, issued after the transition to Chandigarh Power Distribution Ltd), the domestic rate is tiered — roughly Rs 2.75 per unit at the lowest slab, around Rs 4.80 per unit for 151–400 units, and about Rs 5.40 per unit above 400 units. If your household stays in the lower consumption band, your actual per-charge cost will be somewhat less than Rs 10. Mohali (PSPCL, Punjab) sits at around Rs 5.40 per unit for the first 300 units; Panchkula (UHBVN, Haryana) is comparable. The Rs 5/unit basis used here is a reasonable middle estimate — not the cheapest possible, not the dearest.
 
@@ -82,29 +82,18 @@ Charging on a regular home socket (5-amp, 230 V) works fine overnight. Hostel re
 
 ---
 
-## The model landscape: what exists in this category
+## The model landscape: shop by class, not by brand
 
-The models listed below are drawn from the Zelio E-Mobility low-speed range as documented on zelioebikes.com (verified June 2026). **All prices are approximate ex-showroom figures for Haryana/Punjab entry variants; final prices vary by battery specification, by state, and over time.** Verify current pricing and availability directly at your nearest authorised dealer before making a decision. Some models listed here may not be stocked at every dealership.
+For a student commute you almost always want the **entry-commuter class**: roughly a **60–70 km** real range and a **₹35,000–45,000** typical price band, in a compact step-through that is light, easy to park and cheap to run. That spec — not any single brand — is what to shortlist against. Several brands build to it; the table below names a few as examples, in alphabetical order. They are illustrations of the class, not a ranking or a recommendation.
 
-**Entry tier — up to around Rs 60,000**
+| Class | Typical price band | Real range | Representative models (examples) |
+|---|---|---|---|
+| **Entry commuter** | ₹35,000–45,000 | 60–70 km | Komaki X-One · Kinetic Green Zing · Zelio Little Gracy |
+| **Everyday step-through** | ₹45,000–60,000 | 70–85 km | Hero Electric Flash LX · Deltic Costa · Zelio Gracy i |
 
-The **Zelio Little Gracy** starts from approximately Rs 45,633 and is rated for around 60 km per charge. It is described as the lightest and most affordable model in the range, with a low seat height suited to younger or shorter riders. For a student doing a 10–15 km daily commute with access to overnight charging, this is a practical and affordable option.
+**Prices are indicative bands, not exact ex-showroom figures** — they vary by battery variant (lead-acid vs lithium), by state and over time, and not every model is stocked at every dealer. Confirm the current price, the real loaded range, and that the motor is rated **≤250W** (so it stays licence-free) at your nearest authorised dealer before deciding.
 
-**Mid-range — Rs 60,000 to Rs 70,000**
-
-The **Zelio Gracy i** (from approximately Rs 56,825) runs on lithium-ion and is rated for 80–90 km. It includes a USB charging port and an anti-theft alarm. The **Zelio Gracy (2026 facelift)**, launched April 2026, is priced from Rs 59,999 (lead-acid, 60V/32AH) to Rs 76,999 (lithium-ion, 72V/32AH) and offers a range of 60–120 km depending on the battery variant — the wide range here reflects the significant difference between lead-acid and lithium-ion performance.
-
-The **Zelio EEVA** starts from approximately Rs 62,117. Its range figures are listed as pending verification, so confirm these with the dealer before relying on them for commute planning.
-
-The **Zelio X-Men+** (also listed as X-Men 2.0) starts from approximately Rs 64,734 and is rated at 120 km. It comes in lithium-ion or lead-acid variants, with the lithium-ion charging in roughly 4–5 hours. It has a larger rear wheel and updated 2026 styling.
-
-**Higher range — for longer commutes**
-
-The **Zelio Logix** starts from approximately Rs 61,584 and is rated at 60–90 km on entry variants, rising to around 140 km on the top lithium-ion variant (the exact figure for the top variant should be confirmed with the dealer). It is designed more as a workhorse and cargo model, but the range numbers make it relevant if your daily distance is higher.
-
-The **Zelio Gracy Pro** is rated for up to 120 km. Its price is not confirmed in the available data and should be verified locally.
-
-Models such as the Zelio Legender, Legender+ Premium, EEVA ZX+, and X-Men do not have fully verified price and range data at the time of writing. Check with your dealer for current figures on these before drawing comparisons.
+For a 10–15 km daily commute with overnight charging, an entry-commuter scooter is usually plenty. Step up to the everyday class only if your daily distance pushes past 60 km or you want fuller moped ergonomics — and in either case, choose **lithium over lead-acid** if your daily distance is on the higher side, for the lighter weight and longer battery life.
 
 ---
 
@@ -117,7 +106,7 @@ Before you finalise any model, go through these points:
 - **Calculate your actual daily distance** both ways, then add a 20–25 per cent buffer before choosing a range tier
 - **Decide on battery type:** if you charge overnight at home or in a hostel room and your commute is under 50 km, a lead-acid variant at a lower price may suffice; for longer distances or faster charging, lithium-ion is worth the premium
 - **Ask the dealer for the current ex-showroom price in your city** — Chandigarh, Mohali, and Panchkula prices can vary slightly given different state frameworks
-- **Ask about the service centre nearest to your college or home** — Zelio lists 350+ authorised service centres nationally, but confirm there is one conveniently located for you
+- **Ask about the service centre nearest to your college or home** — a well-established brand will have an authorised service network, but confirm there is one conveniently located for you
 - **For insurance:** while not legally mandated for CMVR-exempt low-speed scooters, voluntary third-party cover is available and worth considering given the cost of any accident or theft; confirm the current requirement with your local RTO
 
 ---
@@ -138,6 +127,6 @@ The correct approach is to measure your actual daily route, check both the speed
 - Joint Electricity Regulatory Commission (JERC) / Chandigarh Power Distribution Ltd — five-year tariff order, effective 1 November 2025; reported in *The Tribune*, October/November 2025
 - PSPCL (Punjab) domestic tariff — approximately Rs 5.40 per unit for first 300 units
 - UHBVN (Haryana) domestic tariff — comparable to PSPCL
-- Zelio E-Mobility official site (zelioebikes.com) and trade listings — model specifications and prices, verified June 2026
+- Manufacturer sites (including Komaki, Hero Electric, Deltic, Kinetic Green and Zelio) and trade listings — low-speed class specifications and indicative price/range bands, verified June 2026
 - PM E-DRIVE scheme portal (pmedrive.heavyindustries.gov.in) and trade press — subsidy eligibility, June 2026
-- EV India guidance and Zelio official — per-km running cost basis, June 2026
+- EV India guidance and manufacturer data — per-km running cost basis, June 2026

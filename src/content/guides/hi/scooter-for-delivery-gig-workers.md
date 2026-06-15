@@ -94,44 +94,18 @@ Low-speed scooters दो तरह की batteries के साथ आते 
 
 ---
 
-## Tricity के लिए कौन से models देखें
+## एक मज़बूत long-range pick कैसा दिखता है
 
-नीचे Zelio के low-speed lineup में से वे models हैं जो delivery/gig काम के नज़रिये से relevant हैं। ये सभी CMVR के तहत exempt category में आते हैं — यानी no licence, no RTO, no road tax।
+Delivery और gig काम में brand से कहीं ज़्यादा spec मायने रखता है। पहले तय करें कि काम क्या माँगता है, फिर किसी भी brand का वो model shortlist करें जो उस पर खरा उतरे:
 
-**ज़रूरी: prices और range final लेने से पहले अपने नज़दीकी Zelio dealer से Chandigarh/Mohali/Panchkula का exact ex-showroom price verify करें — figures vary करते हैं variant और state के हिसाब से।**
+- **असली range 90 km या उससे ज़्यादा।** Brochure वाला नहीं — load के साथ, lithium या LFP battery पर असली range। Dealer से पूछें कि cargo के साथ कितनी range मिलेगी, खाली test ride पर नहीं।
+- **Removable battery।** अगर आप ऊपर की मंज़िल पर या socket से दूर पार्क करते हैं, तो battery निकालकर अंदर charge कर पाना — यही practical और मुश्किल के बीच का फ़र्क़ है।
+- **Payload और pulling power।** आपके load के लिए काफ़ी rated payload, और Panchkula के बाहरी sectors की चढ़ाई के लिए इतनी ताक़त कि range न गिरे।
+- **Lead-acid नहीं, lithium** — रोज़ 50 km से ज़्यादा के लिए: हल्की, ज़्यादा टिकाऊ और तेज़ charge।
 
-### Zelio Logix — सबसे पहले देखें
+यही **long-range / work class** है: करीब 90–110 km असली range और ₹60,000–95,000 का typical price band। कई brands इस class में बनाते हैं — जैसे **Deltic Legion**, **Komaki XGT** और **Zelio Logix** इसी में आते हैं। इन्हें class का उदाहरण समझें, ranking नहीं: फ़ैसले से पहले exact variant, load के साथ range और local ex-showroom price confirm करें, और देख लें कि motor ≤250W rated हो ताकि model licence-free रहे।
 
-अगर आप delivery rider हैं तो Zelio Logix इस पूरी lineup में सबसे पहले देखने वाला model है।
-
-- **Price:** लगभग ₹61,584 से (entry variant)
-- **Range:** 60-90 km (entry) से लेकर top lithium variant पर \~140 km तक
-- **Battery:** Lithium-ion और lead-acid दोनों options
-- **खासियत:** Cargo/business use के लिए बना है, good payload, Zelio के low-speed line में सबसे ज़्यादा range
-
-Delivery bags या crates रखने की जगह, और range जो रोज़ के काम को cover करे — यह combination delivery workers के लिए सबसे useful है। Top lithium variant की exact range dealer से verify करें।
-
-### Zelio X-Men+ (X-Men 2.0)
-
-- **Price:** लगभग ₹64,734 से
-- **Range:** 120 km (rated — lithium या lead-acid दोनों पर)
-- **Battery:** Lithium-ion (4-5 hr charge) या lead-acid (8-10 hr charge)
-- **खासियत:** Larger rear wheel, improved suspension, 2026 refreshed styling
-- **किसके लिए:** जिन्हें ज़्यादा comfort चाहिए और city commuting के साथ थोड़ा बेहतर road feel
-
-### Zelio Gracy i
-
-- **Price:** लगभग ₹56,825 से
-- **Range:** 80-90 km
-- **Battery:** Lithium-ion
-- **खासियत:** USB charging port, anti-theft alarm, regular home socket पर overnight charge
-- **किसके लिए:** Light delivery काम जहाँ daily distance 50-60 km के अंदर हो — जैसे food delivery in sectors
-
-### Zelio Gracy Pro
-
-- **Range:** Up to 120 km
-- **Price:** Verify करें dealer से — हमारे पास confirmed figure नहीं है
-- **खासियत:** Digital display, centre lock, anti-theft alarm
+एक हल्का **everyday step-through** (70–85 km, ₹45,000–60,000 — जैसे **Hero Electric Flash LX**, **Deltic Costa** या **Zelio Gracy i**) तब भी चल सकता है अगर आपका daily distance भरोसे से 60–70 km के अंदर रहता है। उससे कम पर entry commuter काफ़ी है; रोज़ 90 km से ऊपर हो तो long-range class में ही रहें।
 
 ---
 
@@ -181,7 +155,7 @@ Low-speed scooters का फ़ायदा subsidy नहीं है। इ�
 | Ghar pe charge | नहीं | हाँ |
 | Top speed | 60+ km/h | 25 km/h |
 | Highway use | हाँ | नहीं |
-| Cargo-friendly model | हाँ | हाँ (Logix जैसे) |
+| Cargo-friendly model | हाँ | हाँ (long-range/work class) |
 
 ---
 
@@ -189,7 +163,7 @@ Low-speed scooters का फ़ायदा subsidy नहीं है। इ�
 
 Chandigarh के sectors और Mohali की colonies में छोटे delivery routes के लिए low-speed EV एक genuinely practical choice है — बशर्ते आपका route 25 km/h पर safe हो।
 
-अगर आप **Zelio Logix** देख रहे हैं cargo use के लिए, या **X-Men+** थोड़े बेहतर comfort के लिए — दोनों में lithium variant लें अगर रोज़ 50+ km चलाना है।
+अगर रोज़ का distance ज़्यादा है तो **long-range / work class** (90–110 km, removable lithium battery) देखें — चाहे किसी भी brand का हो; रोज़ 50+ km चलाना हो तो lithium variant ही लें।
 
 खरीदने से पहले:
 - Dealer से Chandigarh/Mohali/Panchkula का exact ex-showroom price confirm करें
@@ -206,8 +180,8 @@ Chandigarh के sectors और Mohali की colonies में छोटे d
 - **Central Motor Vehicles Rules (CMVR)** — low-speed exemption criteria (speed ≤25 km/h AND motor ≤250W — दोनों शर्तें ज़रूरी); June 2026 तक multiple sources से cross-verify किया गया
 - **Joint Electricity Regulatory Commission (JERC) / Chandigarh Power Distribution Ltd** — JERC five-year tariff order (FY 2025-26 से 2029-30), November 2025 से प्रभावी; The Tribune, Oct/Nov 2025
 - **PSPCL (Punjab State Power Corporation Ltd)** — Mohali domestic tariff
-- **Zelio E-Mobility official (zelioebikes.com)** और trade listings; June 2026 तक verified — model specifications और range figures के लिए
-- **EV India guidance** और Zelio official data; June 2026 — charging cost और per-km running cost के figures के लिए
+- **Manufacturer sites** (Komaki, Hero Electric, Deltic, Kinetic Green, Zelio आदि) और trade listings; June 2026 तक verified — low-speed class specifications और indicative price/range bands के लिए
+- **EV India guidance** और manufacturer data; June 2026 — charging cost और per-km running cost के figures के लिए
 - **PM E-DRIVE portal (pmedrive.heavyindustries.gov.in)** और trade press; June 2026 — subsidy eligibility के लिए (low-speed scooters eligible नहीं हैं)
 
 *यह article सिर्फ़ जानकारी के लिए है। EV Chandigarh कुछ बेचता नहीं। Prices और specs अपने local dealer से, और CMVR नियम अपने local RTO से confirm कर लें।*

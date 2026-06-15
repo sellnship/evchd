@@ -19,6 +19,16 @@ generic filler.
 An article IS commodity when it is generic EV boilerplate that could appear on
 any site for any city, with no ownable local insight.
 
+## Brand-neutrality (also a publish-blocker)
+
+Every page must be useful and honest to a reader who buys a non-Zelio model.
+Compare by class and spec; name brands only as examples; never call one brand
+"recommended"; prices are bands. Buyer intent routes to evchandigarh.com /
+WhatsApp without pre-deciding the brand. If the article pushes a single brand,
+calls one model "recommended", or quotes exact per-SKU ex-showroom prices, it
+fails this check — return `isCommodity: true` with a `reason` that names the
+brand-neutrality breach.
+
 ## Article body
 ```
 {{BODY}}

@@ -34,8 +34,12 @@ be confirmed locally — never guess.
 
 1. **Verified facts only**, cited in prose as above. No fabrication.
 2. **Brand-neutral, category voice.** Refer to the class, not "our" anything:
-   write "among low-speed scooters, models like the Zelio Gracy…" — NEVER "our
-   Zelio scooters", never a sales pitch, never "buy from us".
+   write "among low-speed scooters, models like the Komaki X-One, Hero Electric
+   Flash or Zelio Gracy…" — NEVER "our Zelio scooters", never a sales pitch,
+   never "buy from us". Every page must be useful and honest to a reader who
+   buys a non-Zelio model. Compare by class and spec; name brands only as
+   examples; never call one brand "recommended"; prices are bands. Buyer intent
+   routes to evchandigarh.com / WhatsApp without pre-deciding the brand.
 3. **This is an INFORMATIONAL page, and the site never transacts.** Explain the
    rules and the numbers. Route buyers to evchandigarh.com for prices and
    booking — this site does not sell.

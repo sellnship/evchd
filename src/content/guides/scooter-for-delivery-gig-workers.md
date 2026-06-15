@@ -56,37 +56,24 @@ Chandigarh's lower domestic slabs do benefit lighter users, but heavier daily ch
 
 Low-speed scooters are available with either lead-acid or gel batteries, or lithium-ion batteries. For someone doing 40 to 80 km a day, the battery choice matters more than the model badge.
 
-The shared specifications across the Zelio low-speed range state this clearly: for daily distances above around 60 km, lithium-ion is preferable over lead-acid for better range, longer cycle life, and lower weight. Lead-acid variants charge in roughly 7 to 12 hours; lithium-ion in roughly 4 to 5 hours. If you are doing a second shift or need a midday top-up, charge time is a real operational variable.
+As a rule across the low-speed class: for daily distances above around 60 km, lithium-ion is preferable over lead-acid for better range, longer cycle life, and lower weight. Lead-acid variants charge in roughly 7 to 12 hours; lithium-ion in roughly 4 to 5 hours. If you are doing a second shift or need a midday top-up, charge time is a real operational variable.
 
 The range figures below refer to lithium-ion variants unless otherwise noted. Always confirm the exact battery configuration with the dealer before purchasing, as prices and range differ between battery types.
 
 ---
 
-## Models worth considering for delivery and gig use
+## What a strong long-range pick looks like
 
-Among the Zelio low-speed range — the category's most documented low-speed line available in the Tricity — the following models stand out for delivery and commercial daily use. Prices shown are approximate ex-showroom figures (Haryana/Punjab) from verified June 2026 data. Final pricing should be confirmed with the local dealer, as figures vary by state, battery variant, and over time.
+For delivery and gig work the brand matters far less than the spec. Start from what the job demands, then shortlist any model — from any brand — that actually meets it:
 
-**Zelio Logix — recommended first consideration**
+- **A real range of 90 km or more.** Not the brochure figure — the range under working load, on a lithium or LFP battery. Ask the dealer what to expect with cargo, not on an empty test ride.
+- **A removable battery.** If you park upstairs or away from a socket, being able to carry the battery in to charge is the difference between practical and painful.
+- **Payload and pulling power.** Enough rated payload for your load, and enough gradeability for Panchkula's outer-sector slopes without the range collapsing.
+- **Lithium, not lead-acid,** for anything above roughly 50 km a day — lighter, longer-lived and faster to charge.
 
-The Logix is specifically positioned for delivery riders, shopkeepers, and small business owners doing 40 to 50 km a day. It is described in verified model data as built for cargo and business use, with good payload capacity. Its range runs from 60 to 90 km on the entry variant and up to approximately 140 km on the top lithium variant, which would be the one to look at for heavier daily distances. The ex-showroom price from the verified data is approximately Rs 61,584 for the entry configuration. Confirm the exact range of the top lithium variant with the dealer before making that the deciding factor.
+That set of demands defines the **long-range / work class**: roughly a 90–110 km real-world range and a ₹60,000–95,000 typical price band. Several brands build to it — for example the **Deltic Legion**, **Komaki XGT** and **Zelio Logix** are positioned here. Treat those as illustrations of the class, not a ranking: confirm the exact variant, the loaded range and the local ex-showroom price before you decide, and check the motor is rated ≤250W so the model stays licence-free.
 
-**Zelio X-Men+ (X-Men 2.0)**
-
-The X-Men+ carries a rated range of 120 km available on both lithium-ion and lead-acid variants, per verified model data. It is listed from approximately Rs 64,734. The lithium-ion option charges in 4 to 5 hours. The 2026 update brought improved suspension and a larger rear wheel, which is relevant for uneven internal roads in older sectors and colonies. For a delivery rider who values stability on patchy surfaces, this is worth considering alongside the Logix.
-
-**Zelio Gracy Pro**
-
-The Gracy Pro is listed with a range of up to 120 km and a digital display. Its price is not confirmed in the current verified data and should be checked directly with the dealer. If range is the primary criterion and the Logix is not the right fit for some reason, the Gracy Pro is worth asking about — but verify the price before treating it as a comparable option.
-
-**Zelio Gracy i**
-
-The Gracy i is the most widely used all-round model in the Zelio low-speed line, priced from approximately Rs 56,825 with an 80 to 90 km range on its lithium-ion variant. It is a solid option for delivery work where daily distances fall reliably under 60 to 70 km. For routes consistently above that, the Logix or X-Men+ is the better fit.
-
----
-
-## Models less suited to heavy delivery use
-
-The Little Gracy (from approximately Rs 45,633, range around 60 km) is designed for short daily trips of 15 to 20 km and is the lightest and most affordable option. It is not the right choice for full-day gig work. The EEVA and EEVA ZX+ are listed in the range from Rs 62,117 to Rs 67,500, but their range figures are not confirmed in the current verified data — they should be checked before considering them for commercial use.
+A lighter **everyday step-through** (70–85 km, ₹45,000–60,000 — think the **Hero Electric Flash LX**, **Deltic Costa** or **Zelio Gracy i**) can still work if your daily distance reliably stays under 60–70 km. Below that an entry commuter is enough; consistently above 90 km a day, stay in the long-range class.
 
 ---
 
@@ -116,7 +103,7 @@ Electricity tariffs also differ marginally: Chandigarh's lower domestic slabs (J
 - Ask the dealer to confirm the motor wattage in writing — this is the figure that determines CMVR exemption alongside speed, and it matters.
 - Confirm the ex-showroom price for your specific city, as prices vary by state.
 - Decide on voluntary insurance cover, and check the current RTO position in your jurisdiction.
-- If your daily distance consistently exceeds 80 km, discuss this with the dealer and ask specifically about the Logix top-lithium variant's confirmed range under load.
+- If your daily distance consistently exceeds 80 km, discuss this with the dealer and ask specifically about your shortlisted long-range model's confirmed range under load (the top lithium variant).
 
 ---
 
@@ -125,6 +112,6 @@ Electricity tariffs also differ marginally: Chandigarh's lower domestic slabs (J
 - Central Motor Vehicles Rules (CMVR); cross-verified across multiple sources, June 2026 — for licence, registration, and exemption criteria
 - Joint Electricity Regulatory Commission (JERC) / Chandigarh Power Distribution Ltd; The Tribune, October/November 2025 — for Chandigarh domestic tariff (effective 1 November 2025)
 - PSPCL (Punjab State Power Corporation Ltd) — for Mohali tariff basis
-- Zelio E-Mobility official (zelioebikes.com) and trade listings; verified June 2026 — for all model specifications, prices, and range figures
-- EV India guidance and Zelio official data; June 2026 — for charging cost and running cost per km figures
+- Manufacturer sites (including Komaki, Hero Electric, Deltic, Kinetic Green and Zelio) and trade listings; verified June 2026 — for low-speed class specifications and indicative price/range bands
+- EV India guidance and manufacturer data; June 2026 — for charging cost and running cost per km figures
 - PM E-DRIVE portal (pmedrive.heavyindustries.gov.in) and trade press; June 2026 — for subsidy eligibility confirmation (low-speed scooters are not eligible)

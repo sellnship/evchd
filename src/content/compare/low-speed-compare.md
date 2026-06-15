@@ -8,7 +8,7 @@ reviewedBy: "rajinder-singh"
 datePublished: 2026-06-05
 dateModified: 2026-06-13
 tags: ["comparison", "low-speed", "range", "price", "running cost"]
-models: ["little-gracy", "gracy-i", "x-men-plus", "logix"]
+models: ["entry-commuter", "everyday-stepthrough", "long-range-work"]
 draft: false
 ---
 

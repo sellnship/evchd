@@ -126,55 +126,45 @@ export interface LocalFacts {
 }
 
 /* ===================================================================
- * models.json  →  ModelsData (SharedLowSpeedSpecs + Model[])
+ * models.json  →  ModelsData (brand-neutral spec CLASSES)
+ *
+ * Comparisons are by CLASS and SPEC, not per-SKU. Each class lists >=3
+ * representative models across brands (Zelio is only ever one of them), and
+ * prices are bands — so no exact ex-showroom figure is ever published.
  * =================================================================== */
 
 export interface ModelsMeta {
+  purpose: string;
+  rule: string;
+  verify_before_publish?: string;
+}
+
+export interface RepresentativeModel {
   brand: string;
-  source: string;
-  category: string;
-  important: string;
-  verify_before_publish: string[];
+  model: string;
 }
 
-export interface SharedLowSpeedSpecs {
-  top_speed_kmph: number;
-  motor_w: number;
-  motor_type: string;
-  licence_required: boolean;
-  registration_required: boolean;
-  road_tax: boolean;
-  insurance_mandatory: boolean;
-  min_age: number;
-  warranty: string;
-  battery_options: string[];
-  battery_guidance: string;
-  charge_units_per_full: string;
-  running_cost_per_km_inr: number;
-  service_network: string;
-  note: string;
+export interface ClassSpec {
+  /** A range band (e.g. "60-70") in km. */
+  range_km: string;
+  battery: string;
+  /** A price band (e.g. "35,000-45,000") in INR — never an exact figure. */
+  price_band_inr: string;
+  body: string;
 }
 
-export interface Model {
-  slug: string;
-  name: string;
-  /** `null` where the price still needs verifying (see `verify`). */
-  price_from_inr: number | null;
-  price_to_inr?: number;
-  /** A range string (e.g. "80-90", "up to 120") or `null` if unverified. */
-  range_km: string | null;
-  battery?: string;
-  best_for?: string;
-  highlights?: string[];
-  note?: string;
-  /** Present when one or more fields are still to be verified before publish. */
-  verify?: string;
+export interface SpecClass {
+  id: string;
+  label: string;
+  who: string;
+  spec: ClassSpec;
+  tradeoff: string;
+  representative_models: RepresentativeModel[];
 }
 
 export interface ModelsData {
   _meta: ModelsMeta;
-  shared_low_speed_specs: SharedLowSpeedSpecs;
-  models: Model[];
+  classes: SpecClass[];
 }
 
 /* ===================================================================

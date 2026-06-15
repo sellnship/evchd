@@ -59,7 +59,7 @@ College की daily commute में आमतौर पर 10 से 30 km �
 
 यह वो number है जो students को सबसे ज़्यादा matter करता है।
 
-**JERC के tariff order और Zelio की official specifications के मुताबिक:**
+**JERC के tariff order और low-speed scooters की सामान्य specs के मुताबिक:**
 
 एक full charge में करीब **2 units (kWh)** बिजली लगती है।
 
@@ -86,62 +86,18 @@ Chandigarh में JERC का domestic tariff tiered है — सबसे 
 
 ---
 
-## कौन से models देखो — एक overview
+## Models कैसे चुनो — brand नहीं, class देखो
 
-यहाँ Zelio E-Mobility के low-speed models का एक honest overview है। ये सभी CMVR के under bina license और bina RTO के चलते हैं (25 km/h top speed, 250W BLDC motor)। Prices approximate हैं — final price अपने Chandigarh/Mohali/Panchkula के authorised dealer से verify करो।
+Student commute के लिए लगभग हमेशा **entry-commuter class** सही रहती है: करीब **60–70 km** असली range और **₹35,000–45,000** का typical price band, एक compact step-through में जो हल्का हो, park करना आसान हो और चलाने में सस्ता हो। यही spec — कोई एक brand नहीं — shortlist का आधार होना चाहिए। कई brands इसे बनाते हैं; नीचे की table कुछ को उदाहरण के तौर पर (alphabetical order में) नाम देती है। ये class के illustrations हैं, ranking या recommendation नहीं।
 
-### बजट सबसे tight है तो — Zelio Little Gracy
+| Class | Typical price band | असली range | Representative models (examples) |
+|---|---|---|---|
+| **Entry commuter** | ₹35,000–45,000 | 60–70 km | Komaki X-One · Kinetic Green Zing · Zelio Little Gracy |
+| **Everyday step-through** | ₹45,000–60,000 | 70–85 km | Hero Electric Flash LX · Deltic Costa · Zelio Gracy i |
 
-- **Price:** करीब ₹45,633 से शुरू
-- **Range:** \~60 km per charge
-- **किसके लिए:** पहली बार scooter चलाने वाले, students, जिनकी daily commute 15-20 km है
-- **खास बात:** सबसे हल्का और सबसे सस्ता। Seat height कम है — दोनों पैर ज़मीन पर आते हैं। पूरी तरह gearless।
+**Prices indicative bands हैं, exact ex-showroom figures नहीं** — ये battery variant (lead-acid vs lithium), state और समय के हिसाब से बदलती हैं, और हर model हर dealer के पास नहीं होता। फ़ैसले से पहले current price, load के साथ असली range, और यह कि motor ≤250W rated हो (ताकि licence-free रहे) — अपने नज़दीकी authorised dealer से confirm करो।
 
-अगर college घर से 8-10 km है और budget tight है, तो यह category में सबसे sensible शुरुआत है।
-
----
-
-### थोड़ा ज़्यादा range चाहिए — Zelio Gracy i
-
-- **Price:** करीब ₹56,825 से
-- **Range:** 80-90 km
-- **Battery:** Lithium-ion
-- **किसके लिए:** जो daily commute थोड़ी लंबी हो, या college के बाद tuition-market वगैरह भी जाना हो
-- **खास बात:** USB charging port है — phone charge होता रहेगा। Anti-theft alarm। Regular home socket पर रात भर charge।
-
-Lithium-ion battery का मतलब है — हल्का, ज़्यादा life, और 4-5 घंटे में full charge।
-
----
-
-### 2026 का नया option — Zelio Gracy (2026 facelift)
-
-- **Price:** ₹59,999 से ₹76,999 तक
-- **Range:** 60 से 120 km (battery variant के हिसाब से)
-- **Battery:** Entry level पर 60V/32AH lead-acid (₹59,999), और top पर 72V/32AH lithium-ion (₹76,999)
-- **किसके लिए:** College students, daily urban commuters, जो नया model चाहते हों
-- **खास बात:** April 2026 में launch हुआ, 7 colour options, \~2 units per charge (\~₹10 running cost)
-
-अगर budget में थोड़ी flexibility है और नया model चाहिए, तो यह 2026 facelift देखने लायक है।
-
----
-
-### ज़्यादा range, एक ही scooter — Zelio X-Men+
-
-- **Price:** करीब ₹64,734 से
-- **Range:** 120 km (rated)
-- **Battery:** Lithium-ion (4-5 hr charge) या lead-acid (8-10 hr charge)
-- **किसके लिए:** जिनकी commute थोड़ी लंबी हो या घर से college दूर हो
-- **खास बात:** Larger rear wheel, improved suspension, 2026 में refreshed styling और 4 नये colours
-
----
-
-### Premium feel चाहिए — Zelio Gracy Pro
-
-- **Range:** Up to 120 km
-- **Price:** Dealer से verify करो (हमारे पास अभी confirmed price नहीं है)
-- **खास बात:** Anti-theft alarm, digital display, centre lock
-
----
+रोज़ 10–15 km commute और रात भर charging हो तो entry-commuter scooter आमतौर पर काफ़ी है। Everyday class में तभी जाओ जब daily distance 60 km से ऊपर जाए या full moped ergonomics चाहिए — और दोनों ही case में, अगर daily distance ज़्यादा है तो **lead-acid नहीं, lithium** चुनो: हल्का और लंबी battery life।
 
 ## Lead-acid vs Lithium — क्या चुनें
 
@@ -155,7 +111,7 @@ Lithium-ion battery का मतलब है — हल्का, ज़्य
 | Life | कम | ज़्यादा |
 | Daily use > 60 km | ठीक नहीं | बेहतर |
 
-**Zelio की battery guidance के मुताबिक:** अगर daily 60 km से ज़्यादा चलाना है, तो lithium-ion choose करो।
+**एक सामान्य नियम:** अगर daily 60 km से ज़्यादा चलाना है, तो lithium-ion choose करो।
 
 ---
 
@@ -189,7 +145,7 @@ Chandigarh, Mohali और Panchkula — तीनों में CMVR के ru
 
 ## Short में — student के लिए checklist
 
-- [ ] Daily commute कितनी km है? 15-20 km → Little Gracy काफ़ी है। 30-40 km → Gracy i या X-Men+ देखो।
+- [ ] Daily commute कितनी km है? 15-20 km → entry-commuter class काफ़ी है। 30-40 km → everyday step-through class देखो।
 - [ ] Budget क्या है? ₹45,000 से शुरू होता है यह category।
 - [ ] Lithium चाहिए या lead-acid? रोज़ 60 km से ज़्यादा → lithium लो।
 - [ ] Age 16+ है? CMVR के मुताबिक minimum age 16 साल है।
@@ -206,8 +162,8 @@ Chandigarh, Mohali और Panchkula — तीनों में CMVR के ru
 - **PSPCL (Punjab State Power Corporation Ltd)** — Mohali domestic tariff \~₹5.40/unit (first 300 units)
 - **UHBVN (Uttar Haryana Bijli Vitran Nigam)** — Panchkula domestic tariff (comparable range)
 - **PM E-DRIVE portal (pmedrive.heavyindustries.gov.in)** — subsidy eligibility, Ministry of Heavy Industries; June 2026
-- **Zelio E-Mobility official site (zelioebikes.com)** — model specs, range, prices; June 2026 verified
-- **EV India guidance + Zelio official** — charging cost calculation (₹0.17/km basis)
+- **Manufacturer sites** (Komaki, Hero Electric, Deltic, Kinetic Green, Zelio आदि) — low-speed class specs और indicative price/range bands; June 2026 verified
+- **EV India guidance + manufacturer data** — charging cost calculation (₹0.17/km basis)
 
 ---
 
