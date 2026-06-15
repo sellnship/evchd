@@ -60,7 +60,7 @@ const dateModified = data.dateModified ?? data.datePublished;
     </header>
 
     <div class="art-figwrap">
-      <img class="art-img" src={data.heroImage} alt={data.title} width="1200" height="675" loading="lazy" decoding="async" />
+      <img class="art-img" src={data.heroImage} alt={data.title} width="1200" height="675" loading="eager" fetchpriority="high" decoding="async" />
     </div>
 
     <div class="art-main">
@@ -78,7 +78,7 @@ const dateModified = data.dateModified ?? data.datePublished;
 
     {related.length > 0 && (
       <section class="related">
-        <Eyebrow text="Related" />
+        <Eyebrow text={t('related')} />
         <div class="feat-grid">
           {related.map((r) => <FeaturedCard {...r} />)}
         </div>

@@ -30,7 +30,7 @@ const bottom = t('footer.bottom').replace('{year}', String(year));
         <Brand href={localizePath('/', lang)} variant="white" />
         <p>{t('footer.tagline')}</p>
       </div>
-      <nav class="foot-cols" aria-label="Footer">
+      <nav class="foot-cols" aria-label={t('a11y.footer')}>
         <div>{sections.map((l) => <a href={l.href}>{l.label}</a>)}</div>
         <div>{publication.map((l) => <a href={l.href}>{l.label}</a>)}</div>
       </nav>

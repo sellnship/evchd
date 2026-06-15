@@ -36,6 +36,8 @@ const homeHref = localizePath('/', lang);
         type="button"
         class="nav-toggle"
         aria-label={t('menu.open')}
+        data-label-open={t('menu.open')}
+        data-label-close={t('menu.close')}
         aria-expanded="false"
         aria-controls="mobile-menu"
       >
@@ -47,7 +49,7 @@ const homeHref = localizePath('/', lang);
   <!-- Mobile drawer (≤900px). Starts inert so its links aren't focusable/announced
        while closed; JS toggles inert + data-open. prefers-reduced-motion handled in CSS. -->
   <div id="mobile-menu" class="mobile-menu" data-open="false" inert>
-    <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Site menu">
+    <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label={t('menu.dialog')}>
       <nav class="mobile-menu-links" aria-label={t('nav.primary')}>
         {links.map((l) => <a href={l.href}>{l.label}</a>)}
       </nav>
@@ -61,12 +63,14 @@ const homeHref = localizePath('/', lang);
 
   if (toggle && menu) {
     const panel = menu.querySelector<HTMLElement>('.mobile-menu-panel');
-    const openLabel = toggle.getAttribute('aria-label') || 'Open menu';
+    const labelOpen = toggle.dataset.labelOpen || 'Open menu';
+    const labelClose = toggle.dataset.labelClose || 'Close menu';
 
     const open = () => {
       menu.dataset.open = 'true';
       menu.removeAttribute('inert');
       toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', labelClose); // icon flips to an X — announce "close"
       document.body.style.overflow = 'hidden';
       menu.querySelector<HTMLAnchorElement>('a')?.focus();
     };
@@ -75,6 +79,7 @@ const homeHref = localizePath('/', lang);
       menu.dataset.open = 'false';
       menu.setAttribute('inert', '');
       toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', labelOpen);
       document.body.style.overflow = '';
       if (refocus) toggle.focus();
     };
@@ -93,8 +98,6 @@ const homeHref = localizePath('/', lang);
     mq.addEventListener('change', (e) => {
       if (e.matches && isOpen()) close({ refocus: false });
     });
-    // keep aria-label honest for screen readers as the icon flips to an X
-    void openLabel;
   }
 
   /* Headroom: pinned at top; hide on scroll-down past ~80px, reveal on scroll-up.
