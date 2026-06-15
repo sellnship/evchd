@@ -33,9 +33,12 @@
     "section": "guides",
     "category": "Charging",
     "lang": "en",
-    "status": "pending",
+    "status": "published",
     "imagePrompt": "A resident carrying a removable scooter battery into a flat, and a charger cable plugged into an ordinary 3-pin domestic wall socket on the wall of a Chandigarh home — everyday residential setting.",
-    "angle": "Practical charging for apartment and rented-accommodation riders with no private parking — removable batteries, a regular 5A/15A socket, and the ~2 units per full charge. Distinct from the home-charging-cost page: this is the 'where do I plug in' problem, not the 'what does it cost' one."
+    "angle": "Practical charging for apartment and rented-accommodation riders with no private parking — removable batteries, a regular 5A/15A socket, and the ~2 units per full charge. Distinct from the home-charging-cost page: this is the 'where do I plug in' problem, not the 'what does it cost' one.",
+    "processedAt": "2026-06-15T09:34:59.741Z",
+    "publishedPath": "src/content/guides/charging-without-a-garage.md",
+    "factCheckIssues": []
   },
   {
     "slug": "real-world-range-explained",
@@ -598,14 +601,17 @@
     "publishedPath": "src/content/guides/hi/monsoon-safety-rain.md"
   },
   {
-    "status": "pending",
+    "status": "published",
     "slug": "charging-without-a-garage",
     "lang": "hi",
     "section": "guides",
     "category": "Charging",
     "title": "बिना garage के low-speed EV charge करना: Tricity के flats के लिए options",
     "imagePrompt": "A resident carrying a removable scooter battery into a flat, and a charger cable plugged into an ordinary 3-pin domestic wall socket on the wall of a Chandigarh home — everyday residential setting.",
-    "angle": "Apartment और किराये के घर वालों के लिए — बिना private parking कैसे charge करें: removable battery, normal 5A/15A socket, ~2 यूनिट प्रति full charge। home-charging-cost से अलग — यह 'कहाँ/कैसे' है, 'कितना' नहीं।"
+    "angle": "Apartment और किराये के घर वालों के लिए — बिना private parking कैसे charge करें: removable battery, normal 5A/15A socket, ~2 यूनिट प्रति full charge। home-charging-cost से अलग — यह 'कहाँ/कैसे' है, 'कितना' नहीं।",
+    "processedAt": "2026-06-15T09:36:21.365Z",
+    "publishedPath": "src/content/guides/hi/charging-without-a-garage.md",
+    "factCheckIssues": []
   },
   {
     "status": "pending",
