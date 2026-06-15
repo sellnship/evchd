@@ -96,10 +96,10 @@ If a dealer suggests you can claim PM E-DRIVE on a low-speed scooter, that is in
 
 The correct way to think about the financial case for a low-speed scooter is avoided cost, not subsidy:
 
-- No registration fee (saving of roughly Rs 1,500 to Rs 3,000, per CMVR)
-- No road tax
+- No registration or green number plate (a modest one-time saving)
+- No road tax (Rs 0 on any electric two-wheeler in the Tricity, even when registered)
 - No driving licence requirement (minimum age 16, not 18)
-- No mandatory insurance (though voluntary cover is available and worth considering — some legal interpretations argue third-party cover is still required under the Motor Vehicles Act even for exempt vehicles, so confirm the current position with your local RTO)
+- No mandatory insurance — the avoided third-party cover is roughly Rs 1,500 to Rs 3,000 a year, the real recurring saving (though voluntary cover is available and worth considering — some legal interpretations argue third-party cover is still required under the Motor Vehicles Act even for exempt vehicles, so confirm the current position with your local RTO)
 - Total on-road cost equals the ex-showroom price — nothing added
 
 That avoided-cost stack, combined with the \~Rs 0.17 per km running cost, is the genuine financial argument for this category.

@@ -36,7 +36,7 @@ This is the single most common point that gets glossed over on a showroom floor.
 
 ## What you save by staying exempt
 
-Skipping registration is worth roughly **₹1,500–3,000** in one-time RTO and associated costs, plus the time and paperwork. You also avoid road tax and the obligation to carry mandatory insurance.
+Skipping registration saves a modest **one-time** amount — the green number plate (around ₹400–500, fitted only on registered EVs) and the registration processing — plus the time and paperwork. The bigger saving is recurring: you avoid **mandatory insurance, which runs roughly ₹1,500–3,000 a year**. Note that road tax is ₹0 on an electric two-wheeler in the Tricity even when registered (Chandigarh and Punjab both give a 100% EV road-tax exemption in 2026), so "no road tax" is not a low-speed-only saving — don't overstate the registration side.
 
 A note on insurance: third-party cover is **not** legally mandated for a non-RTO low-speed scooter, and voluntary cover is available and worth considering. Interpretations vary, and on-ground enforcement differs, so treat insurance as a "confirm with your local RTO" question rather than a settled yes/no.
 

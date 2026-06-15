@@ -60,6 +60,16 @@ be confirmed locally — never guess.
    ≤25 km/h spec on the dealer's sheet". Honour the `verify_before_publish` note in
    the models data above: representative model names are illustrative, not verified
    per-SKU claims.
+9. **Registration vs insurance savings — get this right.** The ~Rs 1,500–3,000
+   figure is the ANNUAL INSURANCE saving, NOT a registration fee. Never write
+   "Rs 1,500–3,000 in registration fees" or attribute that range to registration —
+   it is a widely mis-copied error. Going licence-free avoids: RTO registration,
+   the green number plate (~Rs 400–500, fitted only on registered EVs),
+   registration processing, AND mandatory insurance (~Rs 1,500–3,000 per YEAR).
+   Road tax is already Rs 0 even for a REGISTERED electric two-wheeler in the
+   Tricity (Chandigarh and Punjab both give 100% EV road-tax exemption in 2026),
+   so the registration-specific saving is modest (plate + processing only) — do
+   not overstate it. The recurring savings are INSURANCE + MAINTENANCE.
 
 ## Output format
 

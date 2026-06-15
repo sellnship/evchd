@@ -85,7 +85,7 @@ PM E-DRIVE portal (pmedrive.heavyindustries.gov.in) और trade press की �
 तो अगर कोई dealer कह रहा है "इस low-speed scooter पर सब्सिडी मिलेगी" — तो वो या तो गलत जानकारी दे रहा है, या जानबूझकर भ्रमित कर रहा है।
 
 **Low-speed स्कूटर का असली फ़ायदा subsidy नहीं है।** असली फ़ायदा है — avoided cost:
-- RTO registration नहीं → ₹1,500-₹3,000 बचे
+- RTO registration/plate नहीं → मामूली एकमुश्त बचत; mandatory insurance नहीं → सालाना ~₹1,500-₹3,000 बचे
 - Road tax नहीं
 - Licence नहीं (16 साल से ऊपर कोई भी चला सकता है)
 - Mandatory insurance नहीं (हालाँकि voluntary insurance लेना समझदारी है — RTO से एक बार confirm करें)

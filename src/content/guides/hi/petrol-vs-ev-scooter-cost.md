@@ -38,7 +38,7 @@ Online मिलने वाली ज़्यादातर petrol-बना
 
 CMVR से एक ज़रूरी चेतावनी: सिर्फ़ speed छूट तय नहीं करती। एक scooter जो physically 25 km/h पर capped है पर जिसमें motor 250 W से ज़्यादा है, अब भी registrable motor vehicle है। ख़रीदने से पहले हमेशा spec sheet पर motor wattage confirm करें, सिर्फ़ top speed नहीं। इस category में यही सबसे ज़्यादा ग़लत समझा जाने वाला point है।
 
-बचा हुआ registration और road tax CMVR framework के मुताबिक़ करीब Rs 1,500–3,000 का अनुमान है — यह बचत एक किलोमीटर चलाने से पहले ही साल-एक में जुड़ जाती है।
+बचा हुआ mandatory insurance करीब Rs 1,500–3,000 सालाना है, और registration/green-plate का मामूली एकमुश्त खर्च भी बचता है — ये बचत एक किलोमीटर चलाने से पहले ही साल-एक में जुड़ जाती हैं। (Tricity में EV पर road tax registered होने पर भी Rs 0 है, इसलिए यह low-speed-only बचत नहीं।)
 
 Insurance पर: CMVR-exempt low-speed scooters के लिए mandatory third-party cover legally ज़रूरी नहीं, हालाँकि MV Act की कुछ interpretations अलग कहती हैं और enforcement बदलता है। Voluntary cover उपलब्ध है और किसी भी हाल में लेना समझदारी है। Current position local RTO से confirm करें।
 
@@ -119,7 +119,7 @@ Petrol scooters को नियमित अंतराल पर engine oil c
 - **PSPCL domestic tariff (Mohali, Punjab):** \~Rs 5.40 प्रति unit (पहले 300 units); Panchkula (Haryana) comparable। तुलना के लिए।
 - **Charging cost data:** \~2 units per full charge; \~Rs 10 per charge at \~Rs 5/unit; Rs 0.17/km running cost; उतनी ही दूरी पर Rs 150–200 petrol equivalent। Manufacturer + EV India guidance, June 2026।
 - **Low-speed vehicle exemption:** Top speed 25 km/h या कम AND motor 250 W या कम (continuous rated) — दोनों ज़रूरी। न licence, न RTO registration, न road tax, न mandatory insurance। CMVR; कई sources से cross-verified, June 2026।
-- **Registration saving:** Rs 1,500–3,000 (CMVR framework)।
+- **Insurance saving:** ~Rs 1,500–3,000 प्रति वर्ष (avoided mandatory third-party cover)। registration-specific saving मामूली एकमुश्त (plate ~Rs 400–500 + processing); Tricity में EV पर road tax registered होने पर भी Rs 0 (Chandigarh & Punjab 100% EV road-tax छूट, 2026)।
 - **PM E-DRIVE:** PM E-DRIVE portal (pmedrive.heavyindustries.gov.in) + trade press, June 2026। Low-speed CMVR-exempt scooters पर लागू नहीं।
 
 *Byline: Rajinder Singh, Chief Advisor, EV Chandigarh (evchandigarh.in)। Figures June 2026 तक सही थे; tariffs, fuel prices और model prices बदलते हैं — किसी भी नंबर पर काम करने से पहले दोबारा verify करें।*

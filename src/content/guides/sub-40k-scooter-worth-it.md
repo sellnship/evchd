@@ -22,7 +22,7 @@ If you are looking at electric scooters in Chandigarh, Mohali, or Panchkula and 
 
 Before comparing prices, it helps to understand the classification. Under the Central Motor Vehicles Rules (CMVR), a scooter that has a top speed of 25 km/h or less and a continuous rated motor of 250W or less is exempt from RTO registration, road tax, and a driving licence. Both conditions must be met — speed alone is not enough. If a scooter is capped at 25 km/h but carries a motor rated above 250W, it is still a registrable motor vehicle. This is one of the most commonly misrepresented points in the market, so it is worth checking carefully with your local RTO before assuming exemption.
 
-The practical effect of this exemption is that a qualifying low-speed scooter costs only its sticker price. There is no registration fee (saving roughly Rs 1,500 to Rs 3,000), no road tax, no mandatory insurance, and no number plate. You can ride it the day you buy it, from age 16. That saved cost is a legitimate part of the value calculation — but it does not manufacture Rs 5,000 or Rs 10,000 out of thin air.
+The practical effect of this exemption is that a qualifying low-speed scooter costs only its sticker price. There is no registration or green number plate (a modest one-time saving), and no mandatory insurance — which would run roughly Rs 1,500 to Rs 3,000 a year. (Road tax is Rs 0 on a Tricity electric two-wheeler even when registered, so it is not a low-speed-only saving.) You can ride it the day you buy it, from age 16. That saved cost is a legitimate part of the value calculation — but it does not manufacture Rs 5,000 or Rs 10,000 out of thin air.
 
 ---
 
@@ -102,7 +102,7 @@ A credible entry-commuter scooter in the Rs 40,000–45,000 range is not glamoro
 Be honest with yourself about what that budget can realistically deliver.
 
 - **If you genuinely cannot stretch to Rs 45,000 to Rs 50,000**, consider whether a used low-speed scooter from a verifiable brand with service history makes more sense than a new unknown-brand machine. Used pricing is something to research locally — it is not something this article can verify.
-- **If you can stretch a little**, the gap between Rs 40,000 and Rs 46,000 is smaller in monthly terms than it appears. On a household budget where you are already saving Rs 1,500 to Rs 3,000 in registration costs and avoiding petrol expenses, the difference narrows further.
+- **If you can stretch a little**, the gap between Rs 40,000 and Rs 46,000 is smaller in monthly terms than it appears. On a household budget where you are already saving roughly Rs 1,500 to Rs 3,000 a year in avoided insurance and cutting petrol expenses, the difference narrows further.
 - **If you are evaluating a specific sub-Rs 40,000 offer**, ask for the motor wattage on the spec sheet, confirm the top speed is 25 km/h or below, and check whether the brand has an authorised service point within a reasonable distance of your home. Then confirm the CMVR exemption criteria with your local RTO before buying.
 
 The Rs 40,000 number feels like a threshold, but it is a marketing artefact rather than a meaningful product boundary. The meaningful boundaries are: verifiable CMVR compliance, a real service network, a battery choice that matches your actual usage, and a brand whose warranty you can actually enforce.

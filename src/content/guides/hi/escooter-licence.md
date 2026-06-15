@@ -37,7 +37,7 @@ Showroom में यही बात सबसे ज़्यादा छु
 
 ## Exempt रहने से क्या बचता है
 
-Registration छोड़ने से करीब **₹1,500–3,000** की एकमुश्त RTO और जुड़ी हुई lागत बचती है, साथ में time और paperwork भी। आप road tax और mandatory insurance की बाध्यता से भी बच जाते हैं।
+Registration छोड़ने से एक मामूली **एकमुश्त** रक़म बचती है — green number plate (~₹400–500, सिर्फ़ registered EV पर लगती है) और registration processing — साथ में time और paperwork भी। बड़ी बचत recurring है: **mandatory insurance नहीं, जो सालाना करीब ₹1,500–3,000 पड़ती।** ध्यान रहे, Tricity में electric two-wheeler पर road tax registered होने पर भी ₹0 है (Chandigarh और Punjab दोनों 2026 में 100% EV road-tax छूट देते हैं), इसलिए registration वाली बचत को बढ़ा-चढ़ाकर न बताएँ।
 
 Insurance पर एक बात: non-RTO low-speed scooter के लिए third-party cover legally mandatory **नहीं** है, और voluntary cover उपलब्ध है तथा लेना समझदारी है। Interpretations अलग-अलग हैं और ground-level enforcement भी, इसलिए insurance को एक "local RTO से confirm करें" वाला सवाल मानें, न कि पक्का हाँ/ना।
 

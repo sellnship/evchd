@@ -91,7 +91,7 @@ Tricity summers push ambient temperatures well above 40°C for weeks at a time. 
 
 On electricity costs: Chandigarh's JERC domestic tariff (effective 1 November 2025, under the five-year tariff order following CPDL privatisation) is tiered — lower-usage households on the first slab pay around Rs 2.75 per unit, while heavier use climbs to around Rs 4.80 to Rs 5.40 per unit. Mohali (PSPCL) runs at around Rs 5.40 per unit for the first 300 units. Panchkula (Haryana, UHBVN) is comparable. For running-cost calculations, Rs 5 per unit is a fair and slightly conservative all-in basis that accounts for fixed charges and electricity duty — it applies honestly across all three Tricity areas.
 
-One more point worth noting: low-speed scooters meeting both the 25 km/h speed limit and the 250W motor rating under the Central Motor Vehicles Rules are exempt from RTO registration, road tax, and mandatory insurance. There is no number plate and no registration cost. That avoided cost — typically Rs 1,500 to Rs 3,000 in registration alone — is worth remembering when you compare the total ownership cost to a petrol scooter or a registered high-speed EV.
+One more point worth noting: low-speed scooters meeting both the 25 km/h speed limit and the 250W motor rating under the Central Motor Vehicles Rules are exempt from RTO registration and mandatory insurance, and carry no green number plate. The recurring avoided cost is the mandatory insurance — roughly Rs 1,500 to Rs 3,000 a year — on top of a modest one-time registration/plate saving. (Road tax is Rs 0 on a Tricity electric two-wheeler even when registered.) That is worth remembering when you compare the total ownership cost to a petrol scooter or a registered high-speed EV.
 
 ---
 

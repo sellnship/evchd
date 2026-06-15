@@ -139,7 +139,7 @@ Mohali (PSPCL) और Panchkula (UHBVN) में rate लगभग ₹5.40/unit
 
 **सीधा जवाब:** PM E-DRIVE scheme (Ministry of Heavy Industries) सिर्फ़ **registered high-speed electric two-wheelers** पर लागू है — जिनकी ex-factory price ₹1.5 lakh तक हो। Low-speed exempt scooters — जो RTO में register ही नहीं होते — इस subsidy के लिए eligible **नहीं** हैं।
 
-Low-speed scooters का फ़ायदा subsidy नहीं है। इनका फ़ायदा है **avoided cost** — कोई registration fee नहीं (₹1,500-3,000 की saving), कोई road tax नहीं, कोई licence cost नहीं, और खरीदते ही उसी दिन चला सकते हैं।
+Low-speed scooters का फ़ायदा subsidy नहीं है। इनका फ़ायदा है **avoided cost** — कोई registration/green-plate खर्च नहीं (मामूली एकमुश्त), कोई mandatory insurance नहीं — सालाना ~₹1,500-3,000 की saving, कोई licence cost नहीं, और खरीदते ही उसी दिन चला सकते हैं। (Tricity में EV पर road tax registered होने पर भी ₹0 है।)
 
 *(Source: PM E-DRIVE portal, pmedrive.heavyindustries.gov.in; local-facts.json, June 2026)*
 

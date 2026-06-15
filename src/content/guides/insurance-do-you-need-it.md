@@ -69,11 +69,10 @@ Some insurers in India now offer standalone electric vehicle policies or add low
 
 To put the insurance question in context, it helps to understand what a qualifying low-speed scooter genuinely saves you compared to a registered petrol or high-speed electric two-wheeler:
 
-- No RTO registration (saving approximately Rs 1,500 to Rs 3,000, per CMVR-related estimates)
-- No road tax
-- No number plate fee
+- No RTO registration and no green number plate (a modest one-time saving)
+- No road tax (in fact Rs 0 on any electric two-wheeler in the Tricity, even when registered — Chandigarh and Punjab both give a 100% EV road-tax exemption in 2026)
 - No driving licence requirement (minimum age is 16)
-- No mandatory insurance premium
+- No mandatory insurance premium — the avoided third-party cover is roughly Rs 1,500 to Rs 3,000 a year, which is the real recurring saving here
 
 The total on-road cost of an exempt low-speed scooter equals its ex-showroom price. You can ride it the day you buy it. A voluntary insurance premium is the one cost you might choose to add — and it is worth adding.
 

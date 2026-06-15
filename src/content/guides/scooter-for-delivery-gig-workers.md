@@ -30,7 +30,7 @@ If your delivery routes require sustained highway speeds, a low-speed scooter is
 
 ## What exemption from registration actually saves you
 
-The CMVR exemption means the on-road cost of a low-speed scooter equals the ex-showroom price. Nothing is added on top. No registration fee, no road tax, no compulsory insurance premium. Across models in this segment, avoided registration and road-tax costs typically amount to roughly Rs 1,500 to Rs 3,000, per verified CMVR figures. That is a modest saving in itself, but the larger saving is operational: you can ride the day you buy, you carry no renewal obligations, and there is no RTO paperwork to manage.
+The CMVR exemption means the on-road cost of a low-speed scooter equals the ex-showroom price. Nothing is added on top. No RTO registration, no green number plate, no compulsory insurance premium. The recurring saving is the avoided mandatory insurance — roughly Rs 1,500 to Rs 3,000 a year — on top of a modest one-time registration/plate saving. (Road tax is Rs 0 on a Tricity electric two-wheeler even when registered, so it is not a low-speed-only saving.) That is a modest saving in itself, but the larger saving is operational: you can ride the day you buy, you carry no renewal obligations, and there is no RTO paperwork to manage.
 
 One important nuance: third-party insurance is not legally mandated for CMVR-exempt low-speed scooters, but the position is not entirely black and white — some readings of the Motor Vehicles Act argue third-party cover is still required, and on-ground enforcement varies across the UT, Punjab, and Haryana. Voluntary cover is available and worth considering for anyone using these vehicles commercially. Confirm the current position with your local RTO before deciding.
 

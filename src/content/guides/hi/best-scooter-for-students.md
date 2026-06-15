@@ -47,7 +47,7 @@ College की daily commute में आमतौर पर 10 से 30 km �
 
 असली फ़ायदा है **avoided cost** — यानी वो खर्चे जो होते ही नहीं:
 
-- RTO registration नहीं — **₹1,500 से ₹3,000 की बचत**
+- RTO registration/green plate नहीं — मामूली एकमुश्त बचत; और mandatory insurance नहीं — सालाना **~₹1,500 से ₹3,000** की बचत
 - Road tax नहीं
 - Driving licence नहीं — तो licence बनवाने का खर्च और झंझट नहीं
 - Mandatory insurance नहीं (हालाँकि voluntary cover लेना समझदारी है — अपने local RTO से advice लो)

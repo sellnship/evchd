@@ -42,7 +42,7 @@ Low-speed scooters पर government की PM E-DRIVE जैसी subsidy **�
 
 *CMVR के मुताबिक, low-speed exempt scooters पर insurance legally mandatory नहीं है, हालाँकि कुछ लोग MV Act की अलग interpretation करते हैं। अपने local RTO से confirm करें। Voluntary insurance लेना समझदारी है।
 
-**Registration और road tax बचाने से ₹1,500 से ₹3,000 की सीधी बचत** होती है — और scooter घर लाते ही उसी दिन चला सकते हैं, कोई paperwork नहीं।
+**mandatory insurance न होने से सालाना ~₹1,500 से ₹3,000 की बचत** होती है, साथ में registration/green-plate का मामूली एकमुश्त खर्च बचता है — और scooter घर लाते ही उसी दिन चला सकते हैं, कोई paperwork नहीं। (Tricity में EV पर road tax registered होने पर भी ₹0 है।)
 
 ---
 

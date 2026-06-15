@@ -42,7 +42,7 @@ Low-speed scooters do **not** get a government subsidy like PM E-DRIVE — that 
 
 *Under CMVR, insurance is not legally mandatory for low-speed exempt scooters, though some read the MV Act differently. Confirm with your local RTO. Taking voluntary insurance is sensible.
 
-**Saving on registration and road tax is a direct ₹1,500–3,000** — and you can ride the scooter the day you bring it home, with no paperwork.
+**You skip mandatory insurance — roughly ₹1,500–3,000 a year — plus a modest one-time registration and green-plate cost** — and you can ride the scooter the day you bring it home, with no paperwork. (Road tax is ₹0 on a Tricity electric two-wheeler even when registered, so it isn't a low-speed-only saving.)
 
 ---
 

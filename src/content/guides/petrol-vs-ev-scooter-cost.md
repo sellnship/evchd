@@ -37,7 +37,7 @@ A low-speed electric scooter that meets both conditions — top speed 25 km/h or
 
 One important caution from the CMVR: speed alone does not determine the exemption. A scooter physically capped at 25 km/h but fitted with a motor rated above 250 W is still classified as a registrable motor vehicle. Always confirm the motor wattage on the specification sheet before purchase, not just the top speed. This is the most commonly misunderstood point in this category.
 
-The avoided registration and road tax saving is estimated at Rs 1,500–3,000 per the CMVR framework — that saving is baked into year one before you ride a single kilometre.
+The recurring avoided cost is mandatory insurance — roughly Rs 1,500–3,000 a year — and you also skip the modest one-time registration and green-plate cost. Those savings are baked into year one before you ride a single kilometre. (Road tax is Rs 0 on a Tricity electric two-wheeler even when registered, so it is not a low-speed-only saving.)
 
 On insurance: mandatory third-party cover is not legally required for CMVR-exempt low-speed scooters, though some interpretations of the Motor Vehicles Act argue otherwise, and enforcement varies. Voluntary cover is available and is worth considering regardless. Confirm the current position with your local RTO.
 
@@ -118,7 +118,7 @@ The advantage is most pronounced for riders who charge at home, travel predictab
 - **PSPCL domestic tariff (Mohali, Punjab):** \~Rs 5.40 per unit (first 300 units); Panchkula (Haryana) comparable. Cited for comparison.
 - **Charging cost data:** \~2 units per full charge; \~Rs 10 per charge at \~Rs 5/unit; Rs 0.17/km running cost; Rs 150–200 petrol equivalent for the same distance. Zelio official + EV India guidance, June 2026.
 - **Low-speed vehicle exemption:** Top speed 25 km/h or less AND motor 250 W or less (continuous rated) — both conditions required. No licence, no RTO registration, no road tax, no mandatory insurance. Central Motor Vehicles Rules (CMVR); cross-verified across multiple sources, June 2026.
-- **Registration saving:** Rs 1,500–3,000 (CMVR framework).
+- **Insurance saving:** ~Rs 1,500–3,000 per year (avoided mandatory third-party cover on a non-RTO low-speed scooter). The registration-specific saving is a modest one-time plate (~Rs 400–500) + processing cost; road tax is Rs 0 on a Tricity EV even when registered (Chandigarh & Punjab 100% EV road-tax exemption, 2026).
 - **Model prices and specifications:** Zelio E-Mobility official (zelioebikes.com) + trade listings, verified June 2026. All prices approximate ex-showroom Haryana/Punjab, entry variant; verify before purchase.
 - **PM E-DRIVE:** PM E-DRIVE portal (pmedrive.heavyindustries.gov.in) + trade press, June 2026. Does not apply to low-speed CMVR-exempt scooters.
 

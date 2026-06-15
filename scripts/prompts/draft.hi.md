@@ -68,6 +68,15 @@ say "अपने नज़दीकी RTO से पक्का कर ले
    aur ≤25 km/h spec dealer ki sheet par confirm karein". Models data ke
    `verify_before_publish` note ko maanein: representative model naam sirf
    illustrative hain, verified per-SKU claim nahi.
+9. **Registration बनाम insurance की बचत — यह सही रखें।** ~Rs 1,500–3,000 का figure
+   सालाना INSURANCE की बचत है, registration fee नहीं। "₹1,500–3,000 का registration
+   खर्च/बचत" कभी मत लिखें — यह आम mis-copied गलती है। Licence-free होने से बचता है:
+   RTO registration, green number plate (~Rs 400–500, सिर्फ़ registered EV पर लगती
+   है), registration processing, AND mandatory insurance (~Rs 1,500–3,000 प्रति
+   साल)। Tricity में road tax registered electric two-wheeler पर भी Rs 0 है
+   (Chandigarh और Punjab दोनों 2026 में 100% EV road-tax छूट देते हैं), इसलिए
+   registration-specific saving मामूली है (plate + processing) — इसे बढ़ा-चढ़ाकर मत
+   बताएँ। Recurring saving = INSURANCE + MAINTENANCE।
 
 ## Output format
 

@@ -54,7 +54,7 @@ The central government's PM E-DRIVE scheme (administered by the Ministry of Heav
 
 Low-speed scooters that qualify for the CMVR exemption are not registered — that is precisely their advantage. As unregistered vehicles, they do not qualify for PM E-DRIVE. There is no subsidy to claim here, and any dealer who implies otherwise should be questioned carefully.
 
-The value of a low-speed scooter lies entirely in avoided cost: no registration fee (which typically runs Rs 1,500 to Rs 3,000), no road tax, no licence cost, no mandatory insurance premium, and running costs close to zero. That is a different and equally legitimate calculation — it just works differently from the subsidy route.
+The value of a low-speed scooter lies entirely in avoided cost: no registration or green-plate cost (a modest one-time amount), no licence cost, and — the recurring one — no mandatory insurance premium, which would run roughly Rs 1,500 to Rs 3,000 a year, with running costs close to zero. (Road tax is Rs 0 on an electric two-wheeler in the Tricity even when registered.) That is a different and equally legitimate calculation — it just works differently from the subsidy route.
 
 ---
 

@@ -45,7 +45,7 @@ Central Motor Vehicles Rules (CMVR) के मुताबिक, अगर क�
 
 Zelio के सभी low-speed models — Little Gracy से लेकर Logix तक — इसी CMVR exemption में आते हैं।
 
-यानी **showroom से निकले, और चलाना शुरू।** Registration का झंझट नहीं। RTO की line नहीं। ₹1,500–₹3,000 का registration cost बचता है — यह अलग।
+यानी **showroom से निकले, और चलाना शुरू।** Registration का झंझट नहीं। RTO की line नहीं। registration/plate का मामूली एकमुश्त खर्च बचता है, और mandatory insurance की सालाना ~₹1,500–₹3,000 की बचत — यह अलग।
 
 > **ज़रूरी बात:** कुछ लोग सोचते हैं कि बस speed 25 km/h तक cap हो, बस हो गया। पर CMVR कहता है — speed **और** motor power, दोनों limit में होने चाहिए। अगर motor 250W से ऊपर है — चाहे speed कितनी भी कम हो — वो registrable vehicle है। यह सबसे common गलतफहमी है, इससे बचें।
 

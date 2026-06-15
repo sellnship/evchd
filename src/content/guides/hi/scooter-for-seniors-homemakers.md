@@ -34,7 +34,7 @@ Zelio जैसे low-speed scooters (जैसे Gracy, X-Men+, Logix) इस
 - Driving licence की ज़रूरत नहीं
 - RTO registration नहीं, यानी कोई number plate नहीं
 - Road tax नहीं
-- ₹1,500–₹3,000 का registration खर्च बचता है
+- mandatory insurance नहीं — सालाना ~₹1,500–₹3,000 की बचत (registration/plate का खर्च मामूली एकमुश्त)
 - 16 साल की उम्र से चला सकते हैं
 - खरीदो और उसी दिन चलाओ — on-road cost = showroom price
 
@@ -126,7 +126,7 @@ Seniors और घर के कामों के लिए brand नहीं
 PM E-DRIVE scheme सिर्फ़ उन registered, high-speed electric two-wheelers पर लागू है जो RTO में register होते हैं। Low-speed scooters CMVR के तहत exempt हैं — registered ही नहीं होते — इसलिए subsidy के दायरे में नहीं आते।
 
 लेकिन इसकी जगह आपको **avoided cost** मिलता है:
-- कोई registration fee नहीं (₹1,500-₹3,000 की बचत)
+- कोई registration/green plate खर्च नहीं (मामूली एकमुश्त); और mandatory insurance नहीं — सालाना ~₹1,500-₹3,000 की बचत
 - कोई road tax नहीं
 - कोई licence नहीं
 - Mandatory insurance नहीं

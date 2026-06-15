@@ -15,7 +15,15 @@
       "min_age": 16,
       "insurance_mandatory": false,
       "insurance_note": "Not legally mandated for non-RTO low-speed scooters; voluntary cover is available and recommended. Some interpretations argue third-party cover is still required under the MV Act, and on-ground enforcement varies — phrase as 'confirm with your local RTO' in content, not as black-and-white.",
-      "registration_saving_inr": "1500-3000",
+      "savings_breakdown": {
+        "CORRECTION": "CRITICAL: the widely mis-copied 'Rs 1,500-3,000 registration saving' is WRONG. That range is the ANNUAL INSURANCE saving, not a registration fee. Never attribute Rs 1,500-3,000 to 'registration fees'.",
+        "annual_insurance_saving_inr": "1500-3000 per year (mandatory third-party cover avoided on a non-RTO low-speed scooter)",
+        "green_number_plate_inr": "400-500 (fitted only on REGISTERED EVs; a low-speed exempt scooter has none)",
+        "registration_specific_saving": "Modest and ONE-TIME: green number plate (~Rs 400-500) + registration processing only.",
+        "road_tax_note": "Road tax is Rs 0 even for a REGISTERED electric two-wheeler in the Tricity — Chandigarh AND Punjab both give a 100% road-tax exemption on EVs in 2026 — so do NOT present 'no road tax' as a low-speed-only saving, and do not overstate the registration-specific saving.",
+        "recurring_savings": "The recurring savings from going licence-free are INSURANCE (~Rs 1,500-3,000/year) and MAINTENANCE — not 'registration fees'.",
+        "source": "Insurance band: industry guidance, June 2026. Road-tax exemption: Chandigarh & Punjab EV policy / state transport notifications, 2026. Green plate cost: MoRTH colour-coded plate norms."
+      },
       "key_nuance": "Speed alone is NOT enough. A scooter capped at 25 km/h but fitted with a motor rated above 250W is still classified as a registrable motor vehicle. The exemption checks motor power AND speed. This is the single most common point competitors get wrong — use it as an honest 'buyer beware' angle.",
       "ready_to_ride": "Exempt scooters get no registration number; you can ride them as-is the moment you buy. Total on-road cost equals the ex-showroom price.",
       "source": "Central Motor Vehicles Rules (CMVR); cross-verified across multiple 2026 sources, June 2026"

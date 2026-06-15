@@ -32,7 +32,7 @@ So both variants run cheap. The question is which one costs less over the life o
 
 On a low-speed scooter, the lithium-ion variant of the same model typically costs roughly Rs 10,000–20,000 more than the lead-acid version ex-showroom — call it about Rs 15,000–17,000 on a mid-range frame. The exact gap varies by model, voltage and Ah rating, so confirm the figures for whichever model you are considering, as prices vary by state and change over time.
 
-One point worth noting: because low-speed scooters are CMVR-exempt, the on-road price equals the ex-showroom price. There is no RTO registration fee, no road tax, and no insurance premium that you are required to add. That saves Rs 1,500–3,000 compared with a registered vehicle, and it applies to both variants equally.
+One point worth noting: because low-speed scooters are CMVR-exempt, the on-road price equals the ex-showroom price. There is no RTO registration or green number plate, and no mandatory insurance premium you are required to add. The recurring saving is the avoided insurance — roughly Rs 1,500–3,000 a year — on top of a modest one-time registration/plate saving. (Road tax is Rs 0 on a Tricity electric two-wheeler even when registered, so it is not a low-speed-only saving.) This applies to both variants equally.
 
 ---
 
