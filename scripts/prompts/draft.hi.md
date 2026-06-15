@@ -61,6 +61,13 @@ say "अपने नज़दीकी RTO से पक्का कर ले
    low-speed scooters par NAHI. Dono ko kabhi mix mat karein.
 6. **Honest headline.** Content wahi de jo title kehta hai. No clickbait.
 7. **Simple Hindi, warm and trustworthy.** No hype, no exclamation marks.
+8. **Kisi naamzad model ko licence-free mat bataayein.** Licence-free / CMVR-exempt
+   hona spec CLASS ki property hai (≤25 km/h AND ≤250W dono saath) — kisi ek
+   naamzad model ko established fact ke taur par exempt mat likhein. Jo model
+   example ke taur par naam liya jaaye, uske liye likhein "≤250W continuous motor
+   aur ≤25 km/h spec dealer ki sheet par confirm karein". Models data ke
+   `verify_before_publish` note ko maanein: representative model naam sirf
+   illustrative hain, verified per-SKU claim nahi.
 
 ## Output format
 

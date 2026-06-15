@@ -22,9 +22,10 @@
     "section": "guides",
     "category": "Buying Guide",
     "lang": "en",
-    "status": "pending",
+    "status": "superseded",
     "imagePrompt": "A first-time rider standing beside a parked seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) on a calm Chandigarh sector street, daytime.",
-    "angle": "A decision framework keyed to daily distance and the no-licence (<=25 km/h, <=250W) exemption — route the reader to match commute km to battery type, not to a specific model."
+    "angle": "A decision framework keyed to daily distance and the no-licence (<=25 km/h, <=250W) exemption — route the reader to match commute km to battery type, not to a specific model.",
+    "supersededNote": "Superseded by guides/pehla-electric-scooter-guide (EN counterpart created in the #7 fill)."
   },
   {
     "slug": "charging-without-a-garage",
@@ -131,9 +132,10 @@
     "section": "guides",
     "category": "Charging",
     "lang": "hi",
-    "status": "pending",
+    "status": "superseded",
     "imagePrompt": "A charger cable plugged into an ordinary 3-pin domestic wall socket on the wall of a Chandigarh home, with a seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) beside it, everyday residential setting.",
-    "angle": "बोलचाल की हिंदी में 'ghar pe charge', 'ek charge ka kharcha', 'unit' जैसे शब्द — ~2 यूनिट, ~₹10 प्रति चार्ज, ₹0.17/km; पेट्रोल से तुलना; Chandigarh का tiered tariff ईमानदारी से।"
+    "angle": "बोलचाल की हिंदी में 'ghar pe charge', 'ek charge ka kharcha', 'unit' जैसे शब्द — ~2 यूनिट, ~₹10 प्रति चार्ज, ₹0.17/km; पेट्रोल से तुलना; Chandigarh का tiered tariff ईमानदारी से।",
+    "supersededNote": "Superseded by guides/hi/home-charging-cost (HI counterpart created in the #7 fill)."
   },
   {
     "slug": "lead-acid-vs-lithium-battery",
@@ -594,5 +596,175 @@
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) on a wet Tricity street during light rain, no glow.",
     "angle": "बोलचाल में — बारिश में चलाना, पानी और charging safety, scooter aur battery की देखभाल; मौसमी लोकल सलाह।",
     "publishedPath": "src/content/guides/hi/monsoon-safety-rain.md"
+  },
+  {
+    "status": "pending",
+    "slug": "charging-without-a-garage",
+    "lang": "hi",
+    "section": "guides",
+    "category": "Charging",
+    "title": "बिना garage के low-speed EV charge करना: Tricity के flats के लिए options",
+    "imagePrompt": "A resident carrying a removable scooter battery into a flat, and a charger cable plugged into an ordinary 3-pin domestic wall socket on the wall of a Chandigarh home — everyday residential setting.",
+    "angle": "Apartment और किराये के घर वालों के लिए — बिना private parking कैसे charge करें: removable battery, normal 5A/15A socket, ~2 यूनिट प्रति full charge। home-charging-cost से अलग — यह 'कहाँ/कैसे' है, 'कितना' नहीं।"
+  },
+  {
+    "status": "pending",
+    "slug": "used-electric-scooter-buying-guide",
+    "lang": "en",
+    "section": "guides",
+    "category": "Buying Guide",
+    "title": "Buying a used low-speed electric scooter in the Tricity: the checks that matter",
+    "imagePrompt": "A buyer inspecting the battery compartment of a used seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) in a Tricity residential driveway, daytime.",
+    "angle": "Second-hand buyer intent: battery age/health is the real depreciating part; how to confirm the ≤25 km/h / ≤250W spec on a used unit with no clear paperwork; honestly testing real range; and that an exempt scooter has no RTO transfer to chase. Class-level, brand-neutral."
+  },
+  {
+    "status": "pending",
+    "slug": "used-electric-scooter-buying-guide",
+    "lang": "hi",
+    "section": "guides",
+    "category": "Buying Guide",
+    "title": "पुराना (second-hand) low-speed electric scooter खरीदना: Tricity में क्या-क्या जाँचें",
+    "imagePrompt": "A buyer inspecting the battery compartment of a used seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) in a Tricity residential driveway, daytime.",
+    "angle": "Second-hand लेने वालों के लिए: सबसे ज़रूरी है battery की उम्र/health; बिना paperwork वाले used scooter पर ≤25 km/h / ≤250W spec कैसे confirm करें; असली range ईमानदारी से जाँचें; exempt scooter में RTO transfer का झंझट नहीं। Class-level, brand-neutral।"
+  },
+  {
+    "status": "pending",
+    "slug": "will-ev-raise-electricity-bill",
+    "lang": "en",
+    "section": "guides",
+    "category": "Charging",
+    "title": "Will an electric scooter raise your electricity bill? The Chandigarh slab math",
+    "imagePrompt": "A seated step-through electric scooter (Indian e-moped) charging from a 3-pin domestic wall socket beside a home electricity meter, warm indoor light.",
+    "angle": "Honest monthly-bill impact on Chandigarh's tiered JERC tariff: ~2 units a charge added to your existing consumption, and whether daily charging risks nudging a light-use household toward a higher slab. The ownable tiered-slab angle, distinct from per-charge cost."
+  },
+  {
+    "status": "pending",
+    "slug": "will-ev-raise-electricity-bill",
+    "lang": "hi",
+    "section": "guides",
+    "category": "Charging",
+    "title": "क्या electric scooter से बिजली का बिल बढ़ेगा? Chandigarh के slab का हिसाब",
+    "imagePrompt": "A seated step-through electric scooter (Indian e-moped) charging from a 3-pin domestic wall socket beside a home electricity meter, warm indoor light.",
+    "angle": "Chandigarh के tiered JERC tariff पर महीने के बिल का असली असर: हर charge पर ~2 यूनिट आपकी मौजूदा खपत में जुड़ती हैं, और रोज़ charge करने से कम-use घर कहीं ऊपर वाले slab में तो नहीं चला जाएगा। per-charge cost से अलग, ownable slab angle।"
+  },
+  {
+    "status": "pending",
+    "slug": "is-25kmph-enough-tricity",
+    "lang": "en",
+    "section": "guides",
+    "category": "Buying Guide",
+    "title": "Is 25 km/h enough for Tricity roads? An honest look at where a low-speed scooter fits",
+    "imagePrompt": "A seated step-through electric scooter (Indian e-moped) riding on a calm tree-lined Chandigarh sector road in light traffic, daylight.",
+    "angle": "Route-fit honesty: where 25 km/h works (sectors, colony lanes, markets) and where it doesn't (highways, arterial roads), mapped to real Chandigarh/Mohali/Panchkula routes — so a buyer can self-qualify before buying. Managing expectations, not selling."
+  },
+  {
+    "status": "pending",
+    "slug": "is-25kmph-enough-tricity",
+    "lang": "hi",
+    "section": "guides",
+    "category": "Buying Guide",
+    "title": "25 km/h Tricity की सड़कों के लिए काफ़ी है? — एक ईमानदार नज़रिया",
+    "imagePrompt": "A seated step-through electric scooter (Indian e-moped) riding on a calm tree-lined Chandigarh sector road in light traffic, daylight.",
+    "angle": "Route-fit की ईमानदार बात: 25 km/h कहाँ चलती है (sectors, colony lanes, markets) और कहाँ नहीं (highways, arterial roads), असली Chandigarh/Mohali/Panchkula routes के हिसाब से — ताकि खरीदार खुद तय कर सके। बेचना नहीं, उम्मीदें साफ़ करना।"
+  },
+  {
+    "status": "pending",
+    "slug": "electric-scooter-vs-electric-cycle",
+    "lang": "en",
+    "section": "compare",
+    "category": "Comparison",
+    "title": "Low-speed e-scooter vs electric cycle in the Tricity: which fits your commute",
+    "imagePrompt": "A seated step-through electric scooter (Indian e-moped) and an electric pedal cycle parked side by side on a clean Chandigarh sector path, daylight.",
+    "angle": "Two licence-free options compared by effort, range, pedalling, running cost and the rules — pedal-assist e-cycle vs the seated e-moped — for a Tricity buyer torn between them. Class-level and brand-neutral; figures per local-facts."
+  },
+  {
+    "status": "pending",
+    "slug": "electric-scooter-vs-electric-cycle",
+    "lang": "hi",
+    "section": "compare",
+    "category": "Comparison",
+    "title": "Low-speed e-scooter बनाम electric cycle: Tricity में आपके लिए कौन सही",
+    "imagePrompt": "A seated step-through electric scooter (Indian e-moped) and an electric pedal cycle parked side by side on a clean Chandigarh sector path, daylight.",
+    "angle": "दो licence-free options की तुलना — मेहनत, range, pedalling, running cost और नियम — pedal-assist e-cycle बनाम seated e-moped — उस Tricity खरीदार के लिए जो दोनों के बीच उलझा है। Class-level, brand-neutral; figures local-facts से।"
+  },
+  {
+    "status": "pending",
+    "slug": "warranty-and-service-what-to-check",
+    "lang": "en",
+    "section": "guides",
+    "category": "Buying Guide",
+    "title": "Warranty and service for a low-speed e-scooter: what to confirm before you buy (Tricity)",
+    "imagePrompt": "A seated step-through electric scooter (Indian e-moped) at a clean service workspace with a technician checking it, daylight.",
+    "angle": "A dedicated warranty/service guide: what warranty typically covers (motor, controller, frame and battery separately), how to confirm a real authorised service point near your Tricity address, and the questions to ask. Brand-neutral ('a good brand has…'), distinct from the buying-mistakes checklist."
+  },
+  {
+    "status": "pending",
+    "slug": "warranty-and-service-what-to-check",
+    "lang": "hi",
+    "section": "guides",
+    "category": "Buying Guide",
+    "title": "Low-speed e-scooter की warranty और service: खरीदने से पहले क्या confirm करें (Tricity)",
+    "imagePrompt": "A seated step-through electric scooter (Indian e-moped) at a clean service workspace with a technician checking it, daylight.",
+    "angle": "warranty/service पर एक dedicated guide: warranty आमतौर पर क्या cover करती है (motor, controller, frame और battery अलग-अलग), अपने Tricity पते के पास असली authorised service point कैसे confirm करें, और क्या पूछें। Brand-neutral, buying-mistakes से अलग।"
+  },
+  {
+    "status": "pending",
+    "slug": "home-charging-safety",
+    "lang": "en",
+    "section": "guides",
+    "category": "Charging",
+    "title": "Charging your electric scooter safely at home: sockets, wiring and overnight habits",
+    "imagePrompt": "A seated step-through electric scooter (Indian e-moped) charging safely from an earthed 3-pin domestic wall socket with a tidy cable, warm indoor light.",
+    "angle": "Electrical-safety angle: a proper earthed 3-pin socket, avoiding cheap extension boards and frayed cables, ventilation and heat, and sensible overnight charging — practical for Tricity flats and older wiring. Distinct from charging cost / no-garage logistics."
+  },
+  {
+    "status": "pending",
+    "slug": "home-charging-safety",
+    "lang": "hi",
+    "section": "guides",
+    "category": "Charging",
+    "title": "घर पर electric scooter सुरक्षित तरीक़े से charge करना: socket, wiring और रात भर की आदतें",
+    "imagePrompt": "A seated step-through electric scooter (Indian e-moped) charging safely from an earthed 3-pin domestic wall socket with a tidy cable, warm indoor light.",
+    "angle": "बिजली-सुरक्षा का angle: सही earthed 3-pin socket, सस्ते extension board और घिसे cable से बचना, ventilation और गर्मी, और समझदारी से रात भर charge — Tricity के flats और पुरानी wiring के लिए practical। cost / no-garage से अलग।"
+  },
+  {
+    "status": "pending",
+    "slug": "maintenance-schedule-low-speed-ev",
+    "lang": "en",
+    "section": "guides",
+    "category": "Ownership",
+    "title": "Low-speed electric scooter maintenance: what it needs, and when",
+    "imagePrompt": "A seated step-through electric scooter (Indian e-moped) with a side panel open for routine checks in a home garage, daylight.",
+    "angle": "A practical maintenance calendar: tyres, brakes and battery-care intervals, what an EV does NOT need (no oil, no spark plug), and roughly what to budget — distinct from battery-replacement cost and monsoon care. Ownership-cost clarity."
+  },
+  {
+    "status": "pending",
+    "slug": "maintenance-schedule-low-speed-ev",
+    "lang": "hi",
+    "section": "guides",
+    "category": "Ownership",
+    "title": "Low-speed electric scooter की maintenance: क्या चाहिए और कब",
+    "imagePrompt": "A seated step-through electric scooter (Indian e-moped) with a side panel open for routine checks in a home garage, daylight.",
+    "angle": "एक practical maintenance calendar: tyres, brakes और battery-care के intervals, EV में क्या नहीं चाहिए (न oil, न spark plug), और मोटा-मोटा कितना budget — battery-replacement cost और monsoon care से अलग। Ownership cost साफ़।"
+  },
+  {
+    "status": "pending",
+    "slug": "resale-value-low-speed-ev",
+    "lang": "en",
+    "section": "guides",
+    "category": "Ownership",
+    "title": "Do low-speed electric scooters hold their resale value in the Tricity?",
+    "imagePrompt": "A clean, well-kept seated step-through electric scooter (Indian e-moped) parked outside a Tricity home, daylight, no signage or text.",
+    "angle": "An honest resale picture: battery age is the main depreciation driver, lithium holds value better than lead-acid, the no-RTO-transfer simplicity for exempt scooters is a plus, and how to price/sell locally. Distinct ownership/resale angle."
+  },
+  {
+    "status": "pending",
+    "slug": "resale-value-low-speed-ev",
+    "lang": "hi",
+    "section": "guides",
+    "category": "Ownership",
+    "title": "क्या low-speed electric scooters की resale value अच्छी रहती है? (Tricity)",
+    "imagePrompt": "A clean, well-kept seated step-through electric scooter (Indian e-moped) parked outside a Tricity home, daylight, no signage or text.",
+    "angle": "resale की ईमानदार तस्वीर: depreciation की सबसे बड़ी वजह battery की उम्र है, lithium lead-acid से बेहतर value रखती है, exempt scooter में RTO transfer न होना एक plus, और locally कैसे price/बेचें। अलग ownership/resale angle।"
   }
 ]

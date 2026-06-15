@@ -1,19 +1,27 @@
 name: Publish article
 
 # ─────────────────────────────────────────────────────────────────────────────
-# CRON DISABLED — do not enable until ~20 reviewed pages exist + GSC is live.
-# The autonomous content engine runs MANUALLY ONLY (workflow_dispatch) for now.
-# When ready to automate, uncomment the `schedule` block below and pick a cadence.
+# Conservative, PR-GATED content engine.
 #
-# schedule:
-#   - cron: "0 4 * * 1"   # (example) Mondays 04:00 UTC — DO NOT ENABLE YET
+# Cadence: ONE topic (EN + HI) per run, ONCE per week.
+# No run ever commits to main. Each run drafts the next pending topic on a fresh
+# branch, runs every gate, and OPENS A PULL REQUEST for human review. Merging the
+# PR is what publishes — and the merge to main is what Vercel auto-deploys.
+#
+# Secrets used (rotated): ANTHROPIC_API_KEY, FAL_KEY.
+# One-time repo setting required for the PR step:
+#   Settings → Actions → General → Workflow permissions →
+#   ✅ "Allow GitHub Actions to create and approve pull requests".
 # ─────────────────────────────────────────────────────────────────────────────
 
 on:
-  workflow_dispatch: {} # manual trigger only
+  schedule:
+    - cron: "0 4 * * 1" # Mondays 04:00 UTC (09:30 IST) — one topic (EN+HI) per week
+  workflow_dispatch: {} # manual trigger — also opens a PR (never commits to main)
 
 permissions:
-  contents: write # commit + push the generated article and queue update
+  contents: write # create the content branch
+  pull-requests: write # open the review PR
 
 concurrency:
   group: publish-article
@@ -35,21 +43,78 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run content engine (one article max)
+      # Pick the next pending topic's slug so the EN and HI passes below act on the
+      # SAME topic (one topic per run). Empty output ⇒ queue drained ⇒ later steps skip.
+      - name: Pick next pending topic
+        id: pick
+        run: |
+          SLUG=$(node -e '
+            const fs = require("fs");
+            const q = JSON.parse(fs.readFileSync("scripts/queue.json", "utf8"));
+            const t = q.find((e) => e && !e._isMeta && e.status === "pending");
+            process.stdout.write(t ? t.slug : "");
+          ')
+          echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
+          if [ -z "$SLUG" ]; then
+            echo "No pending topics — nothing to draft this run."
+          else
+            echo "Next topic: $SLUG"
+          fi
+
+      # STAGE 1–8 for the English entry: dedup → draft (brand-neutral prompt) →
+      # originality kill-switch → fact-check (only `critical` halts) → hero image →
+      # write markdown + update queue. Uses the rotated secrets.
+      - name: Draft EN (all gates)
+        if: steps.pick.outputs.slug != ''
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           FAL_KEY: ${{ secrets.FAL_KEY }}
+          TOPIC_SLUG: ${{ steps.pick.outputs.slug }}
+          TOPIC_LANG: en
         run: node scripts/generate.mjs
 
-      - name: Commit & push if the engine produced changes
-        run: |
-          if [ -z "$(git status --porcelain)" ]; then
-            echo "No changes — engine skipped, killed, or halted this run. Nothing to commit."
-            exit 0
-          fi
-          git config user.name "evchd-content-bot"
-          git config user.email "bot@evchandigarh.in"
-          git add src/content public/images scripts/queue.json
-          git commit -m "content: autopublish next queued article"
-          git push
+      # Same topic, Hindi entry (drafted natively in simple Hindi, not translated).
+      - name: Draft HI counterpart (all gates)
+        if: steps.pick.outputs.slug != ''
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          TOPIC_SLUG: ${{ steps.pick.outputs.slug }}
+          TOPIC_LANG: hi
+        run: node scripts/generate.mjs
 
+      # Open a PR with whatever the engine produced (articles + heroes + the
+      # queue.json audit trail). peter-evans skips cleanly if there is no diff.
+      - name: Open review PR
+        if: steps.pick.outputs.slug != ''
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: content/${{ steps.pick.outputs.slug }}
+          base: main
+          delete-branch: true
+          add-paths: |
+            src/content
+            public/images
+            scripts/queue.json
+          commit-message: "content: draft ${{ steps.pick.outputs.slug }} (EN+HI) for review"
+          author: "evchd-content-bot <bot@evchandigarh.in>"
+          committer: "evchd-content-bot <bot@evchandigarh.in>"
+          title: "Review & publish: ${{ steps.pick.outputs.slug }} (EN + HI)"
+          labels: |
+            content
+            automated
+          body: |
+            Automated draft from the content engine — **one topic (EN + HI) per weekly run**.
+
+            **Topic:** `${{ steps.pick.outputs.slug }}`
+
+            Gates that ran before this PR was opened:
+            - ✅ **Dedup** — blocked if too close to an existing same-language article
+            - ✅ **Brand-neutrality** — enforced in the drafting prompt and the critique gate (compare by class + spec, prices as bands, no brand "recommended")
+            - ✅ **Originality kill-switch** — generic/commodity drafts are killed, not published
+            - ✅ **Fact-check** — checked against `local-facts.json`; only a genuine contradiction halts
+            - ✅ **verify_before_publish** — the engine does not assert a named model is licence-free unverified
+
+            Review the rendered article(s) and hero image(s) on mobile, then **merge to publish**. Merging to `main` triggers the Vercel production deploy.
+
+            If only `scripts/queue.json` changed (no article), the engine skipped/killed/halted this topic — the diff is the audit trail; close or merge as you see fit.

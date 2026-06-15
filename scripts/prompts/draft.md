@@ -53,6 +53,13 @@ be confirmed locally — never guess.
 6. **Honest headline.** The content must deliver what the title promises. No
    clickbait, no overpromising.
 7. **Indian English, plain and trustworthy.** Short sentences. No hype.
+8. **Never assert a named model is licence-free.** The licence-free / CMVR-exempt
+   property belongs to the spec CLASS (≤25 km/h AND ≤250W together) — never state
+   that a specific named model is exempt as established fact. For any model named
+   as an example, frame compliance as "confirm the ≤250W continuous motor and
+   ≤25 km/h spec on the dealer's sheet". Honour the `verify_before_publish` note in
+   the models data above: representative model names are illustrative, not verified
+   per-SKU claims.
 
 ## Output format
 
