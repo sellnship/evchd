@@ -9,12 +9,10 @@
  * page. WhatsApp falls back to the .com site until a real number is filled in.
  * Copy + the calculator link localise to the page language (en / hi).
  */
-import { authors } from '../data/types';
 import Button from './Button.astro';
-import { getLangFromUrl, useTranslations, localizePath } from '../i18n';
+import { getLangFromUrl, useTranslations, localizePath, whatsappHref } from '../i18n';
 
 interface Props {
-  context?: string;
   calculator?: string;
   heading?: string;
 }
@@ -23,15 +21,12 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const {
-  context = 'going electric in the Tricity',
   calculator = localizePath('/calculators', lang),
   heading = t('cta.heading'),
 } = Astro.props;
 
-const pub = authors.publisher;
-const waDigits = (pub.whatsapp || '').replace(/\D/g, '');
-const waMsg = encodeURIComponent(`Hi EV Chandigarh — I was reading about ${context} and have a question.`);
-const waHref = waDigits.length >= 8 ? `https://wa.me/${waDigits}?text=${waMsg}` : 'https://evchandigarh.com';
+// Canonical, language-correct WhatsApp deep link (single source of truth in i18n).
+const waHref = whatsappHref(lang);
 ---
 <aside class="cta-card ctablock">
   <div class="glow"></div>
@@ -39,7 +34,7 @@ const waHref = waDigits.length >= 8 ? `https://wa.me/${waDigits}?text=${waMsg}` 
   <p>{t('cta.body')}</p>
   <div class="row">
     <Button variant="light" href="https://evchandigarh.com" rel="noopener" arrow data-cta="prices">{t('cta.prices')}</Button>
-    <Button variant="wa" href={waHref} rel="noopener" arrow data-cta="whatsapp">{t('cta.whatsapp')}</Button>
+    <Button variant="wa" href={waHref} target="_blank" rel="noopener" aria-label={t('cta.whatsappAria')} arrow data-cta="whatsapp">{t('cta.whatsapp')}</Button>
     <Button variant="wa" href={calculator} arrow data-cta="calculator">{t('cta.calculator')}</Button>
   </div>
 </aside>

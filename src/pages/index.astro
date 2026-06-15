@@ -5,14 +5,12 @@ import Divider from '../components/Divider.astro';
 import Button from '../components/Button.astro';
 import HubCard from '../components/HubCard.astro';
 import FeaturedCard from '../components/FeaturedCard.astro';
-import { localFacts, authors } from '../data/types';
+import { localFacts } from '../data/types';
+import { whatsappHref, useTranslations } from '../i18n';
 
-// WhatsApp deep-link from the publisher number (falls back to the .com site).
-const waDigits = (authors.publisher.whatsapp || '').replace(/\D/g, '');
-const waHref =
-  waDigits.length >= 8
-    ? `https://wa.me/${waDigits}?text=${encodeURIComponent('Hi EV Chandigarh — I have a question about going electric in the Tricity.')}`
-    : 'https://evchandigarh.com';
+// Canonical, language-correct WhatsApp deep link (English homepage).
+const waHref = whatsappHref('en');
+const t = useTranslations('en');
 
 // Math stats: read from the data layer where they map.
 const perKm = localFacts.charging_cost.per_km_inr; // 0.17
@@ -144,7 +142,7 @@ const hubs = [
         <p class="reveal">We don't sell here — but we know who does. Get current prices, book a test ride, or ask us anything on WhatsApp.</p>
         <div class="row reveal">
           <Button variant="light" href="https://evchandigarh.com" arrow>See prices &amp; book on evchandigarh.com</Button>
-          <Button variant="wa" href={waHref} rel="noopener" arrow>Ask on WhatsApp</Button>
+          <Button variant="wa" href={waHref} target="_blank" rel="noopener" aria-label={t('cta.whatsappAria')} arrow>Ask on WhatsApp</Button>
         </div>
       </div>
     </div>

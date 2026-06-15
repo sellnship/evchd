@@ -4,20 +4,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Eyebrow from '../../components/Eyebrow.astro';
 import Button from '../../components/Button.astro';
 import { authors } from '../../data/types';
+import { whatsappHref, useTranslations } from '../../i18n';
 
 const pub = authors.publisher;
 const ph = (s?: string) => !s || /REPLACE/i.test(s);
+const t = useTranslations('hi');
 
-const waDigits = (pub.whatsapp || '').replace(/\D/g, '');
-const waHref =
-  waDigits.length >= 8
-    ? `https://wa.me/${waDigits}?text=${encodeURIComponent('नमस्ते EV Chandigarh — मेरा एक सवाल है।')}`
-    : 'https://evchandigarh.com';
+const waHref = whatsappHref('hi');
 const telHref = ph(pub.phone) ? null : `tel:${pub.phone.replace(/\s+/g, '')}`;
 
-const rows: { label: string; value?: string }[] = [
-  { label: 'WhatsApp', value: ph(pub.whatsapp) ? '—' : pub.phone },
-  { label: 'फ़ोन', value: ph(pub.phone) ? '—' : pub.phone },
+const rows: { label: string; value?: string; href?: string | null; newTab?: boolean }[] = [
+  { label: 'WhatsApp', value: ph(pub.whatsapp) ? '—' : pub.phone, href: waHref, newTab: true },
+  { label: 'फ़ोन', value: ph(pub.phone) ? '—' : pub.phone, href: telHref },
   { label: 'पता', value: ph(pub.address) ? '—' : pub.address },
   { label: 'समय', value: ph(pub.hours) ? '—' : pub.hours },
 ];
@@ -42,13 +40,15 @@ const rows: { label: string; value?: string }[] = [
       {rows.map((row) => (
         <div class="orginfo-row">
           <dt class="mono">{row.label}</dt>
-          <dd>{row.value}</dd>
+          <dd>{row.href && row.value !== '—'
+            ? <a href={row.href} target={row.newTab ? '_blank' : undefined} rel={row.newTab ? 'noopener' : undefined} aria-label={row.newTab ? t('cta.whatsappAria') : undefined}>{row.value}</a>
+            : row.value}</dd>
         </div>
       ))}
     </dl>
 
     <div class="cta-row" style="display:flex; gap:18px; flex-wrap:wrap; margin-top:32px;">
-      <Button variant="solid" href={waHref} rel="noopener" arrow>WhatsApp पर मैसेज करें</Button>
+      <Button variant="solid" href={waHref} target="_blank" rel="noopener" aria-label={t('cta.whatsappAria')} arrow>WhatsApp पर मैसेज करें</Button>
       {telHref && <Button variant="ghost" href={telHref}>कॉल करें {pub.phone}</Button>}
     </div>
   </section>

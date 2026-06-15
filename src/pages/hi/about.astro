@@ -4,18 +4,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Eyebrow from '../../components/Eyebrow.astro';
 import Divider from '../../components/Divider.astro';
 import { authors } from '../../data/types';
+import { whatsappHref, useTranslations } from '../../i18n';
 
 const pub = authors.publisher;
 const ph = (s?: string) => !s || /REPLACE/i.test(s);
 const show = (s?: string) => (ph(s) ? '—' : s);
+const t = useTranslations('hi');
+const waHref = whatsappHref('hi');
+const telHref = ph(pub.phone) ? null : `tel:${pub.phone.replace(/\s+/g, '')}`;
 
-const info: { label: string; value?: string }[] = [
+const info: { label: string; value?: string; href?: string | null; newTab?: boolean }[] = [
   { label: 'प्रकाशन', value: pub.name },
   { label: 'कंपनी', value: show(pub.legal_entity) },
   { label: 'पता', value: show(pub.address) },
   { label: 'समय', value: show(pub.hours) },
-  { label: 'फ़ोन', value: show(pub.phone) },
-  { label: 'WhatsApp', value: show(pub.whatsapp) },
+  { label: 'फ़ोन', value: show(pub.phone), href: telHref },
+  { label: 'WhatsApp', value: show(pub.whatsapp), href: waHref, newTab: true },
 ];
 ---
 <BaseLayout
@@ -45,7 +49,9 @@ const info: { label: string; value?: string }[] = [
       {info.map((row) => (
         <div class="orginfo-row">
           <dt class="mono">{row.label}</dt>
-          <dd>{row.value}</dd>
+          <dd>{row.href && row.value !== '—'
+            ? <a href={row.href} target={row.newTab ? '_blank' : undefined} rel={row.newTab ? 'noopener' : undefined} aria-label={row.newTab ? t('cta.whatsappAria') : undefined}>{row.value}</a>
+            : row.value}</dd>
         </div>
       ))}
     </dl>

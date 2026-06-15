@@ -4,22 +4,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Eyebrow from '../components/Eyebrow.astro';
 import Divider from '../components/Divider.astro';
 import { authors } from '../data/types';
+import { whatsappHref, useTranslations } from '../i18n';
 
 const site = 'https://evchandigarh.in';
 const pub = authors.publisher;
 const ph = (s?: string) => !s || /REPLACE/i.test(s);
 const show = (s?: string) => (ph(s) ? '—' : s);
+const t = useTranslations('en');
+const waHref = whatsappHref('en');
+const telHref = ph(pub.phone) ? null : `tel:${pub.phone.replace(/\s+/g, '')}`;
 
 // Show the "details are placeholders" note ONLY while a real placeholder remains.
 const hasPlaceholders = [pub.legal_entity, pub.address, pub.hours, pub.phone, pub.whatsapp].some(ph);
 
-const info: { label: string; value?: string }[] = [
+const info: { label: string; value?: string; href?: string | null; newTab?: boolean }[] = [
   { label: 'Publication', value: pub.name },
   { label: 'Legal entity', value: show(pub.legal_entity) },
   { label: 'Address', value: show(pub.address) },
   { label: 'Hours', value: show(pub.hours) },
-  { label: 'Phone', value: show(pub.phone) },
-  { label: 'WhatsApp', value: show(pub.whatsapp) },
+  { label: 'Phone', value: show(pub.phone), href: telHref },
+  { label: 'WhatsApp', value: show(pub.whatsapp), href: waHref, newTab: true },
 ];
 
 // Organization + WebSite JSON-LD — only emit fields that are real (not placeholders).
@@ -59,7 +63,9 @@ const jsonld = {
       {info.map((row) => (
         <div class="orginfo-row">
           <dt class="mono">{row.label}</dt>
-          <dd>{row.value}</dd>
+          <dd>{row.href && row.value !== '—'
+            ? <a href={row.href} target={row.newTab ? '_blank' : undefined} rel={row.newTab ? 'noopener' : undefined} aria-label={row.newTab ? t('cta.whatsappAria') : undefined}>{row.value}</a>
+            : row.value}</dd>
         </div>
       ))}
     </dl>
