@@ -8,6 +8,7 @@ import { getCollection } from 'astro:content';
 const entries = (await getCollection('news', ({ data }) => !data.draft && data.lang === 'hi')).sort(
   (a, b) => +b.data.datePublished - +a.data.datePublished,
 );
+const fmt = (d: Date) => d.toLocaleDateString('hi-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 ---
 <BaseLayout
   title="खबरें — EV Chandigarh"
@@ -23,7 +24,7 @@ const entries = (await getCollection('news', ({ data }) => !data.draft && data.l
     {entries.length > 0 ? (
       <div class="feat-grid">
         {entries.map((e) => (
-          <FeaturedCard href={`/hi/news/${e.id.replace(/^hi\//, '')}`} img={e.data.heroImage} alt={e.data.title} cat={e.data.category} title={e.data.title} desc={e.data.description} />
+          <FeaturedCard href={`/hi/news/${e.id.replace(/^hi\//, '')}`} img={e.data.heroImage} alt={e.data.title} cat={e.data.category} title={e.data.title} desc={e.data.description} date={fmt(e.data.datePublished)} datetime={e.data.datePublished.toISOString()} />
         ))}
       </div>
     ) : (
