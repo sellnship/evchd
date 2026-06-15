@@ -21,7 +21,7 @@ Most petrol-versus-EV comparisons you find online use national averages for fuel
 
 **Vehicle A:** A standard 100cc petrol scooter, the kind that dominates Tricity roads. Entry ex-showroom price is typically in the Rs 75,000–85,000 range (verify current pricing with dealers; petrol scooter prices are not within the data this article is based on, so treat that band as a reference point only and confirm locally).
 
-**Vehicle B:** A low-speed electric scooter — specifically the class of vehicles with a top speed of 25 km/h or less and a motor of 250 W or less (continuous rated). Models like the Zelio Gracy i (from approximately Rs 56,825) or the Zelio X-Men+ (from approximately Rs 64,734) fall into this class. Prices cited here are approximate ex-showroom figures for the Haryana/Punjab region, entry variants; verify final on-road pricing before purchase.
+**Vehicle B:** A low-speed electric scooter — specifically the class of vehicles with a top speed of 25 km/h or less and a motor of 250 W or less (continuous rated). For a commuter comparison this is the everyday step-through class: a typical price band of around Rs 45,000–60,000, with examples across brands including the Hero Electric Flash LX, Deltic Costa and Zelio Gracy i. Prices here are indicative bands, not exact ex-showroom figures, and the brands are named only as examples of the class; verify final on-road pricing locally before purchase.
 
 These two categories serve the same use case: short daily urban trips of 20–40 km, grocery runs, school drops, college commutes.
 
@@ -80,7 +80,7 @@ A BLDC hub-motor electric scooter has far fewer moving parts. There is no engine
 
 | Cost head | Petrol scooter | Low-speed EV |
 |---|---|---|
-| Ex-showroom price | Rs 75,000–85,000 (approx, verify locally) | Rs 56,825–76,999 (depending on model/variant) |
+| Ex-showroom price | Rs 75,000–85,000 (approx, verify locally) | Rs 45,000–60,000 (everyday class band; varies by variant) |
 | RTO registration + road tax | Rs 5,000–10,000+ (approx, verify with RTO) | Rs 0 (CMVR-exempt) |
 | Mandatory insurance | Required | Not legally mandated (confirm with RTO; voluntary cover recommended) |
 | Fuel / electricity (7,500 km/yr) | Rs 14,000–15,000 (approx, verify at pump) | \~Rs 1,275 (at ₹0.17/km, \~₹5/unit all-in) |
@@ -94,7 +94,7 @@ A BLDC hub-motor electric scooter has far fewer moving parts. There is no engine
 
 A few things that honest comparison requires acknowledging:
 
-- **Range.** A 100cc petrol scooter's range between fill-ups far exceeds most low-speed EV models. If your daily trip is reliably under 60–80 km, this is not a practical constraint. If you occasionally need longer range, it is. Check the specific model's rated range (the Zelio Gracy i is rated at 80–90 km; the X-Men+ at up to 120 km rated range) and verify those figures against real-world riding in Chandigarh's stop-start traffic.
+- **Range.** A 100cc petrol scooter's range between fill-ups far exceeds most low-speed EV models. If your daily trip is reliably under 60–80 km, this is not a practical constraint. If you occasionally need longer range, it is. Check the specific model's rated range (the everyday step-through class is rated around 70–85 km; longer-range / work models go higher) and verify those figures against real-world riding in Chandigarh's stop-start traffic.
 
 - **Top speed.** The 25 km/h cap is a regulatory fact, not a marketing choice. On Chandigarh's sector roads and colony lanes this is workable. On highways and arterial roads it is not. Know your route before deciding.
 

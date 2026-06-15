@@ -14,7 +14,7 @@ draft: false
 
 ## The honest answer: genuine sub-Rs 40,000 electric scooters are difficult to find
 
-If you are looking at electric scooters in Chandigarh, Mohali, or Panchkula and your budget is under Rs 40,000, the first thing to know is this: the verified entry price for even the most affordable low-speed scooter in the category is Rs 45,633 — that is the Zelio Little Gracy, ex-showroom. A genuine sub-Rs 40,000 electric scooter from a credible brand is, at the time of writing, essentially not available in this market. What you may find below that price point are either very small toy-grade machines, unverified imports, or deals that do not hold up on closer inspection. It is worth understanding why that gap matters before you spend your money.
+If you are looking at electric scooters in Chandigarh, Mohali, or Panchkula and your budget is under Rs 40,000, the first thing to know is this: the **entry-commuter class** of licence-free scooters typically runs a price band of around **Rs 35,000–45,000**, and a credible, CMVR-compliant model from a brand with a real service network generally sits in the upper part of that band — roughly Rs 40,000 and above. A genuine, brand-backed electric scooter priced well below that is, at the time of writing, essentially not available in this market. What you may find lower down are either very small toy-grade machines, unverified imports, or deals that do not hold up on closer inspection. It is worth understanding why that gap matters before you spend your money.
 
 ---
 
@@ -28,18 +28,14 @@ The practical effect of this exemption is that a qualifying low-speed scooter co
 
 ## Where prices actually start
 
-The verified entry points among low-speed scooters from Zelio E-Mobility — one of the more established brands in this segment with over 350 authorised service centres across India — look like this:
+Licence-free scooters fall into a few spec classes. The one relevant to a tight budget is the **entry commuter**, with the **everyday step-through** the next step up:
 
-- **Zelio Little Gracy** — from Rs 45,633 (approx ex-showroom Haryana/Punjab, lead-acid variant)
-- **Zelio Gracy i** — from Rs 56,825 (lithium-ion)
-- **Zelio Gracy (2026 facelift)** — Rs 59,999 to Rs 76,999 depending on battery
-- **Zelio Logix** — from Rs 61,584
-- **Zelio EEVA** — from Rs 62,117
-- **Zelio X-Men+** — from Rs 64,734
+- **Entry commuter** — typical price band **Rs 35,000–45,000**, around 60–70 km real range, a compact step-through on lead-acid or entry lithium. Examples across brands: Komaki X-One, Kinetic Green Zing, Zelio Little Gracy.
+- **Everyday step-through** — typical price band **Rs 45,000–60,000**, around 70–85 km on lithium, with fuller moped ergonomics. Examples across brands: Hero Electric Flash LX, Deltic Costa, Zelio Gracy i.
 
-These are approximate ex-showroom figures for the Haryana and Punjab region, sourced from official Zelio listings verified in June 2026. Prices vary by battery variant, by state, and over time — always confirm current pricing locally before deciding.
+These are indicative bands, not exact ex-showroom figures — they vary by battery variant (lead-acid vs lithium), by state, and over time, and not every model is stocked at every dealer. The brands are named only as examples of each class. Confirm current pricing, the real range, and the ≤250W motor rating locally before deciding.
 
-There is no model in this verified data set priced under Rs 40,000. If a seller is quoting you a figure in the Rs 30,000 to Rs 38,000 range for what they describe as a legitimate electric scooter from a known brand, ask for the invoice. The numbers may not hold up.
+The practical takeaway: credible entry-commuter scooters cluster in the upper half of that first band, around Rs 40,000 and up. If a seller is quoting you a figure in the Rs 30,000 to Rs 38,000 range for what they describe as a legitimate electric scooter from a known brand, ask for the invoice and the spec sheet — the numbers, and the CMVR compliance, may not hold up.
 
 ---
 
@@ -97,7 +93,7 @@ A Rs 32,000 or Rs 35,000 scooter from an unknown brand with no local service poi
 - Resale value is effectively zero
 - A breakdown in Mohali Industrial Area or on the Panchkula Kalka road without a service centre nearby is a practical problem with a financial cost
 
-The Little Gracy at Rs 45,633 is not glamorous, but it comes from a brand with a verifiable service network, a stated warranty (2 years on motor, controller, and frame on select models), and a clear spec sheet you can cross-check with the CMVR exemption criteria.
+A credible entry-commuter scooter in the Rs 40,000–45,000 range is not glamorous, but it comes from a brand with a verifiable service network, a stated warranty (typically around 2 years on motor, controller, and frame on select models), and a clear spec sheet you can cross-check with the CMVR exemption criteria.
 
 ---
 

@@ -30,7 +30,7 @@ Low-speed scooter मतलब वो scooter जिसकी top speed 25 km/h 
 
 Lead-acid (या gel) battery पुरानी और जानी-पहचानी technology है। इसका सबसे बड़ा फ़ायदा एक ही है — **upfront cost कम।**
 
-Zelio जैसे low-speed scooter models में lead-acid variant आमतौर पर ₹15,000–17,000 सस्ता पड़ता है lithium की तुलना में। मसलन, Zelio Gracy (2026) का lead-acid वाला version ₹59,999 से शुरू होता है और lithium-ion वाला ₹76,999 तक जाता है।
+Low-speed scooters में एक ही model का lead-acid variant आमतौर पर lithium के मुक़ाबले करीब **₹10,000–20,000 सस्ता** पड़ता है (mid-range frame पर करीब ₹15,000–17,000)। यह gap model, voltage और Ah rating के हिसाब से बदलता है — अपने चुने हुए model का exact figure dealer से confirm करें।
 
 लेकिन इसके साथ कुछ बातें जाननी ज़रूरी हैं:
 
@@ -52,7 +52,7 @@ Lithium-ion battery नई technology है। upfront cost ज़्याद�
 - **Range ज़्यादा होती है।** कई lithium वाले low-speed models 80 से लेकर 120 km तक range देते हैं एक charge पर।
 - **Battery की life लंबी होती है।** लंबे समय में replacement cost कम।
 
-Zelio X-Men+ जैसे models में lithium और lead-acid दोनों options होते हैं — lithium में charge time 4–5 घंटे, lead-acid में 8–10 घंटे।
+कई low-speed models में lithium और lead-acid दोनों options होते हैं — lithium में charge time 4–5 घंटे, lead-acid में 8–10 घंटे।
 
 **किसके लिए सही है:** अगर रोज़ का सफ़र 60 km से ज़्यादा है — जैसे delivery work, Mohali से Chandigarh आना-जाना, या लंबा commute — तो lithium का चुनाव समझदारी है।
 
@@ -128,4 +128,4 @@ Low-speed scooter का असली फ़ायदा है **avoided cost:*
 - **PSPCL (Punjab State Power Corporation Ltd)** — Mohali domestic tariff \~₹5.40/unit
 - **UHBVN (Uttar Haryana Bijli Vitran Nigam)** — Panchkula tariff reference
 - **PM E-DRIVE portal (pmedrive.heavyindustries.gov.in)** — subsidy eligibility; June 2026
-- **Zelio E-Mobility official site (zelioebikes.com)** — model specs, battery options, range figures; verified June 2026
+- **Manufacturer sites** (Komaki, Hero Electric, Deltic, Kinetic Green, Zelio आदि) — model specs, battery options, range figures; verified June 2026

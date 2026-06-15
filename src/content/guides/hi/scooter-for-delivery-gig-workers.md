@@ -103,7 +103,7 @@ Delivery और gig काम में brand से कहीं ज़्य�
 - **Payload और pulling power।** आपके load के लिए काफ़ी rated payload, और Panchkula के बाहरी sectors की चढ़ाई के लिए इतनी ताक़त कि range न गिरे।
 - **Lead-acid नहीं, lithium** — रोज़ 50 km से ज़्यादा के लिए: हल्की, ज़्यादा टिकाऊ और तेज़ charge।
 
-यही **long-range / work class** है: करीब 90–110 km असली range और ₹60,000–95,000 का typical price band। कई brands इस class में बनाते हैं — जैसे **Deltic Legion**, **Komaki XGT** और **Zelio Logix** इसी में आते हैं। इन्हें class का उदाहरण समझें, ranking नहीं: फ़ैसले से पहले exact variant, load के साथ range और local ex-showroom price confirm करें, और देख लें कि motor ≤250W rated हो ताकि model licence-free रहे।
+यही **long-range / work class** है: करीब 90–110 km असली range और ₹60,000–95,000 का typical price band। कई brands इस class में बनाते हैं — जैसे **Deltic Legion**, **Komaki XGT VP** और **Zelio Logix** इसी में आते हैं। इन्हें class का उदाहरण समझें, ranking नहीं: फ़ैसले से पहले exact variant, load के साथ range और local ex-showroom price confirm करें, और देख लें कि motor ≤250W rated हो ताकि model licence-free रहे।
 
 एक हल्का **everyday step-through** (70–85 km, ₹45,000–60,000 — जैसे **Hero Electric Flash LX**, **Deltic Costa** या **Zelio Gracy i**) तब भी चल सकता है अगर आपका daily distance भरोसे से 60–70 km के अंदर रहता है। उससे कम पर entry commuter काफ़ी है; रोज़ 90 km से ऊपर हो तो long-range class में ही रहें।
 

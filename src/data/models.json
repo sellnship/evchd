@@ -2,7 +2,7 @@
   "_meta": {
     "purpose": "Brand-neutral spec-class reference for licence-free (<=25km/h, <=250W, non-RC) EVs in the Tricity market.",
     "rule": "Compare by CLASS and SPEC. List >=3 brands per class. Prices are BANDS, never exact ex-showroom. Zelio appears only as one representative among others.",
-    "verify_before_publish": "Confirm each non-Zelio representative is actually a low-speed (<=25km/h, <=250W, non-RC) variant before publishing — some brands sell same-name models in both low- and high-speed trims. Komaki XGT in particular needs its low-speed variant confirmed."
+    "verify_before_publish": "Confirm each non-Zelio representative is actually a low-speed (<=25km/h, <=250W, non-RC) variant before publishing — some brands sell same-name models in both low- and high-speed trims. The Komaki entry here is the 'XGT VP' specifically, as bare 'XGT'/'XGT KM' trims appear in registered/high-speed form in several sources; confirm the VP variant locally before relying on it."
   },
   "classes": [
     {
@@ -37,7 +37,7 @@
       "tradeoff": "Highest range and load capability in-class; removable battery eases charging; top variants approach registered-scooter prices.",
       "representative_models": [
         { "brand": "Deltic", "model": "Legion" },
-        { "brand": "Komaki", "model": "XGT" },
+        { "brand": "Komaki", "model": "XGT VP" },
         { "brand": "Zelio", "model": "Logix" }
       ]
     }

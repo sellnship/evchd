@@ -60,21 +60,13 @@ The value of a low-speed scooter lies entirely in avoided cost: no registration 
 
 ## What models look like in this class
 
-Among low-speed scooters currently available, the Zelio range gives a reasonable picture of what the category offers. Prices below are approximate ex-showroom (Haryana/Punjab) for the entry lead-acid variant, and should be verified with your local dealer before purchase, as they vary by battery type, state and over time.
+For a homemaker or a senior doing local errands, two spec classes cover almost every need — so shop by class and spec, not by brand. The figures below are typical price bands; confirm the exact price, battery variant and real range with your local dealer, as they vary by variant, state and over time. The brands named are examples of each class, not recommendations.
 
-- **Zelio Little Gracy** — from approximately Rs 45,600. Marketed as the most affordable and lightest model in the range, with a low seat height and fully gearless operation. Rated range around 60 km. Suited to first-time riders and senior citizens doing 15 to 20 km a day.
+- **Entry commuter** — around **₹35,000–45,000**, roughly **60–70 km** real range, in a light compact step-through with a low seat height and fully gearless operation. Best for short daily trips of 15 to 20 km, and for first-time or older riders. Examples across brands: Komaki X-One, Kinetic Green Zing, Zelio Little Gracy.
 
-- **Zelio Gracy i** — from approximately Rs 56,800. Lithium-ion battery, rated range 80 to 90 km, USB charging port and anti-theft alarm. Charges on a home socket overnight.
+- **Everyday step-through** — around **₹45,000–60,000**, roughly **70–85 km** on a lithium battery, with fuller moped ergonomics and a more comfortable ride. Best if your daily distance is a little longer, or you carry groceries and tiffin boxes. Examples across brands: Hero Electric Flash LX, Deltic Costa, Zelio Gracy i.
 
-- **Zelio Gracy (2026 facelift)** — from approximately Rs 60,000 to Rs 77,000 depending on battery variant (60V/32AH lead-acid to 72V/32AH lithium-ion). Launched April 2026. Seven colour options.
-
-- **Zelio X-Men+** — from approximately Rs 64,700. Lithium-ion or lead-acid options, rated range around 120 km, larger rear wheel and revised suspension.
-
-- **Zelio Logix** — from approximately Rs 61,600. Built with cargo use in mind; useful for a homemaker who also carries groceries or tiffin boxes.
-
-The Gracy Pro, Legender, Legender+ Premium and X-Men base model are also part of the Zelio low-speed range, but their prices and full specifications should be confirmed directly with the dealer, as they were not finalised at the time of writing.
-
-All models in this class share the 250W BLDC hub motor and 25 km/h top speed that qualify them for the CMVR exemption. Zelio lists over 350 authorised service centres across India; confirm which centre covers your area before purchasing.
+All models in this class share the ≤250W BLDC hub motor and ≤25 km/h top speed that qualify them for the CMVR exemption — ask for the motor wattage in writing so the model stays licence-free. A well-established brand will have an authorised service network; confirm there is a centre covering your area before purchasing.
 
 **Battery choice matters.** Lead-acid variants cost less upfront but are heavier and take 7 to 12 hours to charge. Lithium-ion variants are lighter, charge in 4 to 5 hours, and last significantly longer. For daily distances above roughly 60 km, the lithium-ion variant is the sensible choice.
 

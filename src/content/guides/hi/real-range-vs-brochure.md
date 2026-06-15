@@ -75,8 +75,8 @@ Traffic में बार-बार रुकना और फिर तेज
 |---|---|---|
 | Zelio Little Gracy | 60 km | 45-55 km |
 | Zelio Gracy i (lithium) | 80-90 km | 65-75 km |
-| Zelio Gracy 2026 (lead-acid, ₹59,999 से) | 60 km | 45-52 km |
-| Zelio Gracy 2026 (lithium, ₹76,999 तक) | 120 km | 90-105 km |
+| Zelio Gracy 2026 (lead-acid variant) | 60 km | 45-52 km |
+| Zelio Gracy 2026 (lithium variant) | 120 km | 90-105 km |
 | Zelio X-Men+ (120 km rated) | 120 km | 90-105 km |
 | Zelio Logix (delivery use) | 60-140 km (variant पर) | entry variant \~45-55 km; top lithium variant \~110-125 km |
 

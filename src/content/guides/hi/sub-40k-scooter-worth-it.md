@@ -12,7 +12,7 @@ tags: ["Buying Guide", "low-speed", "Tricity"]
 draft: false
 ---
 
-सच बात करें तो: "₹40,000 से कम में इलेक्ट्रिक स्कूटर" — यह headline बहुत जगह दिखती है, पर ground reality थोड़ी अलग है। Zelio जैसे brands की verified pricing के हिसाब से, इस segment में entry-level model का on-road price ₹45,633 से शुरू होता है। यानी sub-₹40k सच में मुश्किल है। तो क्या यह budget range बिल्कुल बेकार है? नहीं — पर honest जवाब जानना ज़रूरी है। आइए सीधे बात करते हैं।
+सच बात करें तो: "₹40,000 से कम में इलेक्ट्रिक स्कूटर" — यह headline बहुत जगह दिखती है, पर ground reality थोड़ी अलग है। licence-free **entry-commuter class** का typical price band करीब **₹35,000–45,000** है, और किसी भरोसेमंद brand का, service network वाला CMVR-compliant model आमतौर पर इस band के ऊपरी हिस्से में — यानी करीब ₹40,000 और उससे ऊपर — आता है। इससे काफ़ी नीचे कोई reliable, brand-backed scooter फ़िलहाल मिलता नहीं। तो क्या यह budget range बिल्कुल बेकार है? नहीं — पर honest जवाब जानना ज़रूरी है। आइए सीधे बात करते हैं।
 
 ---
 
@@ -20,9 +20,9 @@ draft: false
 
 बहुत सी websites "₹35,000 में electric scooter" लिखती हैं। पर जब आप showroom जाते हैं, तो कुछ और ही सुनने को मिलता है।
 
-Zelio E-Mobility की verified June 2026 pricing के मुताबिक, इनका सबसे सस्ता low-speed model — **Zelio Little Gracy** — **₹45,633 से शुरू** होता है। यह entry-level है, lead-acid battery के साथ।
+licence-free entry-commuter class का typical price band करीब **₹35,000–45,000** है। पर एक भरोसेमंद, brand-backed model — जिसका service network और clear spec sheet हो — आमतौर पर इस band के ऊपरी हिस्से में, करीब **₹40,000 और उससे ऊपर** मिलता है। Examples (across brands): Komaki X-One · Kinetic Green Zing · Zelio Little Gracy — ये class के उदाहरण हैं, recommendation नहीं।
 
-यानी technically sub-₹40,000 में कोई reliable, brand-backed low-speed electric scooter नहीं मिलता। जो मिलता है वो या तो:
+यानी technically sub-₹40,000 में कोई reliable, brand-backed low-speed electric scooter मुश्किल से मिलता है। जो मिलता है वो या तो:
 - बहुत छोटी, unknown brand का होता है जिसका service network नहीं
 - या फिर वो price ex-factory होती है, on-road नहीं
 
@@ -80,7 +80,7 @@ Mohali (PSPCL, Punjab) और Panchkula (Haryana, UHBVN) में rate थो�
 
 ### Battery: Lead-acid vs Lithium-ion
 
-Entry-level models (जैसे Little Gracy ₹45,633) में lead-acid या gel battery होती है।
+Entry-commuter class के सस्ते models में आमतौर पर lead-acid या gel battery होती है।
 
 | बात | Lead-acid | Lithium-ion |
 |---|---|---|

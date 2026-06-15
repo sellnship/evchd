@@ -24,11 +24,11 @@ Low-speed scooters in the class covered here — those at 25 km/h or below with 
 
 **Lead-acid (including sealed gel variants)**
 
-Lead-acid packs are heavier and require longer charging times — around 7 to 12 hours for a full charge. Their principal advantage is a lower upfront cost, which is why entry-level variants of models such as the Zelio Gracy 2026 (the 60V/32AH lead-acid version, starting around Rs 59,999) are priced below their lithium counterparts. However, the useful life of a lead-acid battery in daily two-wheeler use is shorter. As a general guidance across the industry, expect a lead-acid pack to last roughly 1.5 to 2 years under regular daily use, or approximately 300 to 500 charge cycles, before capacity drops enough to affect range meaningfully. You should confirm the specific warranty and expected cycle count for any model you are considering directly with the dealer, as these figures vary by pack size and manufacturer.
+Lead-acid packs are heavier and require longer charging times — around 7 to 12 hours for a full charge. Their principal advantage is a lower upfront cost: on the same model, the lead-acid variant is typically priced below its lithium counterpart. However, the useful life of a lead-acid battery in daily two-wheeler use is shorter. As a general guidance across the industry, expect a lead-acid pack to last roughly 1.5 to 2 years under regular daily use, or approximately 300 to 500 charge cycles, before capacity drops enough to affect range meaningfully. You should confirm the specific warranty and expected cycle count for any model you are considering directly with the dealer, as these figures vary by pack size and manufacturer.
 
 **Lithium-ion**
 
-Lithium-ion packs charge faster — around 4 to 5 hours — and are significantly lighter, which helps handling on a low-speed scooter. More importantly for ownership costs, lithium batteries last considerably longer. Industry guidance for lithium packs in this class places useful life at roughly 3 to 5 years of daily use, or around 1,000 to 1,500 charge cycles, before meaningful range degradation sets in. Models such as the Zelio Gracy i (lithium, from around Rs 56,825) and the X-Men+ (lithium option, from around Rs 64,734) carry this chemistry at a higher entry price. The Gracy 2026's top variant — the 72V/32AH lithium-ion — is listed at around Rs 76,999, giving a rough sense of what the lithium premium looks like at the point of purchase.
+Lithium-ion packs charge faster — around 4 to 5 hours — and are significantly lighter, which helps handling on a low-speed scooter. More importantly for ownership costs, lithium batteries last considerably longer. Industry guidance for lithium packs in this class places useful life at roughly 3 to 5 years of daily use, or around 1,000 to 1,500 charge cycles, before meaningful range degradation sets in. Lithium carries a higher entry price: on the same frame, the lithium variant typically costs roughly Rs 10,000 to Rs 17,000 more than the lead-acid version, which gives a rough sense of what the lithium premium looks like at the point of purchase.
 
 The trade-off is straightforward: lead-acid costs less to buy but will need replacing sooner and more often. Lithium costs more upfront but stretches the replacement interval significantly.
 
@@ -55,7 +55,7 @@ This is where the data layer runs thin, and honesty requires saying so clearly. 
 
 **Lead-acid replacement packs**
 
-For the 60V or 72V lead-acid packs used in scooters in this class, indicative market prices for a replacement pack (supply and fitment) typically fall somewhere in the range of Rs 8,000 to Rs 15,000, depending on the voltage and Ah rating. A 72V/42Ah gel pack, as used in variants of the Zelio EEVA, will sit toward the higher end of that range. Confirm exact prices with your authorised Zelio service centre before budgeting.
+For the 60V or 72V lead-acid packs used in scooters in this class, indicative market prices for a replacement pack (supply and fitment) typically fall somewhere in the range of Rs 8,000 to Rs 15,000, depending on the voltage and Ah rating. A larger 72V/42Ah gel pack will sit toward the higher end of that range. Confirm exact prices with your authorised service centre before budgeting.
 
 **Lithium-ion replacement packs**
 

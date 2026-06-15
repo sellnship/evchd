@@ -30,7 +30,7 @@ So both variants run cheap. The question is which one costs less over the life o
 
 ## The upfront gap
 
-Taking the Zelio Gracy 2026 as a concrete reference point, the entry lead-acid variant (60V/32AH) starts at around Rs 59,999, while the top lithium-ion variant (72V/32AH) is listed at around Rs 76,999 — a gap of approximately Rs 17,000 ex-showroom. On other models the gap varies, but a Rs 10,000–20,000 difference between the two battery options on the same frame is a reasonable working assumption. You should confirm exact figures for whichever model you are considering, as prices vary by state and change over time.
+On a low-speed scooter, the lithium-ion variant of the same model typically costs roughly Rs 10,000–20,000 more than the lead-acid version ex-showroom — call it about Rs 15,000–17,000 on a mid-range frame. The exact gap varies by model, voltage and Ah rating, so confirm the figures for whichever model you are considering, as prices vary by state and change over time.
 
 One point worth noting: because low-speed scooters are CMVR-exempt, the on-road price equals the ex-showroom price. There is no RTO registration fee, no road tax, and no insurance premium that you are required to add. That saves Rs 1,500–3,000 compared with a registered vehicle, and it applies to both variants equally.
 
@@ -72,7 +72,7 @@ The table below uses approximate figures for illustration. Verify current prices
 
 | | Lead-acid variant | Lithium-ion variant |
 |---|---|---|
-| Approximate ex-showroom price (Gracy 2026 as reference) | Rs 59,999 | Rs 76,999 |
+| Upfront price (same model) | Lower | Roughly Rs 10,000–20,000 more |
 | Registration / road tax / insurance (mandatory) | Nil — CMVR exempt | Nil — CMVR exempt |
 | Approximate charge cost per km | Rs 0.17 | Rs 0.17 |
 | Typical battery life | 300–500 cycles | 1,000+ cycles |
@@ -80,7 +80,7 @@ The table below uses approximate figures for illustration. Verify current prices
 | Charge time | 7–12 hours | 4–5 hours |
 | Weight penalty | Higher | Lower |
 
-The lead-acid variant costs roughly Rs 17,000 less upfront. But one lead-acid replacement pack over the ownership period is likely to close much or all of that gap, and possibly exceed it. The lithium variant, if it avoids that replacement cost, ends up cheaper in total — while also being lighter and faster to charge throughout.
+The lead-acid variant costs roughly Rs 10,000–20,000 less upfront. But one lead-acid replacement pack over the ownership period is likely to close much or all of that gap, and possibly exceed it. The lithium variant, if it avoids that replacement cost, ends up cheaper in total — while also being lighter and faster to charge throughout.
 
 This is not a guarantee. It depends on how you charge (shallow cycles are gentler on both battery types), whether you store the scooter over long periods with a depleted pack, and on the replacement cost of packs at the time you need them. The principle, however, is sound: the sticker price is not the whole cost.
 

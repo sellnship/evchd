@@ -35,7 +35,7 @@ Lead-acid battery की life आमतौर पर **1.5 से 3 साल** 
 
 - Lead-acid battery को **पूरा discharge** नहीं करना चाहिए। अगर बार-बार एकदम खाली होने दिया, तो जल्दी खराब होती है।
 - Charging 7 से 12 घंटे तक लगती है — रात को लगाओ, सुबह full।
-- Zelio जैसे low-speed models की जानकारी के मुताबिक entry-level variants में यही battery आती है।
+- Low-speed models के entry-level variants में आमतौर पर यही battery आती है।
 
 ---
 
@@ -72,7 +72,7 @@ Battery बदलने का टाइम तब आता है जब:
 - **Lead-acid replacement** — Lead-acid battery आमतौर पर lithium से सस्ती होती है। 60V या 72V lead-acid का set बदलवाना lithium के मुकाबले कम खर्चीला पड़ता है।
 - **Lithium-ion replacement** — ज़्यादा टिकाऊ है, इसलिए replacement की नौबत कम आती है, लेकिन जब आती है तो कीमत lead-acid से ज़्यादा होती है।
 
-> **हमारी सलाह:** अभी अपने **Chandigarh, Mohali, या Panchkula के नज़दीकी authorised dealer** से जाकर पूछें — "मेरे model की replacement battery का kharcha कितना होगा?" Zelio के 350+ authorised service centres पूरे India में हैं। **Exact figure dealer से confirm करना सही रहेगा** — online लिखा कोई भी number outdated हो सकता है।
+> **हमारी सलाह:** अभी अपने **Chandigarh, Mohali, या Panchkula के नज़दीकी authorised dealer** से जाकर पूछें — "मेरे model की replacement battery का kharcha कितना होगा?" किसी established brand के authorised service centres India भर में होते हैं। **Exact figure dealer से confirm करना सही रहेगा** — online लिखा कोई भी number outdated हो सकता है।
 
 ---
 
@@ -136,5 +136,5 @@ Low-speed scooter का असली फ़ायदा है — **no licence
 - **JERC (Joint Electricity Regulatory Commission) / Chandigarh Power Distribution Ltd** — five-year tariff order FY 2025-26 to 2029-30, effective 1 November 2025; The Tribune, Oct/Nov 2025
 - **PSPCL (Punjab State Power Corporation Ltd)** — Mohali domestic tariff, \~₹5.40/unit for first 300 units
 - **PM E-DRIVE portal, Ministry of Heavy Industries** — eligibility and coverage details; June 2026
-- **Zelio E-Mobility official (zelioebikes.com) + trade listings** — battery options, charging specs, service network; verified June 2026
+- **Manufacturer sites** (Komaki, Hero Electric, Deltic, Kinetic Green, Zelio आदि) + trade listings — battery options, charging specs, service network; verified June 2026
 - **EV Chandigarh verified charging cost calculation** — ₹0.17/km basis, June 2026

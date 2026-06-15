@@ -29,7 +29,7 @@ Central Motor Vehicles Rules (CMVR) के मुताबिक, एक स्�
 
 दुकानदार कभी-कभी सिर्फ़ speed बताते हैं, motor wattage नहीं। **खरीदने से पहले technical sheet माँगो — motor की continuous rated power देखो।** अगर वो नहीं बता पा रहे, तो समझो कुछ गड़बड़ है।
 
-Zelio Gracy जैसे low-speed models में 250W BLDC hub motor होता है और top speed 25 km/h — यानी CMVR की दोनों शर्तें पूरी। लेकिन हर brand हर model में यह guarantee नहीं होती।
+एक compliant low-speed model में 250W BLDC hub motor होता है और top speed 25 km/h — यानी CMVR की दोनों शर्तें पूरी। लेकिन हर brand हर model में यह guarantee नहीं होती — अपने model का spec sheet ज़रूर check करें।
 
 **Tricity का फ़र्क:** Chandigarh (Union Territory), Mohali (Punjab), और Panchkula (Haryana) — तीनों में CMVR के rules एक जैसे लागू होते हैं। लेकिन ज़मीनी enforcement थोड़ी अलग हो सकती है। अपने नज़दीकी RTO से एक बार पक्का कर लें।
 
@@ -44,7 +44,7 @@ Low-speed स्कूटरों में आमतौर पर दो त�
 
 अगर आप रोज़ 40-50 km से ज़्यादा चलाते हैं — जैसे delivery rider हैं, या office दूर है — तो lithium-ion सही रहेगी। रोज़ 15-20 km के लिए lead-acid भी ठीक है।
 
-Zelio की models.json के मुताबिक, Zelio Gracy (2026) में entry-level lead-acid variant ₹59,999 से शुरू होती है और top lithium-ion variant ₹76,999 तक जाती है। दोनों में range 60 km से 120 km तक जाती है — battery type पर depend करती है।
+एक ही model में lead-acid variant lithium के मुक़ाबले आमतौर पर करीब ₹10,000–20,000 सस्ता पड़ता है, और range battery type पर काफ़ी बदलती है — lead-acid पर कम, lithium पर ज़्यादा।
 
 **गलती:** सिर्फ़ "range 120 km है" सुनकर खुश हो जाना। पूछो — **किस battery पर? Lead-acid पर या lithium पर?** दोनों पर range बहुत अलग हो सकती है।
 
@@ -52,7 +52,7 @@ Zelio की models.json के मुताबिक, Zelio Gracy (2026) मे
 
 ## गलती नंबर 3 — warranty का मतलब न समझना
 
-Zelio जैसे brands कुछ models पर 2 साल की warranty देते हैं — motor, controller, और frame पर। लेकिन खरीदने से पहले यह ज़रूर पूछें:
+कई brands कुछ models पर 2 साल की warranty देते हैं — motor, controller, और frame पर। लेकिन खरीदने से पहले यह ज़रूर पूछें:
 
 - Battery पर warranty कितने साल की है?
 - क्या warranty unlimited km पर है या km limit है?
@@ -66,7 +66,7 @@ Battery replacement सबसे बड़ा खर्च है। Lead-acid b
 
 स्कूटर लेने के बाद अगर service के लिए 30-40 km दूर जाना पड़े, तो वो सस्ता सौदा महँगा पड़ जाता है।
 
-Zelio का India-wide 350+ authorised service centres का network है। लेकिन **आपके घर के पास — Chandigarh Sector में, Mohali Phase में, या Panchkula sector में — कौन सा centre है, यह खरीदने से पहले check करें।**
+किसी established brand का India-wide authorised service network होता है — कुछ brands कई सौ centres listing करते हैं। लेकिन **आपके घर के पास — Chandigarh Sector में, Mohali Phase में, या Panchkula sector में — कौन सा centre है, यह खरीदने से पहले check करें।**
 
 कैसे? Brand की website पर service centre locator होता है। या dealer से address लेकर एक बार खुद जाकर देखें — जगह real है या नहीं।
 
@@ -113,14 +113,14 @@ Mohali (PSPCL) और Panchkula (Haryana) में rate थोड़ा ज़�
 
 सभी low-speed models एक जैसे नहीं होते।
 
-| ज़रूरत | सही model |
-|---|---|
-| Student, कम budget, 15-20 km daily | Zelio Little Gracy (₹45,633 से) |
-| रोज़ का commute, all-round use | Zelio Gracy i (₹56,825 से) |
-| Delivery / business, 40-50 km daily | Zelio Logix (₹61,584 से) |
-| थोड़ा style चाहिए, ज़्यादा range | Zelio X-Men+ (₹64,734 से) |
+| ज़रूरत | सही spec class (price band) | Examples (across brands) |
+|---|---|---|
+| Student, कम budget, 15-20 km daily | Entry commuter (₹35,000–45,000) | Komaki X-One · Kinetic Green Zing · Zelio Little Gracy |
+| रोज़ का commute, all-round use | Everyday step-through (₹45,000–60,000) | Hero Electric Flash LX · Deltic Costa · Zelio Gracy i |
+| Delivery / business, 40-50 km daily | Long-range / work (₹60,000–95,000) | Deltic Legion · Komaki XGT VP · Zelio Logix |
+| थोड़ी ज़्यादा range / comfort | Everyday या long-range class | battery type और असली range देखकर चुनें |
 
-*नोट: ये approximate ex-showroom prices हैं — Zelio की official website और अपने local dealer से final price confirm करें। Prices और availability बदल सकती है।*
+*नोट: ये class price bands हैं, exact ex-showroom prices नहीं — brand सिर्फ़ class के उदाहरण हैं, recommendation नहीं। Final price, variant और spec अपने local dealer से confirm करें।*
 
 ---
 
@@ -150,5 +150,5 @@ Mohali (PSPCL) और Panchkula (Haryana) में rate थोड़ा ज़�
 - **Joint Electricity Regulatory Commission (JERC) / Chandigarh Power Distribution Ltd** — JERC five-year tariff order (FY 2025-26 to 2029-30), effective 1 November 2025; The Tribune, Oct/Nov 2025
 - **PSPCL (Punjab)** — Mohali domestic tariff \~₹5.40/unit
 - **PM E-DRIVE portal (pmedrive.heavyindustries.gov.in)** + trade press — scheme eligibility, incentive structure, deadline; June 2026
-- **Zelio E-Mobility official (zelioebikes.com)** + trade listings — model specs, prices, range; verified June 2026
-- **EV India guidance + Zelio official** — charging cost and per-km running cost calculation; June 2026
+- **Manufacturer sites** (Komaki, Hero Electric, Deltic, Kinetic Green, Zelio आदि) + trade listings — model specs, indicative price/range bands; verified June 2026
+- **EV India guidance + manufacturer data** — charging cost and per-km running cost calculation; June 2026

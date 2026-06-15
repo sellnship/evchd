@@ -85,34 +85,23 @@ JERC के tariff order (FY 2025-26 से 2029-30) के हिसाब स�
 
 ---
 
-## कौन सा model देखें?
+## कौन सी class देखें?
 
-यहाँ कुछ models का ज़िक्र कर रहे हैं जो seniors और घर के कामों के लिए suitable हो सकते हैं। **ध्यान रहे: prices और range अलग-अलग battery variant और आपके शहर के हिसाब से बदल सकते हैं — खरीदने से पहले dealer से final figure confirm करें।**
+Seniors और घर के कामों के लिए brand नहीं, class और spec देखें — दो classes लगभग हर ज़रूरत पूरी कर देती हैं। नीचे typical price bands दिए हैं; **exact price, battery variant और असली range खरीदने से पहले dealer से confirm करें — ये variant, शहर और समय के हिसाब से बदलते हैं।** नाम सिर्फ़ class के उदाहरण हैं, recommendation नहीं।
 
-### Zelio Little Gracy — सबसे किफ़ायती शुरुआत
-- कीमत: करीब **₹45,633** से (approx ex-showroom)
-- Range: \~60 km
-- सबसे हल्का model, low seat height, दोनों पैर ज़मीन पर
-- पहली बार scooter चलाने वालों और seniors के लिए सबसे suitable
-- छोटी daily trips (15-20 km) के लिए एकदम सही
+### Entry commuter — सबसे किफ़ायती शुरुआत
+- Typical price band: **₹35,000–45,000**
+- असली range: \~60–70 km
+- सबसे हल्का, low seat height, दोनों पैर ज़मीन पर, पूरी तरह gearless
+- पहली बार चलाने वालों और seniors के लिए; छोटी daily trips (15-20 km) के लिए एकदम सही
+- Examples (across brands): Komaki X-One · Kinetic Green Zing · Zelio Little Gracy
 
-### Zelio Gracy i — रोज़ाना का भरोसेमंद साथी
-- कीमत: करीब **₹56,825** से
-- Range: \~80-90 km (lithium-ion battery)
-- USB charging port, anti-theft alarm
-- घर के normal socket पर रात भर charge
-
-### Zelio Gracy (2026 facelift) — नया look, ज़्यादा options
-- कीमत: **₹59,999 से ₹76,999** तक (battery variant के हिसाब से)
-- Range: 60-120 km (battery choice पर निर्भर)
-- April 2026 में launch हुआ, 7 colour options
-- Lead-acid से lithium तक — budget के हिसाब से चुनें
-
-### Zelio X-Men+ — थोड़ा ज़्यादा comfort चाहिए तो
-- कीमत: करीब **₹64,734** से
-- Range: 120 km (rated)
-- बड़ा rear wheel, बेहतर suspension — ऊबड़-खाबड़ गलियों में आराम
-- जिनका रोज़ का सफ़र थोड़ा लम्बा है उनके लिए
+### Everyday step-through — रोज़ाना का भरोसेमंद साथी
+- Typical price band: **₹45,000–60,000**
+- असली range: \~70–85 km (lithium battery)
+- ज़्यादा comfortable ride, full moped ergonomics, घर के normal socket पर रात भर charge
+- जिनका रोज़ का सफ़र थोड़ा लम्बा हो, या groceries/tiffin भी ले जाना हो
+- Examples (across brands): Hero Electric Flash LX · Deltic Costa · Zelio Gracy i
 
 ---
 

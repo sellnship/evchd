@@ -71,7 +71,7 @@ For delivery and gig work the brand matters far less than the spec. Start from w
 - **Payload and pulling power.** Enough rated payload for your load, and enough gradeability for Panchkula's outer-sector slopes without the range collapsing.
 - **Lithium, not lead-acid,** for anything above roughly 50 km a day — lighter, longer-lived and faster to charge.
 
-That set of demands defines the **long-range / work class**: roughly a 90–110 km real-world range and a ₹60,000–95,000 typical price band. Several brands build to it — for example the **Deltic Legion**, **Komaki XGT** and **Zelio Logix** are positioned here. Treat those as illustrations of the class, not a ranking: confirm the exact variant, the loaded range and the local ex-showroom price before you decide, and check the motor is rated ≤250W so the model stays licence-free.
+That set of demands defines the **long-range / work class**: roughly a 90–110 km real-world range and a ₹60,000–95,000 typical price band. Several brands build to it — for example the **Deltic Legion**, **Komaki XGT VP** and **Zelio Logix** are positioned here. Treat those as illustrations of the class, not a ranking: confirm the exact variant, the loaded range and the local ex-showroom price before you decide, and check the motor is rated ≤250W so the model stays licence-free.
 
 A lighter **everyday step-through** (70–85 km, ₹45,000–60,000 — think the **Hero Electric Flash LX**, **Deltic Costa** or **Zelio Gracy i**) can still work if your daily distance reliably stays under 60–70 km. Below that an entry commuter is enough; consistently above 90 km a day, stay in the long-range class.
 

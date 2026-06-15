@@ -29,7 +29,7 @@ Under the Central Motor Vehicles Rules (CMVR), a two-wheeled electric vehicle is
 
 Both conditions must be met. A scooter electronically capped at 25 km/h but fitted with a motor rated above 250 W is still classified as a registrable motor vehicle under the CMVR. You would need a licence, registration, and road tax — which defeats the entire low-cost case for buying in this category.
 
-**What to check before signing anything:** Ask the dealer to show you the motor specification on the product brochure or the manufacturer's website. The wording should say "250 W BLDC" or equivalent. If the spec sheet says 350 W, 500 W, or anything above 250 W, the vehicle is not exempt, regardless of its stated top speed. Models like the Zelio Gracy, X-Men+, and Logix, for example, are specified at 250 W BLDC hub motors and a 25 km/h top speed — both conditions satisfied per the verified specifications on the Zelio website.
+**What to check before signing anything:** Ask the dealer to show you the motor specification on the product brochure or the manufacturer's website. The wording should say "250 W BLDC" or equivalent. If the spec sheet says 350 W, 500 W, or anything above 250 W, the vehicle is not exempt, regardless of its stated top speed. A compliant low-speed model will be specified at a 250 W BLDC hub motor and a 25 km/h top speed — both conditions satisfied. Check the spec sheet for the exact model you are considering; not every brand or trim guarantees it.
 
 The CMVR rules apply identically across Chandigarh (Union Territory), Mohali (Punjab), and Panchkula (Haryana). Day-to-day enforcement can vary slightly between the three administrations, so if you are ever uncertain about a specific vehicle, confirm with your local RTO before purchase.
 
@@ -43,7 +43,7 @@ Low-speed scooters in this category are available in two battery types: lead-aci
 
 **Lithium-ion:** Higher upfront cost. Lighter. Charges in roughly 4 to 5 hours. Better suited for daily distances above approximately 60 km. Longer usable life in most conditions.
 
-To put numbers to it: the Zelio Gracy (2026) is available from around Rs 59,999 with a 60V/32AH lead-acid battery, up to Rs 76,999 for the 72V/32AH lithium-ion variant — a difference of roughly Rs 17,000 at the top end. Whether that premium is worth paying depends almost entirely on how far you ride each day.
+To put numbers to it: on the same model, the lithium-ion variant typically costs roughly Rs 10,000 to Rs 20,000 more than the lead-acid version ex-showroom. Whether that premium is worth paying depends almost entirely on how far you ride each day.
 
 As a working rule, verified in the model specifications: if your regular daily round trip is above roughly 60 km, choose lithium-ion. Below that, lead-acid is serviceable and keeps the entry cost low.
 
@@ -70,7 +70,7 @@ Do not rely on a verbal assurance at the dealership. Ask for the warranty card o
 
 ## Mistake 4: Not verifying the service network in your part of the Tricity
 
-A national service network figure — the Zelio brand, for example, lists 350-plus authorised service centres across India — tells you very little about what is actually accessible from your address in Sector 22, Zirakpur, or Sector 10 Panchkula.
+A national service network figure — some brands list several hundred authorised service centres across India — tells you very little about what is actually accessible from your address in Sector 22, Zirakpur, or Sector 10 Panchkula.
 
 Before buying any low-speed scooter, confirm:
 
@@ -134,4 +134,4 @@ Model prices cited here are approximate ex-showroom figures from verified trade 
 - PSPCL (Punjab) domestic tariff — Mohali running-cost basis
 - UHBVN (Haryana) domestic tariff — Panchkula running-cost basis
 - PM E-DRIVE scheme — pmedrive.heavyindustries.gov.in and Ministry of Heavy Industries trade press, June 2026
-- Zelio E-Mobility official website (zelioebikes.com) — model specifications, motor ratings, battery variants, service network; verified June 2026
+- Manufacturer sites (including Komaki, Hero Electric, Deltic, Kinetic Green and Zelio) — model specifications, motor ratings, battery variants, service networks; verified June 2026
