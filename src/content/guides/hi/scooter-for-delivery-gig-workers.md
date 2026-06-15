@@ -203,4 +203,11 @@ Chandigarh के sectors और Mohali की colonies में छोटे d
 
 ## स्रोत
 
-- **Central Motor Vehicles Rules (CMVR)** — low-speed exemption criteria (speed ≤25 km/h AND motor
+- **Central Motor Vehicles Rules (CMVR)** — low-speed exemption criteria (speed ≤25 km/h AND motor ≤250W — दोनों शर्तें ज़रूरी); June 2026 तक multiple sources से cross-verify किया गया
+- **Joint Electricity Regulatory Commission (JERC) / Chandigarh Power Distribution Ltd** — JERC five-year tariff order (FY 2025-26 से 2029-30), November 2025 से प्रभावी; The Tribune, Oct/Nov 2025
+- **PSPCL (Punjab State Power Corporation Ltd)** — Mohali domestic tariff
+- **Zelio E-Mobility official (zelioebikes.com)** और trade listings; June 2026 तक verified — model specifications और range figures के लिए
+- **EV India guidance** और Zelio official data; June 2026 — charging cost और per-km running cost के figures के लिए
+- **PM E-DRIVE portal (pmedrive.heavyindustries.gov.in)** और trade press; June 2026 — subsidy eligibility के लिए (low-speed scooters eligible नहीं हैं)
+
+*यह article सिर्फ़ जानकारी के लिए है। EV Chandigarh कुछ बेचता नहीं। Prices और specs अपने local dealer से, और CMVR नियम अपने local RTO से confirm कर लें।*
