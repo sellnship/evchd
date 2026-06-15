@@ -4,6 +4,7 @@
     "rule": "Compare by CLASS and SPEC. List >=3 brands per class. Prices are BANDS, never exact ex-showroom. Zelio appears only as one representative among others.",
     "verify_before_publish": "Confirm each non-Zelio representative is actually a low-speed (<=25km/h, <=250W, non-RC) variant before publishing — some brands sell same-name models in both low- and high-speed trims. The Komaki entry here is the 'XGT VP' specifically, as bare 'XGT'/'XGT KM' trims appear in registered/high-speed form in several sources; confirm the VP variant locally before relying on it."
   },
+  "form_factor": "seated step-through Indian electric scooter (low-speed e-moped)",
   "classes": [
     {
       "id": "entry-commuter",

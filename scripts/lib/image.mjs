@@ -32,17 +32,69 @@ const MODEL = "fal-ai/imagen4";
 // models routinely get the VEHICLE TYPE wrong (drawing a standing kick-scooter
 // instead of a seated step-through e-moped) and the CHARGING CONTEXT wrong
 // (public charging station / car charger instead of a domestic wall socket).
-// The suffix below steers hard against both, but every hero/card must be eyeballed
-// for (1) correct vehicle type and (2) correct setting before it goes live.
-const PROMPT_SUFFIX =
-  ". The vehicle, whenever a scooter is shown, is a seated step-through electric scooter " +
-  "(an Indian e-moped — it has a seat, a flat floorboard and small wheels, the kind you sit " +
-  "on; it is NOT a standing kick-scooter and NOT a motorcycle). " +
-  "If charging is shown, it is a charger cable plugged into an ordinary 3-pin domestic wall " +
+// The prompt below steers hard against both, but every hero/card must still be
+// eyeballed for (1) correct vehicle type and (2) correct setting before it goes live.
+
+// Data-grounded vehicle form factor (src/data/models.json → form_factor), with a
+// safe default so this module still works if the field/file is ever missing.
+const DEFAULT_FORM_FACTOR = "seated step-through Indian electric scooter (low-speed e-moped)";
+async function loadFormFactor() {
+  try {
+    const raw = await fs.readFile(path.join("src", "data", "models.json"), "utf8");
+    const ff = JSON.parse(raw).form_factor;
+    return typeof ff === "string" && ff.trim() ? ff.trim() : DEFAULT_FORM_FACTOR;
+  } catch {
+    return DEFAULT_FORM_FACTOR;
+  }
+}
+
+// MANDATORY vehicle-form clause, PREPENDED to every prompt. This is the single
+// most important constraint: text-to-image models default the word "e-scooter"
+// to a standing kick-scooter (Xiaomi/Segway slim-deck), which is the wrong
+// vehicle category entirely. The {formFactor} noun phrase is pulled from the
+// data layer so the vehicle is grounded in real data, never the model's prior.
+function vehicleClause(formFactor) {
+  return (
+    `The vehicle in the image is a ${formFactor} — emphatically a SEATED, STEP-THROUGH vehicle the rider ` +
+    `sits down on: it has a saddle/seat, a flat floorboard for the feet, full body panelling and a front ` +
+    `apron, and a step-through frame — visually similar to a Honda Activa, a TVS scooter, or a Zelio Eeva ` +
+    `electric scooter. It is NOT a standing kick scooter, NOT a stand-on/Segway/Xiaomi-style scooter, ` +
+    `NOT a slim-deck push scooter, and has NO standing platform.`
+  );
+}
+
+// Negative terms. Imagen 4 on fal has NO negative_prompt field (verified against
+// @fal-ai/client endpoints.d.ts: Imagen4PreviewInput accepts only prompt,
+// aspect_ratio, num_images, output_format, resolution, safety_tolerance, seed,
+// sync_mode). So we (a) embed these exclusions in the positive prompt as a hard
+// "Absolutely avoid" clause — the effective way to negate with Imagen — and
+// (b) pass them as a real negative_prompt ONLY if the active model supports one
+// (set the flag true if you swap MODEL to a Flux/SD endpoint that accepts it).
+const NEGATIVE_TERMS =
+  "kick scooter, standing scooter, stand-on scooter, push scooter, Segway, Xiaomi scooter, " +
+  "slim deck, foldable scooter, electric kick scooter, person standing on scooter, scooter with no seat";
+const MODEL_SUPPORTS_NEGATIVE_PROMPT = false; // imagen4 → false
+
+// Scene-agnostic context: charging guidance + Chandigarh/Mohali style. The
+// per-article SCENE (charging at a socket, carrying a removable battery, monsoon,
+// etc.) is supplied by the topic and slotted in between this and the vehicle clause.
+const STYLE_SUFFIX =
+  " If charging is shown, it is a charger cable plugged into an ordinary 3-pin domestic wall " +
   "socket on a house wall in an everyday residential setting — NO public charging station, " +
   "NO car charger, NO glowing or neon effects. " +
   "Quiet Chandigarh / Mohali modernist-concrete context, warm natural light, muted tones with " +
   "a subtle electric-blue accent, realistic editorial photograph. No text, no logos, no watermark.";
+
+/**
+ * Compose the full image prompt: mandatory vehicle clause (data-grounded) FIRST,
+ * then the per-topic scene, then style. When the model can't take a negative
+ * prompt, the exclusions are appended as a hard "Absolutely avoid" clause.
+ * Pure + exported so the assembled prompt can be verified without calling fal.
+ */
+export function composePrompt(scene, formFactor = DEFAULT_FORM_FACTOR) {
+  const negTail = MODEL_SUPPORTS_NEGATIVE_PROMPT ? "" : ` Absolutely avoid: ${NEGATIVE_TERMS}.`;
+  return `${vehicleClause(formFactor)} Scene: ${String(scene || "").trim()}.${STYLE_SUFFIX}${negTail}`;
+}
 
 const OUT_DIR = path.join("public", "images");
 const WEBP_QUALITY = 82;
@@ -80,9 +132,15 @@ async function generateBase({ prompt, slug, label }) {
   let imageUrl;
   try {
     console.log(`[image] (1/3) generating ${label} via ${MODEL} for "${slug}"…`);
-    const result = await fal.subscribe(MODEL, {
-      input: { prompt: `${prompt}${PROMPT_SUFFIX}`, aspect_ratio: "16:9", num_images: 1 },
-    });
+    const formFactor = await loadFormFactor();
+    const input = {
+      prompt: composePrompt(prompt, formFactor),
+      aspect_ratio: "16:9",
+      num_images: 1,
+    };
+    // Only send negative_prompt to a model that accepts one (imagen4 does not).
+    if (MODEL_SUPPORTS_NEGATIVE_PROMPT) input.negative_prompt = NEGATIVE_TERMS;
+    const result = await fal.subscribe(MODEL, { input });
     imageUrl = result?.data?.images?.[0]?.url;
     if (!imageUrl) throw new Error(`unexpected response shape: ${JSON.stringify(result?.data ?? result)}`);
   } catch (err) {
