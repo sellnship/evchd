@@ -12,12 +12,15 @@ interface Props {
   desc: string;
   width?: number;
   height?: number;
+  /** Optional published date (preformatted) + ISO datetime. Shown on news cards so staleness is obvious. */
+  date?: string;
+  datetime?: string;
 }
-const { href, img, alt, cat, title, desc, width = 1280, height = 720 } = Astro.props;
+const { href, img, alt, cat, title, desc, width = 1280, height = 720, date, datetime } = Astro.props;
 ---
 <a class="card" href={href}>
   <img class="card-img" src={img} alt={alt} width={width} height={height} loading="lazy" decoding="async" />
-  <div class="cat">{cat}</div>
+  <div class="cat">{cat}{date && <> · <time class="card-date" datetime={datetime}>{date}</time></>}</div>
   <h3>{title}</h3>
   <p>{desc}</p>
   <span class="more mono">Read <span class="arr">→</span></span>
