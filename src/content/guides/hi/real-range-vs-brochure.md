@@ -69,18 +69,15 @@ Traffic में बार-बार रुकना और फिर तेज
 
 ## तो असल में कितनी range मिलती है — एक honest नज़रिया
 
-यहाँ कुछ low-speed scooters की brochure range है जो Zelio जैसे brands की Tricity में available lineup में दिखती है। इनके साथ एक practical estimate भी देखें:
+नीचे spec class के हिसाब से bands दिए हैं। "Brochure range" class की rated figure है; Tricity की normal conditions (वज़न, mixed road, peak-hour stops) में इसमें से करीब 20-30% कम मानकर चलें:
 
-| Model | Brochure Range | Practical Range (70-80 kg rider, mixed road) |
+| Spec class | Brochure (rated) range | Practical range (70-80 kg rider, mixed road) |
 |---|---|---|
-| Zelio Little Gracy | 60 km | 45-55 km |
-| Zelio Gracy i (lithium) | 80-90 km | 65-75 km |
-| Zelio Gracy 2026 (lead-acid variant) | 60 km | 45-52 km |
-| Zelio Gracy 2026 (lithium variant) | 120 km | 90-105 km |
-| Zelio X-Men+ (120 km rated) | 120 km | 90-105 km |
-| Zelio Logix (delivery use) | 60-140 km (variant पर) | entry variant \~45-55 km; top lithium variant \~110-125 km |
+| Entry commuter | 75–90 km | 60–70 km |
+| Everyday step-through | 90–110 km | 70–85 km |
+| Long-range / work | 115–140 km | 90–110 km |
 
-*ये practical estimates हैं, guaranteed figures नहीं। आपकी असली range आपके वज़न, road और riding style पर निर्भर करेगी।*
+*ये practical estimates हैं, guaranteed figures नहीं। हर class में models battery variant और voltage/Ah के हिसाब से अलग होते हैं — अपने चुने हुए variant की rated और असली range dealer से confirm करें।*
 
 ---
 

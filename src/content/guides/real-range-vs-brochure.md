@@ -56,20 +56,17 @@ Low-speed scooters in this class are governed to 25 km/h — this is the second 
 
 ## A realistic range expectation by model
 
-The figures below are rated ranges from verified model data. Apply a real-world discount of roughly 20 to 30 per cent for normal Tricity conditions — loaded weight, mixed terrain, peak-hour stops. The discount is larger if you add a regular pillion or live in the hillier parts of Panchkula.
+The bands below are organised by spec class. The "rated range" is the brochure-style figure for the class; apply a real-world discount of roughly 20 to 30 per cent for normal Tricity conditions — loaded weight, mixed terrain, peak-hour stops. The discount is larger if you add a regular pillion or live in the hillier parts of Panchkula.
 
-| Model | Rated range | Conservative real-world estimate |
+| Spec class | Rated range | Conservative real-world estimate |
 |---|---|---|
-| Zelio Little Gracy | 60 km | 42–48 km |
-| Zelio Gracy i | 80–90 km | 56–72 km |
-| Zelio Gracy (2026) | 60–120 km (by variant) | 42–96 km |
-| Zelio Gracy Pro | Up to 120 km | Up to \~84–96 km |
-| Zelio X-Men+ | 120 km (rated) | 84–96 km |
-| Zelio Logix | 60–140 km (by variant) | 42–112 km |
+| Entry commuter | 75–90 km | 60–70 km |
+| Everyday step-through | 90–110 km | 70–85 km |
+| Long-range / work | 115–140 km | 90–110 km |
 
-*These estimates are indicative. Verify exact specifications for each battery variant with your local dealer before purchase.*
+*These estimates are indicative. Within each class, models differ by battery variant and voltage/Ah configuration — verify the rated and real-world range for the specific variant with your local dealer before purchase.*
 
-The EEVA, EEVA ZX+, X-Men, Legender, and Legender+ Premium are also in the Zelio low-speed range, but range figures for those models require direct confirmation from the dealer — the verified data available at time of writing is incomplete for those variants.
+Where a particular model or variant's range is not clearly documented, confirm it directly with the dealer rather than assuming the brochure figure — incomplete or optimistic spec sheets are common in this category.
 
 ---
 
@@ -87,7 +84,7 @@ Most Tricity daily commuters fall into one of three bands:
 
 ### Step two: match the battery variant, not just the model
 
-Many models in this class are available in both lead-acid and lithium-ion variants, and sometimes in different voltage and ampere-hour configurations. The rated range difference between the base lead-acid variant and the top lithium-ion variant on the same model can be substantial — on the Zelio Gracy 2026, the range band is 60 to 120 km depending on which battery you choose.
+Many models in this class are available in both lead-acid and lithium-ion variants, and sometimes in different voltage and ampere-hour configurations. The rated range difference between the base lead-acid variant and the top lithium-ion variant on the same model can be substantial — easily a 60-to-120 km spread depending on which battery you choose.
 
 For daily distances under 25 km, an entry lead-acid variant may be adequate if you charge every night without fail. For distances of 40 to 60 km, a mid-range lithium variant gives a more comfortable buffer. For distances above 60 km, or where charging mid-day is not practical, choose a higher-capacity lithium-ion pack and build in a safety margin of at least 20 per cent.
 
