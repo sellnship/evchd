@@ -614,24 +614,30 @@
     "factCheckIssues": []
   },
   {
-    "status": "pending",
+    "status": "published",
     "slug": "used-electric-scooter-buying-guide",
     "lang": "en",
     "section": "guides",
     "category": "Buying Guide",
     "title": "Buying a used low-speed electric scooter in the Tricity: the checks that matter",
     "imagePrompt": "A buyer inspecting the battery compartment of a used seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) in a Tricity residential driveway, daytime.",
-    "angle": "Second-hand buyer intent: battery age/health is the real depreciating part; how to confirm the ≤25 km/h / ≤250W spec on a used unit with no clear paperwork; honestly testing real range; and that an exempt scooter has no RTO transfer to chase. Class-level, brand-neutral."
+    "angle": "Second-hand buyer intent: battery age/health is the real depreciating part; how to confirm the ≤25 km/h / ≤250W spec on a used unit with no clear paperwork; honestly testing real range; and that an exempt scooter has no RTO transfer to chase. Class-level, brand-neutral.",
+    "processedAt": "2026-06-23T09:40:20.480Z",
+    "publishedPath": "src/content/guides/used-electric-scooter-buying-guide.md",
+    "factCheckIssues": []
   },
   {
-    "status": "pending",
+    "status": "published",
     "slug": "used-electric-scooter-buying-guide",
     "lang": "hi",
     "section": "guides",
     "category": "Buying Guide",
     "title": "पुराना (second-hand) low-speed electric scooter खरीदना: Tricity में क्या-क्या जाँचें",
     "imagePrompt": "A buyer inspecting the battery compartment of a used seated step-through electric scooter (Indian e-moped — seat, flat floorboard, small wheels) in a Tricity residential driveway, daytime.",
-    "angle": "Second-hand लेने वालों के लिए: सबसे ज़रूरी है battery की उम्र/health; बिना paperwork वाले used scooter पर ≤25 km/h / ≤250W spec कैसे confirm करें; असली range ईमानदारी से जाँचें; exempt scooter में RTO transfer का झंझट नहीं। Class-level, brand-neutral।"
+    "angle": "Second-hand लेने वालों के लिए: सबसे ज़रूरी है battery की उम्र/health; बिना paperwork वाले used scooter पर ≤25 km/h / ≤250W spec कैसे confirm करें; असली range ईमानदारी से जाँचें; exempt scooter में RTO transfer का झंझट नहीं। Class-level, brand-neutral।",
+    "processedAt": "2026-06-23T09:42:05.322Z",
+    "publishedPath": "src/content/guides/hi/used-electric-scooter-buying-guide.md",
+    "factCheckIssues": []
   },
   {
     "status": "pending",
