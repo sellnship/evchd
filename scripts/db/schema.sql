@@ -67,5 +67,29 @@ CREATE TABLE IF NOT EXISTS settings (
   updated_at timestamptz NOT NULL DEFAULT now()
 );
 
+-- Blog categories for the niche (low-speed EV scooters, Chandigarh Tricity).
+-- Seeded below; manageable from the admin later. Articles/topics store the
+-- category NAME (matches the markdown sections' frontmatter convention).
+CREATE TABLE IF NOT EXISTS categories (
+  id          bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name        text NOT NULL UNIQUE,
+  description text NOT NULL DEFAULT '',
+  sort        int  NOT NULL DEFAULT 100,
+  created_at  timestamptz NOT NULL DEFAULT now()
+);
+
+INSERT INTO categories (name, description, sort) VALUES
+  ('Buying Guide',      'Choosing the right low-speed scooter: budgets, checklists, use-cases', 10),
+  ('Running Costs',     'Charging cost, per-km math, petrol-vs-EV savings',                     20),
+  ('Charging',          'Home charging, sockets, tariffs, charging habits',                     30),
+  ('Battery & Range',   'Real-world range, battery life, replacement costs',                    40),
+  ('Rules & RTO',       'Licence, registration, the ≤25 km/h exemption, legal questions',       50),
+  ('Ownership',         'Maintenance, servicing, daily life with a low-speed scooter',          60),
+  ('Safety',            'Riding safety, monsoon, winter fog, night riding in the Tricity',      70),
+  ('Insurance & Finance','Insurance, EMI, subsidies and incentives',                            80),
+  ('News & Policy',     'Tariff revisions, subsidy deadlines, local EV policy',                 90),
+  ('Comparisons',       'Model-class and technology comparisons (brand-neutral)',              100)
+ON CONFLICT (name) DO NOTHING;
+
 CREATE INDEX IF NOT EXISTS articles_status_idx ON articles (status, date_published DESC);
 CREATE INDEX IF NOT EXISTS activity_log_at_idx ON activity_log (at DESC);
