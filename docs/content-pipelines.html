@@ -170,6 +170,73 @@ and which to prefer when <b>verification before posting</b> matters.</p>
 </section>
 
 <section>
+  <h2>👩‍💻 Operator Guide — using the Admin day-to-day</h2>
+  <div class="meta">Written for a NEW operator — no coding needed. The admin runs at its own URL
+  (locally <code>http://localhost:4321</code>; in production the <code>evchd-admin</code> Vercel URL).</div>
+
+  <h3 style="margin-top:1rem">1 · Sign in</h3>
+  <div class="flow">
+    <div class="step"><div class="n">→</div><div><b>Open the admin URL → enter email + password</b><span>Credentials are set by the site owner (ADMIN_EMAIL / ADMIN_PASSWORD). Session lasts 7 days; use <b>Sign out</b> in the sidebar when done on a shared computer.</span></div></div>
+  </div>
+
+  <h3 style="margin-top:1.25rem">2 · Know the sidebar</h3>
+  <div class="twrap">
+  <table>
+    <tr><th>Menu</th><th>What it's for</th></tr>
+    <tr><td>▦ Dashboard</td><td>Counts (published / drafts / queued topics) + recent activity feed + shortcuts</td></tr>
+    <tr><td>✎ Blog CMS</td><td>All blog articles — filter by Published/Drafts, open any to edit, create manually</td></tr>
+    <tr><td>🤖 AI Generator</td><td>The AI workflow: suggest topics → queue → generate articles</td></tr>
+    <tr><td>🗎 Site Pages</td><td>Edit the OLD markdown sections (guides/news/compare). ⚠ Saves go <b>straight to the live site</b> — no draft stage. Be careful here.</td></tr>
+    <tr><td>🔑 Settings</td><td>LLM API keys, model choices, default image model, deploy hook</td></tr>
+  </table>
+  </div>
+
+  <h3 style="margin-top:1.25rem">3 · Publish an article with AI (the normal flow)</h3>
+  <div class="flow">
+    <div class="step"><div class="n">1</div><div><b>AI Generator → pick a model from the dropdown</b><span>Only providers with keys appear. The best one is preselected.</span></div></div>
+    <div class="step"><div class="n">2</div><div><b>Click 💡 Suggest Topics</b><span>Wait ~15s. Five topic cards appear, based on Google Trends India + what's already on the site (no duplicates).</span></div></div>
+    <div class="step"><div class="n">3</div><div><b>Click "Use This →" on the topic you like</b><span>Every field fills itself (slug, EN + HI titles, category, angle, image scene). Edit anything you want, then click <b>＋ Queue Topic</b>.</span></div></div>
+    <div class="step"><div class="n">4</div><div><b>Generate the article</b><span>In the Topics table: <b>⚡ Draft with AI</b> (fast, ~30s, no automated checks) or <b>▶ Engine</b> (full quality gates, ~10 min — preferred for facts/rules/prices). Each language row (EN, HI) is generated separately with ⚡.</span></div></div>
+    <div class="step"><div class="n">5</div><div><b>Review the draft</b><span>The editor opens (or click "Review draft"). Read the whole article. Fix anything wrong — you are the editor. ⚠ With ⚡ drafts, double-check every number and rule.</span></div></div>
+    <div class="step"><div class="n">6</div><div><b>Generate images</b><span>Right column → 🎨 Generate Hero: the prompt is pre-filled from the article — edit it if you like, pick an image model, click Generate (~20s). Optionally add body images with "🖼 Insert AI image at cursor" under the text box. Check: the scooter must be a <b>seated step-through model</b> (never a standing kick-scooter) and carry <b>no brand logos</b>.</span></div></div>
+    <div class="step human"><div class="n">7</div><div><b>🚀 Save &amp; Publish</b><span>Confirms, marks it published, and triggers the website rebuild. The article is live at <code>/blog/&lt;slug&gt;</code> in ~1–2 minutes. (Hindi version appears at <code>/hi/blog/&lt;slug&gt;</code> once you publish the HI article too.)</span></div></div>
+  </div>
+
+  <h3 style="margin-top:1.25rem">4 · Other things you can do</h3>
+  <div class="twrap">
+  <table>
+    <tr><th>Task</th><th>How</th></tr>
+    <tr><td>Write an article yourself</td><td>Blog CMS → ＋ New Article → fill fields + markdown body → Save → Publish when ready</td></tr>
+    <tr><td>Upload your own hero photo</td><td>Editor → Hero image → "Upload your own" → choose file → 💾 Save (auto-resized to 1200×675)</td></tr>
+    <tr><td>Un-publish an article</td><td>Editor → Unpublish (it disappears from the site on the next rebuild)</td></tr>
+    <tr><td>Create the Hindi twin of an article</td><td>Editor → Translation pair card → "＋ Create Hindi counterpart" (same slug links them — the site's language toggle uses it)</td></tr>
+    <tr><td>Fix a typo in an old guide/news page</td><td>Site Pages → find the file → Edit → change → "Commit to main". ⚠ This is live in ~2 min with no draft stage — re-read before saving</td></tr>
+    <tr><td>Add / change an API key</td><td>Settings → paste in the provider card → Save. Blank field = keeps the old key. Keys are stored masked; you can never read one back</td></tr>
+  </table>
+  </div>
+
+  <h3 style="margin-top:1.25rem">5 · When something goes wrong</h3>
+  <div class="twrap">
+  <table>
+    <tr><th>Message you see</th><th>What it means / what to do</th></tr>
+    <tr><td>"…NO quota for this model (free tier)"</td><td>That provider account has no paid credit for this model. Pick a different model from the dropdown, or enable billing on the provider</td></tr>
+    <tr><td>"rate limit reached — wait ~30s"</td><td>Too many requests too fast. Just wait and click again</td></tr>
+    <tr><td>"API key was rejected"</td><td>The key is wrong or was revoked — paste a fresh one in Settings</td></tr>
+    <tr><td>"out of credits"</td><td>Top up the account on the provider's billing page</td></tr>
+    <tr><td>"model not found"</td><td>The model name in Settings has a typo — fix it there</td></tr>
+    <tr><td>Article published but not on the site</td><td>Wait 2 min. Still missing → check Settings → Deploy Hook URL is filled in; then ask the site owner to check Vercel deployments</td></tr>
+  </table>
+  </div>
+
+  <div class="rule" style="margin-top:1.25rem">
+    <b>Golden rules for operators:</b> ① Nothing goes live until YOU click Publish — take your
+    time reviewing. ② ⚡ AI drafts are unverified: check every number, price and rule yourself.
+    ③ Hero images: seated step-through scooter only, no brand logos. ④ Site Pages edits skip the
+    draft stage — treat that screen as live surgery.
+  </div>
+</section>
+
+<section>
   <h2>🗂 File map</h2>
   <div class="twrap">
   <table>
