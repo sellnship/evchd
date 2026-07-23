@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { blogLoader } from './lib/blog-loader.mjs';
 
 // Shared frontmatter for every editorial collection.
 const base = z.object({
@@ -38,4 +39,11 @@ const glossary = defineCollection({
   schema: base,
 });
 
-export const collections = { guides, news, compare, glossary };
+// Blog is the one DB-backed collection: rows come from Neon Postgres at build
+// time (written by the admin app / AI engine DB mode), not markdown in git.
+const blog = defineCollection({
+  loader: blogLoader(),
+  schema: base,
+});
+
+export const collections = { guides, news, compare, glossary, blog };

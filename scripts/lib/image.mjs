@@ -166,6 +166,19 @@ async function write(buffer, filename) {
 }
 
 /**
+ * Pure branding step: resize/crop a base buffer to 1200x675 and composite the
+ * logo bottom-right, returning the finished WebP as a Buffer (no disk I/O).
+ * Shared by the file-mode hero write and the DB-mode Blob upload.
+ */
+export async function composeHeroBuffer(baseBuffer) {
+  if (!Buffer.isBuffer(baseBuffer)) throw new Error("[image] composeHeroBuffer requires a Buffer");
+  const logo = await loadLogo();
+  let pipeline = sharp(baseBuffer).resize(HERO_W, HERO_H, { fit: "cover", position: "centre" });
+  if (logo) pipeline = pipeline.composite([{ input: logo, gravity: "southeast" }]);
+  return pipeline.webp({ quality: WEBP_QUALITY }).toBuffer();
+}
+
+/**
  * Deterministically brand + crop a base buffer into a 1200x675 hero with the
  * logo watermarked bottom-right. Exported so it can be tested/reused offline.
  * @returns {Promise<string>} e.g. "/images/<slug>-hero.webp"
@@ -174,11 +187,24 @@ export async function brandHero(baseBuffer, slug) {
   if (!Buffer.isBuffer(baseBuffer)) throw new Error("[image] brandHero requires a Buffer");
   if (!slug) throw new Error("[image] brandHero requires a slug");
   console.log(`[image] branding hero ${HERO_W}x${HERO_H} for "${slug}"…`);
-  const logo = await loadLogo();
-  let pipeline = sharp(baseBuffer).resize(HERO_W, HERO_H, { fit: "cover", position: "centre" });
-  if (logo) pipeline = pipeline.composite([{ input: logo, gravity: "southeast" }]);
-  const out = await pipeline.webp({ quality: WEBP_QUALITY }).toBuffer();
+  const out = await composeHeroBuffer(baseBuffer);
   return write(out, `${slug}-hero.webp`);
+}
+
+/**
+ * DB-mode variant of generateHero: same fal generation + branding, but returns
+ * the finished 1200x675 WebP as a Buffer for upload (Vercel Blob) instead of
+ * writing under public/images.
+ */
+export async function generateHeroBuffer({ prompt, slug } = {}) {
+  if (!prompt || !slug) throw new Error("[image] generateHeroBuffer requires { prompt, slug }");
+  const base = await generateBase({ prompt, slug, label: "hero" });
+  try {
+    console.log(`[image] (3/3) branding hero (buffer)…`);
+    return await composeHeroBuffer(base);
+  } catch (err) {
+    throw new Error(`[image] branding failed for "${slug}": ${err?.message ?? err}`, { cause: err });
+  }
 }
 
 /**

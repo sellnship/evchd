@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 // Hindi RSS feed (/hi/rss.xml) — Hindi articles only, newest first.
 // Mirrors the English feed; links point under /hi/. inLanguage: hi-IN.
 export async function GET(context) {
-  const collections = ['guides', 'news', 'compare'];
+  const collections = ['guides', 'news', 'compare', 'blog'];
   const items = [];
   for (const name of collections) {
     const entries = await getCollection(name, ({ data }) => !data.draft && data.lang === 'hi');

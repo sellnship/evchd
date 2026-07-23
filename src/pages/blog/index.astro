@@ -1,0 +1,33 @@
+---
+import '../../styles/inner.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Eyebrow from '../../components/Eyebrow.astro';
+import FeaturedCard from '../../components/FeaturedCard.astro';
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('blog', ({ data }) => !data.draft && data.lang !== 'hi')).sort(
+  (a, b) => +b.data.datePublished - +a.data.datePublished,
+);
+---
+<BaseLayout
+  title="Blog — EV Chandigarh"
+  description="Notes, updates and longer reads on electric mobility across Chandigarh, Mohali and Panchkula."
+  type="website"
+>
+  <section class="listing wrap">
+    <header class="listing-head">
+      <Eyebrow text="Blog" />
+      <h1 class="listing-title disp">Notes &amp; longer reads</h1>
+      <p class="listing-desc">Updates, observations and deeper dives on electric mobility in the Tricity — beyond the how-to guides.</p>
+    </header>
+    {entries.length > 0 ? (
+      <div class="feat-grid">
+        {entries.map((e) => (
+          <FeaturedCard href={`/blog/${e.id}`} img={e.data.heroImage} alt={e.data.title} cat={e.data.category} title={e.data.title} desc={e.data.description} />
+        ))}
+      </div>
+    ) : (
+      <div class="empty-state"><p class="mono">No blog posts published yet — they're on the way.</p></div>
+    )}
+  </section>
+</BaseLayout>

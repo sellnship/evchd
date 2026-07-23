@@ -1,0 +1,66 @@
+name: Draft blog article (DB)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# BLOG pipeline — dispatched by the ADMIN APP (or manually), never on a timer.
+#
+# Runs the same engine + gates as the weekly cron, but in OUTPUT_MODE=db:
+#   - topic comes from the Neon `topics` table (created in the admin)
+#   - the article is INSERTED into Neon as status='draft' (source='ai')
+#   - the hero goes to Vercel Blob
+#   - NOTHING is committed to git, no PR is opened
+#
+# Publishing is a human act in the admin: review the draft → Publish → the
+# admin flips status to 'published' and fires the Vercel Deploy Hook.
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  workflow_dispatch:
+    inputs:
+      topic_slug:
+        description: "Slug of the pending blog topic in Neon (EN + HI drafted in one run)"
+        required: true
+
+permissions:
+  contents: read # checkout only — this workflow never writes to the repo
+
+concurrency:
+  group: publish-blog
+  cancel-in-progress: false
+
+jobs:
+  draft-blog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Draft EN (all gates → Neon draft)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
+          OUTPUT_MODE: db
+          TOPIC_SLUG: ${{ inputs.topic_slug }}
+          TOPIC_LANG: en
+        run: node scripts/generate.mjs
+
+      - name: Draft HI counterpart (all gates → Neon draft)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
+          OUTPUT_MODE: db
+          TOPIC_SLUG: ${{ inputs.topic_slug }}
+          TOPIC_LANG: hi
+        run: node scripts/generate.mjs

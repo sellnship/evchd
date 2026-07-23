@@ -17,6 +17,7 @@ export const languages: Record<Lang, string> = { en: 'English', hi: 'हिं�
 export const ui = {
   en: {
     'nav.guides': 'Guides',
+    'nav.blog': 'Blog',
     'nav.compare': 'Comparisons',
     'nav.calculators': 'Calculators',
     'nav.news': 'News',
@@ -46,6 +47,7 @@ export const ui = {
   },
   hi: {
     'nav.guides': 'गाइड',
+    'nav.blog': 'ब्लॉग',
     'nav.compare': 'तुलना',
     'nav.calculators': 'कैलकुलेटर',
     'nav.news': 'खबरें',

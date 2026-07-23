@@ -79,14 +79,17 @@ async function loadExisting() {
 
 /**
  * @param {{ slug: string, title: string, angle?: string, lang?: string }} topic
+ * @param {{ extraCorpus?: Array<{slug: string, title: string, lang: string}> }} [opts]
+ *        extraCorpus — additional articles to compare against (e.g. DB-backed
+ *        blog rows in OUTPUT_MODE=db, which never exist under src/content).
  * @returns {Promise<{ duplicate: boolean, match?: string, score?: number }>}
  */
-export async function isDuplicate(topic) {
+export async function isDuplicate(topic, { extraCorpus = [] } = {}) {
   if (!topic?.slug) throw new Error("[dedup] topic requires a slug");
   const lang = topic.lang ?? "en";
   // Compare only within the same language — a Hindi article isn't a duplicate
   // of its English counterpart.
-  const existing = (await loadExisting()).filter((a) => a.lang === lang);
+  const existing = [...(await loadExisting()), ...extraCorpus].filter((a) => a.lang === lang);
   // Include the slug in the token set: slugs are roman-script and descriptive,
   // so they survive Hindi's Devanagari stripping and keep distinct topics apart
   // (a Hindi title alone can collapse to a single shared token like "battery").

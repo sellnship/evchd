@@ -1,0 +1,33 @@
+---
+import '../../../styles/inner.css';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Eyebrow from '../../../components/Eyebrow.astro';
+import FeaturedCard from '../../../components/FeaturedCard.astro';
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('blog', ({ data }) => !data.draft && data.lang === 'hi')).sort(
+  (a, b) => +b.data.datePublished - +a.data.datePublished,
+);
+---
+<BaseLayout
+  title="ब्लॉग — EV Chandigarh"
+  description="Tricity में इलेक्ट्रिक मोबिलिटी पर नोट्स, अपडेट और लंबे लेख — आसान हिंदी में।"
+  type="website"
+>
+  <section class="listing wrap">
+    <header class="listing-head">
+      <Eyebrow text="ब्लॉग" />
+      <h1 class="listing-title disp">नोट्स और लंबे लेख</h1>
+      <p class="listing-desc">Chandigarh, Mohali और Panchkula में इलेक्ट्रिक मोबिलिटी पर अपडेट और गहरी पड़ताल — गाइड से आगे की बातें।</p>
+    </header>
+    {entries.length > 0 ? (
+      <div class="feat-grid">
+        {entries.map((e) => (
+          <FeaturedCard href={`/hi/blog/${e.id.replace(/^hi\//, '')}`} img={e.data.heroImage} alt={e.data.title} cat={e.data.category} title={e.data.title} desc={e.data.description} />
+        ))}
+      </div>
+    ) : (
+      <div class="empty-state"><p class="mono">हिंदी ब्लॉग जल्द — तब तक <a href="/blog">अंग्रेज़ी में पढ़ें</a>।</p></div>
+    )}
+  </section>
+</BaseLayout>

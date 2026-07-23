@@ -14,7 +14,7 @@
 import { getCollection } from 'astro:content';
 import { toEnPath, localizePath, type Lang } from '../i18n';
 
-const CONTENT_SECTIONS = ['guides', 'compare', 'news', 'glossary'];
+const CONTENT_SECTIONS = ['guides', 'compare', 'news', 'glossary', 'blog'];
 
 export interface Counterpart {
   href: string;

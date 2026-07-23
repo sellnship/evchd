@@ -17,7 +17,13 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { draft, critique, factCheck } from "./lib/claude.mjs";
 import { isDuplicate } from "./lib/dedup.mjs";
-import { generateHero } from "./lib/image.mjs";
+import { generateHero, generateHeroBuffer } from "./lib/image.mjs";
+
+// OUTPUT_MODE=db → the BLOG pipeline: topic comes from the Neon `topics` table,
+// the article is INSERTED as a status='draft' row (human publishes it from the
+// admin), and the hero goes to Vercel Blob. Nothing touches git. All gates
+// (dedup / critique / fact-check) run identically in both modes.
+const DB_MODE = process.env.OUTPUT_MODE === "db";
 
 const QUEUE_PATH = path.join("scripts", "queue.json");
 const FACTS_PATH = path.join("src", "data", "local-facts.json");
@@ -121,39 +127,59 @@ async function main() {
     console.error("✗ FAL_KEY is not set (needed for the hero image).");
     process.exit(1);
   }
+  if (DB_MODE) {
+    // DB mode preconditions: Neon + Blob creds, and an EXPLICIT topic — no
+    // "first pending" scan, so the blog run can never race the weekly file-mode
+    // cron over topic selection.
+    for (const v of ["DATABASE_URL", "BLOB_READ_WRITE_TOKEN", "TOPIC_SLUG", "TOPIC_LANG"]) {
+      if (!process.env[v]) {
+        console.error(`✗ ${v} is not set (required in OUTPUT_MODE=db).`);
+        process.exit(1);
+      }
+    }
+  }
+  // Lazy-load the DB layer only in DB mode (file mode must run without Neon deps configured).
+  const db = DB_MODE ? await import("./lib/db.mjs") : null;
 
-  const queue = await readQueue();
+  const queue = DB_MODE ? null : await readQueue();
   const facts = await fs.readFile(FACTS_PATH, "utf8");
   const models = await fs.readFile(MODELS_PATH, "utf8");
 
-  // STAGE 1 — pull the next pending topic. TOPIC_LANG / TOPIC_SLUG (optional)
-  // target a specific language / slug; unset = first pending overall.
+  // Outcome recording: same call shape in both modes (queue.json vs topics row).
+  const record = (topic, status, extra = {}) =>
+    DB_MODE ? db.recordTopicOutcome(topic, status, extra) : recordOutcome(queue, topic, status, extra);
+
+  // STAGE 1 — pull the next pending topic. TOPIC_LANG / TOPIC_SLUG (optional
+  // in file mode; required in DB mode) target a specific language / slug.
   const wantLang = process.env.TOPIC_LANG;
   const wantSlug = process.env.TOPIC_SLUG;
-  const topic = queue.find(
-    (e) =>
-      isTopic(e) &&
-      e.status === "pending" &&
-      (!wantLang || (e.lang || "en") === wantLang) &&
-      (!wantSlug || e.slug === wantSlug),
-  );
+  const topic = DB_MODE
+    ? await db.fetchPendingTopic({ slug: wantSlug, lang: wantLang })
+    : queue.find(
+        (e) =>
+          isTopic(e) &&
+          e.status === "pending" &&
+          (!wantLang || (e.lang || "en") === wantLang) &&
+          (!wantSlug || e.slug === wantSlug),
+      );
   if (!topic) {
     const sel = [wantSlug && `slug="${wantSlug}"`, wantLang && `lang="${wantLang}"`].filter(Boolean).join(" ");
     log("queue", sel ? `no pending topic matching ${sel} — nothing to do.` : "no pending topics — nothing to do. Exiting cleanly.");
     return;
   }
-  if (!VALID_SECTIONS.has(topic.section)) {
+  if (!DB_MODE && !VALID_SECTIONS.has(topic.section)) {
     log("queue", `topic "${topic.slug}" has invalid section "${topic.section}" — halting.`);
     await recordOutcome(queue, topic, "halted-invalid-section");
     return;
   }
   log("queue", `picked "${topic.slug}" (${topic.section}/${topic.category}, lang=${topic.lang || "en"})`);
 
-  // STAGE 2 — dedup gate.
-  const dup = await isDuplicate(topic);
+  // STAGE 2 — dedup gate. In DB mode the corpus additionally includes every
+  // blog row in Neon (any status — drafts block near-duplicates too).
+  const dup = await isDuplicate(topic, DB_MODE ? { extraCorpus: await db.fetchBlogCorpus() } : {});
   if (dup.duplicate) {
     log("dedup", `DUPLICATE of "${dup.match}" (score ${dup.score}) — skipping, not drafting.`);
-    await recordOutcome(queue, topic, "skipped-dup", { dedupMatch: dup.match, dedupScore: dup.score });
+    await record(topic, "skipped-dup", { dedupMatch: dup.match, dedupScore: dup.score });
     return;
   }
   log("dedup", `clear (closest existing: "${dup.match}" @ ${dup.score}).`);
@@ -167,7 +193,7 @@ async function main() {
   const verdict = await critique(body);
   if (verdict.isCommodity) {
     log("critique", `KILLED as commodity: ${verdict.reason} — not writing.`);
-    await recordOutcome(queue, topic, "killed-commodity", { killReason: verdict.reason });
+    await record(topic, "killed-commodity", { killReason: verdict.reason });
     return;
   }
   log("critique", `passed originality (${verdict.reason}).`);
@@ -185,7 +211,7 @@ async function main() {
   }
   if (critical.length) {
     log("factcheck", `HALTING "${topic.slug}" — ${critical.length} critical issue(s), not writing.`);
-    await recordOutcome(queue, topic, "halted-factcheck", { factCheckIssues: issues });
+    await record(topic, "halted-factcheck", { factCheckIssues: issues });
     return;
   }
 
@@ -195,12 +221,43 @@ async function main() {
   log("image", `generating hero via fal…`);
   // EN and HI can share a slug; namespace the HI hero file so they don't collide.
   const heroSlug = topic.lang === "hi" ? `${topic.slug}-hi` : topic.slug;
-  const heroImage = await generateHero({ prompt: topic.imagePrompt, slug: heroSlug });
+  let heroImage;
+  if (DB_MODE) {
+    // Blob upload: deterministic path so a re-run overwrites its own hero.
+    const { put } = await import("@vercel/blob");
+    const buf = await generateHeroBuffer({ prompt: topic.imagePrompt, slug: heroSlug });
+    const blob = await put(`blog/${heroSlug}-hero.webp`, buf, {
+      access: "public",
+      contentType: "image/webp",
+      addRandomSuffix: false,
+      allowOverwrite: true,
+    });
+    heroImage = blob.url;
+  } else {
+    heroImage = await generateHero({ prompt: topic.imagePrompt, slug: heroSlug });
+  }
   log("image", `hero → ${heroImage}`);
+
+  const description = deriveDescription(body);
+  if (DB_MODE) {
+    // STAGE 7 (db) — insert the draft article row for human review in the admin.
+    const cleanBody = body
+      .replace(/\n*\[\[CTA\]\]\s*$/i, "")
+      .replace(/^#\s.*$/m, "")
+      .trim();
+    const tags = [topic.category, "low-speed", "Tricity"].filter(Boolean);
+    await db.insertDraftArticle({ topic, body: cleanBody, heroImage, description, tags });
+    log("write", `inserted draft row articles(${topic.slug}, ${topic.lang || "en"}).`);
+
+    // STAGE 8 (db) — mark the topic drafted (publishing is the admin's job).
+    await record(topic, "drafted", { factCheckIssues: issues });
+    await db.logActivity("article.drafted", { slug: topic.slug, lang: topic.lang || "en" });
+    log("done", `drafted "${topic.slug}" — awaiting review in the admin.`);
+    return;
+  }
 
   // STAGE 7 — wrap: write markdown with frontmatter into the right section
   // (Hindi articles go under <section>/hi/ so they route under /hi/).
-  const description = deriveDescription(body);
   const article = buildArticle(topic, body, heroImage, description);
   const outDir =
     topic.lang === "hi"

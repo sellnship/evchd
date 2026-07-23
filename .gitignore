@@ -18,6 +18,9 @@ pnpm-debug.log*
 .env.production
 .env.local
 
+# personal credential notes — never commit
+docs/pwds.txt
+
 # vercel
 .vercel/
 
