@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content Pipelines — evchandigarh.in</title>
+<style>
+  :root{
+    --bg:#0b0e14; --card:#121722; --card2:#0e131d; --border:#232a37;
+    --text:#d5dbe5; --muted:#8b93a3; --accent:#e63946; --green:#57d06c;
+    --amber:#ffc83c; --blue:#8ab4ff;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f6f7f9; --card:#ffffff; --card2:#f0f2f5; --border:#dfe3e8;
+           --text:#1c222b; --muted:#5b6472; --blue:#2563eb; --green:#188038; --amber:#b7791f; }
+  }
+  *{box-sizing:border-box; margin:0}
+  body{background:var(--bg); color:var(--text);
+       font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+       max-width:1000px; margin:0 auto; padding:2.5rem 1.25rem 5rem}
+  h1{font-size:1.8rem; line-height:1.2}
+  h2{font-size:1.25rem; margin:0 0 .35rem}
+  h3{font-size:1rem}
+  .sub{color:var(--muted); margin:.5rem 0 2rem}
+  .pill{display:inline-block; padding:.15rem .6rem; border-radius:99px;
+        font-size:.75rem; font-weight:700; letter-spacing:.02em}
+  .pill.red{background:rgba(230,57,70,.15); color:var(--accent)}
+  .pill.green{background:rgba(87,208,108,.15); color:var(--green)}
+  .pill.amber{background:rgba(255,200,60,.15); color:var(--amber)}
+  .pill.blue{background:rgba(138,180,255,.15); color:var(--blue)}
+  section{background:var(--card); border:1px solid var(--border);
+          border-radius:14px; padding:1.5rem; margin-bottom:1.5rem}
+  .meta{color:var(--muted); font-size:.9rem; margin-bottom:1rem}
+  .meta b{color:var(--text)}
+  /* flow steps */
+  .flow{display:flex; flex-direction:column; gap:.4rem; margin-top:1rem}
+  .step{display:flex; gap:.9rem; align-items:flex-start;
+        background:var(--card2); border:1px solid var(--border);
+        border-radius:10px; padding:.7rem .9rem}
+  .step .n{flex-shrink:0; width:1.8rem; height:1.8rem; border-radius:50%;
+           display:flex; align-items:center; justify-content:center;
+           font-weight:800; font-size:.85rem; background:rgba(138,180,255,.15); color:var(--blue)}
+  .step.gate .n{background:rgba(87,208,108,.15); color:var(--green)}
+  .step.human .n{background:rgba(230,57,70,.15); color:var(--accent)}
+  .step.warn .n{background:rgba(255,200,60,.15); color:var(--amber)}
+  .step b{display:block; font-size:.95rem}
+  .step span{color:var(--muted); font-size:.87rem}
+  .arrow{text-align:center; color:var(--muted); font-size:.9rem; line-height:1}
+  /* table */
+  .twrap{overflow-x:auto; margin-top:1rem}
+  table{border-collapse:collapse; width:100%; font-size:.88rem; min-width:640px}
+  th,td{padding:.5rem .7rem; border-bottom:1px solid var(--border); text-align:left; vertical-align:top}
+  th{color:var(--muted); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em}
+  td:first-child{font-weight:600}
+  .yes{color:var(--green); font-weight:700}
+  .no{color:var(--accent); font-weight:700}
+  .part{color:var(--amber); font-weight:700}
+  /* verdict cards */
+  .rank{display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem}
+  .rcard{flex:1 1 280px; background:var(--card2); border:1px solid var(--border);
+         border-radius:12px; padding:1rem 1.1rem}
+  .rcard.win{border-color:var(--green)}
+  .rcard .medal{font-size:1.4rem}
+  .rcard h3{margin:.3rem 0 .4rem}
+  .rcard p{color:var(--muted); font-size:.88rem}
+  .rule{margin-top:1.25rem; background:rgba(138,180,255,.08);
+        border-left:4px solid var(--blue); border-radius:0 10px 10px 0;
+        padding:.9rem 1.1rem; font-size:.95rem}
+  code{background:var(--card2); border:1px solid var(--border); border-radius:6px;
+       padding:.08rem .4rem; font-family:ui-monospace,Consolas,monospace; font-size:.84em}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:1.5rem}
+  @media (max-width:820px){ .grid2{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<h1>⚡ Content Pipelines</h1>
+<p class="sub">How articles are generated &amp; published on <b>evchandigarh.in</b> — the original
+<b>Engine pipeline</b> (GitHub Actions + cron) vs the new <b>Admin pipeline</b> (admin panel + Neon DB),
+and which to prefer when <b>verification before posting</b> matters.</p>
+
+<div class="grid2">
+<section>
+  <h2>🤖 Pipeline 1 — Engine <span class="pill blue">GitHub Actions + cron</span></h2>
+  <div class="meta">Content lives in <b>git</b> (markdown) · publishes via <b>Pull Request → merge → Vercel</b> · cadence: <b>Mondays 04:00 UTC</b> or manual run</div>
+  <div class="flow">
+    <div class="step"><div class="n">1</div><div><b>Topic queued</b><span>Human adds slug, EN+HI titles, category, angle, image scene to <code>scripts/queue.json</code></span></div></div>
+    <div class="arrow">▼ cron fires (publish.yml) — runs generate.mjs for EN, then HI</div>
+    <div class="step gate"><div class="n">✓</div><div><b>Gate 1 · Dedup</b><span>Jaccard similarity vs every existing article — near-duplicates blocked (threshold 0.5)</span></div></div>
+    <div class="step"><div class="n">2</div><div><b>Draft</b><span>Claude Sonnet writes the article natively (Hindi drafted in Hindi), grounded in <code>local-facts.json</code> + <code>models.json</code>, brand-neutral rules</span></div></div>
+    <div class="step gate"><div class="n">✓</div><div><b>Gate 2 · Originality kill-switch</b><span>Claude Haiku critique — generic/commodity drafts are killed, not published</span></div></div>
+    <div class="step gate"><div class="n">✓</div><div><b>Gate 3 · Fact-check</b><span>Every claim checked against the curated data layer — a critical contradiction <b>halts</b> the topic</span></div></div>
+    <div class="step"><div class="n">3</div><div><b>Hero image</b><span>fal.ai Imagen 4 with hard vehicle rules (seated step-through e-moped, never a kick scooter), 1200×675 WebP + logo</span></div></div>
+    <div class="step"><div class="n">4</div><div><b>Write + audit</b><span>Markdown → <code>src/content/…</code>, outcome recorded in queue.json</span></div></div>
+    <div class="arrow">▼ opens a Pull Request</div>
+    <div class="step human"><div class="n">👤</div><div><b>Human review — mandatory</b><span>Read the PR diff, tick the hero checklist, then <b>merge</b></span></div></div>
+    <div class="arrow">▼ merge → main → Vercel auto-deploys → <b>LIVE</b></div>
+  </div>
+</section>
+
+<section>
+  <h2>🖥 Pipeline 2 — Admin <span class="pill red">Admin panel + Neon DB</span></h2>
+  <div class="meta">Content lives in <b>Neon Postgres</b> · publishes via <b>Publish button → deploy hook → Vercel</b> · cadence: <b>on demand, minutes</b></div>
+  <div class="flow">
+    <div class="step"><div class="n">1</div><div><b>💡 Suggest Topics</b><span>Google Trends (India) + your chosen LLM (OpenAI / Anthropic / Groq / Gemini / xAI) propose 5 deduped topics → “Use This” autofills → Queue (EN+HI pair)</span></div></div>
+    <div class="arrow">▼ two ways to write the article</div>
+    <div class="step warn"><div class="n">⚡</div><div><b>Draft with AI — quick path</b><span>Selected LLM writes the article in ~30s → saved as draft. <b>No automated gates</b> — prompt rules only</span></div></div>
+    <div class="step gate"><div class="n">▶</div><div><b>Engine — hybrid path</b><span>Dispatches <code>publish-blog.yml</code>: the FULL gate pipeline (dedup · originality · fact-check · hero) runs in Actions with <code>OUTPUT_MODE=db</code> → lands as draft in Neon. No PR, no git</span></div></div>
+    <div class="step"><div class="n">2</div><div><b>🎨 Images</b><span>Hero prompt pre-filled from the article (editable); GPT Image 1 (default best) / Nano Banana / Imagen 4 / DALL·E 3; body images inserted at cursor; branded 1200×675 WebP on Blob</span></div></div>
+    <div class="step human"><div class="n">👤</div><div><b>Human review — mandatory</b><span>Edit text + images in the admin editor</span></div></div>
+    <div class="arrow">▼ 🚀 Save &amp; Publish → status=published → deploy hook</div>
+    <div class="step"><div class="n">✓</div><div><b>Site rebuilds from the DB</b><span>~1–2 min · <code>/blog</code> + <code>/hi/blog</code> read published rows at build time</span></div></div>
+  </div>
+</section>
+</div>
+
+<section>
+  <h2>⚖ Side-by-side</h2>
+  <div class="twrap">
+  <table>
+    <tr><th></th><th>Engine (cron + PR)</th><th>Admin ⚡ Draft</th><th>Admin ▶ Engine (hybrid)</th></tr>
+    <tr><td>Dedup gate</td><td class="yes">✓ automated</td><td class="part">◐ suggestion-time only</td><td class="yes">✓ automated</td></tr>
+    <tr><td>Brand-neutrality</td><td class="yes">✓ prompt + critique</td><td class="part">◐ prompt only</td><td class="yes">✓ prompt + critique</td></tr>
+    <tr><td>Originality kill-switch</td><td class="yes">✓</td><td class="no">✗ none</td><td class="yes">✓</td></tr>
+    <tr><td><b>Fact-check vs data layer</b></td><td class="yes">✓ halts on contradiction</td><td class="no">✗ none</td><td class="yes">✓ halts on contradiction</td></tr>
+    <tr><td>Human review</td><td>PR diff (merge)</td><td>Admin editor (publish)</td><td>Admin editor (publish)</td></tr>
+    <tr><td>Speed: topic → live</td><td>weekly cadence</td><td><b>minutes</b></td><td>~10 min</td></tr>
+    <tr><td>LLM choice</td><td>fixed (Claude)</td><td>any configured provider</td><td>fixed (Claude)</td></tr>
+    <tr><td>Image models</td><td>fal.ai Imagen 4</td><td>OpenAI / Gemini, selectable</td><td>fal.ai Imagen 4</td></tr>
+    <tr><td>Content store</td><td>git (markdown)</td><td>Neon DB</td><td>Neon DB</td></tr>
+    <tr><td>Audit trail</td><td>queue.json + git history</td><td>topics + activity_log</td><td>topics + activity_log</td></tr>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>🏁 Verdict — ranked by verification before posting</h2>
+  <div class="rank">
+    <div class="rcard win">
+      <div class="medal">🥇</div>
+      <h3>Admin ▶ Engine (hybrid)</h3>
+      <span class="pill green">Recommended default</span>
+      <p>All four automated gates — including the fact-check against the curated
+      data layer — <b>plus</b> human review in the admin editor. Same rigor as the
+      original pipeline, far nicer review surface. Use for anything factual:
+      rules, tariffs, costs, buying guides.</p>
+    </div>
+    <div class="rcard">
+      <div class="medal">🥈</div>
+      <h3>Engine (cron + PR)</h3>
+      <span class="pill blue">Equal rigor, slower surface</span>
+      <p>Identical gates; the human gate is a PR merge. Right for the markdown
+      sections and hands-off weekly cadence. Ranks second only because reviewing
+      a markdown diff is clumsier than the rendered admin editor.</p>
+    </div>
+    <div class="rcard">
+      <div class="medal">🥉</div>
+      <h3>Admin ⚡ Draft with AI</h3>
+      <span class="pill amber">Fastest — human-only verification</span>
+      <p><b>Zero automated verification.</b> Fine for opinion pieces, seasonal
+      notes, event round-ups. Not for regulatory/pricing content unless you
+      verify every figure yourself before publishing.</p>
+    </div>
+  </div>
+  <div class="rule">
+    <b>Rule of thumb:</b> if the article contains a <b>number or a rule</b>, run it
+    through a gate (▶ Engine). If it's a <b>story or an opinion</b>, ⚡ Draft is fine —
+    either way, nothing publishes without a human clicking Publish / Merge.
+  </div>
+</section>
+
+<section>
+  <h2>🗂 File map</h2>
+  <div class="twrap">
+  <table>
+    <tr><th>Piece</th><th>Path</th></tr>
+    <tr><td>Engine orchestrator (both modes)</td><td><code>scripts/generate.mjs</code></td></tr>
+    <tr><td>Gates: dedup / LLM / images</td><td><code>scripts/lib/{dedup,claude,image}.mjs</code></td></tr>
+    <tr><td>Engine DB mode (Neon)</td><td><code>scripts/lib/db.mjs</code></td></tr>
+    <tr><td>Weekly cron workflow (PR path)</td><td><code>.github/workflows/publish.yml</code></td></tr>
+    <tr><td>Hybrid workflow (DB path)</td><td><code>.github/workflows/publish-blog.yml</code></td></tr>
+    <tr><td>Fact data layer</td><td><code>src/data/local-facts.json</code>, <code>models.json</code></td></tr>
+    <tr><td>DB schema</td><td><code>scripts/db/schema.sql</code></td></tr>
+    <tr><td>Admin app</td><td><code>admin/</code> (own Vercel project, Root Directory = <code>admin</code>)</td></tr>
+    <tr><td>Admin AI routes</td><td><code>admin/src/pages/api/topics/{suggest,draft}.ts</code> · <code>api/blog/{genhero,genimage}.ts</code></td></tr>
+    <tr><td>Multi-LLM client</td><td><code>admin/src/lib/llm.ts</code></td></tr>
+    <tr><td>Site's DB-backed blog loader</td><td><code>src/lib/blog-loader.mjs</code></td></tr>
+  </table>
+  </div>
+</section>
+
+</body>
+</html>
