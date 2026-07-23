@@ -2,5 +2,9 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "astro",
   "buildCommand": "astro build",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/admin", "destination": "https://evchd-admin.vercel.app/admin" },
+    { "source": "/admin/:path*", "destination": "https://evchd-admin.vercel.app/admin/:path*" }
+  ]
 }
