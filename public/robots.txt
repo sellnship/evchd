@@ -1,5 +1,5 @@
-# evchandigarh.in — allow all crawlers
+# www.evchandigarh.in — allow all crawlers
 User-agent: *
 Allow: /
 
-Sitemap: https://evchandigarh.in/sitemap-index.xml
+Sitemap: https://www.evchandigarh.in/sitemap-index.xml

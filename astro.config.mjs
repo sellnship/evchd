@@ -6,6 +6,6 @@ import sitemap from '@astrojs/sitemap';
 // Static output (default) — Vercel auto-detects the Astro framework preset
 // (build: `astro build`, output: `dist/`). No adapter needed for a static build.
 export default defineConfig({
-  site: 'https://evchandigarh.in',
+  site: 'https://www.evchandigarh.in',
   integrations: [sitemap()],
 });
