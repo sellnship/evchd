@@ -25,6 +25,8 @@ import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   output: 'static',
+  build: { assets: '_admin-astro' },
+  security: { checkOrigin: false },
   // maxDuration: AI routes (image generation, topic suggestions via LLM) can
   // take 20-60s — well past the default function timeout.
   adapter: vercel({ maxDuration: 60 }),
