@@ -5,6 +5,7 @@
   "outputDirectory": "dist",
   "rewrites": [
     { "source": "/admin", "destination": "https://evchd-admin.vercel.app/admin" },
-    { "source": "/admin/:path*", "destination": "https://evchd-admin.vercel.app/admin/:path*" }
+    { "source": "/admin/:path*", "destination": "https://evchd-admin.vercel.app/admin/:path*" },
+    { "source": "/_admin-astro/:path*", "destination": "https://evchd-admin.vercel.app/_admin-astro/:path*" }
   ]
 }
