@@ -93,3 +93,21 @@ ON CONFLICT (name) DO NOTHING;
 
 CREATE INDEX IF NOT EXISTS articles_status_idx ON articles (status, date_published DESC);
 CREATE INDEX IF NOT EXISTS activity_log_at_idx ON activity_log (at DESC);
+
+-- Pipeline audit trail — populated by the in-admin AI pipeline (evchd-admin repo's
+-- lib/blogPipeline.ts), which replaced the GitHub Actions engine. Nullable/additive:
+-- a plain manual edit or an old pre-pipeline article simply leaves these null.
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS research_json jsonb;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS duplicate_check_json jsonb;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS fact_check_json jsonb;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS seo_report_json jsonb;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS ai_search_report_json jsonb;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS editorial_review_json jsonb;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS ai_pattern_check_json jsonb;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS similarity_json jsonb;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS internal_links_json jsonb;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS estimated_cost_usd numeric;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS image_prompt text;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS image_alt text;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS image_caption text;
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS image_status text;
