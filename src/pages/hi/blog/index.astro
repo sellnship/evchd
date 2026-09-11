@@ -23,7 +23,7 @@ const entries = (await getCollection('blog', ({ data }) => !data.draft && data.l
     {entries.length > 0 ? (
       <div class="feat-grid">
         {entries.map((e) => (
-          <FeaturedCard href={`/hi/blog/${e.id.replace(/^hi\//, '')}`} img={e.data.heroImage} alt={e.data.title} cat={e.data.category} title={e.data.title} desc={e.data.description} />
+          <FeaturedCard href={`/hi/blog/${e.id.replace(/^hi\//, '')}`} img={e.data.heroImage} alt={e.data.imageAlt || e.data.title} cat={e.data.category} title={e.data.title} desc={e.data.description} />
         ))}
       </div>
     ) : (

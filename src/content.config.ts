@@ -9,6 +9,7 @@ const base = z.object({
   category: z.string(),
   lang: z.enum(['en', 'hi']).default('en'), // 'hi' files live under <collection>/hi/ and route under /hi/
   heroImage: z.string(), // public path, e.g. /images/<slug>-hero.webp
+  imageAlt: z.string().optional(), // editable alt text; falls back to the title when unset
   author: z.string().default('rajinder-singh'), // default byline → src/data/authors.json
   reviewedBy: z.string().default('rajinder-singh'), // default reviewer → src/data/authors.json
   datePublished: z.coerce.date(),

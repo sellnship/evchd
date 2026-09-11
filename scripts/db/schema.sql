@@ -91,6 +91,36 @@ INSERT INTO categories (name, description, sort) VALUES
   ('Comparisons',       'Model-class and technology comparisons (brand-neutral)',              100)
 ON CONFLICT (name) DO NOTHING;
 
+-- Blog authors (byline + reviewer), manageable from the admin at /admin/authors.
+-- articles.author / articles.reviewed_by store this id (plain text, not a FK --
+-- same "store the name/slug, not a constrained reference" convention as
+-- articles.category above, so deleting an author never blocks deleting an
+-- article or vice versa).
+CREATE TABLE IF NOT EXISTS authors (
+  id         text PRIMARY KEY,
+  name       text NOT NULL,
+  role       text NOT NULL DEFAULT '',
+  bio        text NOT NULL DEFAULT '',
+  photo      text NOT NULL DEFAULT '',
+  sort       int  NOT NULL DEFAULT 100,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+
+-- Same two real bylines already used for E-E-A-T on the guides/compare pages
+-- (src/data/authors.json), plus a generic byline for posts nobody wants to
+-- personally sign.
+INSERT INTO authors (id, name, role, bio, photo, sort) VALUES
+  ('rajinder-singh', 'Rajinder Singh', 'Chief Advisor, EV Chandigarh',
+   'Rajinder Singh has spent over 25 years in the two-wheeler and electric-mobility industry. As Chief Advisor at EV Chandigarh, he helps Tricity riders choose the right low-speed EV for their commute, their budget and the rules that actually apply in Chandigarh, Mohali and Panchkula.',
+   '/images/authors/rajinder-singh.jpg', 10),
+  ('akhil-verma', 'Er. Akhil Verma', 'Founder & Director, SellnShip Solutions Pvt. Ltd.',
+   'Er. Akhil Verma is the Founder and Director of SellnShip Solutions Private Limited, the company behind EV Chandigarh, leading its electric-mobility initiatives across the Tricity.',
+   '/images/authors/akhil-verma.jpg', 20),
+  ('editorial-team', 'EV Chandigarh Editorial Team', 'Editorial Team, EV Chandigarh',
+   'The EV Chandigarh editorial team researches and fact-checks every guide against local RTO rules, tariff filings and on-ground pricing in Chandigarh, Mohali and Panchkula.',
+   '', 30)
+ON CONFLICT (id) DO NOTHING;
+
 CREATE INDEX IF NOT EXISTS articles_status_idx ON articles (status, date_published DESC);
 CREATE INDEX IF NOT EXISTS activity_log_at_idx ON activity_log (at DESC);
 

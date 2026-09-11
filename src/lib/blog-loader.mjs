@@ -29,7 +29,7 @@ export function blogLoader() {
 
       const sql = neon(url);
       const rows = await sql`
-        SELECT slug, lang, title, description, category, hero_image, author,
+        SELECT slug, lang, title, description, category, hero_image, image_alt, author,
                reviewed_by, date_published, date_modified, tags, body_md
         FROM articles
         WHERE status = 'published'
@@ -46,6 +46,7 @@ export function blogLoader() {
             category: r.category,
             lang: r.lang,
             heroImage: r.hero_image,
+            imageAlt: r.image_alt || undefined,
             author: r.author,
             reviewedBy: r.reviewed_by,
             datePublished: r.date_published,
