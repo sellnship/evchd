@@ -15,6 +15,9 @@ import { authors } from '../data/types';
 
 interface Props {
   title: string;
+  /** Search-optimized <title> tag text; defaults to `title` when unset. og:title,
+   * twitter:title, JSON-LD headline and the breadcrumb name always use `title`. */
+  seoTitle?: string;
   description: string;
   heroImage?: string;
   author?: string;
@@ -25,6 +28,7 @@ interface Props {
 
 const {
   title,
+  seoTitle,
   description,
   heroImage,
   author,
@@ -133,7 +137,7 @@ const breadcrumb = segs.length
     <meta charset="utf-8" />
     <!-- Discover-critical: zoomable viewport (never user-scalable=0) -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
+    <title>{seoTitle || title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 

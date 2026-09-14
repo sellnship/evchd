@@ -141,3 +141,8 @@ ALTER TABLE articles ADD COLUMN IF NOT EXISTS image_prompt text;
 ALTER TABLE articles ADD COLUMN IF NOT EXISTS image_alt text;
 ALTER TABLE articles ADD COLUMN IF NOT EXISTS image_caption text;
 ALTER TABLE articles ADD COLUMN IF NOT EXISTS image_status text;
+
+-- Search-optimized <title> tag, distinct from the on-page H1 (articles.title).
+-- The AI pipeline suggests one during SEO Optimize; nullable, falls back to
+-- title everywhere it's read.
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS seo_title text;

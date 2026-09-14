@@ -5,6 +5,7 @@ import { blogLoader } from './lib/blog-loader.mjs';
 // Shared frontmatter for every editorial collection.
 const base = z.object({
   title: z.string(),
+  seoTitle: z.string().optional(), // search-optimized <title>, falls back to title when unset
   description: z.string(),
   category: z.string(),
   lang: z.enum(['en', 'hi']).default('en'), // 'hi' files live under <collection>/hi/ and route under /hi/

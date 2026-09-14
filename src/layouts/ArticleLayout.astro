@@ -24,7 +24,7 @@ const t = useTranslations(getLangFromUrl(Astro.url));
 interface RelatedCard { href: string; img: string; alt: string; cat: string; title: string; desc: string; }
 interface Props {
   data: {
-    title: string; description: string; category: string; heroImage: string; imageAlt?: string;
+    title: string; seoTitle?: string; description: string; category: string; heroImage: string; imageAlt?: string;
     author: string; reviewedBy?: string; datePublished: Date; dateModified?: Date;
     tags?: string[]; models?: string[];
   };
@@ -39,6 +39,7 @@ const dateModified = data.dateModified ?? data.datePublished;
 ---
 <BaseLayout
   title={data.title}
+  seoTitle={data.seoTitle}
   description={data.description}
   heroImage={data.heroImage}
   author={authorName}
