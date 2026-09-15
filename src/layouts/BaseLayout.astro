@@ -137,6 +137,16 @@ const breadcrumb = segs.length
     <meta charset="utf-8" />
     <!-- Discover-critical: zoomable viewport (never user-scalable=0) -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google Analytics (GA4) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-7VY1D2BK58"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-7VY1D2BK58');
+    </script>
+
     <title>{seoTitle || title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
