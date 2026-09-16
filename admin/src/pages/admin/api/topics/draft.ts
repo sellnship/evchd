@@ -28,16 +28,43 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     const q = sql();
     const topics = (await q`
       SELECT slug, lang, title, category, angle, image_prompt
-      FROM topics WHERE slug = ${slug} AND lang = ${lang} AND status = 'pending'`) as any[];
-    if (!topics.length) throw new Error(`no pending ${lang.toUpperCase()} topic "${slug}"`);
+      FROM topics WHERE slug = ${slug} AND lang = ${lang} AND status IN ('pending', 'drafted')`) as any[];
+    if (!topics.length) throw new Error(`no topic "${slug}" with lang "${lang}" found to draft`);
     const t = topics[0];
 
-    const langRules =
-      lang === 'hi'
-        ? `Write NATIVELY in simple, conversational Hindi (Devanagari) — the everyday Hindi of Chandigarh/Mohali, keeping common English terms (scooter, battery, charging, RTO) in Latin script as people actually speak. Do NOT translate word-by-word from English.`
-        : `Write in plain, direct English — grade-8 reading level, no jargon.`;
+    // Check if English counterpart already exists when drafting Hindi
+    let enCounterpart: { title: string; description: string; body_md: string } | null = null;
+    if (lang === 'hi') {
+      const enRows = (await q`
+        SELECT title, description, body_md FROM articles WHERE slug = ${slug} AND lang = 'en'
+      `) as any[];
+      if (enRows.length) enCounterpart = enRows[0];
+    }
 
-    const prompt = `Write a blog article for evchandigarh.in — an independent local site about LOW-SPEED electric scooters (seated step-through e-mopeds, ≤25 km/h, licence-free class) for the Chandigarh Tricity (Chandigarh, Mohali, Panchkula), India.
+    let prompt = '';
+    if (lang === 'hi' && enCounterpart) {
+      prompt = `You are a professional automotive translator and localizer for EV Chandigarh (evchandigarh.in) for the Chandigarh Tricity (Chandigarh, Mohali, Panchkula).
+
+Translate and adapt the following verified English article into natural, conversational Hindi (बोलचाल की हिंदी) for readers in Chandigarh/Mohali:
+
+English Title: ${enCounterpart.title}
+English Meta Description: ${enCounterpart.description}
+
+English Article Content:
+${enCounterpart.body_md}
+
+Requirements:
+1. Translate faithfully into simple, conversational Hindi (Devanagari). Keep technical terms (scooter, battery, charging, RTO, kWh, CMVR) in Latin script as people actually say.
+2. DO NOT alter the core sections, facts, warnings, or recommendations. Keep the exact same section headings, bullet points, and safety advice (e.g. if the English mentions unusual burnt odors, do NOT replace it with strange noises; do NOT invent 1-2 year battery lifespan or tire advice).
+3. Do NOT add an H1 title (the platform renders the title separately). Start directly with the opening paragraph.
+4. Output format: Provide the Hindi article markdown only.`;
+    } else {
+      const langRules =
+        lang === 'hi'
+          ? `Write NATIVELY in simple, conversational Hindi (Devanagari) — the everyday Hindi of Chandigarh/Mohali, keeping common English terms (scooter, battery, charging, RTO) in Latin script as people actually speak. Do NOT invent false battery lifespans or unrelated maintenance tips.`
+          : `Write in plain, direct English — grade-8 reading level, no jargon.`;
+
+      prompt = `Write a blog article for evchandigarh.in — an independent local site about LOW-SPEED electric scooters (seated step-through e-mopeds, ≤25 km/h, licence-free class) for the Chandigarh Tricity (Chandigarh, Mohali, Panchkula), India.
 
 Title: ${t.title}
 Category: ${t.category}
@@ -53,6 +80,7 @@ Hard rules:
 - End with a short honest conclusion — no marketing fluff, no CTA (the site adds one).
 
 Reply with ONLY the article markdown.`;
+    }
 
     const body = (await complete(prompt, { maxTokens: 6000, provider }))
       .replace(/^```(?:markdown)?\s*/i, '')
@@ -61,7 +89,9 @@ Reply with ONLY the article markdown.`;
       .trim();
     if (body.length < 500) throw new Error('model returned a suspiciously short article — not saved');
 
-    const description = deriveDescription(body);
+    const description = (lang === 'hi' && enCounterpart?.description)
+      ? enCounterpart.description
+      : deriveDescription(body);
     const tags = [t.category, 'low-speed', 'Tricity'].filter(Boolean);
 
     const rows = (await q`

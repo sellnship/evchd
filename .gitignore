@@ -29,3 +29,4 @@ docs/pwds.txt
 .vscode/*
 !.vscode/extensions.json
 Thumbs.db
+.claude/

@@ -191,9 +191,21 @@ if (article.category && !categories.includes(article.category)) categories.unshi
           <div class="card p-3">
             <h2 class="h6 fw-bold">Translation pair</h2>
             {counterpart ? (
-              <a class="btn btn-outline-light-subtle btn-sm w-100" href={`/admin/blog/${counterpart.id}`}>
-                Edit {article.lang === 'hi' ? 'English' : 'Hindi'} version
-              </a>
+              <>
+                <a class="btn btn-outline-light-subtle btn-sm w-100 mb-2" href={`/admin/blog/${counterpart.id}`}>
+                  Edit {article.lang === 'hi' ? 'English' : 'Hindi'} version
+                </a>
+                {article.lang === 'hi' && (
+                  <div class="border-top border-secondary-subtle pt-2">
+                    <button class="btn btn-outline-warning btn-sm w-100" type="button" id="syncFromEnBtn">
+                      🔄 Regenerate from English
+                    </button>
+                    <div class="small text-secondary mt-1" id="syncFromEnStatus">
+                      Translates &amp; syncs title, description, and body from the English counterpart using AI.
+                    </div>
+                  </div>
+                )}
+              </>
             ) : (
               <a class="btn btn-outline-light-subtle btn-sm w-100"
                  href={`/admin/blog/new?slug=${article.slug}&lang=${article.lang === 'hi' ? 'en' : 'hi'}`}>
@@ -215,17 +227,18 @@ if (article.category && !categories.includes(article.category)) categories.unshi
     </form>
   )}
 
-  {!isNew && imagesReady && (
-    <script define:vars={{ articleId: article.id }}>
-      const btn = document.getElementById('bodyImgBtn');
-      const statusEl = document.getElementById('bodyImgStatus');
-      btn?.addEventListener('click', async () => {
+  {!isNew && (
+    <script define:vars={{ articleId: article.id, isHi: article.lang === 'hi', hasCounterpart: Boolean(counterpart) }}>
+      // 1. In-body image generation
+      const bodyBtn = document.getElementById('bodyImgBtn');
+      const bodyStatusEl = document.getElementById('bodyImgStatus');
+      bodyBtn?.addEventListener('click', async () => {
         const editor = document.getElementById('bodyEditor');
-        const prompt = document.getElementById('bodyImgPrompt').value.trim();
-        const model = document.getElementById('bodyImgModel').value;
-        if (!prompt) { statusEl.textContent = 'Describe the scene first.'; return; }
-        btn.disabled = true;
-        statusEl.textContent = 'Generating… (~20s)';
+        const prompt = document.getElementById('bodyImgPrompt')?.value?.trim();
+        const model = document.getElementById('bodyImgModel')?.value;
+        if (!prompt) { if (bodyStatusEl) bodyStatusEl.textContent = 'Describe the scene first.'; return; }
+        bodyBtn.disabled = true;
+        if (bodyStatusEl) bodyStatusEl.textContent = 'Generating… (~20s)';
         try {
           const res = await fetch('/admin/api/blog/genimage', {
             method: 'POST',
@@ -237,12 +250,49 @@ if (article.category && !categories.includes(article.category)) categories.unshi
           const md = `\n\n![${prompt.replace(/[\[\]]/g, '')}](${data.url})\n\n`;
           const pos = editor.selectionStart ?? editor.value.length;
           editor.value = editor.value.slice(0, pos) + md + editor.value.slice(pos);
-          statusEl.textContent = '✓ Inserted — remember to 💾 Save.';
-          document.getElementById('bodyImgPrompt').value = '';
+          if (bodyStatusEl) bodyStatusEl.textContent = '✓ Inserted — remember to 💾 Save.';
+          const inputEl = document.getElementById('bodyImgPrompt');
+          if (inputEl) inputEl.value = '';
         } catch (e) {
-          statusEl.textContent = '✗ ' + e.message;
+          if (bodyStatusEl) bodyStatusEl.textContent = '✗ ' + e.message;
         } finally {
-          btn.disabled = false;
+          bodyBtn.disabled = false;
+        }
+      });
+
+      // 2. Regenerate / Sync Hindi from English counterpart
+      const syncBtn = document.getElementById('syncFromEnBtn');
+      const syncStatus = document.getElementById('syncFromEnStatus');
+      syncBtn?.addEventListener('click', async () => {
+        if (!confirm('Regenerate this Hindi article from the English version? This will update the title, description, and body to match English.')) return;
+        syncBtn.disabled = true;
+        syncStatus.textContent = 'Translating from English with AI… (~20–30s)';
+        try {
+          const res = await fetch('/admin/api/blog/sync-from-en', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ id: articleId }),
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || 'Failed to regenerate from English');
+          
+          const titleInput = document.querySelector('input[name="title"]');
+          if (titleInput && data.title) titleInput.value = data.title;
+
+          const descInput = document.querySelector('textarea[name="description"]');
+          if (descInput && data.description) descInput.value = data.description;
+
+          const bodyInput = document.getElementById('bodyEditor');
+          if (bodyInput && data.body_md) bodyInput.value = data.body_md;
+
+          syncStatus.textContent = '✓ Successfully regenerated from English! Reloading…';
+          setTimeout(() => {
+            window.location.search = '?saved=1';
+          }, 800);
+        } catch (err) {
+          syncStatus.textContent = '✗ ' + err.message;
+        } finally {
+          syncBtn.disabled = false;
         }
       });
     </script>

@@ -137,7 +137,17 @@ const engineReady = Boolean(env('GITHUB_TOKEN')); // "▶ Engine" path needs the
                         </form>
                       )}
                       {t.status === 'drafted' && t.article_id && (
-                        <a class="btn btn-sm btn-success" href={`/admin/blog/${t.article_id}`}>Review draft</a>
+                        <>
+                          <a class="btn btn-sm btn-success me-1" href={`/admin/blog/${t.article_id}`}>Review draft</a>
+                          <form method="post" action="/admin/api/topics/draft" style="display:inline" class="draft-form">
+                            <input type="hidden" name="slug" value={t.slug} />
+                            <input type="hidden" name="lang" value={t.lang} />
+                            <input type="hidden" name="provider" value={activeProvider} />
+                            <button class="btn btn-sm btn-outline-warning" type="submit" disabled={!llmReady}
+                              title="Re-generate this draft with AI"
+                              onclick="return confirm('Regenerate draft with AI? This will overwrite the draft content.')">🔄</button>
+                          </form>
+                        </>
                       )}
                     </td>
                   </tr>
