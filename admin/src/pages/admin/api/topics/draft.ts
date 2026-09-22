@@ -41,6 +41,13 @@ export const POST: APIRoute = async ({ request, redirect }) => {
       if (enRows.length) enCounterpart = enRows[0];
     }
 
+    // Hindi is always a translation of the English article (same slug), never an
+    // independent draft — that's what caused HI pieces to diverge in structure/
+    // facts from their EN counterpart. Require EN first so this path can't be skipped.
+    if (lang === 'hi' && !enCounterpart) {
+      throw new Error('Draft the English article for this slug first — Hindi is generated as a translation of it, not independently.');
+    }
+
     let prompt = '';
     if (lang === 'hi' && enCounterpart) {
       prompt = `You are a professional automotive translator and localizer for EV Chandigarh (evchandigarh.in) for the Chandigarh Tricity (Chandigarh, Mohali, Panchkula).
@@ -59,18 +66,15 @@ Requirements:
 3. Do NOT add an H1 title (the platform renders the title separately). Start directly with the opening paragraph.
 4. Output format: Provide the Hindi article markdown only.`;
     } else {
-      const langRules =
-        lang === 'hi'
-          ? `Write NATIVELY in simple, conversational Hindi (Devanagari) — the everyday Hindi of Chandigarh/Mohali, keeping common English terms (scooter, battery, charging, RTO) in Latin script as people actually speak. Do NOT invent false battery lifespans or unrelated maintenance tips.`
-          : `Write in plain, direct English — grade-8 reading level, no jargon.`;
-
+      // Only reachable for lang === 'en' — the hi branch above always either
+      // translates from the EN counterpart or throws before reaching here.
       prompt = `Write a blog article for evchandigarh.in — an independent local site about LOW-SPEED electric scooters (seated step-through e-mopeds, ≤25 km/h, licence-free class) for the Chandigarh Tricity (Chandigarh, Mohali, Panchkula), India.
 
 Title: ${t.title}
 Category: ${t.category}
 Editorial angle: ${t.angle || '(author’s judgment)'}
 
-${langRules}
+Write in plain, direct English — grade-8 reading level, no jargon.
 
 Hard rules:
 - BRAND-NEUTRAL: never recommend or rank a specific brand/model. Compare by class and spec only. Prices as broad bands ("under ₹50,000"), never exact.
