@@ -640,24 +640,30 @@
     "factCheckIssues": []
   },
   {
-    "status": "pending",
+    "status": "published",
     "slug": "will-ev-raise-electricity-bill",
     "lang": "en",
     "section": "guides",
     "category": "Charging",
     "title": "Will an electric scooter raise your electricity bill? The Chandigarh slab math",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped) charging from a 3-pin domestic wall socket beside a home electricity meter, warm indoor light.",
-    "angle": "Honest monthly-bill impact on Chandigarh's tiered JERC tariff: ~2 units a charge added to your existing consumption, and whether daily charging risks nudging a light-use household toward a higher slab. The ownable tiered-slab angle, distinct from per-charge cost."
+    "angle": "Honest monthly-bill impact on Chandigarh's tiered JERC tariff: ~2 units a charge added to your existing consumption, and whether daily charging risks nudging a light-use household toward a higher slab. The ownable tiered-slab angle, distinct from per-charge cost.",
+    "processedAt": "2026-08-17T04:37:49.358Z",
+    "publishedPath": "src/content/guides/will-ev-raise-electricity-bill.md",
+    "factCheckIssues": []
   },
   {
-    "status": "pending",
+    "status": "published",
     "slug": "will-ev-raise-electricity-bill",
     "lang": "hi",
     "section": "guides",
     "category": "Charging",
     "title": "क्या electric scooter से बिजली का बिल बढ़ेगा? Chandigarh के slab का हिसाब",
     "imagePrompt": "A seated step-through electric scooter (Indian e-moped) charging from a 3-pin domestic wall socket beside a home electricity meter, warm indoor light.",
-    "angle": "Chandigarh के tiered JERC tariff पर महीने के बिल का असली असर: हर charge पर ~2 यूनिट आपकी मौजूदा खपत में जुड़ती हैं, और रोज़ charge करने से कम-use घर कहीं ऊपर वाले slab में तो नहीं चला जाएगा। per-charge cost से अलग, ownable slab angle।"
+    "angle": "Chandigarh के tiered JERC tariff पर महीने के बिल का असली असर: हर charge पर ~2 यूनिट आपकी मौजूदा खपत में जुड़ती हैं, और रोज़ charge करने से कम-use घर कहीं ऊपर वाले slab में तो नहीं चला जाएगा। per-charge cost से अलग, ownable slab angle।",
+    "processedAt": "2026-08-17T04:38:54.100Z",
+    "publishedPath": "src/content/guides/hi/will-ev-raise-electricity-bill.md",
+    "factCheckIssues": []
   },
   {
     "status": "pending",
