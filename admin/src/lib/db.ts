@@ -18,9 +18,12 @@ export interface Article {
   slug: string;
   lang: 'en' | 'hi';
   title: string;
+  seo_title: string;
   description: string;
   category: string;
   hero_image: string;
+  image_alt: string;
+  image_caption: string;
   author: string;
   reviewed_by: string;
   date_published: string | null;
