@@ -146,3 +146,8 @@ ALTER TABLE articles ADD COLUMN IF NOT EXISTS image_status text;
 -- The AI pipeline suggests one during SEO Optimize; nullable, falls back to
 -- title everywhere it's read.
 ALTER TABLE articles ADD COLUMN IF NOT EXISTS seo_title text;
+
+-- Shareable preview link: a random token an editor can hand to a non-admin
+-- reviewer. Nullable — generated lazily on first "Copy preview link" click,
+-- not at article creation. Unique so the token safely doubles as a lookup key.
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS preview_token text UNIQUE;
