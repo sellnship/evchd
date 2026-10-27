@@ -14,14 +14,9 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   const slug = String(form.get('slug') ?? '').trim().toLowerCase();
   const lang = String(form.get('lang') ?? 'en') === 'hi' ? 'hi' : 'en';
   const title = String(form.get('title') ?? '').trim();
-  const seo_title = String(form.get('seo_title') ?? '').trim();
   const description = String(form.get('description') ?? '').trim();
   const category = String(form.get('category') ?? '').trim();
   const body_md = String(form.get('body_md') ?? '');
-  const image_alt = String(form.get('image_alt') ?? '').trim();
-  const image_caption = String(form.get('image_caption') ?? '').trim();
-  const author = String(form.get('author') ?? '').trim();
-  const reviewed_by = String(form.get('reviewed_by') ?? '').trim();
   const tags = String(form.get('tags') ?? '')
     .split(',')
     .map((t) => t.trim())
@@ -59,25 +54,18 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     if (id) {
       await q`
         UPDATE articles SET
-          title = ${title}, seo_title = ${seo_title}, description = ${description}, category = ${category},
+          title = ${title}, description = ${description}, category = ${category},
           tags = ${tags}, body_md = ${body_md},
           hero_image = COALESCE(${heroUrl}, hero_image),
-          image_alt = ${image_alt}, image_caption = ${image_caption},
-          author = COALESCE(NULLIF(${author}, ''), author),
-          reviewed_by = COALESCE(NULLIF(${reviewed_by}, ''), reviewed_by),
           date_modified = now(), updated_at = now()
         WHERE id = ${Number(id)}`;
     } else {
       const rows = (await q`
-        INSERT INTO articles (slug, lang, title, seo_title, description, category, hero_image, image_alt, image_caption, author, reviewed_by, tags, body_md, status, source)
-        VALUES (${slug}, ${lang}, ${title}, ${seo_title}, ${description}, ${category}, ${heroUrl ?? ''}, ${image_alt}, ${image_caption},
-                COALESCE(NULLIF(${author}, ''), 'rajinder-singh'), COALESCE(NULLIF(${reviewed_by}, ''), 'rajinder-singh'),
-                ${tags}, ${body_md}, 'draft', 'manual')
+        INSERT INTO articles (slug, lang, title, description, category, hero_image, tags, body_md, status, source)
+        VALUES (${slug}, ${lang}, ${title}, ${description}, ${category}, ${heroUrl ?? ''}, ${tags}, ${body_md}, 'draft', 'manual')
         ON CONFLICT (slug, lang) DO UPDATE SET
-          title = EXCLUDED.title, seo_title = EXCLUDED.seo_title, description = EXCLUDED.description, category = EXCLUDED.category,
+          title = EXCLUDED.title, description = EXCLUDED.description, category = EXCLUDED.category,
           hero_image = COALESCE(NULLIF(EXCLUDED.hero_image, ''), articles.hero_image),
-          image_alt = EXCLUDED.image_alt, image_caption = EXCLUDED.image_caption,
-          author = EXCLUDED.author, reviewed_by = EXCLUDED.reviewed_by,
           tags = EXCLUDED.tags, body_md = EXCLUDED.body_md, updated_at = now()
         RETURNING id`) as { id: number }[];
       articleId = String(rows[0].id);

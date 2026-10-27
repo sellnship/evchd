@@ -4,7 +4,6 @@ import AdminLayout from '../../../layouts/AdminLayout.astro';
 import { sql, type Article } from '../../../lib/db';
 import { getAvailableImageModels, getDefaultImageModel } from '../../../lib/llm';
 import { getCategories } from '../../../lib/categories';
-import { getAuthors } from '../../../lib/authors';
 
 const { id } = Astro.params;
 const isNew = id === 'new';
@@ -13,14 +12,9 @@ let article: Partial<Article> = {
   slug: Astro.url.searchParams.get('slug') ?? '',
   lang: (Astro.url.searchParams.get('lang') as 'en' | 'hi') ?? 'en',
   title: '',
-  seo_title: '',
   description: '',
   category: '',
   hero_image: '',
-  image_alt: '',
-  image_caption: '',
-  author: '',
-  reviewed_by: '',
   tags: [],
   body_md: '',
   status: 'draft',
@@ -69,9 +63,6 @@ if (!isNew && article.slug) {
 // has one that's no longer in the categories table.
 const categories = await getCategories();
 if (article.category && !categories.includes(article.category)) categories.unshift(article.category);
-
-const authors = await getAuthors();
-const defaultAuthorId = authors[0]?.id ?? '';
 ---
 <AdminLayout title={isNew ? 'New Article' : `Edit: ${article.title}`} active="blog" sub={isNew ? 'Create a blog article' : `/${article.slug} (${article.lang})`}>
   {saved && <div class="alert alert-success py-2 small">Saved.</div>}
@@ -107,28 +98,8 @@ const defaultAuthorId = authors[0]?.id ?? '';
               {!isNew && <input type="hidden" name="lang" value={article.lang} />}
             </div>
             <div class="col-12">
-              <label class="form-label small">SEO title (&lt;title&gt; tag — leave blank to reuse Title above)</label>
-              <input class="form-control" name="seo_title" value={article.seo_title} maxlength="70" />
-            </div>
-            <div class="col-12">
               <label class="form-label small">Description (meta, ≤158 chars)</label>
               <textarea class="form-control" name="description" rows="2" maxlength="200">{article.description}</textarea>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label small">Author (byline)</label>
-              <select class="form-select" name="author">
-                {authors.map((a) => (
-                  <option value={a.id} selected={a.id === (article.author || defaultAuthorId)}>{a.name}</option>
-                ))}
-              </select>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label small">Reviewed by</label>
-              <select class="form-select" name="reviewed_by">
-                {authors.map((a) => (
-                  <option value={a.id} selected={a.id === (article.reviewed_by || defaultAuthorId)}>{a.name}</option>
-                ))}
-              </select>
             </div>
             <div class="col-12">
               <label class="form-label small">Tags (comma-separated)</label>
@@ -151,10 +122,9 @@ const defaultAuthorId = authors[0]?.id ?? '';
                     <option value={m.id} selected={m.id === defaultImageModel}>{m.label}</option>
                   ))}
                 </select>
-                <button class="btn btn-outline-light-subtle btn-sm flex-shrink-0" type="button" id="suggestBodyPromptBtn" title="Suggest a scene from this post">✨</button>
                 <button class="btn btn-outline-light-subtle btn-sm flex-shrink-0" type="button" id="bodyImgBtn">Generate &amp; Insert</button>
               </div>
-              <div class="small text-secondary mt-1" id="bodyImgStatus">Generates 16:9 (no watermark), uploads, and inserts the markdown where your cursor is. ✨ suggests a scene from the post.</div>
+              <div class="small text-secondary mt-1" id="bodyImgStatus">Generates 16:9 (no watermark), uploads, and inserts the markdown where your cursor is.</div>
             </div>
           )}
         </div>
@@ -190,11 +160,6 @@ const defaultAuthorId = authors[0]?.id ?? '';
           <input class="form-control form-control-sm" type="file" name="hero" accept="image/*" />
           <div class="small text-secondary mt-1 mb-2">Resized to 1200×675 WebP on Vercel Blob (saved with 💾 Save).</div>
 
-          <label class="form-label small mb-1">Alt text (accessibility &amp; SEO)</label>
-          <input class="form-control form-control-sm mb-2" name="image_alt" value={article.image_alt} />
-          <label class="form-label small mb-1">Caption (optional, shown under image)</label>
-          <input class="form-control form-control-sm mb-2" name="image_caption" value={article.image_caption} />
-
           <div class="border-top border-secondary-subtle pt-2">
             <label class="form-label small fw-bold mb-1">🎨 Generate with AI</label>
             {isNew ? (
@@ -206,14 +171,8 @@ const defaultAuthorId = authors[0]?.id ?? '';
               </div>
             ) : (
               <>
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                  <span></span>
-                  <button class="btn btn-link btn-sm p-0" type="button" id="suggestHeroPromptBtn">✨ Suggest from post</button>
-                </div>
                 <textarea class="form-control form-control-sm mb-2" name="image_prompt" form="genheroForm" rows="3" required
-                  id="heroScenePrompt"
                   placeholder="Describe the SCENE (vehicle & style rules are added automatically)">{defaultScene}</textarea>
-                <div class="small text-secondary mt-1 mb-2" id="suggestHeroPromptStatus"></div>
                 <label class="form-label small mb-1">Image model</label>
                 <select class="form-select form-select-sm mb-2" name="image_model" form="genheroForm">
                   {imageModels.map((m) => (
@@ -247,23 +206,10 @@ const defaultAuthorId = authors[0]?.id ?? '';
                   </div>
                 )}
               </>
-            ) : article.lang === 'en' ? (
-              <>
-                <button class="btn btn-accent btn-sm w-100 mb-2" type="button" id="translateToHiBtn">
-                  🤖 Translate to Hindi with AI
-                </button>
-                <div class="small text-secondary mb-2" id="translateToHiStatus">
-                  Creates the Hindi version as a draft from this English article — review &amp; edit before publishing.
-                </div>
-                <a class="btn btn-outline-light-subtle btn-sm w-100"
-                   href={`/admin/blog/new?slug=${article.slug}&lang=hi`}>
-                  ＋ Or write the Hindi version manually
-                </a>
-              </>
             ) : (
               <a class="btn btn-outline-light-subtle btn-sm w-100"
-                 href={`/admin/blog/new?slug=${article.slug}&lang=en`}>
-                ＋ Create English counterpart
+                 href={`/admin/blog/new?slug=${article.slug}&lang=${article.lang === 'hi' ? 'en' : 'hi'}`}>
+                ＋ Create {article.lang === 'hi' ? 'English' : 'Hindi'} counterpart
               </a>
             )}
             <div class="small text-secondary mt-2">EN &amp; HI share the slug — that's the language-toggle link on the site.</div>
@@ -347,80 +293,6 @@ const defaultAuthorId = authors[0]?.id ?? '';
           syncStatus.textContent = '✗ ' + err.message;
         } finally {
           syncBtn.disabled = false;
-        }
-      });
-
-      // 3. Suggest an image scene from the current post content
-      function currentPostFields() {
-        return {
-          title: document.querySelector('input[name="title"]')?.value ?? '',
-          description: document.querySelector('textarea[name="description"]')?.value ?? '',
-          category: document.querySelector('select[name="category"]')?.value ?? '',
-          body_md: document.getElementById('bodyEditor')?.value ?? '',
-        };
-      }
-      async function suggestScene(statusEl) {
-        if (statusEl) statusEl.textContent = 'Reading the post… (~10s)';
-        const res = await fetch('/admin/api/blog/suggest-image-prompt', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify(currentPostFields()),
-        });
-        const data = await res.json();
-        if (!res.ok || !data.ok) throw new Error(data.error || 'suggestion failed');
-        return data.scene;
-      }
-
-      const suggestHeroBtn = document.getElementById('suggestHeroPromptBtn');
-      const suggestHeroStatus = document.getElementById('suggestHeroPromptStatus');
-      suggestHeroBtn?.addEventListener('click', async () => {
-        suggestHeroBtn.disabled = true;
-        try {
-          const scene = await suggestScene(suggestHeroStatus);
-          document.getElementById('heroScenePrompt').value = scene;
-          if (suggestHeroStatus) suggestHeroStatus.textContent = '✓ Suggested — edit freely before generating.';
-        } catch (e) {
-          if (suggestHeroStatus) suggestHeroStatus.textContent = '✗ ' + e.message;
-        } finally {
-          suggestHeroBtn.disabled = false;
-        }
-      });
-
-      const suggestBodyBtn = document.getElementById('suggestBodyPromptBtn');
-      suggestBodyBtn?.addEventListener('click', async () => {
-        suggestBodyBtn.disabled = true;
-        if (bodyStatusEl) bodyStatusEl.textContent = 'Reading the post… (~10s)';
-        try {
-          const scene = await suggestScene(bodyStatusEl);
-          document.getElementById('bodyImgPrompt').value = scene;
-          if (bodyStatusEl) bodyStatusEl.textContent = '✓ Suggested — edit freely before generating.';
-        } catch (e) {
-          if (bodyStatusEl) bodyStatusEl.textContent = '✗ ' + e.message;
-        } finally {
-          suggestBodyBtn.disabled = false;
-        }
-      });
-
-      // 4. Translate this English article to Hindi (creates a new draft article)
-      const translateBtn = document.getElementById('translateToHiBtn');
-      const translateStatus = document.getElementById('translateToHiStatus');
-      translateBtn?.addEventListener('click', async () => {
-        if (!confirm('Create the Hindi version of this article via AI translation? You can edit it afterward.')) return;
-        translateBtn.disabled = true;
-        translateStatus.textContent = 'Translating to Hindi with AI… (~20–30s)';
-        try {
-          const res = await fetch('/admin/api/blog/translate-to-hi', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ id: articleId }),
-          });
-          const data = await res.json();
-          if (!res.ok || !data.ok) throw new Error(data.error || 'Translation failed');
-          translateStatus.textContent = '✓ Hindi draft created — opening it…';
-          window.location.href = `/admin/blog/${data.id}?saved=1`;
-        } catch (err) {
-          translateStatus.textContent = '✗ ' + err.message;
-          translateBtn.disabled = false;
         }
       });
     </script>
